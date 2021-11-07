@@ -1,0 +1,55 @@
+{
+    "Nombre de usuario": {
+        "en": "Username",
+        "gl": "Nome de usuario"
+    },
+    "Iniciar sesión": {
+        "en": "Log in",
+        "gl": "Iniciar sesión"
+    },
+    "Contraseña": {
+        "en": "Password",
+        "gl": "Contrasinal"
+    },
+    "Confirmar contraseña": {
+        "en": "Repeat password",
+        "gl": "Confirmar contrasinal"
+    },
+    "Introducir nombre de usuario": {
+        "en": "Enter username",
+        "gl": "Introducir nome de usuario"
+    },
+    "El atributo login no puede estar vacío.": {
+        "en": "The login attribute cannot be empty.",
+        "gl": "O atributo login non pode estar baleiro."
+    },
+    "El atributo login no puede tener espacios en blanco.": {
+        "en": "The login attribute cannot have blanks.",
+        "gl": "O atributo login non pode ter espazos en branco."
+    },
+    "El atributo login puede tener una longitud máxima de %c caracteres.": {
+        "en": "The login attribute can have a maximum length of %c characters.",
+        "gl": "O atributo login pode ter unha lonxitude máxima de %c caracteres."
+    },
+    "El atributo login contiene el carácter no válido: %c.": {
+        "en": "The login attribute contains the invalid character: %c.",
+        "gl": "O atributo login contén o caracter non válido: %c."
+    },
+    "El atributo contraseña no puede estar vacío.": {
+        "en": "The password attribute cannot be empty.",
+        "gl": "O atributo contrasinal non pode estar baleiro."
+    },
+    "El atributo contraseña no puede tener espacios en blanco.": {
+        "en": "The password attribute cannot have blanks.",
+        "gl": "O atributo contrasinal non pode ter espazos en branco."
+    },
+    "El atributo contraseña puede tener una longitud máxima de %c caracteres.": {
+        "en": "The password attribute can have a maximum length of %c characters.",
+        "gl": "O atributo contrasinal pode ter unha lonxitude máxima de %c caracteres."
+    },
+    "El atributo contraseña contiene el carácter no válido: %c.": {
+        "en": "The password attribute contains the invalid character: %c.",
+        "gl": "O atributo contrasinal contén o caracter non válido: %c."
+    }
+}
+

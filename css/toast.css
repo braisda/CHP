@@ -1,0 +1,12 @@
+.toast-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    min-width: 350px;
+    margin: .5rem;
+}
+
+.toast-header {
+    background-color: rgb(222, 226, 230);
+    color: black;
+}

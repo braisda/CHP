@@ -1,0 +1,90 @@
+body {
+    font-family: "Lato", sans-serif;
+}
+
+.main-head{
+    height: 150px;
+    background: #FFF;
+}
+
+.sidenav {
+    background-image: url('../assets/school.jpg');
+    height: 100%;
+    background-color: #000;
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (max-width: 768px){
+    .main {
+        margin-top: 5%;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .main {
+        margin-left: 44%;
+        align-items: center;
+        height: 100%;
+        display: flex;
+    }
+
+    .sidenav{
+        width: 40%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+    }
+
+    .login-form{
+        max-width: 35rem;
+        min-width: 25rem;
+    }
+
+}
+
+.login-main-text{
+    padding: 60px;
+    color: #000;
+}
+
+.login-main-text h2{
+    font-weight: 300;
+}
+
+.btn-black{
+    background-color: #000 !important;
+    color: #fff;
+    min-width: 7rem;
+    margin-top: 1rem;
+}
+
+.flags {
+    margin: 2rem 2.5rem auto auto;
+}
+
+.flag{
+    margin-left: .4rem;
+    border:1px solid #021a40;
+    border-radius: 5px;
+}
+
+p {
+    margin: 0;
+}
+
+.message-error {
+    margin-top: 1%;
+    padding: 0 .4rem;
+    background-color: #f7bdbd;
+    border-radius: .3rem;
+    border-color: #f58181;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.message-error p {
+    margin-bottom: 0;
+}
