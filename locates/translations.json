@@ -50,6 +50,122 @@
     "El atributo contraseña contiene el carácter no válido: %c.": {
         "en": "The password attribute contains the invalid character: %c.",
         "gl": "O atributo contrasinal contén o caracter non válido: %c."
+    },
+    "Cerrar sesión": {
+        "en": "Logout",
+        "gl": "Pechar sesión"
+    },
+    "Gestión de usuarios": {
+        "en": "Users management",
+        "gl": "Xestión de usuarios"
+    },
+    "Usuarios": {
+        "en": "Users",
+        "gl": "Usuarios"
+    },
+    "Permisos": {
+        "en": "Permissions",
+        "gl": "Permisos"
+    },
+    "Roles": {
+        "en": "Roles",
+        "gl": "Roles"
+    },
+    "Gestión de horarios": {
+        "en": "Schedule management",
+        "gl": "Xestión de horarios"
+    },
+    "Dom": {
+        "en": "Sun",
+        "gl": "Dom"
+    },
+    "Lun": {
+        "en": "Mon",
+        "gl": "Lun"
+    },
+    "Mar": {
+        "en": "Tue",
+        "gl": "Mar"
+    },
+    "Mie": {
+        "en": "Wed",
+        "gl": "Mer"
+    },
+    "Jue": {
+        "en": "Thu",
+        "gl": "Xov"
+    },
+    "Vie": {
+        "en": "Fri",
+        "gl": "Ven"
+    },
+    "Sab": {
+        "en": "Sat",
+        "gl": "Sab"
+    },
+    "Enero": {
+        "en": "January",
+        "gl": "Xaneiro"
+    },
+    "Febrero": {
+        "en": "February",
+        "gl": "Febreiro"
+    },
+    "Marzo": {
+        "en": "March",
+        "gl": "Marzo"
+    },
+    "Abril": {
+        "en": "April",
+        "gl": "Abril"
+    },
+    "Mayo": {
+        "en": "May",
+        "gl": "Mayo"
+    },
+    "Junio": {
+        "en": "June",
+        "gl": "Xuño"
+    },
+    "Julio": {
+        "en": "July",
+        "gl": "Xullo"
+    },
+    "Agosto": {
+        "en": "August",
+        "gl": "Agosto"
+    },
+    "Septiembre": {
+        "en": "September",
+        "gl": "Setembro"
+    },
+    "Octubre": {
+        "en": "October",
+        "gl": "Outubro"
+    },
+    "Noviembre": {
+        "en": "November",
+        "gl": "Novembro"
+    },
+    "Diciembre": {
+        "en": "December",
+        "gl": "Decembro"
+    },
+    "Más": {
+        "en": "More",
+        "gl": "Máis"
+    },
+    "Gal": {
+        "en": "Gal",
+        "gl": "Gal"
+    },
+    "Esp": {
+        "en": "Spa",
+        "gl": "Gal"
+    },
+    "Ing": {
+        "en": "Eng",
+        "gl": "Gal"
     }
 }
 
