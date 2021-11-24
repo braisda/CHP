@@ -10,7 +10,7 @@ class userDAO
     }
 
     function showAll() {
-        $usersDB = $this->defaultDAO->showAll("user");
+        $usersDB = $this->defaultDAO->showAll("usuario");
         return $this->getUsersFromDB($usersDB);
     }
 
@@ -25,7 +25,7 @@ class userDAO
     function show($key, $value) {
         $user_db = $this->defaultDAO->show("usuario", $key, $value);
         return new user($user_db["login"], $user_db["password"], $user_db["dni"], $user_db["nombre"],
-            $user_db["apellidos"], $user_db["email"], $user_db["direccion"], $user_db["telefono"]);
+            $user_db["apellido"], $user_db["email"], $user_db["direccion"], $user_db["telefono"]);
     }
 
     function edit($user) {
@@ -63,8 +63,8 @@ class userDAO
     private function getUsersFromDB($usersDB) {
         $users = array();
         foreach ($usersDB as $user) {
-            array_push($users, new user($user["login"], $user["password"], $user["dni"], $user["name"],
-                $user["surname"], $user["email"], $user["address"], $user["telephone"]));
+            array_push($users, new user($user["login"], $user["password"], $user["dni"], $user["nombre"],
+                $user["apellido"], $user["email"], $user["direccion"], $user["telefono"]));
         }
         return $users;
     }

@@ -4,6 +4,7 @@
      <link rel="stylesheet" href="../css/styles.css" />
      <link rel="stylesheet" href="../css/calendar.css" />
      <script src="../js/menuToggler.js"></script>
+     <?php include_once '../utils/CheckPermission.php'?>
 </head>
 <body>
     <!-- Barra de herramientas / Menú -->
@@ -61,12 +62,21 @@
                 <nav id="sidebar-menu" class="d-md-block bg-light sidebar sidebar-expanded">
                     <div id="sidebar-contents" class="sidebar-sticky">
                         <ul class="nav flex-column">
+                            <?php
+                        		if (checkPermission("User", "SHOWALL") ||
+                        			checkPermission("Permission", "SHOWALL" ||
+                        			checkPermission("FuncAction", "SHOWALL") ||
+                        			checkPermission("Action", "SHOWALL") ||
+                        			checkPermission("Functionality", "SHOWALL") ||
+                        			checkPermission("Role", "SHOWALL") ||
+                        			checkPermission("UserRole", "SHOWALL"))) {
+                        	?>
                             <li class="nav-item">
                                 <!-- Gestión de usuarios -->
                                 <a class="nav-link nav-collapse" data-toggle="collapse" aria-expanded="false"
                                    aria-controls="collapseUsers" href="#collapseUsers">
                                     <span class="fas fa-users"></span>
-                                    <p data-translate="Gestión de usuarios"></p>
+                                    <p data-translate="Gestión básica"></p>
                                 </a>
                                 <!-- Submenús -->
                                 <ul class="flex-column collapse items-collapsed" id="collapseUsers">
@@ -87,6 +97,7 @@
                                     </li>
                                 </ul>
                             </li>
+                            <?php } ?>
                             <!-- Gestión de horarios -->
                             <li class="nav-item">
                                 <a class="nav-link" href="#">

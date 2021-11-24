@@ -55,9 +55,9 @@
         "en": "Logout",
         "gl": "Pechar sesión"
     },
-    "Gestión de usuarios": {
-        "en": "Users management",
-        "gl": "Xestión de usuarios"
+    "Gestión básica": {
+        "en": "Basic management",
+        "gl": "Xestión básica"
     },
     "Usuarios": {
         "en": "Users",
@@ -166,6 +166,14 @@
     "Ing": {
         "en": "Eng",
         "gl": "Gal"
+    },
+    "Contraseña incorrecta.": {
+        "en": "Incorrect password.",
+        "gl": "Contrasinal incorrecto."
+    },
+    "El usuario no existe.": {
+        "en": "User not exists.",
+        "gl": "O usuario non existe."
     }
 }
 
