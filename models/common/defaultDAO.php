@@ -155,8 +155,8 @@ class defaultDAO
         }
     }
 
-    function countTotalEntries($entity, $stringToSearch) {
-        $sql = "SELECT COUNT(*) FROM " . $this->getTableName($entity);
+    function countTotalEntries($entity, $stringToSearch, $tableName) {
+        $sql = "SELECT COUNT(*) FROM " . $tableName;
         $sql .= $this->obtainWhereClauseToSearch($entity, $stringToSearch);
         if (!($result = $this->mysqli->query($sql))) {
             throw new DAOException('Error de conexión con la base de datos.');
@@ -192,9 +192,9 @@ class defaultDAO
         }
     }
 
-    function showAllPaged($currentPage, $itemsPerPage, $entity, $stringToSearch) {
+    function showAllPaged($currentPage, $itemsPerPage, $entity, $stringToSearch, $tableName) {
         $startBlock = ($currentPage - 1) * $itemsPerPage;
-        $sql = "SELECT * FROM " . $this->getTableName($entity);
+        $sql = "SELECT * FROM " . $tableName;
         $sql .= $this->obtainWhereClauseToSearch($entity, $stringToSearch);
         $sql .= " LIMIT " . $startBlock . "," . $itemsPerPage;
         return $this->getArrayFromSqlQuery($sql);

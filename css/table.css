@@ -1,0 +1,72 @@
+@media(min-width: 1540px) {
+    .actions-row {
+        width: 8%;
+    }
+}
+
+@media(max-width: 1200px) {
+    .actions-row {
+        width: 20%;
+    }
+} 
+
+@media(min-width: 1200px) and (max-width: 1540px) {
+    .actions-row {
+        width: 15%;
+    }
+}
+
+th label {
+    margin-bottom: 0;
+}
+
+.pagination {
+    justify-content: flex-end;
+    margin-left: 1rem;
+}
+
+.active {
+    background-color: grey;
+}
+
+form {
+    flex-wrap: nowrap !important;
+    margin-right: 2rem !important;
+}
+
+form button {
+    margin-left: .5rem;
+}
+
+.button-specific-search {
+    max-height: 2.5rem !important;
+}
+
+.btn-show-view {
+    margin-left: .4rem;
+}
+
+.items-page {
+    max-width: 4.4rem;
+}
+
+.label-pagination {
+    margin-left: auto;
+    margin-right: .5rem;
+    margin-top: .5rem;
+}
+
+.btn-subject {
+    margin-left: auto !important;
+    margin-right: 8px !important;
+}
+
+.btn-schedule {
+    text-align: center;
+    vertical-align: middle !important;
+}
+
+.btn-subject-actions {
+    height: 4rem;
+    align-items: center;
+}

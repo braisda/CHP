@@ -36,12 +36,13 @@ class ActionDAO
     }
 
     function showAllPaged($currentPage, $itemsPerPage, $stringToSearch) {
-        $actionsDB = $this->defaultDAO->showAllPaged($currentPage, $itemsPerPage, new Action(), $stringToSearch);
+        $actionsDB = $this->defaultDAO->showAllPaged($currentPage, $itemsPerPage, new Action(), $stringToSearch, "ACCION");
+        printf("asdasd");
         return $this->getActionsFromDB($actionsDB);
     }
 
     function countTotalActions($stringToSearch) {
-        return $this->defaultDAO->countTotalEntries(new Action(), $stringToSearch);
+        return $this->defaultDAO->countTotalEntries(new Action(), $stringToSearch, "ACCION");
     }
 
     function checkDependencies($value) {
