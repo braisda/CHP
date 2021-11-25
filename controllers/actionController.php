@@ -5,10 +5,14 @@ include_once '../views/Common/head.php';
 include_once '../views/Common/headerMenu.php';
 include_once '../views/action/actionShowAllView.php';
 include_once '../views/action/actionAddView.php';
+include_once '../views/action/actionShowView.php';
+include_once '../views/action/actionEditView.php';
+include_once '../utils/confirmDelete.php';
 
 //DAO
 $actionDAO = new ActionDAO();
-
+$actionPrimaryKey = "id";
+$value = $_REQUEST[$actionPrimaryKey];
 $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : "";
 switch ($action) {
     case "add":
@@ -32,9 +36,32 @@ switch ($action) {
         
         break;
     case "show":
+        try {
+            $actionData = $actionDAO->show($actionPrimaryKey, $value);
+            new ActionShowView($actionData);
+        } catch (DAOException $e) {
+            goToShowAllAndShowError($e->getMessage());
+        } catch (Exception $ve) {
+            goToShowAllAndShowError($ve->getMessage());
+        }
         break;
     case "edit":
-        
+        try {
+            $action = $actionDAO->show($actionPrimaryKey, $value);
+            if (!isset($_POST["submit"])) {
+                new ActionEditView($action);
+            } else {
+                $action->setId($value);
+                $action->setNombre($_POST["name"]);
+                $action->setDescripcion($_POST["description"]);
+                $actionDAO->edit($action);
+                goToShowAllAndShowSuccess("Acción editada correctamente.");
+            }
+        } catch (DAOException $e) {
+            goToShowAllAndShowError($e->getMessage());
+        } catch (Exception $ve) {
+            goToShowAllAndShowError($ve->getMessage());
+        }
         break;
     case "search":
          

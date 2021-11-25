@@ -214,6 +214,22 @@
     "Acciones": {
         "en": "Actions",
         "gl": "Accións"
+    },
+    "Añadir": {
+        "en": "Add",
+        "gl": "Engadir"
+    },
+    "Acción '%c'": {
+      "en": "Action '%c'",
+      "gl": "Acción '%c'"
+    },
+    "Editar acción '%c'": {
+      "en": "Edit action '%c'",
+      "gl": "Editar acción '%c'"
+    },
+    "Editar": {
+        "en": "Edit",
+        "gl": "Editar"
     }
 }
 
