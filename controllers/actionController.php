@@ -33,7 +33,23 @@ switch ($action) {
             }
         }
     case "delete":
-        
+        if (isset($_REQUEST["confirm"])) {
+            try {
+                $actionDAO->delete($actionPrimaryKey, $value);
+                goToShowAllAndShowSuccess("Acción eliminada correctamente.");
+            } catch (DAOException $e) {
+                goToShowAllAndShowError($e->getMessage());
+            }
+        } else {
+            try {
+                showAll();
+                confirmDelete("Eliminar acción", "¿Está seguro de que desea eliminar " .
+                    "la acción %" . $value . "%? Esta acción es permanente y no se puede recuperar.",
+                    "../controllers/actionController.php?action=delete&id=" . $value . "&confirm=true");
+            } catch (DAOException $e) {
+                goToShowAllAndShowError($e->getMessage());
+            }
+        }
         break;
     case "show":
         try {

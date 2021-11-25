@@ -230,6 +230,22 @@
     "Editar": {
         "en": "Edit",
         "gl": "Editar"
+    },
+    "Cerrar": {
+        "en": "Close",
+        "gl": "Pechar"
+    },
+    "Eliminar": {
+        "en": "Delete",
+        "gl": "Eliminar"
+    },
+    "Eliminar acción": {
+        "en": "Delete action",
+        "gl": "Eliminar acción"
+    },
+    "¿Está seguro de que desea eliminar la acción %c? Esta acción es permanente y no se puede recuperar.": {
+      "en": "Are you sure you want to delete the action %c? This action is permanent and cannot be recovered.",
+      "gl": "Está seguro de que desexa eliminar a acción %c? Esta acción é permanente e non se pode recuperar."
     }
 }
 
