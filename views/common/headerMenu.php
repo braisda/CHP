@@ -63,7 +63,13 @@
                     <div id="sidebar-contents" class="sidebar-sticky">
                         <ul class="nav flex-column">
                             <?php
-                        		if (true) {
+                        		/*if (checkPermission("User", "SHOWALL") ||
+                        			checkPermission("Permission", "SHOWALL" ||
+                        			checkPermission("FuncAction", "SHOWALL") ||
+                        			checkPermission("Action", "SHOWALL") ||
+                        			checkPermission("Functionality", "SHOWALL") ||
+                        			checkPermission("Role", "SHOWALL") ||
+                        			checkPermission("UserRole", "SHOWALL"))) {*/
                         	?>
                             <li class="nav-item">
                                 <!-- Gestión de usuarios -->
@@ -91,7 +97,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <?php } ?>
+                            <?php //} ?>
                             <!-- Gestión de horarios -->
                             <li class="nav-item">
                                 <a class="nav-link" href="#">

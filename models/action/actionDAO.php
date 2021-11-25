@@ -24,7 +24,7 @@ class ActionDAO
 
     function show($key, $value) {
         $action_db = $this->defaultDAO->show("accion", $key, $value);
-        return new Action($action_db["id"], $action_db["nombre"], $action_db["descripcion"]);
+        return new Accion($action_db["id"], $action_db["nombre"], $action_db["descripcion"]);
     }
 
     function edit($action) {
@@ -36,13 +36,12 @@ class ActionDAO
     }
 
     function showAllPaged($currentPage, $itemsPerPage, $stringToSearch) {
-        $actionsDB = $this->defaultDAO->showAllPaged($currentPage, $itemsPerPage, new Action(), $stringToSearch, "ACCION");
-        printf("asdasd");
+        $actionsDB = $this->defaultDAO->showAllPaged($currentPage, $itemsPerPage, new Accion(), $stringToSearch);
         return $this->getActionsFromDB($actionsDB);
     }
 
     function countTotalActions($stringToSearch) {
-        return $this->defaultDAO->countTotalEntries(new Action(), $stringToSearch, "ACCION");
+        return $this->defaultDAO->countTotalEntries(new Accion(), $stringToSearch);
     }
 
     function checkDependencies($value) {
@@ -52,7 +51,7 @@ class ActionDAO
     private function getActionsFromDB($actions_db) {
         $actions = array();
         foreach ($actions_db as $action) {
-            array_push($actions, new Action($action["id"], $action["nombre"], $action["descripcion"]));
+            array_push($actions, new Accion($action["id"], $action["nombre"], $action["descripcion"]));
         }
         return $actions;
     }

@@ -1,0 +1,28 @@
+.form-group {
+    max-width: 500px;
+}
+
+h1 label {
+    margin: 0;
+}
+
+.message-error {
+    margin-top: 1%;
+    padding: 0 .4rem;
+    background-color: #f7bdbd;
+    border-radius: .3rem;
+    border-color: #f58181;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.message-error p {
+    margin-bottom: 0;
+}
+
+.office-checkbox {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin-left: 10px;
+}

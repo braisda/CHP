@@ -29,35 +29,34 @@ class defaultDAO
         $attributes = array_keys($entity->expose());
         $sql_keys = "";
         $sql_values = "";
-
         foreach ($attributes as $attribute) {
             $function_name = $this->changeFunctionName($attribute);
             $value = $entity->$function_name();
-
+            
             if(is_object($value)) {
                 $attribute = $attribute . "_id";
                 $value = $value->getId();
             }
-
+            
             if ($sql_keys == "") {
                 $sql_keys = "(" . $attribute;
             } else {
                 $sql_keys = $sql_keys . "," . $attribute;
             }
-
+            
             $value = $this->checkValueType($value);
-
+            
             if ($sql_values == "") {
                 $sql_values = "(" . $value;
             } else {
                 $sql_values = $sql_values . ", " . $value;
             }
         }
-
+        
         $primary_key_function = $this->changeFunctionName($primary_key);
-
+        
         $sql = "SELECT * FROM " . $this->getTableName($entity) . " WHERE " . $primary_key . "='".
-            $entity->$primary_key_function() . "'";
+        $entity->$primary_key_function() . "'";
         if (!$result = $this->mysqli->query($sql)){
             throw new DAOException('Error de conexión con la base de datos.');
         }
@@ -66,10 +65,10 @@ class defaultDAO
                 $sql = "INSERT INTO " . $this->getTableName($entity) . $sql_keys . ") VALUES " . $sql_values . ")";
                 if(!$resultInsertion = $this->mysqli->query($sql)) {
                     throw new DAOException('Error de la base de datos: %' .
-                        str_replace("\'", "", addslashes($this->mysqli->error)) . '%');
+                    str_replace("\'", "", addslashes($this->mysqli->error)) . '%');
                 }
             } else {
-               throw new DAOException('Entidad duplicada. Ya existe en la base de datos.');
+                throw new DAOException('Entidad duplicada. Ya existe en la base de datos.');
             }
         }
     }
@@ -155,8 +154,8 @@ class defaultDAO
         }
     }
 
-    function countTotalEntries($entity, $stringToSearch, $tableName) {
-        $sql = "SELECT COUNT(*) FROM " . $tableName;
+    function countTotalEntries($entity, $stringToSearch) {
+        $sql = "SELECT COUNT(*) FROM " . $this->getTableName($entity);
         $sql .= $this->obtainWhereClauseToSearch($entity, $stringToSearch);
         if (!($result = $this->mysqli->query($sql))) {
             throw new DAOException('Error de conexión con la base de datos.');
@@ -192,9 +191,9 @@ class defaultDAO
         }
     }
 
-    function showAllPaged($currentPage, $itemsPerPage, $entity, $stringToSearch, $tableName) {
+    function showAllPaged($currentPage, $itemsPerPage, $entity, $stringToSearch) {
         $startBlock = ($currentPage - 1) * $itemsPerPage;
-        $sql = "SELECT * FROM " . $tableName;
+        $sql = "SELECT * FROM " . $this->getTableName($entity);
         $sql .= $this->obtainWhereClauseToSearch($entity, $stringToSearch);
         $sql .= " LIMIT " . $startBlock . "," . $itemsPerPage;
         return $this->getArrayFromSqlQuery($sql);

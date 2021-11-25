@@ -1,19 +1,19 @@
 <?php
-class Action
+class Accion
 {
     private $id;
-    private $name;
-    private $description;
+    private $nombre;
+    private $descripcion;
 
-    public function __construct($id=NULL, $name=NULL, $description=NULL){
-        if (!empty($name) && !empty($description)) {
-            $this->constructEntity($id, $name, $description);
+    public function __construct($id=NULL, $nombre=NULL, $descripcion=NULL){
+        if (!empty($nombre) && !empty($descripcion)) {
+            $this->constructEntity($id, $nombre, $descripcion);
         }
     }
-    private function constructEntity($id=NULL, $name=NULL, $description=NULL){
+    private function constructEntity($id=NULL, $nombre=NULL, $descripcion=NULL){
         $this->setId($id);
-        $this->setName($name);
-        $this->setDescription($description);
+        $this->setNombre($nombre);
+        $this->setDescripcion($descripcion);
     }
 
     public function getId()
@@ -24,37 +24,37 @@ class Action
     public function setId($id)
     {
         if (empty($id) || strlen($id)>8) {
-            throw new ValidationException('Error de validación. Id incorrecto.');
+            throw new Exception('Error de validación. Id incorrecto.');
         } else {
             $this->id = $id;
         }
     }
 
-    public function getName()
+    public function getNombre()
     {
-        return $this->name;
+        return $this->nombre;
     }
 
-    public function setName($name)
+    public function setNombre($nombre)
     {
-        if (strlen($name)>60 || empty($name)) {
-            throw new ValidationException('Error de validación. Nombre incorrecto.');
+        if (strlen($nombre)>60 || empty($nombre)) {
+            throw new Exception('Error de validación. Nombre incorrecto.');
         } else {
-            $this->name = $name;
+            $this->nombre = $nombre;
         }
     }
 
-    public function getDescription()
+    public function getDescripcion()
     {
-        return $this->description;
+        return $this->descripcion;
     }
 
-    public function setDescription($description)
+    public function setDescripcion($descripcion)
     {
-        if (strlen($description)>100 || empty($description)) {
-            throw new ValidationException('Error de validación. Descripción incorrecta.');
+        if (strlen($descripcion)>100 || empty($descripcion)) {
+            throw new Exception('Error de validación. Descripción incorrecta.');
         } else {
-            $this->description = $description;
+            $this->descripcion = $descripcion;
         }
     }
 

@@ -30,18 +30,18 @@ class ActionShowAllView
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-4 pb-2 mb-3">
                 <h1 class="h2" data-translate="Listado de acciones"></h1>
                 <!-- Search -->
-                <form class="row" action='../Controllers/ActionController.php' method='POST'>
+                <form class="row" action='../controllers/actionController.php' method='POST'>
                     <input type="text" class="form-control" id="search" name="search" data-translate="Texto a buscar">
                     <button name="submit" type="submit" class="btn btn-primary" data-translate="Buscar"></button>
                 </form>
 
                 <?php //if (!empty($this->stringToSearch)): ?>
-                    <a class="btn btn-primary" role="button" href="../Controllers/ActionController.php">
+                    <a class="btn btn-primary mr-1" role="button" href="../controllers/defaultController.php">
                         <p data-translate="Volver"></p>
                     </a>
                 <?php //else:
                     //if (HavePermission("Action", "ADD")): ?>
-                        <a class="btn btn-success" role="button" href="../Controllers/ActionController.php?action=add">
+                        <a class="btn btn-success" role="button" href="../controllers/actionController.php?action=add">
                             <span data-feather="plus"></span>
                             <p data-translate="Añadir acción"></p>
                         </a>
@@ -62,19 +62,19 @@ class ActionShowAllView
                     <?php foreach ($this->actions as $action): ?>
                         <tr>
                             <td><?php echo $action->getId() ?></td>
-                            <td><?php echo $action->getName() ?></td>
-                            <td><?php echo $action->getDescription() ?></td>
+                            <td><?php echo $action->getNombre() ?></td>
+                            <td><?php echo $action->getDescripcion() ?></td>
                             <td class="row">
                                 <?php // if (HavePermission("Action", "SHOWCURRENT")) { ?>
-                                    <a href="../Controllers/ActionController.php?action=show&id=<?php echo $action->getId() ?>">
+                                    <a href="../controllers/actionController.php?action=show&id=<?php echo $action->getId() ?>">
                                         <span data-feather="eye"></span></a>
                                 <?php //}
                                 //if (HavePermission("Action", "EDIT")) { ?>
-                                    <a href="../Controllers/ActionController.php?action=edit&id=<?php echo $action->getId() ?>">
+                                    <a href="../controllers/actionController.php?action=edit&id=<?php echo $action->getId() ?>">
                                         <span data-feather="edit"></span></a>
                                 <?php //}
                                 //if (HavePermission("Action", "DELETE")) { ?>
-                                    <a href="../Controllers/ActionController.php?action=delete&id=<?php echo $action->getId() ?>">
+                                    <a href="../controllers/actionController.php?action=delete&id=<?php echo $action->getId() ?>">
                                         <span data-feather="trash-2"></span></a>
                                 <?php //} ?>
                             </td>
