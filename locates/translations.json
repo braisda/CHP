@@ -239,7 +239,7 @@
         "en": "Delete",
         "gl": "Eliminar"
     },
-    "Eliminar acción": {
+    "Eliminar Acción": {
         "en": "Delete action",
         "gl": "Eliminar acción"
     },
@@ -251,37 +251,101 @@
         "en": "Functionalities management",
         "gl": "Xestión de funcionalidades"
     },
-    "Añadir funcionalidad": {
-        "en": "Add functionality",
-        "gl": "Engadir acción"
+    "Añadir Funcionalidad": {
+        "en": "Add Functionality",
+        "gl": "Engadir funcionalidade"
+    },
+    "Editar Funcionalidad '%c'": {
+      "en": "Edit Functionality '%c'",
+      "gl": "Editar Funcionalidade '%c'"
+    },
+    "Funcionalidad '%c'": {
+      "en": "Edit Functionality '%c'",
+      "gl": "Editar Funcionalidade '%c'"
     },
     "Listado de funcionalidades": {
-        "en": "Functionalities list",
-        "gl": "Listado de funcionalidades"
+      "en": "Functionalities list",
+      "gl": "Listado de funcionalidades"
     },
     "¿Está seguro de que desea eliminar la funcionalidad %c? Esta acción es permanente y no se puede recuperar.": {
       "en": "Are you sure you want to delete the functionality %c? This action is permanent and cannot be recovered.",
       "gl": "Está seguro de que desexa eliminar a funcionalidade %c? Esta acción é permanente e non se pode recuperar."
     },
-    "Eliminar funcionalidad": {
-        "en": "Delete functionality",
-        "gl": "Eliminar funcionalidade"
+    "Eliminar Funcionalidad": {
+        "en": "Delete Functionality",
+        "gl": "Eliminar Funcionalidade"
     },
-    "Añadir rol": {
-        "en": "Add role",
-        "gl": "Engadir rol"
+    "Añadir Rol": {
+        "en": "Add Role",
+        "gl": "Engadir Rol"
     },
-    "Listado de roles": {
-        "en": "Roles list",
-        "gl": "Listado de roles"
+    "Listado de Roles": {
+        "en": "Roles List",
+        "gl": "Listado de Roles"
     },
     "¿Está seguro de que desea eliminar el rol %c? Esta acción es permanente y no se puede recuperar.": {
       "en": "Are you sure you want to delete the role %c? This action is permanent and cannot be recovered.",
       "gl": "Está seguro de que desexa eliminar o rol %c? Esta acción é permanente e non se pode recuperar."
     },
-    "Eliminar rol": {
-        "en": "Delete role",
-        "gl": "Eliminar rol"
+    "Eliminar Rol": {
+        "en": "Delete Role",
+        "gl": "Eliminar Rol"
+    },
+    "Rol añadido correctamente.": {
+        "en": "Added rol succesfully",
+        "gl": "Rol engadido correctamente Rol"
+    },
+    "Rol editado correctamente.": {
+        "en": "Updated rol succesfully",
+        "gl": "Rol editado correctamente Rol"
+    },
+    "Rol eliminado correctamente.": {
+        "en": "Deleted rol succesfully",
+        "gl": "Rol eliminado correctamente Rol"
+    },
+    "ÉXITO": {
+        "en": "SUCCESS",
+        "gl": "ÉXITO"
+    },
+    "ERROR": {
+        "en": "ERROR",
+        "gl": "ERROR"
+    },
+    "INFO": {
+        "en": "INFO",
+        "gl": "INFO"
+    },
+    "ATENCIÓN": {
+        "en": "ATTENTION",
+        "gl": "ATENCIÓN"
+    },
+    "Funcionalidad añadida correctamente.": {
+        "en": "Added funnctionality succesfully",
+        "gl": "Funcionalidade engadida correctamente Rol"
+    },
+    "Funcionalidad editada correctamente.": {
+        "en": "Updated funnctionality succesfully",
+        "gl": "Funcionalidade editada correctamente Rol"
+    },
+    "Funcionalidad eliminada correctamente.": {
+        "en": "Deleted funnctionality succesfully",
+        "gl": "Funcionalidade eliminada correctamente Rol"
+    },
+    "Acción añadida correctamente.": {
+        "en": "Added action succesfully",
+        "gl": "Acción engadida correctamente Rol"
+    },
+    "Acción editada correctamente.": {
+        "en": "Updated action succesfully",
+        "gl": "Acción editada correctamente Rol"
+    },
+    "Acción eliminada correctamente.": {
+        "en": "Deleted action succesfully",
+        "gl": "Acción eliminada correctamente Rol"
+    },
+    "Editar Rol '%c'": {
+        "en": "Edit Role '%c'",
+        "gl": "Editar Rol '%c'"
     }
 }
 

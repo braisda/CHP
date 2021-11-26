@@ -46,7 +46,7 @@ switch ($action) {
         } else {
             try {
                 showAll();
-                confirmDelete("Eliminar acción", "¿Está seguro de que desea eliminar " .
+                confirmDelete("Eliminar Acción", "¿Está seguro de que desea eliminar " .
                     "la acción %" . $value . "%? Esta acción es permanente y no se puede recuperar.",
                     "../controllers/actionController.php?action=delete&id=" . $value . "&confirm=true");
             } catch (DAOException $e) {
@@ -133,16 +133,16 @@ function goToShowAllAndShowError($message) {
     showAll();
     include '../models/common/messageType.php';
     include '../utils/ShowToast.php';
-    $message = MessageType::ERROR;
-    showToast($message, $e->getMessage());
+    $messageType = MessageType::ERROR;
+    showToast($messageType, $message);
 }
 
 function goToShowAllAndShowSuccess($message) {
     showAll();
     include '../models/common/messageType.php';
     include '../utils/ShowToast.php';
-    $message = MessageType::ERROR;
-    showToast($message, $e->getMessage());
+    $messageType = MessageType::SUCCESS;
+    showToast($messageType, $message);
 }
 
 

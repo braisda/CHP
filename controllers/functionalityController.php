@@ -45,7 +45,7 @@ switch ($action) {
         } else {
             try {
                 showAll();
-                confirmDelete("Eliminar funcionalidad", "¿Está seguro de que desea eliminar " .
+                confirmDelete("Eliminar Funcionalidad", "¿Está seguro de que desea eliminar " .
                     "la funcionalidad %" . $value . "%? Esta acción es permanente y no se puede recuperar.",
                     "../controllers/functionalityController.php?action=delete&id=" . $value . "&confirm=true");
             } catch (DAOException $e) {
@@ -132,16 +132,16 @@ function goToShowAllAndShowError($message) {
     showAll();
     include '../models/common/messageType.php';
     include '../utils/ShowToast.php';
-    $message = MessageType::ERROR;
-    showToast($message, $e->getMessage());
+    $messageType = MessageType::ERROR;
+    showToast($messageType, $message);
 }
 
 function goToShowAllAndShowSuccess($message) {
     showAll();
     include '../models/common/messageType.php';
     include '../utils/ShowToast.php';
-    $message = MessageType::ERROR;
-    showToast($message, $e->getMessage());
+    $messageType = MessageType::SUCCESS;
+    showToast($messageType, $message);
 }
 
 

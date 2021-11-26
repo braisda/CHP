@@ -43,7 +43,7 @@ class FunctionalityShowAllView
                     //if (HavePermission("Action", "ADD")): ?>
                         <a class="btn btn-success" role="button" href="../controllers/functionalityController.php?action=add">
                             <span data-feather="plus"></span>
-                            <p data-translate="Añadir funcionalidad"></p>
+                            <p data-translate="Añadir Funcionalidad"></p>
                         </a>
                     <?php //endif; endif; ?>
             </div>

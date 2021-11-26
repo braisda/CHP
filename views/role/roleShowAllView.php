@@ -28,7 +28,7 @@ class RoleShowAllView
         </head>
         <main role="main" class="margin-main ml-sm-auto px-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-4 pb-2 mb-3">
-                <h1 class="h2" data-translate="Listado de roles"></h1>
+                <h1 class="h2" data-translate="Listado de Roles"></h1>
                 <!-- Search -->
                 <form class="row" action='../controllers/roleController.php?action=search' method='POST'>
                     <input type="text" class="form-control" id="nombre" name="nombre" data-translate="Texto a buscar">
@@ -43,7 +43,7 @@ class RoleShowAllView
                     //if (HavePermission("Action", "ADD")): ?>
                         <a class="btn btn-success" role="button" href="../controllers/roleController.php?action=add">
                             <span data-feather="plus"></span>
-                            <p data-translate="Añadir rol"></p>
+                            <p data-translate="Añadir Rol"></p>
                         </a>
                     <?php //endif; endif; ?>
             </div>

@@ -14,7 +14,7 @@ private $functionality;
         <main role="main" class="margin-main ml-sm-auto px-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-4 pb-2 mb-3
             border-bottom">
-                <h1 class="h2" data-translate="Acción '%<?php echo $this->functionality->getId() ?>%'"></h1>
+                <h1 class="h2" data-translate="Funcionalidad '%<?php echo $this->functionality->getId() ?>%'"></h1>
                 <a class="btn btn-primary" role="button" href="../controllers/functionalityController.php" data-translate="Volver"></a>
             </div>
             <?php if(!is_null($this->functionality)): ?>
