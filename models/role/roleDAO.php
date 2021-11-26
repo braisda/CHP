@@ -19,12 +19,12 @@ class RoleDAO
     }
 
     function delete($key, $value) {
-        $this->defaultDAO->delete("role", $key, $value);
+        $this->defaultDAO->delete("rol", $key, $value);
     }
 
     function show($key, $value) {
         $role_db = $this->defaultDAO->show("rol", $key, $value);
-        return new Role($role_db["id"], $role_db["nombre"], $role_db["descripcion"]);
+        return new Rol($role_db["id"], $role_db["nombre"], $role_db["descripcion"]);
     }
 
     function edit($role) {
@@ -36,12 +36,12 @@ class RoleDAO
     }
 
     function showAllPaged($currentPage, $itemsPerPage, $stringToSearch) {
-        $rolesDB = $this->defaultDAO->showAllPaged($currentPage, $itemsPerPage, new Role(), $stringToSearch);
+        $rolesDB = $this->defaultDAO->showAllPaged($currentPage, $itemsPerPage, new Rol(), $stringToSearch);
         return $this->getRolesFromDB($rolesDB);
     }
 
     function countTotalRoles($stringToSearch) {
-        return $this->defaultDAO->countTotalEntries(new Role(), $stringToSearch);
+        return $this->defaultDAO->countTotalEntries(new Rol(), $stringToSearch);
     }
 
     function checkDependencies($value) {
@@ -51,7 +51,7 @@ class RoleDAO
     private function getRolesFromDB($roles_db) {
         $roles = array();
         foreach ($roles_db as $role) {
-            array_push($roles, new Role($role["id"], $role["name"], $role["description"]));
+            array_push($roles, new Rol($role["id"], $role["nombre"], $role["descripcion"]));
         }
         return $roles;
     }

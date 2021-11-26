@@ -9,7 +9,7 @@
 <body>
     <!-- Barra de herramientas / Menú -->
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-        <a id="button-sidebar" class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">
+        <a id="button-sidebar" class="navbar-brand col-sm-3 col-md-2 mr-0" href="../index.php">
             <button id="button-show-sidebar" class="navbar-toggler" type="button" onclick="showSidebar()">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -91,7 +91,7 @@
                                         </a>
                                      </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">
+                                        <a class="nav-link" href="../controllers/roleController.php">
                                             <p data-translate="Roles"></p>
                                         </a>
                                     </li>

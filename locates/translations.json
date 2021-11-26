@@ -266,6 +266,22 @@
     "Eliminar funcionalidad": {
         "en": "Delete functionality",
         "gl": "Eliminar funcionalidade"
+    },
+    "Añadir rol": {
+        "en": "Add role",
+        "gl": "Engadir rol"
+    },
+    "Listado de roles": {
+        "en": "Roles list",
+        "gl": "Listado de roles"
+    },
+    "¿Está seguro de que desea eliminar el rol %c? Esta acción es permanente y no se puede recuperar.": {
+      "en": "Are you sure you want to delete the role %c? This action is permanent and cannot be recovered.",
+      "gl": "Está seguro de que desexa eliminar o rol %c? Esta acción é permanente e non se pode recuperar."
+    },
+    "Eliminar rol": {
+        "en": "Delete role",
+        "gl": "Eliminar rol"
     }
 }
 
