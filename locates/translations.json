@@ -246,6 +246,26 @@
     "¿Está seguro de que desea eliminar la acción %c? Esta acción es permanente y no se puede recuperar.": {
       "en": "Are you sure you want to delete the action %c? This action is permanent and cannot be recovered.",
       "gl": "Está seguro de que desexa eliminar a acción %c? Esta acción é permanente e non se pode recuperar."
+    },
+    "Gestión de funcionalidades": {
+        "en": "Functionalities management",
+        "gl": "Xestión de funcionalidades"
+    },
+    "Añadir funcionalidad": {
+        "en": "Add functionality",
+        "gl": "Engadir acción"
+    },
+    "Listado de funcionalidades": {
+        "en": "Functionalities list",
+        "gl": "Listado de funcionalidades"
+    },
+    "¿Está seguro de que desea eliminar la funcionalidad %c? Esta acción es permanente y no se puede recuperar.": {
+      "en": "Are you sure you want to delete the functionality %c? This action is permanent and cannot be recovered.",
+      "gl": "Está seguro de que desexa eliminar a funcionalidade %c? Esta acción é permanente e non se pode recuperar."
+    },
+    "Eliminar funcionalidad": {
+        "en": "Delete functionality",
+        "gl": "Eliminar funcionalidade"
     }
 }
 

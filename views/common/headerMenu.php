@@ -105,11 +105,18 @@
                                     <p data-translate="Gestión de horarios"></p>
                                 </a>
                             </li>
-                            <!-- Gestión de horarios -->
+                            <!-- Gestión de acciones -->
                             <li class="nav-item">
                                 <a class="nav-link" href="../controllers/actionController.php">
                                     <span class="far bi-tools"></span>
                                     <p data-translate="Gestión de acciones"></p>
+                                </a>
+                            </li>
+                            <!-- Gestión de funcionalidades -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="../controllers/functionalityController.php">
+                                    <span class="far bi-box-seam"></span>
+                                    <p data-translate="Gestión de funcionalidades"></p>
                                 </a>
                             </li>
                         </ul>

@@ -1,33 +1,32 @@
 <?php
 
-include_once '../models/action/actionDAO.php';
+include_once '../models/functionality/functionalityDAO.php';
 include_once '../views/Common/head.php';
 include_once '../views/Common/headerMenu.php';
-include_once '../views/action/actionShowAllView.php';
-include_once '../views/action/actionAddView.php';
-include_once '../views/action/actionShowView.php';
-include_once '../views/action/actionEditView.php';
-include_once '../views/action/actionSearchView.php';
+include_once '../views/functionality/functionalityShowAllView.php';
+include_once '../views/functionality/functionalityAddView.php';
+include_once '../views/functionality/functionalityShowView.php';
+include_once '../views/functionality/functionalityEditView.php';
+include_once '../views/functionality/functionalitySearchView.php';
 include_once '../utils/confirmDelete.php';
 
 //DAO
-$actionDAO = new ActionDAO();
-$actionPrimaryKey = "id";
-$value = $_REQUEST[$actionPrimaryKey];
+$functionalityDAO = new FunctionalityDAO();
+$functionalityPrimaryKey = "id";
+$value = $_REQUEST[$functionalityPrimaryKey];
 $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : "";
-printf($action);
 switch ($action) {
     case "add":
         if (!isset($_POST["submit"])) {
-            new ActionAddView();
+            new FunctionalityAddView();
         } else {
             try {
-                $action = new Accion();
-                $action->setNombre($_POST["name"]);
-                $action->setDescripcion($_POST["description"]);
-                $actionDAO->add($action);
+                $functionality = new Funcionalidad();
+                $functionality->setNombre($_POST["name"]);
+                $functionality->setDescripcion($_POST["description"]);
+                $functionalityDAO->add($functionality);
                 
-                goToShowAllAndShowSuccess("Acción añadida correctamente.");
+                goToShowAllAndShowSuccess("Funcionalidad añadida correctamente.");
             } catch (DAOException $e) {
                 goToShowAllAndShowError($e->getMessage());
             } catch (Exception $ve) {
@@ -38,17 +37,17 @@ switch ($action) {
     case "delete":
         if (isset($_REQUEST["confirm"])) {
             try {
-                $actionDAO->delete($actionPrimaryKey, $value);
-                goToShowAllAndShowSuccess("Acción eliminada correctamente.");
+                $functionalityDAO->delete($functionalityPrimaryKey, $value);
+                goToShowAllAndShowSuccess("Funcionalidad eliminada correctamente.");
             } catch (DAOException $e) {
                 goToShowAllAndShowError($e->getMessage());
             }
         } else {
             try {
                 showAll();
-                confirmDelete("Eliminar acción", "¿Está seguro de que desea eliminar " .
-                    "la acción %" . $value . "%? Esta acción es permanente y no se puede recuperar.",
-                    "../controllers/actionController.php?action=delete&id=" . $value . "&confirm=true");
+                confirmDelete("Eliminar funcionalidad", "¿Está seguro de que desea eliminar " .
+                    "la funcionalidad %" . $value . "%? Esta acción es permanente y no se puede recuperar.",
+                    "../controllers/functionalityController.php?action=delete&id=" . $value . "&confirm=true");
             } catch (DAOException $e) {
                 goToShowAllAndShowError($e->getMessage());
             }
@@ -56,8 +55,9 @@ switch ($action) {
         break;
     case "show":
         try {
-            $actionData = $actionDAO->show($actionPrimaryKey, $value);
-            new ActionShowView($actionData);
+            $functionalityData = $functionalityDAO->show($functionalityPrimaryKey, $value);
+            printf("entra");
+            new FunctionalityShowView($functionalityData);
         } catch (DAOException $e) {
             goToShowAllAndShowError($e->getMessage());
         } catch (Exception $ve) {
@@ -66,15 +66,15 @@ switch ($action) {
         break;
     case "edit":
         try {
-            $action = $actionDAO->show($actionPrimaryKey, $value);
+            $functionality = $functionalityDAO->show($functionalityPrimaryKey, $value);
             if (!isset($_POST["submit"])) {
-                new ActionEditView($action);
+                new FunctionalityEditView($functionality);
             } else {
-                $action->setId($value);
-                $action->setNombre($_POST["name"]);
-                $action->setDescripcion($_POST["description"]);
-                $actionDAO->edit($action);
-                goToShowAllAndShowSuccess("Acción editada correctamente.");
+                $functionality->setId($value);
+                $functionality->setNombre($_POST["name"]);
+                $functionality->setDescripcion($_POST["description"]);
+                $functionalityDAO->edit($functionality);
+                goToShowAllAndShowSuccess("Funcionalidad editada correctamente.");
             }
         } catch (DAOException $e) {
             goToShowAllAndShowError($e->getMessage());
@@ -83,19 +83,18 @@ switch ($action) {
         }
         break;
     case "search":
-        printf("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeentra en buscaaaaaaaaaaaaaaaaaaaaaaaaaar");
         if (!isset($_POST["submit"])) {
             new ActionSearchView();
         } else {
             try {
-                $action = new Accion();
+                $functionality = new Funcionalidad();
                 if(!empty($_POST["name"])) {
-                    $action->setNombre($_POST["name"]);
+                    $functionality->setNombre($_POST["name"]);
                 }
                 if(!empty($_POST["description"])) {
-                    $action->setDescripcion($_POST["description"]);
+                    $functionality->setDescripcion($_POST["description"]);
                 }
-                showAllSearch($action);
+                showAllSearch($functionality);
             } catch (DAOException $e) {
                 goToShowAllAndShowError($e->getMessage());
             } catch (Exception $ve) {
@@ -113,17 +112,17 @@ function showAll() {
 }
 
 function showAllSearch($search) {
-        try {
+    try {
             $currentPage = 1;//getCurrentPage();
-            $itemsPerPage = 10;//getItemsPerPage();
+            $itemsPerPage = 20;//getItemsPerPage();
             $toSearch = null;//getToSearch($search);
-            $totalActions = $GLOBALS["actionDAO"]->countTotalActions($toSearch);
-            $actionData = $GLOBALS["actionDAO"]->showAllPaged($currentPage, $itemsPerPage, $toSearch);
-            new ActionShowAllView($actionData, $itemsPerPage, $currentPage, $totalActions, $toSearch);
+            $totalFunctionalities = $GLOBALS["functionalityDAO"]->countTotalFunctionalities($toSearch);
+            $functionalityData = $GLOBALS["functionalityDAO"]->showAllPaged($currentPage, $itemsPerPage, $toSearch);
+            new FunctionalityShowAllView($functionalityData, $itemsPerPage, $currentPage, $totalFunctionalities, $toSearch);
         } catch (DAOException $e) {
             include '../models/common/messageType.php';
             include '../utils/ShowToast.php';
-            new ActionShowAllView(array());
+            new FunctionalityShowAllView(array());
             $message = MessageType::ERROR;
             showToast($message, $e->getMessage());
         }
