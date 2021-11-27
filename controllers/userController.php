@@ -15,6 +15,7 @@ include_once '../utils/redirect.php';
 include_once '../views/common/head.php';
 include_once '../views/common/headerMenu.php';
 include_once '../views/user/userShowAllView.php';
+include_once '../views/user/userShowView.php';
 
 $userDAO = new UserDAO();
 
@@ -23,7 +24,20 @@ $value = $_REQUEST[$userPK];
 
 $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : "";
 switch ($action) {
-
+    case "show":
+        if (checkPermission("usuario", "SHOWCURRENT")) {
+            try {
+                $userData = $userDAO->show($userPK, $value);
+                new UserShowView($userData);
+            } catch (DAOException $e) {
+                goToShowAllAndShowError($e->getMessage());
+            } catch (ValidationException $e) {
+                goToShowAllAndShowError($e->getMessage());
+            }
+        } else {
+            goToShowAllAndShowError("No tiene permiso para visualizar la entidad.");
+        }
+        break;
     default:
         showAll();
         break;

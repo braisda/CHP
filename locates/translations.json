@@ -495,6 +495,30 @@
         "en": "No user has been obtained",
         "gl": "Non se obtivo ningún usuario"
     },
+    "No tiene permiso para visualizar la entidad.": {
+        "en": "You don't have permission to view the entity.",
+        "gl": "Non ten permiso para visualizala entidade."
+    },
+    "Usuario %c": {
+        "en": "User %c",
+        "gl": "Usuario %c"
+    },
+    "El usuario no existe": {
+        "en": "User does not exist",
+        "gl": "O usuario non existe"
+    },
+    "DNI": {
+        "en": "DNI",
+        "gl": "DNI"
+    },
+    "Dirección": {
+        "en": "Address",
+        "gl": "Enderezo"
+    },
+    "Teléfono": {
+        "en": "Phone",
+        "gl": "Teléfono"
+    },
     "": {
         "en": "",
         "gl": ""
