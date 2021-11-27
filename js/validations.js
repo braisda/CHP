@@ -45,3 +45,51 @@ function deleteMessage(node) {
         $(node).remove();
     }
 }
+
+function checkAlphabetical(field, size, name) {
+    var i;
+
+    for (i = 0; i < size; i++) {
+        if (/[^A-Za-zñáéíóúÑÁÉÍÓÚüÜ -]/.test(field.value.charAt(i))) {
+            return 'El atributo ' + name + ' solo admite carácteres alfabéticos.';
+        }
+    }
+    return "";
+}
+
+function checkDni(field, name) {
+    var num;
+    var letr;
+    var letter;
+    var regex_dni;
+    letter = 'TRWAGMYFPDXBNJZSQVHLCKET';
+    regex_dni = /^\d{8}[a-zA-Z]$/;
+
+    if (regex_dni.test(field.value)) {
+        num = field.value.substr(0, 8);
+        letr = field.value.substr(8, 1);
+        num = num % 23;
+        letter = letter.substring(num, num + 1);
+        if (letter != letr.toUpperCase()) {
+            return 'El atributo ' + name + ' tiene un formato erróneo, la letra del NIF no se corresponde.';
+        } else {
+            return "";
+        }
+    } else {
+        return 'El atributo ' + name + ' tiene un formato erróneo.';
+    }
+}
+
+function checkTelf(field, name) {
+    if (!/^(34)?[6|7|9][0-9]{8}$/.test(field.value)) {
+        return 'El atributo ' + name + ' tiene un formato erróneo.';
+    }
+    return "";
+}
+
+function checkEmail(field, name) {
+    if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(field.value)) {
+        return 'El atributo ' + name + ' tiene un formato erróneo.';
+    }
+    return "";
+}

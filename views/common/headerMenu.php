@@ -98,13 +98,6 @@
                                 </ul>
                             </li>
                             <?php } ?>
-                            <!-- Gestión de horarios -->
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <span class="far fa-calendar"></span>
-                                    <p data-translate="Gestión de horarios"></p>
-                                </a>
-                            </li>
                             <!-- Gestión de acciones -->
                             <li class="nav-item">
                                 <a class="nav-link" href="../controllers/actionController.php">

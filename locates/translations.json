@@ -351,18 +351,6 @@
         "en": "Permission list",
         "gl": "Listaxe de permisos"
     },
-    "Texto a buscar": {
-        "en": "Text to search",
-        "gl": "Texto a procurar"
-    },
-    "Buscar": {
-        "en": "Search",
-        "gl": "Procurar"
-    },
-    "Volver": {
-        "en": "Go back",
-        "gl": "Voltar"
-    },
     "Asignar permiso": {
         "en": "Assign permission",
         "gl": "Asignar permiso"
@@ -519,9 +507,129 @@
         "en": "Phone",
         "gl": "Teléfono"
     },
-    "": {
-        "en": "",
-        "gl": ""
+    "No tienes permiso para editar.": {
+        "en": "You don't have permission to edit",
+        "gl": "Non tes permiso para editar."
+    },
+    "Usuario modificado correctamente.": {
+        "en": "User edit successfully.",
+        "gl": "Usuario modificado correctamente."
+    },
+    "Editar usuario %c": {
+        "en": "Edit user %c",
+        "gl": "Editar usuario %c"
+    },
+    "El atributo dni tiene un formato erróneo.": {
+        "en": "The dni attribute has a wrong format.",
+        "gl": "O atributo dni ten un formato erróneo."
+    },
+    "El atributo dni tiene un formato erróneo, la letra del NIF no se corresponde.": {
+        "en": "The dni attribute has a wrong format, the NIF letter does not correspond.",
+        "gl": "O atributo dni ten un formato erróneo, a letra do NIF non se corresponde."
+    },
+    "El atributo nombre no puede estar vacío.": {
+        "en": "The name attribute does not be empty.",
+        "gl": "O atributo nome non pode estar baleiro."
+    },
+    "El atributo dni no puede estar vacío.": {
+        "en": "The dni attribute does not be empty.",
+        "gl": "O atributo dni non pode estar baleiro."
+    },
+    "El atributo email no puede estar vacío.": {
+        "en": "The email attribute does not be empty.",
+        "gl": "O atributo email non pode estar baleiro."
+    },
+    "El atributo apellido no puede estar vacío.": {
+        "en": "The surname attribute does not be empty.",
+        "gl": "O atributo apelido non pode estar baleiro."
+    },
+    "El atributo dirección no puede estar vacío.": {
+        "en": "The address attribute does not be empty.",
+        "gl": "O atributo enderezo non pode estar baleiro."
+    },
+    "El atributo teléfono no puede estar vacío.": {
+        "en": "The phone attribute does not be empty.",
+        "gl": "O atributo teléfono non pode estar baleiro."
+    },
+    "El atributo teléfono tiene un formato erróneo.": {
+        "en": "The phone attribute has a wrong format.",
+        "gl": "O atributo teléfono ten un formato erróneo."
+    },
+    "El atributo email tiene un formato erróneo.": {
+        "en": "The email attribute has a wrong format.",
+        "gl": "O atributo email ten un formato erróneo."
+    },
+    "El atributo nombre solo admite carácteres alfabéticos.": {
+        "en": "The name attribute only admits alphabetical characters.",
+        "gl": "O atributo nome só admite caracteres alfabéticos."
+    },
+    "El atributo apellido solo admite carácteres alfabéticos.": {
+        "en": "The surname attribute only admits alphabetical characters.",
+        "gl": "O atributo apelido só admite caracteres alfabéticos."
+    },
+    "El atributo nombre contiene el carácter no válido: %c.": {
+        "en": "The name attribute contains the invalid character: %c.",
+        "gl": "O atributo nome contén o caracter non válido: %c."
+    },
+    "El atributo apellido contiene el carácter no válido: %c.": {
+        "en": "The surname attribute contains the invalid character: %c.",
+        "gl": "O atributo apelido contén o caracter non válido: %c."
+    },
+    "El atributo nombre puede tener una longitud máxima de %c caracteres.": {
+        "en": "The name attribute can have a maximum length of %c characters.",
+        "gl": "O atributo name pode ter unha lonxitude máxima de %c caracteres."
+    },
+    "El atributo apellido puede tener una longitud máxima de %c caracteres.": {
+        "en": "The surname attribute can have a maximum length of %c characters.",
+        "gl": "O atributo apelido pode ter unha lonxitude máxima de %c caracteres."
+    },
+    "El atributo email puede tener una longitud máxima de %c caracteres.": {
+        "en": "The email attribute can have a maximum length of %c characters.",
+        "gl": "O atributo email pode ter unha lonxitude máxima de %c caracteres."
+    },
+    "El atributo dirección puede tener una longitud máxima de %c caracteres.": {
+        "en": "The address attribute can have a maximum length of %c characters.",
+        "gl": "O atributo dirección pode ter unha lonxitude máxima de %c caracteres."
+    },
+    "El atributo teléfono puede tener una longitud máxima de %c caracteres.": {
+        "en": "The phone attribute can have a maximum length of %c characters.",
+        "gl": "O atributo teléfono pode ter unha lonxitude máxima de %c caracteres."
+    },
+    "El atributo confirmar contraseña no puede estar vacío.": {
+        "en": "The repeat password attribute cannot be empty.",
+        "gl": "O atributo confirmar contrasinal non pode estar baleiro."
+    },
+    "El atributo confirmar contraseña no puede tener espacios en blanco.": {
+        "en": "The repeat password attribute cannot have blanks.",
+        "gl": "O atributo confirmar contrasinal non pode ter espazos en branco."
+    },
+    "El atributo confirmar contraseña puede tener una longitud máxima de %c caracteres.": {
+        "en": "The repeat password attribute can have a maximum length of %c characters.",
+        "gl": "O atributo confirmar contrasinal pode ter unha lonxitude máxima de %c caracteres."
+    },
+    "El atributo confirmar contraseña contiene el carácter no válido: %c.": {
+        "en": "The repeat password attribute contains the invalid character: %c.",
+        "gl": "O atributo confirmar contrasinal contén o caracter non válido: %c."
+    },
+    "Las contraseñas no coinciden.": {
+        "en": "The passwords don't match",
+        "gl": "As contrasinais non coinciden"
+    },
+    "Usuario añadido correctamente.": {
+        "en": "User successfully added.",
+        "gl": "Usuario engadido correctamente."
+    },
+    "Usuario eliminado correctamente.": {
+        "en": "User successfully deleted.",
+        "gl": "Usuario eliminado correctamente."
+    },
+    "Eliminar usuario": {
+        "en": "Delete user",
+        "gl": "Eliminar usuario"
+    },
+    "¿Está seguro de que desea eliminar el usuario %c? Esta acción es permanente y no se puede recuperar.": {
+        "en": "Are you sure you want to delete the user %c? This action is permanent and cannot be recovered.",
+        "gl": "Está seguro de que desexa eliminar o usuario %c? Esta acción é permanente e non se pode recuperar."
     }
 }
 
