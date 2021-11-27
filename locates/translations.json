@@ -446,6 +446,58 @@
     "¿Está seguro de que desea eliminar el permiso %c? Esta acción es permanente y no se puede recuperar.": {
         "en": "Are you sure you want to delete the permission %c? This action is permanent and cannot be recovered.",
         "gl": "Está seguro de que desexa eliminar o permiso %c? Esta acción é permanente e non se pode recuperar."
+    },
+    "Error de conexión con la base de datos.": {
+        "en": "Database connection error.",
+        "gl": "Error de conexión coa base de datos."
+    },
+    "Entidad duplicada. Ya existe en la base de datos.": {
+        "en": "Duplicate entity. It does already exist in database.",
+        "gl": "Entidad duplicada. Xa existe na base de datos."
+    },
+    "La entidad que se intenta eliminar no existe.": {
+        "en": "The entity you are trying to delete does not exist",
+        "gl": "A entidade que intenta eliminar non existe."
+    },
+    "La entidad consultada no existe.": {
+        "en": "Consulted entity does not exist.",
+        "gl": "A entidade consultada non existe."
+    },
+    "No se puede borrar por que hay %c elementos en %c que dependen de esta entidad.": {
+        "en": "It cannot be deleted because there are %c elements in %c that depend on this entity.",
+        "gl": "Non se pode borrar por que hai %c elementos en %c que dependen desta entidade."
+    },
+    "Listado de usuarios": {
+        "en": "Users list",
+        "gl": "Listaxe de usuarios"
+    },
+    "No cuenta con permisos de acceso.": {
+        "en": "You don't have access permission.",
+        "gl": "Non conta con permisos de acceso."
+    },
+    "Añadir usuario":{
+        "en": "Add user",
+        "gl": "Engadir usuario"
+    },
+    "Login": {
+        "en": "Login",
+        "gl": "Login"
+    },
+    "Apellido": {
+        "en": "Surname",
+        "gl": "Apelidos"
+    },
+    "Email": {
+        "en": "Email",
+        "gl": "Email"
+    },
+    "No se ha obtenido ningún usuario": {
+        "en": "No user has been obtained",
+        "gl": "Non se obtivo ningún usuario"
+    },
+    "": {
+        "en": "",
+        "gl": ""
     }
 }
 

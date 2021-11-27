@@ -159,7 +159,8 @@ function showAllSearch($search) {
             $data = $GLOBALS["permissionDAO"]->showAllPaged($page, $itemsInPage, $toSearch);
             new PermissionShowAllView($data, $itemsInPage, $page, $totalPermissions, $toSearch);
         } catch (DAOException $e) {
-
+            new PermissionShowAllView(array());
+            errorMessage($e->getMessage());
         }
     } else {
         accessDenied();

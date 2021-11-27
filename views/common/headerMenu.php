@@ -55,7 +55,7 @@
                     <div id="sidebar-contents" class="sidebar-sticky">
                         <ul class="nav flex-column">
                             <?php
-                        		if (checkPermission("User", "SHOWALL") ||
+                        		if (checkPermission("usuario", "SHOWALL") ||
                         			checkPermission("Permission", "SHOWALL" ||
                         			checkPermission("FuncAction", "SHOWALL") ||
                         			checkPermission("Action", "SHOWALL") ||
@@ -72,16 +72,24 @@
                                 </a>
                                 <!-- Submenús -->
                                 <ul class="flex-column collapse items-collapsed" id="collapseUsers">
+                                    <?php
+                                         if (checkPermission("usuario", "SHOWALL")) {
+                                    ?>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">
+                                        <a class="nav-link" href="../controllers/userController.php">
                                             <p data-translate="Usuarios"></p>
                                         </a>
                                     </li>
+                                    <?php } ?>
+                                    <?php
+                                        if (checkPermission("Permission", "SHOWALL")) {
+                                    ?>
                                     <li class="nav-item">
                                         <a class="nav-link" href="../controllers/permissionController.php">
                                             <p data-translate="Permisos"></p>
                                         </a>
                                      </li>
+                                     <?php } ?>
                                     <li class="nav-item">
                                         <a class="nav-link" href="../controllers/roleController.php">
                                             <p data-translate="Roles"></p>

@@ -54,7 +54,6 @@ class defaultDAO
         }
         
         $primary_key_function = $this->changeFunctionName($primary_key);
-        
         $sql = "SELECT * FROM " . $this->getTableName($entity) . " WHERE " . $primary_key . "='".
         $entity->$primary_key_function() . "'";
         if (!$result = $this->mysqli->query($sql)){
