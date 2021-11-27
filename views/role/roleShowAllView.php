@@ -21,31 +21,33 @@ class RoleShowAllView
     function render()
     {
         ?>
-        
-        <head>
-            <link rel="stylesheet" href="../css/styles.css"/>
-            <link rel="stylesheet" href="../css/table.css"/>
-        </head>
+        <!DOCTYPE html>
+        <html>
+        <body>
         <main role="main" class="margin-main ml-sm-auto px-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-4 pb-2 mb-3">
-                <h1 class="h2" data-translate="Listado de Roles"></h1>
+                <h2 data-translate="Listado de Roles"></h2>
                 <!-- Search -->
                 <form class="row" action='../controllers/roleController.php?action=search' method='POST'>
-                    <input type="text" class="form-control" id="nombre" name="nombre" data-translate="Texto a buscar">
-                    <button name="submit" type="submit" class="btn btn-primary" data-translate="Buscar"></button>
+                    <div class="col-10 pr-1">
+                        <input type="text" class="form-control" id="nombre" name="nombre" data-translate="Texto a buscar">
+                    </div>
+                    <div class="col-2 pl-0">
+                        <button name="submit" type="submit" class="btn btn-primary" data-translate="Buscar"></button>
+                    </div>
                 </form>
 
-                <?php //if (!empty($this->stringToSearch)): ?>
+                <?php if (!empty($this->stringToSearch)): ?>
                     <a class="btn btn-primary mr-1" role="button" href="../controllers/defaultController.php">
                         <p data-translate="Volver"></p>
                     </a>
-                <?php //else:
-                    //if (HavePermission("Action", "ADD")): ?>
+                <?php else:
+                    if (checkPermission("Role", "ADD")): ?>
                         <a class="btn btn-success" role="button" href="../controllers/roleController.php?action=add">
                             <span data-feather="plus"></span>
                             <p data-translate="Añadir Rol"></p>
                         </a>
-                    <?php //endif; endif; ?>
+                    <?php endif; endif; ?>
             </div>
             <div class="table-responsive">
                 <table class="table table-striped table-sm">
@@ -65,18 +67,18 @@ class RoleShowAllView
                             <td><?php echo $role->getNombre() ?></td>
                             <td><?php echo $role->getDescripcion() ?></td>
                             <td class="row">
-                                <?php // if (HavePermission("role", "SHOWCURRENT")) { ?>
+                                <?php  if (checkPermission("Role", "SHOWCURRENT")) { ?>
                                     <a href="../controllers/roleController.php?action=show&id=<?php echo $role->getId() ?>">
                                         <span data-feather="eye"></span></a>
-                                <?php //}
-                                //if (HavePermission("role", "EDIT")) { ?>
+                                <?php }
+                                if (checkPermission("Role", "EDIT")) { ?>
                                     <a href="../controllers/roleController.php?action=edit&id=<?php echo $role->getId() ?>">
                                         <span data-feather="edit"></span></a>
-                                <?php //}
-                                //if (HavePermission("role", "DELETE")) { ?>
+                                <?php }
+                                if (checkPermission("Role", "DELETE")) { ?>
                                     <a href="../controllers/roleController.php?action=delete&id=<?php echo $role->getId() ?>">
                                         <span data-feather="trash-2"></span></a>
-                                <?php //} ?>
+                                <?php } ?>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -96,6 +98,8 @@ class RoleShowAllView
         <script>
             feather.replace();
         </script>
+</body>
+</html>
         <?php
     }
 }

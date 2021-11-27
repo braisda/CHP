@@ -8,6 +8,8 @@ if (!IsAuthenticated()){
 }
 
 include_once '../utils/pagination.php';
+include_once '../views/common/headerMenu.php';
+include_once '../views/common/head.php';
 include_once '../models/permission/permissionDAO.php';
 include_once '../models/funcAction/funcActionDAO.php';
 include_once '../models/role/roleDAO.php';

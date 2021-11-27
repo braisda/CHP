@@ -1,8 +1,16 @@
 <?php
+session_start();
+include_once '../utils/auth.php';
+include_once '../utils/CheckPermission.php';
 
+if (!IsAuthenticated()){
+    header('Location:../index.php');
+}
+
+include_once '../utils/pagination.php';
 include_once '../models/role/roleDAO.php';
-include_once '../views/Common/head.php';
-include_once '../views/Common/headerMenu.php';
+include_once '../views/common/head.php';
+include_once '../views/common/headerMenu.php';
 include_once '../views/role/roleShowAllView.php';
 include_once '../views/role/roleAddView.php';
 include_once '../views/role/roleShowView.php';
@@ -113,9 +121,9 @@ function showAll() {
 
 function showAllSearch($search) {
     try {
-            $currentPage = 1;//getCurrentPage();
-            $itemsPerPage = 20;//getItemsPerPage();
-            $toSearch = null;//getToSearch($search);
+            $currentPage = getPage();
+            $itemsPerPage = getNumberItems();
+            $toSearch = getToSearch($search);
             $totalRoles = $GLOBALS["roleDAO"]->countTotalRoles($toSearch);
             $roleData = $GLOBALS["roleDAO"]->showAllPaged($currentPage, $itemsPerPage, $toSearch);
             new RoleShowAllView($roleData, $itemsPerPage, $currentPage, $totalRoles, $toSearch);

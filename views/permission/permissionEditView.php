@@ -15,12 +15,8 @@ class PermissionEditView {
     function render() {
     ?>
 <!DOCTYPE html>
-<html id="home">
-<head>
-     <?php include_once '../views/common/head.php';?>
-</head>
+<html>
 <body>
-     <?php include_once '../views/common/headerMenu.php'; ?>
      <main role="main" class="margin-main ml-sm-auto px-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-4 pb-2 mb-3 border-bottom">
             <h2 data-translate="Editar permiso '%<?php echo $this->permission->getFuncAccion()->getFuncionalidad()->getNombre(); $this->permission->getFuncAccion()->getAccion()->getNombre();?>%'"></h2>
