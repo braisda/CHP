@@ -1,33 +1,32 @@
 <?php
 
-include_once '../models/action/actionDAO.php';
+include_once '../models/role/roleDAO.php';
 include_once '../views/Common/head.php';
 include_once '../views/Common/headerMenu.php';
-include_once '../views/action/actionShowAllView.php';
-include_once '../views/action/actionAddView.php';
-include_once '../views/action/actionShowView.php';
-include_once '../views/action/actionEditView.php';
-include_once '../views/action/actionSearchView.php';
+include_once '../views/role/roleShowAllView.php';
+include_once '../views/role/roleAddView.php';
+include_once '../views/role/roleShowView.php';
+include_once '../views/role/roleEditView.php';
+include_once '../views/role/roleSearchView.php';
 include_once '../utils/confirmDelete.php';
 
 //DAO
-$actionDAO = new ActionDAO();
-$actionPrimaryKey = "id";
-$value = $_REQUEST[$actionPrimaryKey];
+$roleDAO = new RoleDAO();
+$rolePrimaryKey = "id";
+$value = $_REQUEST[$rolePrimaryKey];
 $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : "";
-printf($action);
 switch ($action) {
     case "add":
         if (!isset($_POST["submit"])) {
-            new ActionAddView();
+            new RoleAddView();
         } else {
             try {
-                $action = new Accion();
-                $action->setNombre($_POST["name"]);
-                $action->setDescripcion($_POST["description"]);
-                $actionDAO->add($action);
+                $role = new Rol();
+                $role->setNombre($_POST["name"]);
+                $role->setDescripcion($_POST["description"]);
+                $roleDAO->add($role);
                 
-                goToShowAllAndShowSuccess("Acción añadida correctamente.");
+                goToShowAllAndShowSuccess("Rol añadido correctamente.");
             } catch (DAOException $e) {
                 goToShowAllAndShowError($e->getMessage());
             } catch (Exception $ve) {
@@ -38,17 +37,17 @@ switch ($action) {
     case "delete":
         if (isset($_REQUEST["confirm"])) {
             try {
-                $actionDAO->delete($actionPrimaryKey, $value);
-                goToShowAllAndShowSuccess("Acción eliminada correctamente.");
+                $roleDAO->delete($rolePrimaryKey, $value);
+                goToShowAllAndShowSuccess("Rol eliminado correctamente.");
             } catch (DAOException $e) {
                 goToShowAllAndShowError($e->getMessage());
             }
         } else {
             try {
                 showAll();
-                confirmDelete("Eliminar Acción", "¿Está seguro de que desea eliminar " .
-                    "la acción %" . $value . "%? Esta acción es permanente y no se puede recuperar.",
-                    "../controllers/actionController.php?action=delete&id=" . $value . "&confirm=true");
+                confirmDelete("Eliminar Rol", "¿Está seguro de que desea eliminar " .
+                    "el rol %" . $value . "%? Esta acción es permanente y no se puede recuperar.",
+                    "../controllers/roleController.php?action=delete&id=" . $value . "&confirm=true");
             } catch (DAOException $e) {
                 goToShowAllAndShowError($e->getMessage());
             }
@@ -56,8 +55,9 @@ switch ($action) {
         break;
     case "show":
         try {
-            $actionData = $actionDAO->show($actionPrimaryKey, $value);
-            new ActionShowView($actionData);
+            $roleData = $roleDAO->show($rolePrimaryKey, $value);
+            printf("entra");
+            new RoleShowView($roleData);
         } catch (DAOException $e) {
             goToShowAllAndShowError($e->getMessage());
         } catch (Exception $ve) {
@@ -66,15 +66,15 @@ switch ($action) {
         break;
     case "edit":
         try {
-            $action = $actionDAO->show($actionPrimaryKey, $value);
+            $role = $roleDAO->show($rolePrimaryKey, $value);
             if (!isset($_POST["submit"])) {
-                new ActionEditView($action);
+                new RoleEditView($role);
             } else {
-                $action->setId($value);
-                $action->setNombre($_POST["name"]);
-                $action->setDescripcion($_POST["description"]);
-                $actionDAO->edit($action);
-                goToShowAllAndShowSuccess("Acción editada correctamente.");
+                $role->setId($value);
+                $role->setNombre($_POST["name"]);
+                $role->setDescripcion($_POST["description"]);
+                $roleDAO->edit($role);
+                goToShowAllAndShowSuccess("Rol editado correctamente.");
             }
         } catch (DAOException $e) {
             goToShowAllAndShowError($e->getMessage());
@@ -83,19 +83,18 @@ switch ($action) {
         }
         break;
     case "search":
-        printf("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeentra en buscaaaaaaaaaaaaaaaaaaaaaaaaaar");
         if (!isset($_POST["submit"])) {
             new ActionSearchView();
         } else {
             try {
-                $action = new Accion();
+                $role = new Rol();
                 if(!empty($_POST["name"])) {
-                    $action->setNombre($_POST["name"]);
+                    $role->setNombre($_POST["name"]);
                 }
                 if(!empty($_POST["description"])) {
-                    $action->setDescripcion($_POST["description"]);
+                    $role->setDescripcion($_POST["description"]);
                 }
-                showAllSearch($action);
+                showAllSearch($role);
             } catch (DAOException $e) {
                 goToShowAllAndShowError($e->getMessage());
             } catch (Exception $ve) {
@@ -113,17 +112,17 @@ function showAll() {
 }
 
 function showAllSearch($search) {
-        try {
+    try {
             $currentPage = 1;//getCurrentPage();
-            $itemsPerPage = 10;//getItemsPerPage();
+            $itemsPerPage = 20;//getItemsPerPage();
             $toSearch = null;//getToSearch($search);
-            $totalActions = $GLOBALS["actionDAO"]->countTotalActions($toSearch);
-            $actionData = $GLOBALS["actionDAO"]->showAllPaged($currentPage, $itemsPerPage, $toSearch);
-            new ActionShowAllView($actionData, $itemsPerPage, $currentPage, $totalActions, $toSearch);
+            $totalRoles = $GLOBALS["roleDAO"]->countTotalRoles($toSearch);
+            $roleData = $GLOBALS["roleDAO"]->showAllPaged($currentPage, $itemsPerPage, $toSearch);
+            new RoleShowAllView($roleData, $itemsPerPage, $currentPage, $totalRoles, $toSearch);
         } catch (DAOException $e) {
             include '../models/common/messageType.php';
             include '../utils/ShowToast.php';
-            new ActionShowAllView(array());
+            new RoleShowAllView(array());
             $message = MessageType::ERROR;
             showToast($message, $e->getMessage());
         }
@@ -132,7 +131,7 @@ function showAllSearch($search) {
 function goToShowAllAndShowError($message) {
     showAll();
     include '../models/common/messageType.php';
-    include '../utils/ShowToast.php';
+    include '../utils/ToastTrigger.php';
     $messageType = MessageType::ERROR;
     showToast($messageType, $message);
 }

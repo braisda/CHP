@@ -1,5 +1,4 @@
 function showToast(title, titleColor, text) {
-
     var messageContent = "<p data-translate='" + text + "'></p>";
     $('#toast-body').append(messageContent);
     document.getElementById('header-toast').style.backgroundColor = titleColor;

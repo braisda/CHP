@@ -19,7 +19,7 @@ class RoleDAO
     }
 
     function delete($key, $value) {
-        $this->defaultDAO->delete("role", $key, $value);
+        $this->defaultDAO->delete("rol", $key, $value);
     }
 
     function show($key, $value) {
