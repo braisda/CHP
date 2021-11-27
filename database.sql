@@ -92,10 +92,10 @@ CREATE TABLE `accion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 -- --------------------------------------------------------
 -- --------------------------------------------------------
--- TABLE STRUCTURE FOR TABLE `FUNC_accion`
+-- TABLE STRUCTURE FOR TABLE `funcAccion`
 -- --------------------------------------------------------
 -- --------------------------------------------------------
-CREATE TABLE `func_accion` (
+CREATE TABLE `funcAccion` (
   `id` int(8) COLLATE latin1_spanish_ci NOT NULL AUTO_INCREMENT,
   `idFuncionalidad` int(8) COLLATE latin1_spanish_ci NOT NULL,
   `idAccion` int(8) COLLATE latin1_spanish_ci NOT NULL,
@@ -106,7 +106,7 @@ CREATE TABLE `func_accion` (
 	REFERENCES `accion`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
-ALTER TABLE `func_accion` ADD UNIQUE KEY `uidx` (`idFuncionalidad`, `idAccion`);
+ALTER TABLE `funcAccion` ADD UNIQUE KEY `uidx` (`idFuncionalidad`, `idAccion`);
 -- --------------------------------------------------------
 -- --------------------------------------------------------
 -- TABLE STRUCTURE FOR TABLE `PERMISSION`
@@ -120,7 +120,7 @@ CREATE TABLE `permiso` (
   FOREIGN KEY (`idRol`)
 	REFERENCES `rol`(`id`),
   FOREIGN KEY (`idFuncAccion`)
-	REFERENCES `func_accion`(`id`)
+	REFERENCES `funcAccion`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 ALTER TABLE `permiso` ADD UNIQUE KEY `uidx` (`idRol`, `idFuncAccion`);
@@ -377,7 +377,7 @@ INSERT INTO `funcionalidad` (`id`, `nombre`, `descripcion`) VALUES
 
 
 
-INSERT INTO `func_accion` (`id`,`idFuncionalidad`, `idAccion`) VALUES
+INSERT INTO `funcAccion` (`id`,`idFuncionalidad`, `idAccion`) VALUES
 ('1','1','1'),
 ('2','1','2'),
 ('3','1','3'),

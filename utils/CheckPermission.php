@@ -14,12 +14,12 @@ function checkPermission($controller, $act)
         $serverKey = '5f2b5cdbe5194f10b3241568fe4e2b24';
         $elem = JWT::decode($_SESSION['token'], $serverKey, array('HS256'));
 
-            if($userRole->getUser()->getLogin() ==  $elem->login) {
+            if($userRole->getUsuario()->getLogin() ==  $elem->login) {
                 $permissions = $permissionDAO->showAll();
                 foreach ($permissions as $permission) {
-                    if ($permission->getRole()->getId() == $userRole->getId()) {
-                        if ($permission->getFuncAction()->getFunctionality()->getName() ==
-                            $controller . "Management" && $permission->getFuncAction()->getAction()->getName() == $act) {
+                    if ($permission->getRol()->getId() == $userRole->getId()) {
+                        if ($permission->getFuncAccion()->getFuncionalidad()->getNombre() ==
+                            $controller . "Management" && $permission->getFuncAccion()->getAccion()->getNombre() == $act) {
                             return true;
                         }
                     }

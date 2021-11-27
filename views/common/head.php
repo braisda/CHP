@@ -26,4 +26,9 @@
     <script src="../js/Translate.js"></script>
     <script src="../js/PageSelectChange.js"></script>
     <script src="../js/validations.js"></script>
+
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/calendar.css" />
+    <script src="../js/menuToggler.js"></script>
+    <?php include_once '../utils/CheckPermission.php'?>
 </head>

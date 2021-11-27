@@ -183,18 +183,6 @@
         "en": "Actions list",
         "gl": "Listado de accións"
     },
-    "Texto a buscar": {
-        "en": "Text to search",
-        "gl": "Texto a buscar"
-    },
-    "Buscar": {
-        "en": "Search",
-        "gl": "Buscar"
-    },
-    "Volver": {
-        "en": "Return",
-        "gl": "Volver"
-    },
     "Añadir acción": {
         "en": "Add action",
         "gl": "Engadir acción"
@@ -244,8 +232,108 @@
         "gl": "Eliminar acción"
     },
     "¿Está seguro de que desea eliminar la acción %c? Esta acción es permanente y no se puede recuperar.": {
-      "en": "Are you sure you want to delete the action %c? This action is permanent and cannot be recovered.",
-      "gl": "Está seguro de que desexa eliminar a acción %c? Esta acción é permanente e non se pode recuperar."
+        "en": "Are you sure you want to delete the action %c? This action is permanent and cannot be recovered.",
+        "gl": "Está seguro de que desexa eliminar a acción %c? Esta acción é permanente e non se pode recuperar."
+    },
+    "Listado de permisos": {
+        "en": "Permission list",
+        "gl": "Listaxe de permisos"
+    },
+    "Texto a buscar": {
+        "en": "Text to search",
+        "gl": "Texto a procurar"
+    },
+    "Buscar": {
+        "en": "Search",
+        "gl": "Procurar"
+    },
+    "Volver": {
+        "en": "Go back",
+        "gl": "Voltar"
+    },
+    "Asignar permiso": {
+        "en": "Assign permission",
+        "gl": "Asignar permiso"
+    },
+    "Rol": {
+        "en": "Role",
+        "gl": "Rol"
+    },
+    "Funcionalidad": {
+        "en": "Functionality",
+        "gl": "Funcionalidade"
+    },
+    "Acción": {
+        "en": "Action",
+        "gl": "Acción"
+    },
+    "Añadir permiso": {
+        "en": "Add permission",
+        "gl": "Engadir permiso"
+    },
+    "No se ha obtenido ningún permiso": {
+        "en": "No permission has been obtained",
+        "gl": "Non se obtivo ningún permiso"
+    },
+    "Permiso '%c'": {
+        "en": "'%c' permission",
+        "gl": "Permiso '%c'"
+    },
+    "El permiso no existe": {
+        "en": "Permission does not exists",
+        "gl": "O permiso non existe"
+    },
+    "Permiso modificado correctamente.": {
+        "en": "Permission successfully edited.",
+        "gl": "Permiso modificado correctamente."
+    },
+    "Editar permiso '%c'": {
+        "en": "Edit '%c' permission",
+        "gl": "Editalo permiso '%c'"
+    },
+    "Permiso": {
+        "en": "Permission",
+        "gl": "Permiso"
+    },
+    "Enviar":{
+        "en": "Send",
+        "gl": "Enviar"
+    },
+    "Asignación de permiso eliminada correctamente.": {
+        "en": "Permission assigment deleted successfully.",
+        "gl": "Asignación de permiso eliminada correctamente."
+    },
+    "Permiso eliminado correctamente.": {
+        "en": "Permission successfully deleted.",
+        "gl": "Permiso eliminado correctamente."
+    },
+    "No tienes permiso para eliminar.": {
+        "en": "You don't have the permission to delete.",
+        "gl": "Non tes permiso para eliminar."
+    },
+    "Permiso añadido correctamente.": {
+        "en": "Permission added successfully.",
+        "gl": "Permiso engadido correctamente."
+    },
+    "No tienes permiso para añadir.": {
+        "en": "You don't have the permission to add.",
+        "gl": "Non tes permiso para engadir."
+    },
+    "Insertar permiso": {
+        "en": "Add permission",
+        "gl": "Insertar permiso"
+    },
+    "Buscar permiso": {
+        "en": "Search permission",
+        "gl": "Buscar permiso"
+    },
+    "Eliminar permiso": {
+        "en": "Delete permission",
+        "gl": "Eliminar permiso"
+    },
+    "¿Está seguro de que desea eliminar el permiso %c? Esta acción es permanente y no se puede recuperar.": {
+        "en": "Are you sure you want to delete the permission %c? This action is permanent and cannot be recovered.",
+        "gl": "Está seguro de que desexa eliminar o permiso %c? Esta acción é permanente e non se pode recuperar."
     }
 }
 

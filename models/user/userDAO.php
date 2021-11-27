@@ -1,6 +1,6 @@
 <?php
 include_once '../models/common/defaultDAO.php';
-include_once 'user.php';
+include_once 'usuario.php';
 
 class userDAO
 {
@@ -24,7 +24,7 @@ class userDAO
 
     function show($key, $value) {
         $user_db = $this->defaultDAO->show("usuario", $key, $value);
-        return new user($user_db["login"], $user_db["password"], $user_db["dni"], $user_db["nombre"],
+        return new Usuario($user_db["login"], $user_db["password"], $user_db["dni"], $user_db["nombre"],
             $user_db["apellido"], $user_db["email"], $user_db["direccion"], $user_db["telefono"]);
     }
 
@@ -48,12 +48,12 @@ class userDAO
     }
 
     function showAllPaged($currentPage, $itemsPerPage, $stringToSearch) {
-        $usersDB = $this->defaultDAO->showAllPaged($currentPage, $itemsPerPage, new user(), $stringToSearch);
+        $usersDB = $this->defaultDAO->showAllPaged($currentPage, $itemsPerPage, new Usuario(), $stringToSearch);
         return $this->getUsersFromDB($usersDB);
     }
 
     function countTotalUsers($stringToSearch) {
-        return $this->defaultDAO->countTotalEntries(new user(), $stringToSearch);
+        return $this->defaultDAO->countTotalEntries(new Usuario(), $stringToSearch);
     }
 
     function checkDependencies($value) {
@@ -63,7 +63,7 @@ class userDAO
     private function getUsersFromDB($usersDB) {
         $users = array();
         foreach ($usersDB as $user) {
-            array_push($users, new user($user["login"], $user["password"], $user["dni"], $user["nombre"],
+            array_push($users, new Usuario($user["login"], $user["password"], $user["dni"], $user["nombre"],
                 $user["apellido"], $user["email"], $user["direccion"], $user["telefono"]));
         }
         return $users;

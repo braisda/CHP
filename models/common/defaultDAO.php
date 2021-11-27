@@ -34,7 +34,7 @@ class defaultDAO
             $value = $entity->$function_name();
             
             if(is_object($value)) {
-                $attribute = $attribute . "_id";
+                $attribute = "id" . $attribute;
                 $value = $value->getId();
             }
             
@@ -106,12 +106,13 @@ class defaultDAO
     {
         $attributes = array_keys($entity->expose());
         $sql = "";
+
         foreach ($attributes as $attribute) {
             $function_name = $this->changeFunctionName($attribute);
             $value = $entity->$function_name();
 
             if(is_object($value)) {
-                $attribute = $attribute . "_id";
+                $attribute = "id" . $attribute;
                 $value = $value->getId();
             }
 

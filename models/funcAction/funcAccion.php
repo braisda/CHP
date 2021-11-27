@@ -1,14 +1,14 @@
 <?php
-class FuncAction
+class FuncAccion
 {
     private $id;
-    private $action;
-    private $functionality;
+    private $accion;
+    private $funcionalidad;
 
-    public function __construct($id=NULL, $action=NULL, $functionality=NULL){
+    public function __construct($id=NULL, $accion=NULL, $funcionalidad=NULL){
         $this->id = $id;
-        $this->action = $action;
-        $this->functionality = $functionality;
+        $this->accion = $accion;
+        $this->funcionalidad = $funcionalidad;
     }
 
     public function getId()
@@ -25,31 +25,31 @@ class FuncAction
         }
     }
 
-    public function getAction()
+    public function getAccion()
     {
-        return $this->action;
+        return $this->accion;
     }
 
-    public function setAction($action)
+    public function setAccion($accion)
     {
-        if (empty($action) || strlen($action)>8) {
+        if (empty($accion) || strlen($accion)>8) {
             throw new ValidationException('Error de validación. Acción incorrecta.');
         } else {
-            $this->action = $action;
+            $this->accion = $accion;
         }
     }
 
-    public function getFunctionality()
+    public function getFuncionalidad()
     {
-        return $this->functionality;
+        return $this->funcionalidad;
     }
 
-    public function setFunctionality($functionality)
+    public function setFuncionalidad($funcionalidad)
     {
-        if (empty($functionality) || strlen($functionality)>8) {
+        if (empty($funcionalidad) || strlen($funcionalidad)>8) {
             throw new ValidationException('Error de validación. Funcionalidad incorrecta.');
         } else {
-            $this->functionality = $functionality;
+            $this->funcionalidad = $funcionalidad;
         }
     }
 

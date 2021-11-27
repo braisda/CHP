@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html id="home">
-<head>
-     <link rel="stylesheet" href="../css/styles.css" />
-     <link rel="stylesheet" href="../css/calendar.css" />
-     <script src="../js/menuToggler.js"></script>
-     <?php include_once '../utils/CheckPermission.php'?>
-</head>
-<body>
+
     <!-- Barra de herramientas / Menú -->
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
         <a id="button-sidebar" class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">
@@ -63,13 +55,13 @@
                     <div id="sidebar-contents" class="sidebar-sticky">
                         <ul class="nav flex-column">
                             <?php
-                        		/*if (checkPermission("User", "SHOWALL") ||
+                        		if (checkPermission("User", "SHOWALL") ||
                         			checkPermission("Permission", "SHOWALL" ||
                         			checkPermission("FuncAction", "SHOWALL") ||
                         			checkPermission("Action", "SHOWALL") ||
                         			checkPermission("Functionality", "SHOWALL") ||
                         			checkPermission("Role", "SHOWALL") ||
-                        			checkPermission("UserRole", "SHOWALL"))) {*/
+                        			checkPermission("UserRole", "SHOWALL"))) {
                         	?>
                             <li class="nav-item">
                                 <!-- Gestión de usuarios -->
@@ -86,7 +78,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">
+                                        <a class="nav-link" href="../controllers/permissionController.php">
                                             <p data-translate="Permisos"></p>
                                         </a>
                                      </li>
@@ -97,7 +89,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <?php //} ?>
+                            <?php } ?>
                             <!-- Gestión de horarios -->
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
@@ -119,6 +111,4 @@
         </div>
     </div>
 
-    
-</body>
-</html>
+

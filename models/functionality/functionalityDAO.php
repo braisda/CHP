@@ -1,6 +1,6 @@
 <?php
 include_once '../models/common/defaultDAO.php';
-include_once 'functionality.php';
+include_once 'funcionalidad.php';
 
 class FunctionalityDAO
 {
@@ -24,7 +24,7 @@ class FunctionalityDAO
 
     function show($key, $value) {
         $functionality_db = $this->defaultDAO->show("funcionalidad", $key, $value);
-        return new Functionality($functionality_db["id"], $functionality_db["nombre"], $functionality_db["descripcion"]);
+        return new Funcionalidad($functionality_db["id"], $functionality_db["nombre"], $functionality_db["descripcion"]);
     }
 
     function edit($functionality) {
@@ -36,12 +36,12 @@ class FunctionalityDAO
     }
 
     function showAllPaged($currentPage, $itemsPerPage, $stringToSearch) {
-        $functionalitiesDB = $this->defaultDAO->showAllPaged($currentPage, $itemsPerPage, new Functionality(), $stringToSearch);
+        $functionalitiesDB = $this->defaultDAO->showAllPaged($currentPage, $itemsPerPage, new Funcionalidad(), $stringToSearch);
         return $this->getFunctionalitiesFromDB($functionalitiesDB);
     }
 
     function countTotalFunctionalities($stringToSearch) {
-        return $this->defaultDAO->countTotalEntries(new Functionality(), $stringToSearch);
+        return $this->defaultDAO->countTotalEntries(new Funcionalidad(), $stringToSearch);
     }
 
     function checkDependencies($value) {
@@ -51,7 +51,7 @@ class FunctionalityDAO
     private function getFunctionalitiesFromDB($functionalities_db) {
         $functionalities = array();
         foreach ($functionalities_db as $functionality) {
-            array_push($functionalities, new Functionality($functionality["id"],
+            array_push($functionalities, new Funcionalidad($functionality["id"],
                 $functionality["nombre"], $functionality["descripcion"]));
         }
         return $functionalities;
