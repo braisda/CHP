@@ -44,6 +44,8 @@ switch ($action) {
                     goToShowAllAndShowError($ve->getMessage());
                 }
             }
+        } else {
+            goToShowAllAndShowError("No tienes permiso para añadir.");
         }
         break;
     case "delete":
@@ -65,6 +67,8 @@ switch ($action) {
                     goToShowAllAndShowError($e->getMessage());
                 }
             }
+        } else {
+            goToShowAllAndShowError("No tienes permiso para eliminar.");
         }
         break;
     case "show":
@@ -77,6 +81,8 @@ switch ($action) {
             } catch (Exception $ve) {
                 goToShowAllAndShowError($ve->getMessage());
             }
+        } else {
+            goToShowAllAndShowError("No tienes permiso para visualizar la entidad.");
         }
         break;
     case "edit":
@@ -97,6 +103,8 @@ switch ($action) {
             } catch (Exception $ve) {
                 goToShowAllAndShowError($ve->getMessage());
             }
+        } else {
+            goToShowAllAndShowError("No tienes permiso para editar.");
         }
         break;
     case "search":
@@ -119,6 +127,8 @@ switch ($action) {
                     goToShowAllAndShowError($ve->getMessage());
                 }
             }
+        } else{
+            goToShowAllAndShowError("No tienes permiso para buscar.");
         }
         break;
     default:
@@ -131,7 +141,8 @@ function showAll() {
 }
 
 function showAllSearch($search) {
-    try {
+    if (checkPermission("Academiccurso", "SHOWALL")) {
+        try {
             $currentPage = getPage();
             $itemsPerPage = getNumberItems();
             $toSearch = getToSearch($search);
@@ -145,6 +156,9 @@ function showAllSearch($search) {
             $message = MessageType::ERROR;
             showToast($message, $e->getMessage());
         }
+    } else {
+        accessDenied();
+    }
 }
 
 function goToShowAllAndShowError($message) {

@@ -27,89 +27,111 @@ $value = $_REQUEST[$functionalityPrimaryKey];
 $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : "";
 switch ($action) {
     case "add":
-        if (!isset($_POST["submit"])) {
-            new FunctionalityAddView();
-        } else {
-            try {
-                $functionality = new Funcionalidad();
-                $functionality->setNombre($_POST["name"]);
-                $functionality->setDescripcion($_POST["description"]);
-                $functionalityDAO->add($functionality);
-                
-                goToShowAllAndShowSuccess("Funcionalidad añadida correctamente.");
-            } catch (DAOException $e) {
-                goToShowAllAndShowError($e->getMessage());
-            } catch (Exception $ve) {
-                goToShowAllAndShowError($ve->getMessage());
+        if (checkPermission("Academiccurso", "ADD")) {
+            if (checkPermission("Functionality", "ADD")) {
+                if (!isset($_POST["submit"])) {
+                    new FunctionalityAddView();
+                } else {
+                    try {
+                        $functionality = new Funcionalidad();
+                        $functionality->setNombre($_POST["name"]);
+                        $functionality->setDescripcion($_POST["description"]);
+                        $functionalityDAO->add($functionality);
+                        
+                        goToShowAllAndShowSuccess("Funcionalidad añadida correctamente.");
+                    } catch (DAOException $e) {
+                        goToShowAllAndShowError($e->getMessage());
+                    } catch (Exception $ve) {
+                        goToShowAllAndShowError($ve->getMessage());
+                    }
+                }
             }
+        } else {
+            goToShowAllAndShowError("No tienes permiso para añadir.");
         }
         break;
     case "delete":
-        if (isset($_REQUEST["confirm"])) {
-            try {
-                $functionalityDAO->delete($functionalityPrimaryKey, $value);
-                goToShowAllAndShowSuccess("Funcionalidad eliminada correctamente.");
-            } catch (DAOException $e) {
-                goToShowAllAndShowError($e->getMessage());
+        if (checkPermission("Academiccurso", "DELETE")) {
+            if (isset($_REQUEST["confirm"])) {
+                try {
+                    $functionalityDAO->delete($functionalityPrimaryKey, $value);
+                    goToShowAllAndShowSuccess("Funcionalidad eliminada correctamente.");
+                } catch (DAOException $e) {
+                    goToShowAllAndShowError($e->getMessage());
+                }
+            } else {
+                try {
+                    showAll();
+                    confirmDelete("Eliminar Funcionalidad", "¿Está seguro de que desea eliminar " .
+                        "la funcionalidad %" . $value . "%? Esta acción es permanente y no se puede recuperar.",
+                        "../controllers/functionalityController.php?action=delete&id=" . $value . "&confirm=true");
+                } catch (DAOException $e) {
+                    goToShowAllAndShowError($e->getMessage());
+                }
             }
         } else {
-            try {
-                showAll();
-                confirmDelete("Eliminar Funcionalidad", "¿Está seguro de que desea eliminar " .
-                    "la funcionalidad %" . $value . "%? Esta acción es permanente y no se puede recuperar.",
-                    "../controllers/functionalityController.php?action=delete&id=" . $value . "&confirm=true");
-            } catch (DAOException $e) {
-                goToShowAllAndShowError($e->getMessage());
-            }
+            goToShowAllAndShowError("No tienes permiso para eliminar.");
         }
         break;
     case "show":
-        try {
-            $functionalityData = $functionalityDAO->show($functionalityPrimaryKey, $value);
-            new FunctionalityShowView($functionalityData);
-        } catch (DAOException $e) {
-            goToShowAllAndShowError($e->getMessage());
-        } catch (Exception $ve) {
-            goToShowAllAndShowError($ve->getMessage());
-        }
-        break;
-    case "edit":
-        try {
-            $functionality = $functionalityDAO->show($functionalityPrimaryKey, $value);
-            if (!isset($_POST["submit"])) {
-                new FunctionalityEditView($functionality);
-            } else {
-                $functionality->setId($value);
-                $functionality->setNombre($_POST["name"]);
-                $functionality->setDescripcion($_POST["description"]);
-                $functionalityDAO->edit($functionality);
-                goToShowAllAndShowSuccess("Funcionalidad editada correctamente.");
-            }
-        } catch (DAOException $e) {
-            goToShowAllAndShowError($e->getMessage());
-        } catch (Exception $ve) {
-            goToShowAllAndShowError($ve->getMessage());
-        }
-        break;
-    case "search":
-        if (!isset($_POST["submit"])) {
-            //new ActionSearchView();
-        } else {
+        if (checkPermission("Functionality", "SHOWCURRENT")) {
             try {
-                $functionality = new Funcionalidad();
-                if(!empty($_POST["name"])) {
-                    $functionality->setNombre($_POST["name"]);
-                }
-                if(!empty($_POST["description"])) {
-                    $functionality->setDescripcion($_POST["description"]);
-                }
-                showAllSearch($functionality);
+                $functionalityData = $functionalityDAO->show($functionalityPrimaryKey, $value);
+                new FunctionalityShowView($functionalityData);
             } catch (DAOException $e) {
                 goToShowAllAndShowError($e->getMessage());
             } catch (Exception $ve) {
                 goToShowAllAndShowError($ve->getMessage());
             }
+        } else {
+            goToShowAllAndShowError("No tienes permiso para visualizar la entidad.");
         }
+        break;
+    case "edit":
+        if (checkPermission("Functionality", "EDIT")) {
+            try {
+                $functionality = $functionalityDAO->show($functionalityPrimaryKey, $value);
+                if (!isset($_POST["submit"])) {
+                    new FunctionalityEditView($functionality);
+                } else {
+                    $functionality->setId($value);
+                    $functionality->setNombre($_POST["name"]);
+                    $functionality->setDescripcion($_POST["description"]);
+                    $functionalityDAO->edit($functionality);
+                    goToShowAllAndShowSuccess("Funcionalidad editada correctamente.");
+                }
+            } catch (DAOException $e) {
+                goToShowAllAndShowError($e->getMessage());
+            } catch (Exception $ve) {
+                goToShowAllAndShowError($ve->getMessage());
+            }
+        } else {
+            goToShowAllAndShowError("No tienes permiso para editar.");
+        }
+        break;
+    case "search":
+        if(checkPermission("Functionality", "SHOWALL")) {
+            if (!isset($_POST["submit"])) {
+                //new ActionSearchView();
+            } else {
+                try {
+                    $functionality = new Funcionalidad();
+                    if(!empty($_POST["name"])) {
+                        $functionality->setNombre($_POST["name"]);
+                    }
+                    if(!empty($_POST["description"])) {
+                        $functionality->setDescripcion($_POST["description"]);
+                    }
+                    showAllSearch($functionality);
+                } catch (DAOException $e) {
+                    goToShowAllAndShowError($e->getMessage());
+                } catch (Exception $ve) {
+                    goToShowAllAndShowError($ve->getMessage());
+                }
+            }
+        } else{
+            goToShowAllAndShowError("No tienes permiso para buscar.");
+        } 
         break;
     default:
         showAll();
@@ -121,7 +143,8 @@ function showAll() {
 }
 
 function showAllSearch($search) {
-    try {
+    if (checkPermission("Functionality", "SHOWALL")) {
+        try {
             $currentPage = getPage();
             printf("asdasdasd");
             $itemsPerPage = getNumberItems();
@@ -136,6 +159,7 @@ function showAllSearch($search) {
             $message = MessageType::ERROR;
             showToast($message, $e->getMessage());
         }
+    }
 }
 
 function goToShowAllAndShowError($message) {
