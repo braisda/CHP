@@ -112,6 +112,13 @@
                                     <p data-translate="Gestión de funcionalidades"></p>
                                 </a>
                             </li>
+                            <!-- Gestión de cursos academicos -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="../controllers/academicCourseController.php">
+                                    <span class="far bi-calendar2"></span>
+                                    <p data-translate="Gestión de cursos académicos"></p>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </nav>

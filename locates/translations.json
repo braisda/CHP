@@ -638,6 +638,70 @@
     "Elems. por página": {
         "en": "Items per page",
         "gl": "Elems. por páxina"
+    },
+    "Gestión de cursos académicos": {
+        "en": "Academic courses management",
+        "gl": "Xestión de cusros académicos"
+    },
+    "Listado de Cursos Académicos": {
+        "en": "Academic courses List",
+        "gl": "Listado de Cursos Académicos"
+    },
+    "Año de inicio": {
+        "en": "Start year",
+        "gl": "Ano de inicio"
+    },
+    "Año de fin": {
+        "en": "End year",
+        "gl": "Ano de inicio"
+    },
+    "No se ha obtenido ningún curso académico": {
+        "en": "No academic course found",
+        "gl": "Non se atopou ningún curso académico"
+    },
+    "Añadir curso académico": {
+        "en": "Add academic course",
+        "gl": "Engadir curso acedémico"
+    },
+    "Error de validación. Id incorrecto.":{
+        "en": "Validation error. Incorrect id",
+        "gl": "Error de validación. Id incorrecto."
+    },
+    "Curso académico añadido correctamente.":{
+        "en": "Academic course correctly added",
+        "gl": "Curso académico engadido correctamente."
+    },
+    "Curso académico editado correctamente.":{
+        "en": "Academic course correctly updated",
+        "gl": "Curso académico editado correctamente."
+    },
+    "No tienes permiso para visualizar la entidad.":{
+        "en": "You don´t have permissions to show the entity.",
+        "gl": "Non tes permiso para visualizar a entidade."
+    },
+    "No tienes permiso para buscar.":{
+        "en": "You don´t have permissions to search.",
+        "gl": "Non tes permiso para buscar."
+    },
+    "Editar curso académico '%c'": {
+        "en": "Edit action '%c'",
+        "gl": "Editar acción '%c'"
+    },
+    "Curso académico '%c'": {
+        "en": "Edit action '%c'",
+        "gl": "Editar acción '%c'"
+    },
+    "¿Está seguro de que desea eliminar el curso académico %c? Esta acción es permanente y no se puede recuperar.": {
+        "en": "Are you sure you want to delete the academic course %c? This action is permanent and cannot be recovered.",
+        "gl": "Está seguro de que desexa eliminar o curso académico %c? Esta acción é permanente e non se pode recuperar."
+    },
+    "Eliminar curso académico":{
+        "en": "Delete academic course",
+        "gl": "Eliminar curso académico"
+    },
+    "Curso académico eliminado correctamente.":{
+        "en": "Academic course deleted succesfully.",
+        "gl": "Curso académico eliminado correctamente."
     }
 }
 
