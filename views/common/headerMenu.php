@@ -11,7 +11,7 @@
         <ul class="navbar-nav px-1 d-none d-sm-block">
             <div class="row margin-right">
                 <!-- Language -->
-                <li class="nav-item text-nowrap row flags">
+                <li class="nav-item text-nowrap row flags mr-2">
                     <a href="javascript:setCookie('language-selected', 'gl'); translatePage();"><img class="flag" src="../assets/gallego.png"></a>
                     <a href="javascript:setCookie('language-selected', 'es'); translatePage();"><img class="flag" src="../assets/espanol.png"></a>
                     <a href="javascript:setCookie('language-selected', 'en'); translatePage();"><img class="flag" src="../assets/english.jpg"></a>
