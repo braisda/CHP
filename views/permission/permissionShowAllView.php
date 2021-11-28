@@ -8,15 +8,20 @@ class PermissionShowAllView {
     private $page;
     private $totalPermissions;
     private $totalPages;
-    private $stringToSearch;
+    private $search;
 
-    function __construct($permissionData, $pageItems = NULL, $page = NULL, $totalPermissions = NULL, $stringToSearch = NULL) {
+    private $roles;
+    private $funcActions;
+
+    function __construct($permissionData, $pageItems = NULL, $page = NULL, $totalPermissions = NULL, $search = NULL, $roles = NULL, $funcActions = NULL) {
         $this->permissions = $permissionData;
         $this->pageItems = $pageItems;
         $this->page = $page;
         $this->totalPermissions = $totalPermissions;
         $this->totalPages = ceil($totalPermissions / $itemsPerPage);
-        $this->stringToSearch = $stringToSearch;
+        $this->search = $search;
+        $this->roles = $roles;
+        $this->funcActions = $funcActions;
         $this->render();
     }
 
@@ -30,17 +35,56 @@ class PermissionShowAllView {
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-4 pb-2 mb-3">
             <h2 data-translate="Listado de permisos"></h2>
             <!-- Search -->
-            <form class="row" action='../controllers/permissionController.php' method='POST'>
-                <div class="col-10 pr-1">
-                    <input type="text" class="form-control" id="search" name="search" data-translate="Texto a buscar">
+            <a class="btn btn-primary button-specific-search" data-toggle="modal" data-target="#searchModal" role="button">
+                <span data-feather="search"></span>
+                <p class="btn-show-view" data-translate="Buscar"></p>
+            </a>
+            <!-- Modal -->
+            <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"><p class="btn-show-view" data-translate="Búsqueda avanzada"></p></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="row" id="searchPermission" action='../controllers/permissionController.php?action=search' method='POST'>
+                                <div class="form-group">
+                                    <label for="idRol" data-translate="Rol"></label>
+                                    <select class="form-control" id="idRol" name="idRol">
+                                        <option value="" data-translate="Seleccione"></option>
+                                        <?php foreach ($this->roles as $role): ?>
+                                        <option value="<?php echo $role->getId()?>">
+                                            <?php echo $role->getNombre() ?>
+                                        </option>
+                                        <?php endforeach;?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="idFuncAccion" data-translate="Permiso"></label>
+                                    <select class="form-control" id="idFuncAccion" name="idFuncAccion">
+                                        <option value="" data-translate="Seleccione"></option>
+                                        <?php foreach($this->funcActions as $funcAction): ?>
+                                        <option value="<?php echo $funcAction->getId()?>" >
+                                            <?php echo $funcAction->getAccion()->getNombre()." - ".$funcAction->getFuncionalidad()->getNombre(); ?>
+                                        </option>
+                                        <?php endforeach;?>
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal" data-translate="Volver"></button>
+                                <button type="button" class="btn btn-primary" name="submit" type="submit" data-translate="Buscar" onclick="form_submit()"></button>
+                            </div>
+                    </div>
                 </div>
-                <div class="col-2 pl-0">
-                    <button name="submit" type="submit" class="btn btn-primary" data-translate="Buscar"></button>
-                </div>
-            </form>
+            </div>
 
-            <?php if (!empty($this->stringToSearch)){ ?>
-                <a class="btn btn-primary mr-1" role="button" href="../controllers/defaultController.php">
+            <?php if (!empty($this->search)){ ?>
+                <a class="btn btn-primary mr-1" role="button" href="../controllers/permissionController.php">
                     <p data-translate="Volver"></p>
                 </a>
             <?php } else {
@@ -90,7 +134,7 @@ class PermissionShowAllView {
             </table>
                 <p data-translate="No se ha obtenido ningun permiso">. </p>
             <?php endif; ?>
-            <?php new PaginationView($this->pageItems, $this->page, $this->totalPermissions, "Permission"); ?>
+            <?php if (empty($this->search)) { new PaginationView($this->pageItems, $this->page, $this->totalPermissions, "Permission"); } ?>
         </div>
     </main>
 
@@ -99,6 +143,11 @@ class PermissionShowAllView {
         feather.replace();
     </script>
 </body>
+<script type="text/javascript">
+    function form_submit() {
+        document.getElementById("searchPermission").submit();
+    }
+</script>
 </html>
 <?php
         }

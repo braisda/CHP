@@ -40,12 +40,12 @@ switch($action) {
                 $permissionData = $permissionDAO->show($permissionPK, $value);
                 new PermissionShowView($permissionData);
            } catch (DAOException $e) {
-                goToShowAllAndShowError($e->getMessage());
+                goToShowAllAndShowError($e->getMessage(), $rolesData, $funcActionData);
            } catch (Exception $e) {
-                goToShowAllAndShowError($e->getMessage());
+                goToShowAllAndShowError($e->getMessage(), $rolesData, $funcActionData);
            }
         } else {
-            goToShowAllAndShowError("No tienes permiso para ver.");
+            goToShowAllAndShowError("No tienes permiso para ver.", $rolesData, $funcActionData);
         }
         break;
     case "edit":
@@ -59,15 +59,15 @@ switch($action) {
                     $permissionData->setRol($roleDAO->show("id", $_POST["idRol"]));
                     $permissionData->setFuncAccion($funcActionDAO->show("id", $_POST["idFuncAccion"]));
                     $permissionDAO->edit($permissionData);
-                    goToShowAllAndShowSuccess("Permiso modificado correctamente.");
+                    goToShowAllAndShowSuccess("Permiso modificado correctamente.", $rolesData, $funcActionData);
                 }
             } catch (DAOException $e) {
-                goToShowAllAndShowError($e->getMessage());
+                goToShowAllAndShowError($e->getMessage(), $rolesData, $funcActionData);
             } catch (Exception $e) {
-                goToShowAllAndShowError($e->getMessage());
+                goToShowAllAndShowError($e->getMessage(), $rolesData, $funcActionData);
             }
         } else {
-            goToShowAllAndShowError("No tienes permiso para editar.");
+            goToShowAllAndShowError("No tienes permiso para editar.", $rolesData, $funcActionData);
         }
         break;
     case "delete":
@@ -75,23 +75,23 @@ switch($action) {
             if (isset($_REQUEST["confirm"])) {
                 try {
                     $permissionDAO->delete($permissionPK, $value);
-                    goToShowAllAndShowSuccess("Permiso eliminado correctamente.");
+                    goToShowAllAndShowSuccess("Permiso eliminado correctamente.", $rolesData, $funcActionData);
                 } catch (DAOException $e) {
-                    goToShowAllAndShowError($e->getMessage());
+                    goToShowAllAndShowError($e->getMessage(), $rolesData, $funcActionData);
                 }
             } else {
                 try {
                     $permissionDAO->checkDependencies($value);
-                    showAll();
+                    showAll($rolesData, $funcActionData);
                     openDeletionModal("Eliminar permiso", "¿Está seguro de que desea eliminar " .
                     "el permiso %" . $value . "%? Esta acción es permanente y no se puede recuperar.",
                     "../controllers/permissionController.php?action=delete&id=" . $value . "&confirm=true");
                 } catch (DAOException $e) {
-                    goToShowAllAndShowError($e->getMessage());
+                    goToShowAllAndShowError($e->getMessage(), $rolesData, $funcActionData);
                 }
             }
         } else {
-            goToShowAllAndShowError("No tienes permiso para eliminar.");
+            goToShowAllAndShowError("No tienes permiso para eliminar.", $rolesData, $funcActionData);
         }
         break;
     case "add":
@@ -104,7 +104,7 @@ switch($action) {
                     $permission->setRol($roleDAO->show("id", $_POST["idRol"]));
                     $permission->setFuncAccion($funcActionDAO->show("id", $_POST["idFuncAccion"]));
                     $permissionDAO->add($permission);
-                    goToShowAllAndShowSuccess("Permiso añadido correctamente.");
+                    goToShowAllAndShowSuccess("Permiso añadido correctamente.", $rolesData, $funcActionData);
                 } catch (DAOException $e) {
                     goToShowAllAndShowError($e->getMessage());
                 } catch (Exception $ve) {
@@ -112,53 +112,55 @@ switch($action) {
                 }
             }
         } else {
-            goToShowAllAndShowError("No tienes permiso para añadir.");
+            goToShowAllAndShowError("No tienes permiso para añadir.", $rolesData, $funcActionData);
         }
         break;
     case "search":
         if (checkPermission("Permission", "SHOWALL")) {
-            if (!isset($_POST["submit"])) {
-                new PermissionSearchView($rolesData, $funcActionData);
-            } else {
-                try {
-                    $permission = new Permiso();
-                    if(!empty($_POST["idRol"])) {
-                        $permission->setRol($roleDAO->show('id', $_POST["idRol"]));
-                    }
-                    if(!empty($_POST["idFuncAccion"])) {
-                            $permission->setFuncAccion($funcActionDAO->show('id', $_POST["idFuncAccion"]));
-                    }
-                    showAllSearch($permission);
-                } catch (DAOException $e) {
-                    goToShowAllAndShowError($e->getMessage());
-                } catch (Exception $ve) {
-                    goToShowAllAndShowError($ve->getMessage());
+            try {
+                $permission = $permissionDAO->search($_POST["idRol"], $_POST["idFuncAccion"]);
+                $permissions = array();
+
+                foreach($permission as $per) {
+                   array_push($permissions, $permissionDAO->show($permissionPK, $per["id"]));
                 }
+
+                showAllSearch($permissions, $rolesData, $funcActionData);
+            } catch (DAOException $e) {
+                goToShowAllAndShowError($e->getMessage(), $rolesData, $funcActionData);
+            } catch (ValidationException $ve) {
+                goToShowAllAndShowError($ve->getMessage(), $rolesData, $funcActionData);
             }
-            } else {
-                goToShowAllAndShowError("No tienes permiso para buscar.");
-            }
+        } else {
+            goToShowAllAndShowError("No tienes permiso para buscar.", $rolesData, $funcActionData);
+        }
         break;
     default:
-        showAll();
+        showAll($rolesData, $funcActionData);
         break;
 }
 
-function showAll() {
-    showAllSearch(NULL);
+function showAll($rolesData, $funcActionData) {
+    showAllSearch(NULL, $rolesData, $funcActionData);
 }
 
-function showAllSearch($search) {
+function showAllSearch($search, $rolesData, $funcActionData) {
     if (checkPermission("Permission", "SHOWALL")) {
         try {
 
             $page = getPage();
             $itemsInPage = getNumberItems();
-            $toSearch = getToSearch($search);
 
             $totalPermissions = $GLOBALS["permissionDAO"]->countTotalPermissions($toSearch);
-            $data = $GLOBALS["permissionDAO"]->showAllPaged($page, $itemsInPage, $toSearch);
-            new PermissionShowAllView($data, $itemsInPage, $page, $totalPermissions, $toSearch);
+
+            if ($search != NULL) {
+                $data = $search;
+                $totalPermissions = count($data);
+            } else {
+                $data = $GLOBALS["permissionDAO"]->showAllPaged($page, $itemsInPage, NULL);
+            }
+
+            new PermissionShowAllView($data, $itemsInPage, $page, $totalPermissions, $search, $rolesData, $funcActionData);
         } catch (DAOException $e) {
             new PermissionShowAllView(array());
             errorMessage($e->getMessage());
@@ -168,12 +170,12 @@ function showAllSearch($search) {
     }
 }
 
-function goToShowAllAndShowError($message) {
-    showAll();
+function goToShowAllAndShowError($message, $rolesData, $funcActionData) {
+    showAll($rolesData, $funcActionData);
     errorMessage($message);
 }
 
-function goToShowAllAndShowSuccess($message) {
-    showAll();
+function goToShowAllAndShowSuccess($message, $rolesData, $funcActionData) {
+    showAll($rolesData, $funcActionData);
     successMessage($message);
 }

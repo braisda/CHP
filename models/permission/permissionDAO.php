@@ -67,4 +67,9 @@ class PermissionDAO
     function truncateTable() {
         $this->defaultDAO->truncateTable("permiso");
     }
+
+    function search($idRol, $idFuncAccion) {
+        $sql = "SELECT DISTINCT * FROM permiso WHERE idRol ='". $idRol . "' OR idFuncAccion ='" . $idFuncAccion . "'";
+        return $this->defaultDAO->getArrayFromSqlQuery($sql);
+    }
 }

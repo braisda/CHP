@@ -703,9 +703,13 @@
         "en": "Delete academic course",
         "gl": "Eliminar curso académico"
     },
-    "Curso académico eliminado correctamente.":{
+    "Curso académico eliminado correctamente.": {
         "en": "Academic course deleted succesfully.",
         "gl": "Curso académico eliminado correctamente."
+    },
+    "Seleccione": {
+        "en": "Choose",
+        "gl": "Seleccione"
     }
 }
 

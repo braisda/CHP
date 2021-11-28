@@ -224,7 +224,7 @@ class defaultDAO
         return $valueToReturn;
     }
 
-    private function getArrayFromSqlQuery($sql) {
+    function getArrayFromSqlQuery($sql) {
         if (!($result = $this->mysqli->query($sql))) {
             throw new DAOException('Error de conexión con la base de datos.');
         } else {
