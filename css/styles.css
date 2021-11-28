@@ -211,7 +211,17 @@ a p {
 
 .flags {
     margin-top: .7rem;
-    margin-right: 1rem;
+}
+
+.pagination {
+    justify-content: flex-end;
+    margin-left: 1rem;
+}
+
+.label-pagination {
+    margin-left: auto;
+    margin-right: .5rem;
+    margin-top: .5rem;
 }
 
 @media(min-width: 768px) {

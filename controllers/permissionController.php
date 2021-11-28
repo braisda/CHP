@@ -13,6 +13,7 @@ include_once '../views/common/head.php';
 include_once '../models/permission/permissionDAO.php';
 include_once '../models/funcAction/funcActionDAO.php';
 include_once '../models/role/roleDAO.php';
+include_once '../views/common/paginationView.php';
 include_once '../views/permission/permissionShowAllView.php';
 include_once '../views/permission/permissionShowView.php';
 include_once '../views/permission/permissionEditView.php';

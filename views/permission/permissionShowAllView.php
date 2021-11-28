@@ -90,7 +90,7 @@ class PermissionShowAllView {
             </table>
                 <p data-translate="No se ha obtenido ningun permiso">. </p>
             <?php endif; ?>
-            <?php //new PaginationView($this->itemsPerPage, $this->currentPage, $this->totalPermissions, "Permission"); ?>
+            <?php new PaginationView($this->pageItems, $this->page, $this->totalPermissions, "Permission"); ?>
         </div>
     </main>
 

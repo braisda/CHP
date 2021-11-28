@@ -19,7 +19,7 @@ class userDAO
     }
 
     function delete($key, $value) {
-        $this->defaultDAO->delete("user", $key, $value);
+        $this->defaultDAO->delete("usuario", $key, $value);
     }
 
     function show($key, $value) {
@@ -33,7 +33,7 @@ class userDAO
     }
 
     function truncateTable() {
-        $this->defaultDAO->truncateTable("user");
+        $this->defaultDAO->truncateTable("usuario");
     }
 
     function canBeLogged($login, $password) {

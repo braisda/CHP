@@ -11,7 +11,7 @@
         <ul class="navbar-nav px-1 d-none d-sm-block">
             <div class="row margin-right">
                 <!-- Language -->
-                <li class="nav-item text-nowrap row flags">
+                <li class="nav-item text-nowrap row flags mr-2">
                     <a href="javascript:setCookie('language-selected', 'gl'); translatePage();"><img class="flag" src="../assets/gallego.png"></a>
                     <a href="javascript:setCookie('language-selected', 'es'); translatePage();"><img class="flag" src="../assets/espanol.png"></a>
                     <a href="javascript:setCookie('language-selected', 'en'); translatePage();"><img class="flag" src="../assets/english.jpg"></a>
@@ -98,13 +98,6 @@
                                 </ul>
                             </li>
                             <?php } ?>
-                            <!-- Gestión de horarios -->
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <span class="far fa-calendar"></span>
-                                    <p data-translate="Gestión de horarios"></p>
-                                </a>
-                            </li>
                             <!-- Gestión de acciones -->
                             <li class="nav-item">
                                 <a class="nav-link" href="../controllers/actionController.php">

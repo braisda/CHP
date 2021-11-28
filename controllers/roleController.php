@@ -11,6 +11,7 @@ include_once '../utils/pagination.php';
 include_once '../models/role/roleDAO.php';
 include_once '../views/common/head.php';
 include_once '../views/common/headerMenu.php';
+include_once '../views/common/paginationView.php';
 include_once '../views/role/roleShowAllView.php';
 include_once '../views/role/roleAddView.php';
 include_once '../views/role/roleShowView.php';
