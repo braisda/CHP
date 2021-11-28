@@ -35,17 +35,17 @@ class FunctionalityShowAllView
                     <button name="submit" type="submit" class="btn btn-primary" data-translate="Buscar"></button>
                 </form>
 
-                <?php //if (!empty($this->stringToSearch)): ?>
+                <?php if (!empty($this->stringToSearch)): ?>
                     <a class="btn btn-primary mr-1" role="button" href="../controllers/defaultController.php">
                         <p data-translate="Volver"></p>
                     </a>
-                <?php //else:
-                    //if (HavePermission("Action", "ADD")): ?>
+                <?php else:
+                    if (checkPermission("Functionality", "ADD")): ?>
                         <a class="btn btn-success" role="button" href="../controllers/functionalityController.php?action=add">
                             <span data-feather="plus"></span>
                             <p data-translate="Añadir Funcionalidad"></p>
                         </a>
-                    <?php //endif; endif; ?>
+                    <?php endif; endif; ?>
             </div>
             <div class="table-responsive">
                 <table class="table table-striped table-sm">
@@ -65,18 +65,18 @@ class FunctionalityShowAllView
                             <td><?php echo $functionalitiy->getNombre() ?></td>
                             <td><?php echo $functionalitiy->getDescripcion() ?></td>
                             <td class="row">
-                                <?php // if (HavePermission("Functionalitiy", "SHOWCURRENT")) { ?>
+                                <?php if (checkPermission("Functionality", "SHOWCURRENT")) { ?>
                                     <a href="../controllers/functionalityController.php?action=show&id=<?php echo $functionalitiy->getId() ?>">
                                         <span data-feather="eye"></span></a>
-                                <?php //}
-                                //if (HavePermission("Functionalitiy", "EDIT")) { ?>
+                                <?php }
+                                if (checkPermission("Functionality", "EDIT")) { ?>
                                     <a href="../controllers/functionalityController.php?action=edit&id=<?php echo $functionalitiy->getId() ?>">
                                         <span data-feather="edit"></span></a>
-                                <?php //}
-                                //if (HavePermission("Functionalitiy", "DELETE")) { ?>
+                                <?php }
+                                if (checkPermission("Functionality", "DELETE")) { ?>
                                     <a href="../controllers/functionalityController.php?action=delete&id=<?php echo $functionalitiy->getId() ?>">
                                         <span data-feather="trash-2"></span></a>
-                                <?php //} ?>
+                                <?php } ?>
                             </td>
                         </tr>
                     <?php endforeach; ?>

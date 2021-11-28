@@ -1,4 +1,11 @@
 <?php
+session_start();
+include_once '../utils/auth.php';
+include_once '../utils/CheckPermission.php';
+
+if (!IsAuthenticated()){
+    header('Location:../index.php');
+}
 
 include_once '../models/functionality/functionalityDAO.php';
 include_once '../views/Common/head.php';
