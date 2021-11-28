@@ -90,11 +90,15 @@
                                         </a>
                                      </li>
                                      <?php } ?>
+                                     <?php
+                                        if (checkPermission("Role", "SHOWALL")) {
+                                     ?>
                                     <li class="nav-item">
                                         <a class="nav-link" href="../controllers/roleController.php">
                                             <p data-translate="Roles"></p>
                                         </a>
                                     </li>
+                                    <?php } ?>
                                 </ul>
                             </li>
                             <?php } ?>
