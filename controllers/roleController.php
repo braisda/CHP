@@ -109,23 +109,19 @@ switch ($action) {
         break;
     case "search":
         if(checkPermission("Role", "SHOWALL")) {
-            if (!isset($_POST["submit"])) {
-                //new ActionSearchView();
-            } else {
-                try {
-                    $role = new Rol();
-                    if(!empty($_POST["name"])) {
-                        $role->setNombre($_POST["name"]);
-                    }
-                    if(!empty($_POST["description"])) {
-                        $role->setDescripcion($_POST["description"]);
-                    }
-                    showAllSearch($role);
-                } catch (DAOException $e) {
-                    goToShowAllAndShowError($e->getMessage());
-                } catch (Exception $ve) {
-                    goToShowAllAndShowError($ve->getMessage());
+            try {
+                $role = $roleDAO->search($_POST["name"], $_POST["description"]);
+                $roles = array();
+
+                foreach($role as $rol) {
+                    array_push($roles, $roleDAO->show($rolePrimaryKey, $rol["id"]));
                 }
+
+                showAllSearch($roles);
+            } catch (DAOException $e) {
+                goToShowAllAndShowError($e->getMessage());
+            } catch (Exception $ve) {
+                goToShowAllAndShowError($ve->getMessage());
             }
         } else{
             goToShowAllAndShowError("No tienes permiso para buscar.");
@@ -145,10 +141,16 @@ function showAllSearch($search) {
         try {
             $currentPage = getPage();
             $itemsPerPage = getNumberItems();
-            $toSearch = getToSearch($search);
             $totalRoles = $GLOBALS["roleDAO"]->countTotalRoles($toSearch);
-            $roleData = $GLOBALS["roleDAO"]->showAllPaged($currentPage, $itemsPerPage, $toSearch);
-            new RoleShowAllView($roleData, $itemsPerPage, $currentPage, $totalRoles, $toSearch);
+
+            if ($search != NULL) {
+                $roleData = $search;
+                $totalUsers = count($data);
+            } else {
+                $roleData = $GLOBALS["roleDAO"]->showAllPaged($currentPage, $itemsPerPage, NULL);
+            }
+
+            new RoleShowAllView($roleData, $itemsPerPage, $currentPage, $totalRoles, $search);
         } catch (DAOException $e) {
             include '../models/common/messageType.php';
             include '../utils/ShowToast.php';

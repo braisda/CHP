@@ -150,7 +150,6 @@ function showAllSearch($search, $rolesData, $funcActionData) {
 
             $page = getPage();
             $itemsInPage = getNumberItems();
-
             $totalPermissions = $GLOBALS["permissionDAO"]->countTotalPermissions($toSearch);
 
             if ($search != NULL) {

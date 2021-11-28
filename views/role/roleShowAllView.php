@@ -6,15 +6,15 @@ class RoleShowAllView
     private $itemsPerPage;
     private $currentPage;
     private $totalPermissions;
-    private $stringToSearch;
+    private $search;
 
-    function __construct($rolesData, $itemsPerPage = NULL, $currentPage = NULL, $totalPermissions = NULL, $toSearch = NULL)
+    function __construct($rolesData, $itemsPerPage = NULL, $currentPage = NULL, $totalPermissions = NULL, $search = NULL)
     {
         $this->roles = $rolesData;
         $this->itemsPerPage = $itemsPerPage;
         $this->currentPage = $currentPage;
         $this->totalPermissions = $totalPermissions;
-        $this->stringToSearch = $toSearch;
+        $this->search = $search;
         $this->render();
     }
 
@@ -28,17 +28,41 @@ class RoleShowAllView
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-4 pb-2 mb-3">
                 <h2 data-translate="Listado de Roles"></h2>
                 <!-- Search -->
-                <form class="row" action='../controllers/roleController.php?action=search' method='POST'>
-                    <div class="col-10 pr-1">
-                        <input type="text" class="form-control" id="nombre" name="nombre" data-translate="Texto a buscar">
+            <a class="btn btn-primary button-specific-search" data-toggle="modal" data-target="#searchModal" role="button">
+                <span data-feather="search"></span>
+                <p class="btn-show-view" data-translate="Buscar"></p>
+            </a>
+            <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"><p class="btn-show-view" data-translate="Búsqueda avanzada"></p></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="row" id="searchRole" action='../controllers/roleController.php?action=search' method='POST'>
+                                <div id="name-div" class="form-group col-12">
+                                    <label for="name" data-translate="Nombre"></label>
+                                    <input type="text" class="form-control" id="name" name="name" maxlength="60">
+                                </div>
+                                <div id="description-div" class="form-group col-12">
+                                    <label for="description" data-translate="Descripción"></label>
+                                    <input type="text" class="form-control" id="description" name="description" maxlength="100">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" data-translate="Volver"></button>
+                            <button type="button" class="btn btn-primary" name="submit" type="submit" data-translate="Buscar" onclick="form_submit()"></button>
+                        </div>
                     </div>
-                    <div class="col-2 pl-0">
-                        <button name="submit" type="submit" class="btn btn-primary" data-translate="Buscar"></button>
-                    </div>
-                </form>
+                </div>
+            </div>
 
-                <?php if (!empty($this->stringToSearch)): ?>
-                    <a class="btn btn-primary mr-1" role="button" href="../controllers/defaultController.php">
+                <?php if (!empty($this->search)): ?>
+                    <a class="btn btn-primary mr-1" role="button" href="../controllers/roleController.php">
                         <p data-translate="Volver"></p>
                     </a>
                 <?php else:
@@ -99,6 +123,11 @@ class RoleShowAllView
             feather.replace();
         </script>
 </body>
+<script type="text/javascript">
+    function form_submit() {
+        document.getElementById("searchRole").submit();
+    }
+</script>
 </html>
         <?php
     }

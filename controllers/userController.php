@@ -161,10 +161,10 @@ function showAllSearch($search) {
                 $data = $search;
                 $totalUsers = count($data);
             } else {
-                $data = $GLOBALS["userDAO"]->showAllPaged($page, $itemsInPage, $toSearch);
+                $data = $GLOBALS["userDAO"]->showAllPaged($page, $itemsInPage, NULL);
             }
 
-            new UserShowAllView($data, $itemsInPage, $page, $totalUsers, $toSearch);
+            new UserShowAllView($data, $itemsInPage, $page, $totalUsers, $search);
         } catch (DAOException $e) {
             new UserShowAllView(array());
             errorMessage($e->getMessage());

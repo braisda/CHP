@@ -8,14 +8,16 @@ class UserShowAllView
     private $page;
     private $totalUsers;
     private $totalPages;
+    private $search;
 
-    function __construct($usersData, $pageItems, $page, $totalUsers)
+    function __construct($usersData, $pageItems, $page, $totalUsers, $search)
     {
         $this->users = $usersData;
         $this->pageItems = $pageItems;
         $this->page = $page;
         $this->totalUsers = $totalUsers;
         $this->totalPages = ceil($totalUsers / $pageItems);
+        $this->search = $search;
         $this->render();
     }
 

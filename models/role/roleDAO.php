@@ -48,6 +48,13 @@ class RoleDAO
         $this->defaultDAO->checkDependencies("rol", $value);
     }
 
+    function search($name, $description) {
+        $sql = "SELECT DISTINCT * FROM rol WHERE nombre LIKE '%".
+            $name . "%' AND descripcion LIKE '%" .
+            $description . "%'";
+        return $this->defaultDAO->getArrayFromSqlQuery($sql);
+    }
+
     private function getRolesFromDB($roles_db) {
         $roles = array();
         foreach ($roles_db as $role) {
