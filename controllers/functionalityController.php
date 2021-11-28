@@ -7,7 +7,9 @@ if (!IsAuthenticated()){
     header('Location:../index.php');
 }
 
+include_once '../utils/pagination.php';
 include_once '../models/functionality/functionalityDAO.php';
+include_once '../models/common/DAOException.php';
 include_once '../views/Common/head.php';
 include_once '../views/Common/headerMenu.php';
 include_once '../views/common/paginationView.php';
@@ -64,7 +66,6 @@ switch ($action) {
     case "show":
         try {
             $functionalityData = $functionalityDAO->show($functionalityPrimaryKey, $value);
-            printf("entra");
             new FunctionalityShowView($functionalityData);
         } catch (DAOException $e) {
             goToShowAllAndShowError($e->getMessage());
@@ -92,7 +93,7 @@ switch ($action) {
         break;
     case "search":
         if (!isset($_POST["submit"])) {
-            new ActionSearchView();
+            //new ActionSearchView();
         } else {
             try {
                 $functionality = new Funcionalidad();
@@ -121,9 +122,10 @@ function showAll() {
 
 function showAllSearch($search) {
     try {
-            $currentPage = 1;//getCurrentPage();
-            $itemsPerPage = 20;//getItemsPerPage();
-            $toSearch = null;//getToSearch($search);
+            $currentPage = getPage();
+            printf("asdasdasd");
+            $itemsPerPage = getNumberItems();
+            $toSearch = getToSearch($search);
             $totalFunctionalities = $GLOBALS["functionalityDAO"]->countTotalFunctionalities($toSearch);
             $functionalityData = $GLOBALS["functionalityDAO"]->showAllPaged($currentPage, $itemsPerPage, $toSearch);
             new FunctionalityShowAllView($functionalityData, $itemsPerPage, $currentPage, $totalFunctionalities, $toSearch);

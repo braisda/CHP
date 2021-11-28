@@ -8,6 +8,7 @@ if (!IsAuthenticated()){
 }
 
 include_once '../utils/pagination.php';
+include_once '../models/common/DAOException.php';
 include_once '../models/role/roleDAO.php';
 include_once '../views/common/head.php';
 include_once '../views/common/headerMenu.php';
@@ -65,7 +66,6 @@ switch ($action) {
     case "show":
         try {
             $roleData = $roleDAO->show($rolePrimaryKey, $value);
-            printf("entra");
             new RoleShowView($roleData);
         } catch (DAOException $e) {
             goToShowAllAndShowError($e->getMessage());

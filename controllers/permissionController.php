@@ -107,7 +107,7 @@ switch($action) {
                     goToShowAllAndShowSuccess("Permiso añadido correctamente.");
                 } catch (DAOException $e) {
                     goToShowAllAndShowError($e->getMessage());
-                } catch (ValidationException $ve) {
+                } catch (Exception $ve) {
                     goToShowAllAndShowError($ve->getMessage());
                 }
             }
@@ -126,12 +126,12 @@ switch($action) {
                         $permission->setRol($roleDAO->show('id', $_POST["idRol"]));
                     }
                     if(!empty($_POST["idFuncAccion"])) {
-                            $permission->setFuncAction($funcActionDAO->show('id', $_POST["idFuncAccion"]));
+                            $permission->setFuncAccion($funcActionDAO->show('id', $_POST["idFuncAccion"]));
                     }
                     showAllSearch($permission);
                 } catch (DAOException $e) {
                     goToShowAllAndShowError($e->getMessage());
-                } catch (ValidationException $ve) {
+                } catch (Exception $ve) {
                     goToShowAllAndShowError($ve->getMessage());
                 }
             }

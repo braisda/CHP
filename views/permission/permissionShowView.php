@@ -6,7 +6,6 @@ private $permission;
     function __construct($permissionData) {
         $this->permission = $permissionData;
         $this->render();
-        print_r($this->permission->getRol()->getNombre());
     }
 
     function render() {

@@ -7,7 +7,7 @@ if (!IsAuthenticated()){
     header('Location:../index.php');
 }
 
-include_once '../utils/pagination.php';
+include_once '../models/common/DAOException.php';
 include_once '../models/action/actionDAO.php';
 include_once '../views/common/head.php';
 include_once '../views/common/headerMenu.php';
@@ -24,7 +24,6 @@ $actionDAO = new ActionDAO();
 $actionPrimaryKey = "id";
 $value = $_REQUEST[$actionPrimaryKey];
 $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : "";
-printf($action);
 switch ($action) {
     case "add":
         if (!isset($_POST["submit"])) {
@@ -123,7 +122,6 @@ function showAll() {
 function showAllSearch($search) {
         try {
             $currentPage = getPage();
-            printf("entraaaaaaaaaaaa");
             $itemsPerPage = getNumberItems();
             $toSearch = getToSearch($search);
             $totalActions = $GLOBALS["actionDAO"]->countTotalActions($toSearch);

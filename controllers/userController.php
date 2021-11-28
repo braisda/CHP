@@ -8,6 +8,7 @@ if (!IsAuthenticated()){
 }
 
 include_once '../models/user/userDAO.php';
+include_once '../models/common/DAOException.php';
 include_once '../utils/messages.php';
 include_once '../utils/openDeletionModal.php';
 include_once '../utils/pagination.php';
