@@ -239,9 +239,9 @@
         "en": "Delete",
         "gl": "Eliminar"
     },
-    "Eliminar acción": {
-        "en": "Delete action",
-        "gl": "Eliminar acción"
+    "Eliminar Acción": {
+        "en": "Delete Action",
+        "gl": "Eliminar Acción"
     },
     "¿Está seguro de que desea eliminar la acción %c? Esta acción es permanente y no se puede recuperar.": {
         "en": "Are you sure you want to delete the action %c? This action is permanent and cannot be recovered.",

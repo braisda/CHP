@@ -1,8 +1,16 @@
 <?php
+session_start();
+include_once '../utils/auth.php';
+include_once '../utils/CheckPermission.php';
 
+if (!IsAuthenticated()){
+    header('Location:../index.php');
+}
+
+include_once '../utils/pagination.php';
 include_once '../models/action/actionDAO.php';
-include_once '../views/Common/head.php';
-include_once '../views/Common/headerMenu.php';
+include_once '../views/common/head.php';
+include_once '../views/common/headerMenu.php';
 include_once '../views/action/actionShowAllView.php';
 include_once '../views/action/actionAddView.php';
 include_once '../views/action/actionShowView.php';
@@ -83,7 +91,6 @@ switch ($action) {
         }
         break;
     case "search":
-        printf("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeentra en buscaaaaaaaaaaaaaaaaaaaaaaaaaar");
         if (!isset($_POST["submit"])) {
             new ActionSearchView();
         } else {
@@ -114,9 +121,10 @@ function showAll() {
 
 function showAllSearch($search) {
         try {
-            $currentPage = 1;//getCurrentPage();
-            $itemsPerPage = 10;//getItemsPerPage();
-            $toSearch = null;//getToSearch($search);
+            $currentPage = getPage();
+            printf("entraaaaaaaaaaaa");
+            $itemsPerPage = getNumberItems();
+            $toSearch = getToSearch($search);
             $totalActions = $GLOBALS["actionDAO"]->countTotalActions($toSearch);
             $actionData = $GLOBALS["actionDAO"]->showAllPaged($currentPage, $itemsPerPage, $toSearch);
             new ActionShowAllView($actionData, $itemsPerPage, $currentPage, $totalActions, $toSearch);
