@@ -3,6 +3,7 @@
 include_once '../models/action/actionDAO.php';
 include_once '../views/Common/head.php';
 include_once '../views/Common/headerMenu.php';
+include_once '../views/common/paginationView.php';
 include_once '../views/action/actionShowAllView.php';
 include_once '../views/action/actionAddView.php';
 include_once '../views/action/actionShowView.php';

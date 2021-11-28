@@ -14,6 +14,7 @@ include_once '../utils/pagination.php';
 include_once '../utils/redirect.php';
 include_once '../views/common/head.php';
 include_once '../views/common/headerMenu.php';
+include_once '../views/common/paginationView.php';
 include_once '../views/user/userShowAllView.php';
 include_once '../views/user/userShowView.php';
 include_once '../views/user/userEditView.php';

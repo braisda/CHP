@@ -630,6 +630,14 @@
     "¿Está seguro de que desea eliminar el usuario %c? Esta acción es permanente y no se puede recuperar.": {
         "en": "Are you sure you want to delete the user %c? This action is permanent and cannot be recovered.",
         "gl": "Está seguro de que desexa eliminar o usuario %c? Esta acción é permanente e non se pode recuperar."
+    },
+    "Búsqueda avanzada": {
+        "en": "Advanced search",
+        "gl": "Busca avanzada"
+    },
+    "Elems. por página": {
+        "en": "Items per page",
+        "gl": "Elems. por páxina"
     }
 }
 
