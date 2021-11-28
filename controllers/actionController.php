@@ -7,6 +7,7 @@ if (!IsAuthenticated()){
     header('Location:../index.php');
 }
 
+include_once '../utils/pagination.php';
 include_once '../models/common/DAOException.php';
 include_once '../models/action/actionDAO.php';
 include_once '../views/common/head.php';
@@ -92,7 +93,7 @@ switch ($action) {
         break;
     case "search":
         if (!isset($_POST["submit"])) {
-            new ActionSearchView();
+            //new ActionSearchView();
         } else {
             try {
                 $action = new Accion();
