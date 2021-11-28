@@ -27,87 +27,97 @@ $value = $_REQUEST[$rolePrimaryKey];
 $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : "";
 switch ($action) {
     case "add":
-        if (!isset($_POST["submit"])) {
-            new RoleAddView();
-        } else {
-            try {
-                $role = new Rol();
-                $role->setNombre($_POST["name"]);
-                $role->setDescripcion($_POST["description"]);
-                $roleDAO->add($role);
-                
-                goToShowAllAndShowSuccess("Rol añadido correctamente.");
-            } catch (DAOException $e) {
-                goToShowAllAndShowError($e->getMessage());
-            } catch (Exception $ve) {
-                goToShowAllAndShowError($ve->getMessage());
+        if (checkPermission("Role", "ADD")) {
+            if (!isset($_POST["submit"])) {
+                new RoleAddView();
+            } else {
+                try {
+                    $role = new Rol();
+                    $role->setNombre($_POST["name"]);
+                    $role->setDescripcion($_POST["description"]);
+                    $roleDAO->add($role);
+                    
+                    goToShowAllAndShowSuccess("Rol añadido correctamente.");
+                } catch (DAOException $e) {
+                    goToShowAllAndShowError($e->getMessage());
+                } catch (Exception $ve) {
+                    goToShowAllAndShowError($ve->getMessage());
+                }
             }
         }
         break;
     case "delete":
-        if (isset($_REQUEST["confirm"])) {
-            try {
-                $roleDAO->delete($rolePrimaryKey, $value);
-                goToShowAllAndShowSuccess("Rol eliminado correctamente.");
-            } catch (DAOException $e) {
-                goToShowAllAndShowError($e->getMessage());
-            }
-        } else {
-            try {
-                showAll();
-                confirmDelete("Eliminar Rol", "¿Está seguro de que desea eliminar " .
-                    "el rol %" . $value . "%? Esta acción es permanente y no se puede recuperar.",
-                    "../controllers/roleController.php?action=delete&id=" . $value . "&confirm=true");
-            } catch (DAOException $e) {
-                goToShowAllAndShowError($e->getMessage());
+        if (checkPermission("Role", "DELETE")) {
+            if (isset($_REQUEST["confirm"])) {
+                try {
+                    $roleDAO->delete($rolePrimaryKey, $value);
+                    goToShowAllAndShowSuccess("Rol eliminado correctamente.");
+                } catch (DAOException $e) {
+                    goToShowAllAndShowError($e->getMessage());
+                }
+            } else {
+                try {
+                    showAll();
+                    confirmDelete("Eliminar Rol", "¿Está seguro de que desea eliminar " .
+                        "el rol %" . $value . "%? Esta acción es permanente y no se puede recuperar.",
+                        "../controllers/roleController.php?action=delete&id=" . $value . "&confirm=true");
+                } catch (DAOException $e) {
+                    goToShowAllAndShowError($e->getMessage());
+                }
             }
         }
         break;
     case "show":
-        try {
-            $roleData = $roleDAO->show($rolePrimaryKey, $value);
-            new RoleShowView($roleData);
-        } catch (DAOException $e) {
-            goToShowAllAndShowError($e->getMessage());
-        } catch (Exception $ve) {
-            goToShowAllAndShowError($ve->getMessage());
-        }
-        break;
-    case "edit":
-        try {
-            $role = $roleDAO->show($rolePrimaryKey, $value);
-            if (!isset($_POST["submit"])) {
-                new RoleEditView($role);
-            } else {
-                $role->setId($value);
-                $role->setNombre($_POST["name"]);
-                $role->setDescripcion($_POST["description"]);
-                $roleDAO->edit($role);
-                goToShowAllAndShowSuccess("Rol editado correctamente.");
-            }
-        } catch (DAOException $e) {
-            goToShowAllAndShowError($e->getMessage());
-        } catch (Exception $ve) {
-            goToShowAllAndShowError($ve->getMessage());
-        }
-        break;
-    case "search":
-        if (!isset($_POST["submit"])) {
-            new ActionSearchView();
-        } else {
+        if (checkPermission("Role", "SHOWCURRENT")) {
             try {
-                $role = new Rol();
-                if(!empty($_POST["name"])) {
-                    $role->setNombre($_POST["name"]);
-                }
-                if(!empty($_POST["description"])) {
-                    $role->setDescripcion($_POST["description"]);
-                }
-                showAllSearch($role);
+                $roleData = $roleDAO->show($rolePrimaryKey, $value);
+                new RoleShowView($roleData);
             } catch (DAOException $e) {
                 goToShowAllAndShowError($e->getMessage());
             } catch (Exception $ve) {
                 goToShowAllAndShowError($ve->getMessage());
+            }
+        }
+        break;
+    case "edit":
+        if (checkPermission("Role", "EDIT")) {
+            try {
+                $role = $roleDAO->show($rolePrimaryKey, $value);
+                if (!isset($_POST["submit"])) {
+                    new RoleEditView($role);
+                } else {
+                    $role->setId($value);
+                    $role->setNombre($_POST["name"]);
+                    $role->setDescripcion($_POST["description"]);
+                    $roleDAO->edit($role);
+                    goToShowAllAndShowSuccess("Rol editado correctamente.");
+                }
+            } catch (DAOException $e) {
+                goToShowAllAndShowError($e->getMessage());
+            } catch (Exception $ve) {
+                goToShowAllAndShowError($ve->getMessage());
+            }
+        }
+        break;
+    case "search":
+        if(checkPermission("Role", "SHOWALL")) {
+            if (!isset($_POST["submit"])) {
+                //new ActionSearchView();
+            } else {
+                try {
+                    $role = new Rol();
+                    if(!empty($_POST["name"])) {
+                        $role->setNombre($_POST["name"]);
+                    }
+                    if(!empty($_POST["description"])) {
+                        $role->setDescripcion($_POST["description"]);
+                    }
+                    showAllSearch($role);
+                } catch (DAOException $e) {
+                    goToShowAllAndShowError($e->getMessage());
+                } catch (Exception $ve) {
+                    goToShowAllAndShowError($ve->getMessage());
+                }
             }
         }
         break;

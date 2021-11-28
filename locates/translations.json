@@ -287,6 +287,10 @@
         "en": "Are you sure you want to delete the role %c? This action is permanent and cannot be recovered.",
         "gl": "Está seguro de que desexa eliminar o rol %c? Esta acción é permanente e non se pode recuperar."
     },
+    "Rol '%c'": {
+        "en": "Role '%c'",
+        "gl": "Rol '%c'"
+    },
     "Eliminar Rol": {
         "en": "Delete Role",
         "gl": "Eliminar Rol"

@@ -40,7 +40,7 @@ switch($action) {
                     goToShowAllAndShowSuccess("Curso académico añadido correctamente.");
                 } catch (DAOException $e) {
                     goToShowAllAndShowError($e->getMessage());
-                } catch (ValidationException $ve) {
+                } catch (Exception $ve) {
                     goToShowAllAndShowError($ve->getMessage());
                 }
             }
