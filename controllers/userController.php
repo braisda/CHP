@@ -122,38 +122,19 @@ switch ($action) {
         break;
     case "search":
         if (checkPermission("usuario", "SHOWALL")) {
-            if (!isset($_POST["submit"])) {
-                new UserSearchView();
-            } else {
-                try {
-                    $user = new Usuario();
-                    if(!empty($_POST["login"])) {
-                        $user->setLogin($_POST["login"]);
-                    }
-                    if(!empty($_POST["dni"])) {
-                        $user->setDni($_POST["dni"]);
-                    }
-                    if(!empty($_POST["nombre"])) {
-                        $user->setName($_POST["nombre"]);
-                    }
-                    if(!empty($_POST["apellido"])) {
-                        $user->setSurname($_POST["apellido"]);
-                    }
-                    if(!empty($_POST["email"])) {
-                        $user->setEmail($_POST["email"]);
-                    }
-                    if(!empty($_POST["direccion"])) {
-                        $user->setAddress($_POST["direccion"]);
-                    }
-                    if(!empty($_POST["telefono"])) {
-                        $user->setTelephone($_POST["telefono"]);
-                    }
-                    showAllSearch($user);
-                } catch (DAOException $e) {
-                    goToShowAllAndShowError($e->getMessage());
-                } catch (ValidationException $ve) {
-                    goToShowAllAndShowError($ve->getMessage());
+            try {
+                $user = $userDAO->search($_POST["login"], $_POST["nombre"], $_POST["apellido"], $_POST["email"]);
+                $users = array();
+
+                foreach($user as $us) {
+                    array_push($users, $userDAO->show($userPK, $us["login"]));
                 }
+
+                showAllSearch($users);
+            } catch (DAOException $e) {
+                goToShowAllAndShowError($e->getMessage());
+            } catch (ValidationException $ve) {
+                goToShowAllAndShowError($ve->getMessage());
             }
         } else {
             goToShowAllAndShowError("No tienes permiso para buscar.");
@@ -174,10 +155,16 @@ function showAllSearch($search) {
 
             $page = getPage();
             $itemsInPage = getNumberItems();
-            $toSearch = getToSearch($search);
-            $totalPermissions = $GLOBALS["userDAO"]->countTotalUsers($toSearch);
-            $data = $GLOBALS["userDAO"]->showAllPaged($page, $itemsInPage, $toSearch);
-            new UserShowAllView($data, $itemsInPage, $page, $totalPermissions, $toSearch);
+            $totalUsers = $GLOBALS["userDAO"]->countTotalUsers($toSearch);
+
+            if ($search != NULL) {
+                $data = $search;
+                $totalUsers = count($data);
+            } else {
+                $data = $GLOBALS["userDAO"]->showAllPaged($page, $itemsInPage, $toSearch);
+            }
+
+            new UserShowAllView($data, $itemsInPage, $page, $totalUsers, $toSearch);
         } catch (DAOException $e) {
             new UserShowAllView(array());
             errorMessage($e->getMessage());

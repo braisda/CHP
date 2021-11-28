@@ -60,6 +60,18 @@ class userDAO
         $this->defaultDAO->checkDependencies("user", $value);
     }
 
+    function search($login, $name, $surname, $email) {
+        $sql = "SELECT DISTINCT * FROM usuario WHERE login LIKE '%".
+            $login . "%' AND nombre LIKE '%" .
+            $name . "%' AND apellido LIKE '%".
+            $surname . "%'";
+        if (!empty($email)) {
+            $sql .=  "AND email = '" . $email . "'";
+        }
+
+        return $this->defaultDAO->getArrayFromSqlQuery($sql);
+    }
+
     private function getUsersFromDB($usersDB) {
         $users = array();
         foreach ($usersDB as $user) {

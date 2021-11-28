@@ -8,16 +8,14 @@ class UserShowAllView
     private $page;
     private $totalUsers;
     private $totalPages;
-    private $stringToSearch;
 
-    function __construct($usersData, $pageItems, $page, $totalUsers, $stringToSearch)
+    function __construct($usersData, $pageItems, $page, $totalUsers)
     {
         $this->users = $usersData;
         $this->pageItems = $pageItems;
         $this->page = $page;
         $this->totalUsers = $totalUsers;
         $this->totalPages = ceil($totalUsers / $pageItems);
-        $this->stringToSearch = $stringToSearch;
         $this->render();
     }
 
@@ -26,22 +24,60 @@ class UserShowAllView
         ?>
 <!DOCTYPE html>
 <html>
+<head>
+    <script src="../js/validations/loginValidations.js"></script>
+</head>
 <body>
     <main role="main" class="margin-main ml-sm-auto px-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-4 pb-2 mb-3">
             <h2 data-translate="Listado de usuarios"></h2>
             <!-- Search -->
-            <form class="row" action='../controllers/userController.php' method='POST'>
-                <div class="col-10 pr-1">
-                    <input type="text" class="form-control" id="search" name="search" data-translate="Texto a buscar">
-                </div>
-                <div class="col-2 pl-0">
-                    <button name="submit" type="submit" class="btn btn-primary" data-translate="Buscar"></button>
-                </div>
-            </form>
+            <a class="btn btn-primary button-specific-search" data-toggle="modal" data-target="#searchModal" role="button">
+                <span data-feather="search"></span>
+                <p class="btn-show-view" data-translate="Buscar"></p>
+            </a>
+            <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"><p class="btn-show-view" data-translate="Búsqueda avanzada"></p></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="row" id="searchUser" action='../controllers/userController.php?action=search' method='POST'>
+                                 <div id="login-div" class="form-group col-12">
+                                    <label for="login" data-translate="Login"></label>
+                                    <input type="text" class="form-control" id="login" name="login" max-length="9" oninput="checkLogin(this);">
+                                </div>
 
-            <?php if (!empty($this->stringToSearch)){ ?>
-                <a class="btn btn-primary mr-1" role="button" href="../controllers/defaultController.php">
+                                <div id="name-div" class="form-group col-12">
+                                    <label for="name" data-translate="Nombre"></label>
+                                    <input type="text" class="form-control" id="nombre" name="nombre" max-length="30" oninput="checkName(this);">
+                                </div>
+
+                                <div id="surname-div" class="form-group col-12">
+                                    <label for="surname" data-translate="Apellido"></label>
+                                    <input type="text" class="form-control" id="apellido" name="apellido" max-length="50" oninput="checkSurname(this);">
+                                </div>
+
+                                <div id="email-div" class="form-group col-12">
+                                    <label for="email" data-translate="Email"></label>
+                                    <input type="email" class="form-control" id="email" name="email" max-length="40" oninput="checkEmailUser(this);">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" data-translate="Volver"></button>
+                            <button type="button" class="btn btn-primary" name="submit" type="submit" data-translate="Buscar" onclick="form_submit()"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <?php if (!empty($this->search)){ ?>
+                <a class="btn btn-primary mr-1" role="button" href="../controllers/userController.php">
                     <p data-translate="Volver"></p>
                 </a>
             <?php } else {
@@ -104,6 +140,11 @@ class UserShowAllView
         feather.replace();
     </script>
 </body>
+<script type="text/javascript">
+    function form_submit() {
+        document.getElementById("searchUser").submit();
+    }
+</script>
 </html>
 <?php
     }
