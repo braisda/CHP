@@ -21,7 +21,7 @@ th label {
 }
 
 .pagination {
-    justify-content: flex-end;
+    justify-content: center;
     margin-left: 1rem;
 }
 

@@ -25,7 +25,7 @@ class PaginationView
         <div class="row">
             <?php if ($this->totalItems > 0): ?>
                 <!-- Pagination -->
-            <div>
+            <div class="col-12">
                 <label class="label-pagination" data-translate="Elems. por página"></label>
                 <select class="form-control items-page" id="items-page-select"
                         onchange="selectChange(this, '<?php echo $this->controllerName ?>')">
@@ -35,7 +35,7 @@ class PaginationView
                 </select>
                 <?php if ($this->totalPages > 1): ?>
                     <div class="row">
-                        <nav aria-label="...">
+                        <nav aria-label="..." class="col-12">
                             <ul class="pagination">
                                 <?php if ($this->page == 1): ?>
                             <li class="page-item disabled">
