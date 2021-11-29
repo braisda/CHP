@@ -102,6 +102,9 @@
                                 </ul>
                             </li>
                             <?php } ?>
+                            <?php
+                                if (checkPermission("accion", "SHOWALL")) {
+                            ?>
                             <!-- Gestión de acciones -->
                             <li class="nav-item">
                                 <a class="nav-link" href="../controllers/actionController.php">
@@ -109,6 +112,7 @@
                                     <p data-translate="Gestión de acciones"></p>
                                 </a>
                             </li>
+                            <?php } ?>
                             <!-- Gestión de funcionalidades -->
                             <li class="nav-item">
                                 <a class="nav-link" href="../controllers/functionalityController.php">

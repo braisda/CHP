@@ -48,6 +48,13 @@ class ActionDAO
         $this->defaultDAO->checkDependencies("accion", $value);
     }
 
+    function search($name, $description) {
+        $sql = "SELECT DISTINCT * FROM accion WHERE nombre LIKE '%".
+            $name . "%' AND descripcion LIKE '%" .
+            $description . "%'";
+        return $this->defaultDAO->getArrayFromSqlQuery($sql);
+    }
+
     private function getActionsFromDB($actions_db) {
         $actions = array();
         foreach ($actions_db as $action) {

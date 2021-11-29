@@ -109,23 +109,19 @@ switch ($action) {
         break;
     case "search":
         if(checkPermission("accion", "SHOWALL")) {
-            if (!isset($_POST["submit"])) {
-                //new ActionSearchView();
-            } else {
-                try {
-                    $action = new Accion();
-                    if(!empty($_POST["name"])) {
-                        $action->setNombre($_POST["name"]);
-                    }
-                    if(!empty($_POST["description"])) {
-                        $action->setDescripcion($_POST["description"]);
-                    }
-                    showAllSearch($action);
-                } catch (DAOException $e) {
-                    goToShowAllAndShowError($e->getMessage());
-                } catch (Exception $ve) {
-                    goToShowAllAndShowError($ve->getMessage());
+            try {
+                $action = $actionDAO->search($_POST["name"], $_POST["description"]);
+                $actions = array();
+
+                foreach($action as $act) {
+                    array_push($actions, $actionDAO->show($actionPrimaryKey, $act["id"]));
                 }
+
+                showAllSearch($actions);
+            } catch (DAOException $e) {
+                goToShowAllAndShowError($e->getMessage());
+            } catch (Exception $ve) {
+                goToShowAllAndShowError($ve->getMessage());
             }
         } else{
             goToShowAllAndShowError("No tienes permiso para buscar.");
@@ -147,8 +143,15 @@ function showAllSearch($search) {
             $itemsPerPage = getNumberItems();
             $toSearch = getToSearch($search);
             $totalActions = $GLOBALS["actionDAO"]->countTotalActions($toSearch);
-            $actionData = $GLOBALS["actionDAO"]->showAllPaged($currentPage, $itemsPerPage, $toSearch);
-            new ActionShowAllView($actionData, $itemsPerPage, $currentPage, $totalActions, $toSearch);
+
+            if ($search != NULL) {
+                $actionData = $search;
+                $totalActions = count($data);
+            } else {
+                $actionData = $GLOBALS["actionDAO"]->showAllPaged($currentPage, $itemsPerPage, NULL);
+            }
+
+            new ActionShowAllView($actionData, $itemsPerPage, $currentPage, $totalActions, $search);
         } catch (DAOException $e) {
             include '../models/common/messageType.php';
             include '../utils/ShowToast.php';
