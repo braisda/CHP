@@ -28,8 +28,7 @@ function checkEmpty(field, name) {
 function showMessage(parentNode, name, message) {
     parentNode = '#' + parentNode;
     node = '#message-error-' + name;
-    if($(node).length)
-    {
+    if($(node).length) {
         $(node).html("<p data-translate='" + message + "'></p>");
         translatePage();
     } else {
@@ -90,6 +89,21 @@ function checkTelf(field, name) {
 function checkEmail(field, name) {
     if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(field.value)) {
         return 'El atributo ' + name + ' tiene un formato erróneo.';
+    }
+    return "";
+}
+
+function checkInteger(field, minValue, maxValue, name) {
+    if (!/^([0-9])*$/.test(field.value)) {
+        return 'El atributo ' + name + ' tiene que ser un dígito.';
+    } else {
+        if (field.value > maxValue) {
+            return 'El atributo ' + name + ' no puede ser mayor que %' + maxValue + '%.';
+        } else {
+            if (field.value < minValue) {
+                return 'El atributo ' + name + ' no puede ser menor que %' + minValue + '%.';
+            }
+        }
     }
     return "";
 }

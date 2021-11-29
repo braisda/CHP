@@ -1,10 +1,10 @@
 function checkStartYearIntegerAcademicCourse(field, minValue, maxValue) {
     const name = "inicio";
-    if ((toret = checkInteger(field, minValue, maxValue, name)) === "") {
+    if ((value = checkInteger(field, minValue, maxValue, name)) === "") {
         deleteMessage(name);
         return true;
     } else {
-        showMessage('start-year-div', name, toret, field);
+        showMessage('start-year-div', name, value);
         return false;
     }
 }
@@ -19,11 +19,11 @@ function checkStartYearEmptyAcademicCourse(field) {
 
 function checkEndYearIntegerAcademicCourse(field, minValue, maxValue) {
     const name = "fin";
-    if ((toret = checkInteger(field, minValue, maxValue, name)) === "") {
+    if ((result = checkInteger(field, minValue, maxValue, name)) === "") {
         deleteMessage(name);
         return true;
     } else {
-        showMessage('end-year-div', name, toret, field);
+        showMessage('end-year-div', name, result);
         return false;
     }
 }
@@ -38,12 +38,12 @@ function checkEndYearEmptyAcademicCourse(field) {
 
 function checkYearsAcademicCourse(field1, field2) {
     const name = "diferencia"
-    if ((toret = checkStartYearBeforeEndYearAcademicCourse(field1, field2)) === "" &&
-        (toret = checkOneYearPeriodAcademicCourse(field1, field2)) === "") {
+    if ((value = checkStartYearBeforeEndYearAcademicCourse(field1, field2)) === "" &&
+        (value = checkOneYearPeriodAcademicCourse(field1, field2)) === "") {
         deleteMessage(name);
         return true;
     } else {
-        showMessage('end-year-div', name, toret, field2);
+        showMessage('end-year-div', name, value);
         return false;
     }
 }

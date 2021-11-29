@@ -28,7 +28,7 @@ class AcademicCourseShowAllView
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-4 pb-2 mb-3">
                 <h2 class="h2" data-translate="Listado de Cursos Académicos"></h2>
                 <!-- Search -->
-                <form class="row" action='../Controllers/AcademicCourseController.php' method='POST'>
+                <form class="row" action='../controllers/academicCourseController.php' method='POST'>
                     <div class="col-10 pr-1">
                         <input type="text" class="form-control" id="search" name="search" data-translate="Texto a buscar">
                     </div>
@@ -38,13 +38,13 @@ class AcademicCourseShowAllView
                 </form>
 
                 <?php if (!empty($this->stringToSearch)): ?>
-                    <a class="btn btn-primary" role="button" href="../Controllers/AcademicCourseController.php">
+                    <a class="btn btn-primary" role="button" href="../controllers/academicCourseController.php">
                         <p data-translate="Volver"></p>
                     </a>
                 <?php else:
                     if (checkPermission("Academiccurso", "ADD")): ?>
                         <a class="btn btn-success" role="button"
-                           href="../Controllers/AcademicCourseController.php?action=add">
+                           href="../controllers/academicCourseController.php?action=add">
                             <span data-feather="plus"></span>
                             <p data-translate="Añadir curso académico"></p>
                         </a>

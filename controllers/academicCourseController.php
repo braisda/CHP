@@ -19,6 +19,9 @@ include_once '../views/academicCourse/academicCourseShowView.php';
 include_once '../views/academicCourse/academicCourseEditView.php';
 include_once '../views/academicCourse/academicCourseSearchView.php';
 include_once '../utils/confirmDelete.php';
+include_once '../utils/messages.php';
+include_once '../utils/openDeletionModal.php';
+include_once '../utils/redirect.php';
 
 //DAO
 $academicCourseDAO = new AcademicCourseDAO();

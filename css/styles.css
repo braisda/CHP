@@ -224,6 +224,20 @@ a p {
     margin-top: .5rem;
 }
 
+.message-error {
+    margin-top: 1%;
+    padding: 0 .4rem;
+    background-color: #f7bdbd;
+    border-radius: .3rem;
+    border-color: #f58181;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.message-error p {
+    margin-bottom: 0;
+}
+
 @media(min-width: 768px) {
     .margin-main {
         margin-left: 280px !important;

@@ -124,6 +124,9 @@
                                 </a>
                             </li>
                             <?php } ?>
+                            <?php
+                                if (checkPermission("Academiccurso", "SHOWALL")) {
+                            ?>
                             <!-- Gestión de cursos academicos -->
                             <li class="nav-item">
                                 <a class="nav-link" href="../controllers/academicCourseController.php">
@@ -131,6 +134,7 @@
                                     <p data-translate="Gestión de cursos académicos"></p>
                                 </a>
                             </li>
+                            <?php } ?>
                         </ul>
                     </div>
                 </nav>

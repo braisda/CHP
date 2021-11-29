@@ -657,7 +657,7 @@
     },
     "Año de fin": {
         "en": "End year",
-        "gl": "Ano de inicio"
+        "gl": "Ano de fin"
     },
     "No se ha obtenido ningún curso académico": {
         "en": "No academic course found",
@@ -688,8 +688,8 @@
         "gl": "Non tes permiso para buscar."
     },
     "Editar curso académico '%c'": {
-        "en": "Edit action '%c'",
-        "gl": "Editar acción '%c'"
+        "en": "Edit academic course '%c'",
+        "gl": "Editar curso académico '%c'"
     },
     "Curso académico '%c'": {
         "en": "Edit action '%c'",
@@ -710,6 +710,30 @@
     "Seleccione": {
         "en": "Choose",
         "gl": "Seleccione"
+    },
+    "El atributo inicio no puede ser mayor que %c.": {
+        "en": "The start attribute can have a maximum value of %c.",
+        "gl": "O atributo inicio pode ter un valor máximo de %c."
+    },
+    "El atributo fin no puede ser mayor que %c.": {
+        "en": "The end attribute can have a maximum value of %c.",
+        "gl": "O atributo fin pode ter un valor máximo de %c."
+    },
+    "El atributo inicio no puede ser menor que %c.": {
+        "en": "The start attribute can have a minimum value of %c.",
+        "gl": "O atributo inicio pode ter un valor mínimo de %c."
+    },
+    "El atributo fin no puede ser menor que %c.": {
+        "en": "The end attribute can have a minimum value of %c.",
+        "gl": "O atributo fin pode ter un valor mínimo de %c."
+    },
+    "El atributo inicio tiene que ser un dígito.": {
+        "en": "The start attribute has to be a digit.",
+        "gl": "O atributo inicio ten que ser un díxito."
+    },
+    "El atributo fin tiene que ser un dígito.": {
+        "en": "The end attribute has to be a digit.",
+        "gl": "O atributo fin ten que ser un díxito."
     }
 }
 

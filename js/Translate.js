@@ -10,7 +10,7 @@ function translatePage() {
         translate; // Container of all translations
 
     // Call translations json file and populate translate variable
-    $.getJSON("../Locates/translations.json", function(texts) {
+    $.getJSON("../locates/translations.json", function(texts) {
         translate=texts;
         // Translate all the element with data-translate
         translateElement("data-translate", translate, lang);

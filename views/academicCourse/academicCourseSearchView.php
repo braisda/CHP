@@ -7,16 +7,14 @@ class AcademicCourseSearchView {
     function render(){
         ?>
         <head>
-            <link rel="stylesheet" href="../CSS/default.css" />
-            <link rel="stylesheet" href="../CSS/forms.css" />
-            <script src="../JS/Validations/AcademicCourseValidations.js"></script>
+            <script src="../js/validations/academicCourseValidations.js"></script>
         </head>
         <main role="main" class="margin-main ml-sm-auto px-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-4 pb-2 mb-3 border-bottom">
                 <h1 class="h2" data-translate="Búsqueda de cursos académicos"></h1>
-                <a class="btn btn-primary" role="button" href="../Controllers/AcademicCourseController.php" ><p data-translate="Volver"></p></a>
+                <a class="btn btn-primary" role="button" href="../controllers/academicCourseController.php" ><p data-translate="Volver"></p></a>
             </div>
-            <form id="academicCourseSearchForm" action='../Controllers/AcademicCourseController.php?action=search' method='POST' onsubmit="return areAcademicCourseSearchFieldsCorrect()">
+            <form id="academicCourseSearchForm" action='../controllers/academicCourseController.php?action=search' method='POST' onsubmit="return areAcademicCourseSearchFieldsCorrect()">
                 <div  id="end-abbreviate-div" class="form-group">
                     <label for="academic_course_abbr" data-translate="Abreviatura de curso académico"></label>
                     <input type="text" class="form-control" id="academic_course_abbr" name="academic_course_abbr"
