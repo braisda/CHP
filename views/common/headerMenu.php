@@ -113,6 +113,9 @@
                                 </a>
                             </li>
                             <?php } ?>
+                            <?php
+                                if (checkPermission("Functionality", "SHOWALL")) {
+                            ?>
                             <!-- Gestión de funcionalidades -->
                             <li class="nav-item">
                                 <a class="nav-link" href="../controllers/functionalityController.php">
@@ -120,6 +123,7 @@
                                     <p data-translate="Gestión de funcionalidades"></p>
                                 </a>
                             </li>
+                            <?php } ?>
                             <!-- Gestión de cursos academicos -->
                             <li class="nav-item">
                                 <a class="nav-link" href="../controllers/academicCourseController.php">

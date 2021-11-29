@@ -146,7 +146,7 @@ function showAllSearch($search) {
 
             if ($search != NULL) {
                 $actionData = $search;
-                $totalActions = count($data);
+                $totalActions = count($actionData);
             } else {
                 $actionData = $GLOBALS["actionDAO"]->showAllPaged($currentPage, $itemsPerPage, NULL);
             }

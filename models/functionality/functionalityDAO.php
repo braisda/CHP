@@ -48,6 +48,13 @@ class FunctionalityDAO
         $this->defaultDAO->checkDependencies("funcionalidad", $value);
     }
 
+    function search($name, $description) {
+        $sql = "SELECT DISTINCT * FROM funcionalidad WHERE nombre LIKE '%".
+            $name . "%' AND descripcion LIKE '%" .
+            $description . "%'";
+        return $this->defaultDAO->getArrayFromSqlQuery($sql);
+    }
+
     private function getFunctionalitiesFromDB($functionalities_db) {
         $functionalities = array();
         foreach ($functionalities_db as $functionality) {

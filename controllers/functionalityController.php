@@ -111,23 +111,19 @@ switch ($action) {
         break;
     case "search":
         if(checkPermission("Functionality", "SHOWALL")) {
-            if (!isset($_POST["submit"])) {
-                //new ActionSearchView();
-            } else {
-                try {
-                    $functionality = new Funcionalidad();
-                    if(!empty($_POST["name"])) {
-                        $functionality->setNombre($_POST["name"]);
-                    }
-                    if(!empty($_POST["description"])) {
-                        $functionality->setDescripcion($_POST["description"]);
-                    }
-                    showAllSearch($functionality);
-                } catch (DAOException $e) {
-                    goToShowAllAndShowError($e->getMessage());
-                } catch (Exception $ve) {
-                    goToShowAllAndShowError($ve->getMessage());
+            try {
+                $functionality = $functionalityDAO->search($_POST["name"], $_POST["description"]);
+                $functionalities = array();
+
+                foreach($functionality as $func) {
+                    array_push($functionalities, $functionalityDAO->show($functionalityPrimaryKey, $func["id"]));
                 }
+
+                showAllSearch($functionalities);
+            } catch (DAOException $e) {
+                goToShowAllAndShowError($e->getMessage());
+            } catch (Exception $ve) {
+                goToShowAllAndShowError($ve->getMessage());
             }
         } else{
             goToShowAllAndShowError("No tienes permiso para buscar.");
@@ -146,12 +142,17 @@ function showAllSearch($search) {
     if (checkPermission("Functionality", "SHOWALL")) {
         try {
             $currentPage = getPage();
-            printf("asdasdasd");
             $itemsPerPage = getNumberItems();
-            $toSearch = getToSearch($search);
             $totalFunctionalities = $GLOBALS["functionalityDAO"]->countTotalFunctionalities($toSearch);
-            $functionalityData = $GLOBALS["functionalityDAO"]->showAllPaged($currentPage, $itemsPerPage, $toSearch);
-            new FunctionalityShowAllView($functionalityData, $itemsPerPage, $currentPage, $totalFunctionalities, $toSearch);
+
+            if ($search != NULL) {
+                $functionalityData = $search;
+                $totalFunctionalities = count($functionalityData);
+            } else {
+                $functionalityData = $GLOBALS["functionalityDAO"]->showAllPaged($currentPage, $itemsPerPage, NULL);
+            }
+
+            new FunctionalityShowAllView($functionalityData, $itemsPerPage, $currentPage, $totalFunctionalities, $search);
         } catch (DAOException $e) {
             include '../models/common/messageType.php';
             include '../utils/ShowToast.php';
