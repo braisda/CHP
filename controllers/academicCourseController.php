@@ -119,29 +119,19 @@ switch($action) {
         break;
     case "search":
         if(checkPermission("Academiccurso", "SHOWALL")) {
-            if (!isset($_POST["submit"])) {
-                new AcademicCourseSearchView();
-            } else {
-                try {
-                    $academicCourse = new AcademicCourse();
-                    if (!empty($_POST["anoinicio"]) && !empty($_POST["anofin"])) {
-                        $academicCourse->isCorrectAcademicCourse($_POST["anoinicio"], $_POST["anofin"]);
-                    }
-                    if (!empty($_POST["anoinicio"])) {
-                        $academicCourse->setStartYear($_POST["anoinicio"]);
-                    }
-                    if (!empty($_POST["anofin"])) {
-                        $academicCourse->setEndYear($_POST["anofin"]);
-                    }
-                    if (!empty($_POST["nombre"])) {
-                        $academicCourse->setAcademicCourseAbbr($_POST["nombre"]);
-                    }
-                    showAllSearch($academicCourse);
-                } catch (DAOException $e) {
-                    goToShowAllAndShowError($e->getMessage());
-                } catch (Exception $ve) {
-                    goToShowAllAndShowError($ve->getMessage());
+            try {
+                $academicCourse = $academicCourseDAO->search($_POST["nombre"], $_POST["anoinicio"], $_POST["anofin"]);
+                $academicCourses = array();
+
+                foreach($academicCourse as $ac) {
+                    array_push($academicCourses, $academicCourseDAO->show($academicCoursePrimaryKey, $ac["id"]));
                 }
+
+                showAllSearch($academicCourses);
+            } catch (DAOException $e) {
+                goToShowAllAndShowError($e->getMessage());
+            } catch (Exception $ve) {
+                goToShowAllAndShowError($ve->getMessage());
             }
         } else{
             goToShowAllAndShowError("No tienes permiso para buscar.");
@@ -159,10 +149,15 @@ function showAllSearch($search) {
         try {
             $currentPage = getPage();
             $itemsPerPage = getNumberItems();
-            $toSearch = getToSearch($search);
             $totalAcademicCourses = $GLOBALS["academicCourseDAO"]->countTotalAcademicCourses($toSearch);
-            $academicCoursesData = $GLOBALS["academicCourseDAO"]->showAllPaged($currentPage, $itemsPerPage, $toSearch);
-            new AcademicCourseShowAllView($academicCoursesData, $itemsPerPage, $currentPage, $totalAcademicCourses, $toSearch);
+
+            if ($search != NULL) {
+                $academicCoursesData = $search;
+                $totalAcademicCourses = count($data);
+            } else {
+                $academicCoursesData = $GLOBALS["academicCourseDAO"]->showAllPaged($currentPage, $itemsPerPage, $toSearch);
+            }
+            new AcademicCourseShowAllView($academicCoursesData, $itemsPerPage, $currentPage, $totalAcademicCourses, $search);
         } catch (DAOException $e) {
             new AcademicCourseShowAllView(array());
             errorMessage($e->getMessage());

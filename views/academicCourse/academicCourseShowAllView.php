@@ -7,37 +7,72 @@ class AcademicCourseShowAllView
     private $currentPage;
     private $totalAcademicCourses;
     private $totalPages;
-    private $stringToSearch;
+    private $search;
 
     function __construct($academicCoursesData, $itemsPerPage = NULL, $currentPage = NULL, $totalAcademicCourses = NULL,
-                         $stringToSearch = NULL)
+                         $search = NULL)
     {
         $this->academicCourses = $academicCoursesData;
         $this->itemsPerPage = $itemsPerPage;
         $this->currentPage = $currentPage;
         $this->totalAcademicCourses = $totalAcademicCourses;
         $this->totalPages = ceil($totalAcademicCourses / $itemsPerPage);
-        $this->stringToSearch = $stringToSearch;
+        $this->search = $search;
         $this->render();
     }
 
     function render()
     {
         ?>
+<!DOCTYPE html>
+    <html>
+    <head>
+        <script src="../js/validations/academicCourseValidations.js"></script>
+    </head>
+    <body>
         <main role="main" class="margin-main ml-sm-auto px-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-4 pb-2 mb-3">
                 <h2 class="h2" data-translate="Listado de Cursos Académicos"></h2>
                 <!-- Search -->
-                <form class="row" action='../controllers/academicCourseController.php' method='POST'>
-                    <div class="col-10 pr-1">
-                        <input type="text" class="form-control" id="search" name="search" data-translate="Texto a buscar">
+                <a class="btn btn-primary button-specific-search" data-toggle="modal" data-target="#searchModal" role="button">
+                    <span data-feather="search"></span>
+                    <p class="btn-show-view" data-translate="Buscar"></p>
+                </a>
+                <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel"><p class="btn-show-view" data-translate="Búsqueda avanzada"></p></h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form class="row" id="searchAcademicCourse" action='../controllers/academicCourseController.php?action=search' method='POST'>
+                                    <div class="form-group col-12">
+                                        <label for="nombre" data-translate="Identificador"></label>
+                                        <input type="text" class="form-control" id="nombre" name="nombre">
+                                    </div>
+                                    <div id="start-year-div" class="form-group col-12">
+                                        <label for="anoinicio" data-translate="Año de inicio"></label>
+                                        <input type="number" min="2000" max="9999" class="form-control" id="anoinicio" name="anoinicio"
+                                               oninput="checkStartYearEmptyAcademicCourse(this)">
+                                    </div>
+                                    <div id="end-year-div" class="form-group col-12">
+                                        <label for="anofin" data-translate="Año de fin"></label>
+                                        <input type="number" min="2000" max="9999" class="form-control" id="anofin" name="anofin"
+                                              oninput="checkEndYearEmptyAcademicCourse(this)">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal" data-translate="Volver"></button>
+                                <button type="button" class="btn btn-primary" name="submit" type="submit" data-translate="Buscar" onclick="form_submit()"></button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-2 pl-0">
-                        <button name="submit" type="submit" class="btn btn-primary" data-translate="Buscar"></button>
-                    </div>
-                </form>
-
-                <?php if (!empty($this->stringToSearch)): ?>
+                </div>
+                <?php if (!empty($this->search)): ?>
                     <a class="btn btn-primary" role="button" href="../controllers/academicCourseController.php">
                         <p data-translate="Volver"></p>
                     </a>
@@ -101,6 +136,12 @@ class AcademicCourseShowAllView
         <script>
             feather.replace();
         </script>
+</body>
+<script type="text/javascript">
+    function form_submit() {
+        document.getElementById("searchAcademicCourse").submit();
+    }
+</script>
         <?php
     }
 }

@@ -50,6 +50,18 @@ class AcademicCourseDAO
         $this->defaultDAO->checkDependencies("curso_academico", $value);
     }
 
+    function search($nombre, $anoInicio, $anoFin) {
+        $sql = "SELECT DISTINCT * FROM curso_academico WHERE nombre LIKE '%".
+            $nombre . "%'";
+        if (!empty($anoInicio)) {
+            $sql .= " AND anoInicio = '" . $anoInicio . "'";
+        }
+        if (!empty($anoFin)) {
+            $sql .= " AND anoFin = '" . $anoFin . "'";
+        }
+        return $this->defaultDAO->getArrayFromSqlQuery($sql);
+    }
+
     private function getAcademicCoursesFromDB($academicCourses_db) {
         $academicCourses = array();
         foreach ($academicCourses_db as $academicCourse) {
