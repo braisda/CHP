@@ -42,11 +42,13 @@ class ActionShowAllView
                             <form class="row" id="searchAction" action='../controllers/actionController.php?action=search' method='POST'>
                                 <div id="name-div" class="form-group col-12">
                                     <label for="name" data-translate="Nombre"></label>
-                                    <input type="text" class="form-control" id="name" name="name" maxlength="60" >
+                                    <input type="text" class="form-control" id="name" name="name" maxlength="60"
+                                    oninput="checkNameAction(this);">
                                 </div>
                                 <div id="description-div" class="form-group col-12">
                                     <label for="description" data-translate="Descripción"></label>
-                                    <input type="text" class="form-control" id="description" name="description" maxlength="100" >
+                                    <input type="text" class="form-control" id="description" name="description" maxlength="100"
+                                    oninput="checkDescriptionAction(this);">
                                 </div>
                             </form>
                         </div>
