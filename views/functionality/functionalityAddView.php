@@ -16,7 +16,8 @@ function render(){
             <h1 class="h2" data-translate="Añadir Funcionalidad"></h1>
             <a class="btn btn-primary" role="button" href="../controllers/functionalityController.php" data-translate="Volver"></a>
         </div>
-        <form id="actionForm" name = "ADD" action='../controllers/functionalityController.php?action=add' method='POST'>
+        <form id="actionForm" name = "ADD" action='../controllers/functionalityController.php?action=add' method='POST'
+        onsubmit="return areFunctionalityFieldsCorrect()">
             <div id="name-div" class="form-group">
                 <label for="name" data-translate="Nombre"></label>
                 <input type="text" class="form-control" id="name" name="name" data-translate="Introducir nombre" 

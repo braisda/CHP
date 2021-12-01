@@ -16,16 +16,17 @@ class RoleSearchView {
                 <h1 class="h2" data-translate="Búsqueda de acciones"></h1>
                 <a class="btn btn-primary" role="button" href="../controllers/roleController.php" data-translate="Volver"></a>
             </div>
-            <form id="actionSearchForm" action='../controllers/roleController.php?action=search' method='POST'>
+            <form id="actionSearchForm" action='../controllers/roleController.php?action=search' method='POST'
+            onsubmit="return areRoleSearchFieldsCorrect()">
                 <div id="name-div" class="form-group">
                     <label for="name" data-translate="Nombre"></label>
                     <input type="text" class="form-control" id="name" name="name" data-translate="Introducir nombre" 
-					maxlength="60">
+					maxlength="60" oninput="checkNameEmptyRole(this);">
                 </div>
                 <div id="description-div" id="description-div"  class="form-group">
                     <label for="description" data-translate="Descripción"></label>
                     <input type="text" class="form-control" id="description" name="description" data-translate="Introducir descripción" 
-					maxlength="100">
+					maxlength="100" oninput="checkDescriptionEmptyRole(this);">
                 </div>
                 <button name="submit" type="submit" class="btn btn-primary" data-translate="Enviar"></button>
             </form>

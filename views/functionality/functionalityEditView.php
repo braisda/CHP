@@ -18,7 +18,7 @@ class FunctionalityEditView {
                 <a class="btn btn-primary" role="button" href="../controllers/functionalityController.php" data-translate="Volver"></a>
             </div>
             <form  name = "actionForm" action='../controllers/functionalityController.php?action=edit&id=<?php echo $this->action->getId()?>'
-                   method='POST' onsubmit="return areActionFieldsCorrect()">
+                   method='POST' onsubmit="return areFunctionalityFieldsCorrect()">
                 <div id="name-div" class="form-group">
                     <label for="name" data-translate="Nombre"></label>
                     <input type="text" class="form-control" id="name" name="name"
