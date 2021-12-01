@@ -9,6 +9,7 @@ function render(){
 <head>
     <link rel="stylesheet" href="../css/styles.css" />
     <link rel="stylesheet" href="../css/forms.css" />
+    <script src="../js/validations/functionalityValidations.js"></script>
 </head>
     <main role="main" class="margin-main ml-sm-auto px-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-4 pb-2 mb-3 border-bottom">
@@ -19,12 +20,12 @@ function render(){
             <div id="name-div" class="form-group">
                 <label for="name" data-translate="Nombre"></label>
                 <input type="text" class="form-control" id="name" name="name" data-translate="Introducir nombre" 
-				maxlength="60" required>
+				maxlength="60" required  oninput="checkNameFunctionality(this);">
             </div>
             <div id="description-div" class="form-group">
                 <label for="description" data-translate="Descripción"></label>
                 <input type="text" class="form-control" id="description" name="description" data-translate="Introducir descripción"  
-				maxlength="100" required>
+				maxlength="100" required oninput="checkDescriptionFunctionality(this);">
             </div>
             <button name="submit" type="submit" class="btn btn-primary" data-translate="Añadir"></button>
         </form>

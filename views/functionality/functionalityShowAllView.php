@@ -111,7 +111,7 @@ class FunctionalityShowAllView
                     <p data-translate="No se ha obtenido ninguna funcinoalidad">. </p>
                 <?php endif; ?>
 
-                <?php new PaginationView($this->itemsPerPage, $this->currentPage, $this->totalPermissions, "Functionalitiy"); ?>
+                <?php new PaginationView($this->itemsPerPage, $this->currentPage, $this->totalPermissions, "Functionality"); ?>
             </div>
         </main>
 

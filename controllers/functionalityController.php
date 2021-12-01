@@ -143,6 +143,7 @@ function showAllSearch($search) {
         try {
             $currentPage = getPage();
             $itemsPerPage = getNumberItems();
+            $toSearch = getToSearch($search);
             $totalFunctionalities = $GLOBALS["functionalityDAO"]->countTotalFunctionalities($toSearch);
 
             if ($search != NULL) {
