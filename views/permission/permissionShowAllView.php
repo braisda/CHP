@@ -18,7 +18,7 @@ class PermissionShowAllView {
         $this->pageItems = $pageItems;
         $this->page = $page;
         $this->totalPermissions = $totalPermissions;
-        $this->totalPages = ceil($totalPermissions / $itemsPerPage);
+        $this->totalPages = ceil($totalPermissions / $pageItems);
         $this->search = $search;
         $this->roles = $roles;
         $this->funcActions = $funcActions;

@@ -2,21 +2,21 @@
 
 function getPage()
 {
-    if (!empty($_REQUEST['currentPage'])) {
-        $currentPage = $_REQUEST['currentPage'];
+    if (!empty($_REQUEST['page'])) {
+        $page = $_REQUEST['page'];
     } else {
-        $currentPage = 1;
+        $page = 1;
     }
-    return $currentPage;
+    return $page;
 }
 
 function getNumberItems() {
-    if (!empty($_REQUEST['itemsPerPage'])) {
-        $itemsPerPage = $_REQUEST['itemsPerPage'];
+    if (!empty($_REQUEST['pageItems'])) {
+        $pageItems = $_REQUEST['pageItems'];
     } else {
-        $itemsPerPage = 10;
+        $pageItems = 10;
     }
-    return $itemsPerPage;
+    return $pageItems;
 }
 
 function getToSearch($search)
