@@ -141,7 +141,6 @@ function showAllSearch($search) {
         try {
             $currentPage = getPage();
             $itemsPerPage = getNumberItems();
-            $toSearch = getToSearch($search);
             $totalActions = $GLOBALS["actionDAO"]->countTotalActions($toSearch);
 
             if ($search != NULL) {

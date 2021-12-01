@@ -734,6 +734,18 @@
     "El atributo fin tiene que ser un dígito.": {
         "en": "The end attribute has to be a digit.",
         "gl": "O atributo fin ten que ser un díxito."
+    },
+    "Gestión de centros": {
+        "en": "Centers managements",
+        "gl": "Xestión de centros"
+    },
+    "El atributo descripción no puede estar vacío.": {
+        "en": "The description attribute cannot be empty.",
+        "gl": "O atributo descrición non pode estar baleiro."
+    },
+    "El atributo descripción contiene el carácter no válido: %c.": {
+        "en": "The description attribute contains the invalid character: %c.",
+        "gl": "O atributo descrición contén o caracter non válido: %c."
     }
 }
 

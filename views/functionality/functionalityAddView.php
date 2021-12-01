@@ -7,8 +7,6 @@ function __construct(){
 function render(){
 ?>
 <head>
-    <link rel="stylesheet" href="../css/styles.css" />
-    <link rel="stylesheet" href="../css/forms.css" />
     <script src="../js/validations/functionalityValidations.js"></script>
 </head>
     <main role="main" class="margin-main ml-sm-auto px-4">
@@ -20,12 +18,12 @@ function render(){
         onsubmit="return areFunctionalityFieldsCorrect()">
             <div id="name-div" class="form-group">
                 <label for="name" data-translate="Nombre"></label>
-                <input type="text" class="form-control" id="name" name="name" data-translate="Introducir nombre" 
+                <input type="text" class="form-control" id="name" name="name" data-translate="Nombre"
 				maxlength="60" required  oninput="checkNameFunctionality(this);">
             </div>
             <div id="description-div" class="form-group">
                 <label for="description" data-translate="Descripción"></label>
-                <input type="text" class="form-control" id="description" name="description" data-translate="Introducir descripción"  
+                <input type="text" class="form-control" id="description" name="description" data-translate="Descripción"
 				maxlength="100" required oninput="checkDescriptionFunctionality(this);">
             </div>
             <button name="submit" type="submit" class="btn btn-primary" data-translate="Añadir"></button>

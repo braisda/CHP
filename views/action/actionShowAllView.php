@@ -21,6 +21,9 @@ class ActionShowAllView
     function render()
     {
         ?>
+        <head>
+            <script src="../js/validations/actionValidations.js"></script>
+        </head>
         <main role="main" class="margin-main ml-sm-auto px-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-4 pb-2 mb-3">
                 <h2 class="h2" data-translate="Listado de acciones"></h2>

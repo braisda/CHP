@@ -8,8 +8,6 @@ class RoleEditView {
     function render(){
         ?>
         <head>
-            <link rel="stylesheet" href="../css/styles.css" />
-            <link rel="stylesheet" href="../css/forms.css" />
             <script src="../js/validations/roleValidations.js"></script>
         </head>
         <main role="main" class="margin-main ml-sm-auto px-4">

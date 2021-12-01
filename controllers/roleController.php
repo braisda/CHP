@@ -145,7 +145,7 @@ function showAllSearch($search) {
 
             if ($search != NULL) {
                 $roleData = $search;
-                $totalUsers = count($data);
+                $totalUsers = count($roleData);
             } else {
                 $roleData = $GLOBALS["roleDAO"]->showAllPaged($currentPage, $itemsPerPage, NULL);
             }

@@ -23,6 +23,9 @@ class FunctionalityShowAllView
         ?>
 <!DOCTYPE html>
     <html>
+    <head>
+        <script src="../js/validations/functionalityValidations.js"></script>
+    </head>
     <body>
         <main role="main" class="margin-main ml-sm-auto px-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-4 pb-2 mb-3">
@@ -44,11 +47,11 @@ class FunctionalityShowAllView
                                 <form class="row" id="searchFunctionality" action='../controllers/functionalityController.php?action=search' method='POST'>
                                     <div id="name-div" class="form-group col-12">
                                         <label for="name" data-translate="Nombre"></label>
-                                        <input type="text" class="form-control" id="name" name="name" maxlength="60" >
+                                        <input type="text" class="form-control" id="name" name="name" maxlength="60" oninput="checkNameFunctionality(this);" >
                                     </div>
                                     <div id="description-div" class="form-group col-12">
                                         <label for="description" data-translate="Descripción"></label>
-                                        <input type="text" class="form-control" id="description" name="description" maxlength="100" >
+                                        <input type="text" class="form-control" id="description" name="description" maxlength="100" oninput="checkDescriptionFunctionality(this);" >
                                     </div>
                                 </form>
                             </div>
