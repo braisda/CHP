@@ -13,15 +13,16 @@ class UniversityShowView {
                 <h1 class="h2" data-translate="Universidad '%<?php echo $this->university->getId() ?>%'"></h1>
                 <a class="btn btn-primary" role="button" href="../controllers/UniversityController.php"><p data-translate="Volver"></p></a>
             </div>
-            <form action='../controllers/UniversityController.php?action=show' method='POST'>
+            <?php if(!is_null($this->university)): ?>
+            <form>
                 <div class="form-group">
                     <label for="name" data-translate="Nombre"></label>
-                    <input type="text" class="form-control" id="name" name="name" data-translate="Introducir nombre"
+                    <input type="text" class="form-control" id="name" name="name"
                            value="<?php echo $this->university->getNombre() ?>" readonly>
                 </div>
                 <div class="form-group">
                     <label for="academic_course_id" data-translate="Curso académico"></label>
-                    <input type="text" class="form-control" id="name" name="name" data-translate="Introducir curso académico"
+                    <input type="text" class="form-control" id="name" name="name"
                            value="<?php echo $this->university->getIdCursoAcademico()->getNombre() ?>" readonly>
                 </div>
                 <div class="form-group">
@@ -30,6 +31,9 @@ class UniversityShowView {
                            value="<?php echo $this->university->getIdUsuario()->getNombre() . " " . $this->university->getIdUsuario()->getApellido() ?>" readonly>
                 </div>
             </form>
+            <?php else: ?>
+                <p data-translate="La universidad no existe">.</p>
+            <?php endif; ?>
         </main>
         <?php
     }

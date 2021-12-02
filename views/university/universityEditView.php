@@ -30,7 +30,7 @@ class UniversityEditView
                   method='POST' onsubmit="areUniversityFieldsCorrect()">
                 <div id="name-div" class="form-group">
                     <label for="name" data-translate="Nombre"></label>
-                    <input type="text" class="form-control" id="name" name="name" data-translate="Introducir nombre"
+                    <input type="text" class="form-control" id="name" name="name" data-translate="Nombre"
                            value="<?php echo $this->university->getNombre() ?>" required maxlength="30"
                            oninput="checkNameUniversity(this)">
                 </div>
