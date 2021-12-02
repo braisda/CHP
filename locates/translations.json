@@ -746,6 +746,70 @@
     "El atributo descripción contiene el carácter no válido: %c.": {
         "en": "The description attribute contains the invalid character: %c.",
         "gl": "O atributo descrición contén o caracter non válido: %c."
+    },
+    "Gestión de universidades": {
+        "en": "University management",
+        "gl": "Xestión de universidades"
+    },
+    "Universidades": {
+      "en": "Universities",
+      "gl": "Universidades"
+    },
+    "No se ha obtenido ninguna universidad": {
+        "en": "No university has been obtained",
+        "gl": "Non se obtivo ningunha universidade"
+    },
+    "Añadir universidad": {
+        "en": "Add university",
+        "gl": "Engadir universidade"
+    },
+    "Universidad añadida correctamente.": {
+        "en": "University added successfully.",
+        "gl": "Universidade engadida correctamente."
+    },
+    "Universidad eliminada correctamente.": {
+        "en": "University deleted successfully.",
+        "gl": "Universidade eliminada correctamente."
+    },
+    "Universidad editada correctamente.": {
+        "en": "University edited successfully.",
+        "gl": "Universidad editada correctamente."
+    },
+    "Editar universidad '%c'": {
+      "en": "Edit university '%c'",
+      "gl": "Editar universidad '%c'"
+    },
+    "Universidad '%c'": {
+      "en": "University '%c'",
+      "gl": "Universidade '%c'"
+    },
+    "Universidad": {
+      "en": "University",
+      "gl": "Universidade"
+    },
+    "Eliminar universidad": {
+      "en": "Delete university",
+      "gl": "Eliminar universidade"
+    },
+    "¿Está seguro de que desea eliminar la universidad %c? Esta acción es permanente y no se puede recuperar.": {
+      "en": "Are you sure you want to delete the university %c? This action is permanent and cannot be recovered.",
+      "gl": "Está seguro de que desexa eliminar a universidade %c? Esta acción é permanente e non se pode recuperar."
+    },
+    "Listado de universidades": {
+      "en": "Universities list",
+      "gl": "Listado de universidades"
+    },
+    "Error de validación. Id universidad incorrecto.": {
+      "en": "Validation error. University id wrong.",
+      "gl": "Error de validación. Id universidade incorrecto."
+    },
+    "Responsable": {
+        "en": "Owner",
+        "gl": "Responsable"
+    },
+    "Curso académico": {
+        "en": "Academic course",
+        "gl": "Curso académico"
     }
 }
 

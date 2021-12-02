@@ -146,6 +146,17 @@
                                 </a>
                             </li>
                             <?php } ?>
+                            <?php
+                                if (checkPermission("universidad", "SHOWALL")) {
+                            ?>
+                            <!-- Gestión de cursos academicos -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="../controllers/universityController.php">
+                                    <span class="far bi-bank"></span>
+                                    <p data-translate="Gestión de universidades"></p>
+                                </a>
+                            </li>
+                            <?php } ?>
                         </ul>
                     </div>
                 </nav>
