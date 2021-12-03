@@ -870,6 +870,106 @@
     "Editar centro '%c'": {
         "en": "Edit center '%c'",
         "gl": "Editar centro '%c'"
+    },
+    "Gestión de titulaciones": {
+        "en": "Degrees management",
+        "gl": "Xestión de titulacións"
+    },
+    "Listado de titulaciones": {
+        "en": "Degree list",
+        "gl": "Listaxe de titulacións"
+    },
+    "Error de validación. Capacidad incorrecta.": {
+        "en": "Validation error. Incorrect capacity",
+        "gl": "Erro de validación. Capacidade incorrecta"
+    },
+    "Error de validación. Créditos incorrectos.": {
+        "en": "Validation error. Incorrect credits",
+        "gl": "Erro de validación. Créditos incorrectos"
+    },
+    "Error de validación. Id usuario incorrecto.": {
+        "en": "Validation error. Incorrect user Id",
+        "gl": "Erro de validación. Id usuario incorrecto"
+    },
+    "Añadir titulación": {
+        "en": "Add degree",
+        "gl": "Engadir titulación"
+    },
+    "No se ha obtenido ninguna titulación": {
+        "en": "Any degree has been obtained",
+        "gl": "Non se obtivo ningunha titulación"
+    },
+    "Centro": {
+        "en": "Center",
+        "gl": "Center"
+    },
+    "Plazas": {
+        "en": "Places",
+        "gl": "Prazas"
+    },
+    "Créditos": {
+        "en": "Credits",
+        "gl": "Créditos"
+    },
+    "Titulación añadida correctamente.": {
+        "en": "Degree successfully added.",
+        "gl": "Titulación engadida correctamente."
+    },
+    "El atributo créditos tiene que ser un dígito.": {
+        "en": "The credits attribute has to be a digit.",
+        "gl": "O atributo créditos ten que ser un díxito."
+    },
+    "El atributo créditos no puede ser mayor que %c.": {
+        "en": "The credits attribute can have a maximum value of %c.",
+        "gl": "O atributo créditos pode ter un valor máximo de %c."
+    },
+    "El atributo créditos no puede ser menor que %c.": {
+        "en": "The credits attribute can have a minimum value of %c.",
+        "gl": "O atributo créditos pode ter un valor mínimo de %c."
+    },
+    "El atributo créditos no puede estar vacío.": {
+        "en": "The credits attribute can not be empty.",
+        "gl": "O atributo créditos non pode estar baleiro."
+    },
+    "El atributo plazas tiene que ser un dígito.": {
+        "en": "The places attribute has to be a digit.",
+        "gl": "O atributo prazas ten que ser un díxito."
+    },
+    "El atributo plazas no puede ser mayor que %c.": {
+        "en": "The places attribute can have a maximum value of %c.",
+        "gl": "O atributo prazas pode ter un valor máximo de %c."
+    },
+    "El atributo plazas no puede ser menor que %c.": {
+        "en": "The places attribute can have a minimum value of %c.",
+        "gl": "O atributo prazas pode ter un valor mínimo de %c."
+    },
+    "El atributo plazas no puede estar vacío.": {
+        "en": "The places attribute can not be empty.",
+        "gl": "O atributo prazas non pode estar baleiro."
+    },
+    "Titulación '%c'": {
+        "en": "Degree '%c'",
+        "gl": "Titulación '%c'"
+    },
+    "Titulación eliminada correctamente.": {
+        "en": "Degree successfully deleted.",
+        "gl": "Titulación eliminada correctamente."
+    },
+    "Eliminar titulación": {
+        "en": "Delete degree",
+        "gl": "Eliminar titulación"
+    },
+    "¿Está seguro de que desea eliminar la titulación %c? Esta acción es permanente y no se puede recuperar.": {
+        "en": "Are you sure you want to delete the degree %c? This action is permanent and cannot be recovered.",
+        "gl": "Está seguro de que desexa eliminar a titulación %c? Esta acción é permanente e non se pode recuperar."
+    },
+    "Titulación editada correctamente.": {
+        "en": "Degree successfully edited.",
+        "gl": "Titulación editada correctamente."
+    },
+    "Editar titulación '%c'": {
+        "en": "Edit degree '%c'",
+        "gl": "Editar titulación '%c'"
     }
 }
 

@@ -10,6 +10,7 @@ include_once '../utils/pagination.php';
 include_once '../models/common/DAOException.php';
 include_once '../models/center/centerDAO.php';
 include_once '../models/university/universityDAO.php';
+include_once '../models/user/userDAO.php';
 include_once '../models/building/buildingDAO.php';
 include_once '../views/common/head.php';
 include_once '../views/common/headerMenu.php';
@@ -41,10 +42,9 @@ switch ($action) {
         if (checkPermission("centro", "ADD")) {
             if (!isset($_POST["submit"])) {
                 if(!IsAdmin()){
-                    $elem = getUserInSession();
                     $universities=[];
                    foreach ($universityData as $university){
-                        if($university->getUsuario()->getId() == $elem->login){
+                        if($university->getUsuario()->getId() == getUserInSession()){
                             array_push($universities, $university);
                         }
                     }
