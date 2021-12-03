@@ -34,6 +34,7 @@ class UniversityAddView
                 <div class="form-group">
                     <label for="academic_course_id" data-translate="Curso académico"></label>
                     <select class="form-control" id="academic_course_id" name="academic_course_id" ?>
+                    <option value="" data-translate="Seleccione"></option>
                         <?php foreach ($this->academic_courses as $ac): ?>
                             <option value="<?php echo $ac->getId() ?>"><?php echo $ac->getNombre() ?></option>
                         <?php endforeach; ?>
@@ -42,6 +43,7 @@ class UniversityAddView
                 <div class="form-group">
                     <label for="user_id" data-translate="Responsable"></label>
                     <select class="form-control" id="user_id" name="user_id" ?>
+                        <option value="" data-translate="Seleccione"></option>
                         <?php foreach ($this->users as $user): ?>
                             <option value="<?php echo $user->getId() ?>"><?php echo $user->getNombre()." ".$user->getApellido() ?></option>
                         <?php endforeach; ?>

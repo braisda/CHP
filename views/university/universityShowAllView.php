@@ -31,8 +31,8 @@ class UniversityShowAllView
 
                 <!-- Search -->
                 <a class="btn btn-primary button-specific-search" data-toggle="modal" data-target="#searchModal" role="button">
-                    <span data-feather="search"></span>
-                    <p class="btn-show-view" data-translate="Buscar"></p>
+                    <span class="text-white" data-feather="search"></span>
+                    <p class="btn-show-view text-white" data-translate="Buscar"></p>
                 </a>
                 <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -45,22 +45,24 @@ class UniversityShowAllView
                         </div>
                         <div class="modal-body">
                             <form class="row" id="searchUniversity" action='../controllers/universityController.php?action=search' method='POST'>
-                                <div id="name-div" class="form-group">
+                                <div id="name-div" class="form-group col-12">
                                     <label for="name" data-translate="Nombre"></label>
                                     <input type="text" class="form-control" id="name" name="name" data-translate="Nombre"
                                         required maxlength="30" oninput="checkNameEmptyUniversity(this);">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group col-12">
                                     <label for="academic_course_id" data-translate="Curso académico"></label>
                                     <select class="form-control" id="academic_course_id" name="academic_course_id" ?>
+                                        <option value="" data-translate="Seleccione"></option>
                                         <?php foreach ($this->academic_courses as $ac): ?>
                                             <option value="<?php echo $ac->getId() ?>"><?php echo $ac->getNombre() ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group col-12">
                                     <label for="user_id" data-translate="Responsable"></label>
                                     <select class="form-control" id="user_id" name="user_id" ?>
+                                        <option value="" data-translate="Seleccione"></option>
                                         <?php foreach ($this->users as $user): ?>
                                             <option value="<?php echo $user->getId() ?>"><?php echo $user->getNombre()." ".$user->getApellido() ?></option>
                                         <?php endforeach; ?>
