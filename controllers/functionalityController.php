@@ -143,13 +143,13 @@ function showAllSearch($search) {
         try {
             $currentPage = getPage();
             $itemsPerPage = getNumberItems();
-            $totalFunctionalities = $GLOBALS["functionalityDAO"]->countTotalFunctionalities($toSearch);
+            $totalFunctionalities = $GLOBALS["functionalityDAO"]->countTotalFunctionalities();
 
             if ($search != NULL) {
                 $functionalityData = $search;
                 $totalFunctionalities = count($functionalityData);
             } else {
-                $functionalityData = $GLOBALS["functionalityDAO"]->showAllPaged($currentPage, $itemsPerPage, NULL);
+                $functionalityData = $GLOBALS["functionalityDAO"]->showAllPaged($currentPage, $itemsPerPage);
             }
 
             new FunctionalityShowAllView($functionalityData, $itemsPerPage, $currentPage, $totalFunctionalities, $search);

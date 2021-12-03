@@ -44,13 +44,13 @@ class UserRoleDAO
         $this->defaultDAO->truncateTable("usuario_rol");
     }
 
-    function showAllPaged($currentPage, $itemsPerPage, $stringToSearch) {
-        $userRolesDB = $this->defaultDAO->showAllPaged($currentPage, $itemsPerPage, new UsuarioRol(), $stringToSearch);
+    function showAllPaged($currentPage, $itemsPerPage) {
+        $userRolesDB = $this->defaultDAO->showAllPaged($currentPage, $itemsPerPage, new UsuarioRol());
         return $this->getUserRolesFromDB($userRolesDB);
     }
 
-    function countTotalUserRoles($stringToSearch) {
-        return $this->defaultDAO->countTotalEntries(new UsuarioRol(), $stringToSearch);
+    function countTotalUserRoles() {
+        return $this->defaultDAO->countTotalEntries(new UsuarioRol());
     }
 
     function checkDependencies($value) {

@@ -141,13 +141,13 @@ function showAllSearch($search) {
         try {
             $currentPage = getPage();
             $itemsPerPage = getNumberItems();
-            $totalRoles = $GLOBALS["roleDAO"]->countTotalRoles($toSearch);
+            $totalRoles = $GLOBALS["roleDAO"]->countTotalRoles();
 
             if ($search != NULL) {
                 $roleData = $search;
                 $totalUsers = count($roleData);
             } else {
-                $roleData = $GLOBALS["roleDAO"]->showAllPaged($currentPage, $itemsPerPage, NULL);
+                $roleData = $GLOBALS["roleDAO"]->showAllPaged($currentPage, $itemsPerPage);
             }
 
             new RoleShowAllView($roleData, $itemsPerPage, $currentPage, $totalRoles, $search);

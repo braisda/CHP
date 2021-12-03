@@ -47,13 +47,13 @@ class userDAO
         }
     }
 
-    function showAllPaged($currentPage, $itemsPerPage, $stringToSearch) {
-        $usersDB = $this->defaultDAO->showAllPaged($currentPage, $itemsPerPage, new Usuario(), $stringToSearch);
+    function showAllPaged($currentPage, $itemsPerPage) {
+        $usersDB = $this->defaultDAO->showAllPaged($currentPage, $itemsPerPage, new Usuario());
         return $this->getUsersFromDB($usersDB);
     }
 
-    function countTotalUsers($stringToSearch) {
-        return $this->defaultDAO->countTotalEntries(new Usuario(), $stringToSearch);
+    function countTotalUsers() {
+        return $this->defaultDAO->countTotalEntries(new Usuario());
     }
 
     function checkDependencies($value) {

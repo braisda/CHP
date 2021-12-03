@@ -154,9 +154,8 @@ class defaultDAO
         }
     }
 
-    function countTotalEntries($entity, $stringToSearch) {
+    function countTotalEntries($entity) {
         $sql = "SELECT COUNT(*) FROM " . $this->getTableName($entity);
-        $sql .= $this->obtainWhereClauseToSearch($entity, $stringToSearch);
         if (!($result = $this->mysqli->query($sql))) {
             throw new DAOException('Error de conexión con la base de datos.');
         } else {
@@ -191,10 +190,9 @@ class defaultDAO
         }
     }
 
-    function showAllPaged($currentPage, $itemsPerPage, $entity, $stringToSearch) {
+    function showAllPaged($currentPage, $itemsPerPage, $entity) {
         $startBlock = ($currentPage - 1) * $itemsPerPage;
         $sql = "SELECT * FROM " . $this->getTableName($entity);
-        $sql .= $this->obtainWhereClauseToSearch($entity, $stringToSearch);
         $sql .= " LIMIT " . $startBlock . "," . $itemsPerPage;
         return $this->getArrayFromSqlQuery($sql);
     }
@@ -236,59 +234,6 @@ class defaultDAO
             }
             return $arrayData;
         }
-    }
-
-    private function obtainWhereClauseToSearch($entity, $stringToSearch) {
-        $sql = "";
-        if(get_class($stringToSearch) == "defaultDAO" || empty(get_class($stringToSearch))) {
-            if (!is_null($stringToSearch)) {
-                $sqlWhere = $this->getSearchConsult($entity, $stringToSearch);
-                $sql = " WHERE " . $sqlWhere;
-            }
-        } else {
-            $sqlWhere = $this->getSearchConsultWithEntity($stringToSearch);
-            $sql = " WHERE " . $sqlWhere;
-        }
-        return $sql;
-    }
-
-    private function getSearchConsult($entity, $stringToSearch) {
-        $attributes = array_keys($entity->expose());
-        $sql = "";
-        foreach ($attributes as $attribute) {
-            if ($sql == "") {
-                $sql = "(" . $attribute . " LIKE '%" . $stringToSearch . "%')";
-            } else {
-                $sql = $sql . " OR (" . $attribute . " LIKE '%" . $stringToSearch . "%')";
-            }
-        }
-        return $sql;
-    }
-
-    private function getSearchConsultWithEntity($stringToSearch) {
-        $attributes = array_keys($stringToSearch->expose());
-        $sql = "";
-        foreach ($attributes as $attribute) {
-            $functionName = $this->changeFunctionName($attribute);
-            $value = $stringToSearch->$functionName();
-            if (!empty($value)) {
-                if(!is_object($value)) {
-                    if ($sql == "") {
-                        $sql = "(" . $attribute . " LIKE '%" . $value . "%')";
-                    } else {
-                        $sql = $sql . " AND (" . $attribute . " LIKE '%" . $value . "%')";
-                    }
-                } else {
-                    $attribute = $attribute . "_id";
-                    if ($sql == "") {
-                        $sql = "(" . $attribute . " = '" . $value->getId() . "')";
-                    } else {
-                        $sql = $sql . " AND (" . $attribute . " = '" . $value->getId() . "')";
-                    }
-                }
-            }
-        }
-        return $sql;
     }
 
     private function getTableName($entity) {

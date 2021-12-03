@@ -155,13 +155,13 @@ function showAllSearch($search) {
 
             $page = getPage();
             $itemsInPage = getNumberItems();
-            $totalUsers = $GLOBALS["userDAO"]->countTotalUsers($toSearch);
+            $totalUsers = $GLOBALS["userDAO"]->countTotalUsers();
 
             if ($search != NULL) {
                 $data = $search;
                 $totalUsers = count($data);
             } else {
-                $data = $GLOBALS["userDAO"]->showAllPaged($page, $itemsInPage, NULL);
+                $data = $GLOBALS["userDAO"]->showAllPaged($page, $itemsInPage);
             }
 
             new UserShowAllView($data, $itemsInPage, $page, $totalUsers, $search);

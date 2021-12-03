@@ -36,13 +36,13 @@ class FuncActionDAO
         return new FuncAccion($funcAction_db["id"], $action, $functionality);
     }
 
-    function showAllPaged($currentPage, $itemsPerPage, $stringToSearch) {
-        $funcAction_db = $this->defaultDAO->showAllPaged($currentPage, $itemsPerPage, new FuncAction(), $stringToSearch);
+    function showAllPaged($currentPage, $itemsPerPage) {
+        $funcAction_db = $this->defaultDAO->showAllPaged($currentPage, $itemsPerPage, new FuncAction());
         return $this->getFuncActionFromDB($funcAction_db);
     }
 
-    function countTotalFuncActions($stringToSearch) {
-        return $this->defaultDAO->countTotalEntries(new FuncAccion(), $stringToSearch);
+    function countTotalFuncActions() {
+        return $this->defaultDAO->countTotalEntries(new FuncAccion());
     }
 
     function edit($funcAction) {

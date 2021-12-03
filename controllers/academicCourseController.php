@@ -149,13 +149,13 @@ function showAllSearch($search) {
         try {
             $currentPage = getPage();
             $itemsPerPage = getNumberItems();
-            $totalAcademicCourses = $GLOBALS["academicCourseDAO"]->countTotalAcademicCourses($toSearch);
+            $totalAcademicCourses = $GLOBALS["academicCourseDAO"]->countTotalAcademicCourses();
 
             if ($search != NULL) {
                 $academicCoursesData = $search;
                 $totalAcademicCourses = count($data);
             } else {
-                $academicCoursesData = $GLOBALS["academicCourseDAO"]->showAllPaged($currentPage, $itemsPerPage, $toSearch);
+                $academicCoursesData = $GLOBALS["academicCourseDAO"]->showAllPaged($currentPage, $itemsPerPage);
             }
             new AcademicCourseShowAllView($academicCoursesData, $itemsPerPage, $currentPage, $totalAcademicCourses, $search);
         } catch (DAOException $e) {
