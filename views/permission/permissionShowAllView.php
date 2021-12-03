@@ -36,8 +36,8 @@ class PermissionShowAllView {
             <h2 data-translate="Listado de permisos"></h2>
             <!-- Search -->
             <a class="btn btn-primary button-specific-search" data-toggle="modal" data-target="#searchModal" role="button">
-                <span data-feather="search"></span>
-                <p class="btn-show-view" data-translate="Buscar"></p>
+                <span class="text-white" data-feather="search"></span>
+                <p class="btn-show-view text-white" data-translate="Buscar"></p>
             </a>
             <!-- Modal -->
             <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

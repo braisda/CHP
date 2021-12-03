@@ -35,7 +35,7 @@ class PaginationView
                 </select>
                 <?php if ($this->totalPages > 1): ?>
                     <div class="row">
-                        <nav aria-label="..." class="col-12">
+                        <nav aria-label="..." class="col-12  bg-white">
                             <ul class="pagination">
                                 <?php if ($this->page == 1): ?>
                             <li class="page-item disabled">
