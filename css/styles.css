@@ -34,6 +34,10 @@ html {
 
 }
 
+nav {
+    background-color: #317618 !important;
+}
+
 .sidebar {
     position: fixed;
     top: 0;
@@ -203,10 +207,15 @@ a p {
     margin: 0;
 }
 
+.button-specific-search {
+    max-height: 2.5rem !important;
+    cursor: pointer;
+}
+
 .flag {
     max-width: 2.2rem;
     margin-left: .5rem;
-    border-radius: 5px;
+    border-radius: 50px;
 }
 
 .flags {

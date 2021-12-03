@@ -1,7 +1,7 @@
 
     <!-- Barra de herramientas / Menú -->
-    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-        <a id="button-sidebar" class="navbar-brand col-sm-3 col-md-2 mr-0" href="../index.php">
+    <nav class="navbar fixed-top flex-md-nowrap p-0 shadow">
+        <a id="button-sidebar" class="text-white navbar-brand col-sm-3 col-md-2 mr-0" href="../index.php">
             <button id="button-show-sidebar" class="navbar-toggler" type="button" onclick="showSidebar()">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -12,9 +12,9 @@
             <div class="row margin-right">
                 <!-- Language -->
                 <li class="nav-item text-nowrap row flags mr-2">
-                    <a href="javascript:setCookie('language-selected', 'gl'); translatePage();"><img class="flag" src="../assets/gallego.png"></a>
-                    <a href="javascript:setCookie('language-selected', 'es'); translatePage();"><img class="flag" src="../assets/espanol.png"></a>
-                    <a href="javascript:setCookie('language-selected', 'en'); translatePage();"><img class="flag" src="../assets/english.jpg"></a>
+                    <a href="javascript:setCookie('language-selected', 'gl'); translatePage();"><img height="25" width="30" class="flag" src="../assets/gallego.png"></a>
+                    <a href="javascript:setCookie('language-selected', 'es'); translatePage();"><img height="25" width="30" class="flag" src="../assets/espanol.png"></a>
+                    <a href="javascript:setCookie('language-selected', 'en'); translatePage();"><img height="25" width="30" class="flag" src="../assets/english.jpg"></a>
                 </li>
 
                 <!-- Logout -->
@@ -29,7 +29,7 @@
         <ul class="navbar-nav px-1 d-block d-sm-none">
             <div class="row margin-right">
                 <li class="nav-item dropdown mr-2 ml-2 bg-dark">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    <a class="nav-link dropdown-toggle text-white p-1" href="#" id="navbardrop" data-toggle="dropdown">
                         <p data-translate="Más"></p>
                     </a>
                     <div class="dropdown-menu  bg-dark">
