@@ -35,13 +35,13 @@ class ActionDAO
         $this->defaultDAO->truncateTable("accion");
     }
 
-    function showAllPaged($currentPage, $itemsPerPage, $stringToSearch) {
-        $actionsDB = $this->defaultDAO->showAllPaged($currentPage, $itemsPerPage, new Accion(), $stringToSearch);
+    function showAllPaged($currentPage, $itemsPerPage) {
+        $actionsDB = $this->defaultDAO->showAllPaged($currentPage, $itemsPerPage, new Accion());
         return $this->getActionsFromDB($actionsDB);
     }
 
-    function countTotalActions($stringToSearch) {
-        return $this->defaultDAO->countTotalEntries(new Accion(), $stringToSearch);
+    function countTotalActions() {
+        return $this->defaultDAO->countTotalEntries(new Accion());
     }
 
     function checkDependencies($value) {

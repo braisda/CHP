@@ -41,13 +41,13 @@ class PermissionDAO
         $this->defaultDAO->edit($permission, "id");
     }
 
-    function showAllPaged($currentPage, $itemsPerPage, $stringToSearch) {
-        $permissionsDB = $this->defaultDAO->showAllPaged($currentPage, $itemsPerPage, new Permiso(), $stringToSearch);
+    function showAllPaged($currentPage, $itemsPerPage) {
+        $permissionsDB = $this->defaultDAO->showAllPaged($currentPage, $itemsPerPage, new Permiso());
         return $this->getPermissionsFromDB($permissionsDB);
     }
 
-    function countTotalPermissions($stringToSearch) {
-        return $this->defaultDAO->countTotalEntries(new Permiso(), $stringToSearch);
+    function countTotalPermissions() {
+        return $this->defaultDAO->countTotalEntries(new Permiso());
     }
 
     function checkDependencies($value) {

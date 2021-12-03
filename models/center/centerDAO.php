@@ -48,13 +48,13 @@ class CenterDAO
         $this->defaultDAO->truncateTable("centro");
     }
 
-    function showAllPaged($currentPage, $itemsPerPage, $stringToSearch) {
-        $centers_db = $this->defaultDAO->showAllPaged($currentPage, $itemsPerPage, new Centro(), $stringToSearch);
+    function showAllPaged($currentPage, $itemsPerPage) {
+        $centers_db = $this->defaultDAO->showAllPaged($currentPage, $itemsPerPage, new Centro());
         return $this->getCentersFromDB($centers_db);
     }
 
     function countTotalCenters() {
-        return $this->defaultDAO->countTotalEntries(new Centro(), NULL);
+        return $this->defaultDAO->countTotalEntries(new Centro());
     }
 
     function checkDependencies($value) {

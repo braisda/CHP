@@ -192,7 +192,7 @@ function showAllSearch($search, $universityData, $buildingData, $userData) {
                 $centerData = $search;
                 $totalCenters = count($centerData);
             } else {
-                $centerData = $GLOBALS["centerDAO"]->showAllPaged($currentPage, $itemsPerPage, NULL);
+                $centerData = $GLOBALS["centerDAO"]->showAllPaged($currentPage, $itemsPerPage);
             }
             new CenterShowAllView($centerData, $itemsPerPage, $currentPage, $totalCenters, $search, $universityData, $buildingData, $userData);
         } catch (DAOException $e) {

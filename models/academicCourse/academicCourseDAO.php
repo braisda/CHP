@@ -36,14 +36,14 @@ class AcademicCourseDAO
         $this->defaultDAO->truncateTable("curso_academico");
     }
 
-    function showAllPaged($currentPage, $itemsPerPage, $stringToSearch) {
+    function showAllPaged($currentPage, $itemsPerPage) {
         $academicCoursesDB = $this->defaultDAO->showAllPaged($currentPage, $itemsPerPage,
-            new CursoAcademico(), $stringToSearch);
+            new CursoAcademico());
         return $this->getAcademicCoursesFromDB($academicCoursesDB);
     }
 
-    function countTotalAcademicCourses($stringToSearch) {
-        return $this->defaultDAO->countTotalEntries(new CursoAcademico(), $stringToSearch);
+    function countTotalAcademicCourses() {
+        return $this->defaultDAO->countTotalEntries(new CursoAcademico());
     }
 
     function checkDependencies($value) {

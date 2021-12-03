@@ -51,15 +51,15 @@ class UniversityDAO
         $this->defaultDAO->truncateTable("universidad");
     }
 
-    function showAllPaged($currentPage, $itemsPerPage, $stringToSearch)
+    function showAllPaged($currentPage, $itemsPerPage)
     {
-        $universitiesDB = $this->defaultDAO->showAllPaged($currentPage, $itemsPerPage, new Universidad(), $stringToSearch);
+        $universitiesDB = $this->defaultDAO->showAllPaged($currentPage, $itemsPerPage, new Universidad());
         return $this->getUniversitiesFromDB($universitiesDB);
     }
 
-    function countTotalUniversities($stringToSearch)
+    function countTotalUniversities()
     {
-        return $this->defaultDAO->countTotalEntries(new Universidad(), $stringToSearch);
+        return $this->defaultDAO->countTotalEntries(new Universidad());
     }
 
     function checkDependencies($value)

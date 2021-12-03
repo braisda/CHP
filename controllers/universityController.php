@@ -189,23 +189,23 @@ function showAllSearch($search, $academicCourseData, $userData)
                 } else {
                     if (!empty($universities) && count($universities) == 1) {
                         $search = $universities[0];
-                        $totalUniversities = $GLOBALS["universityDAO"]->countTotalUniversities(NULL);
-                        $universitiesData = $GLOBALS["universityDAO"]->showAllPaged($currentPage, $itemsPerPage, NULL);
+                        $totalUniversities = $GLOBALS["universityDAO"]->countTotalUniversities();
+                        $universitiesData = $GLOBALS["universityDAO"]->showAllPaged($currentPage, $itemsPerPage);
                         new UniversityShowAllView($universitiesData, $academicCourseData, $userData, $itemsPerPage, $currentPage, $totalUniversities, NULL, $searching);
                     } elseif (count($universities) > 1) {
                         $universitiesData = array();
                         foreach ($universities as $uni) {
                             $search = $uni;
-                            $totalUniversities += $GLOBALS["universityDAO"]->countTotalUniversities(NULL);
-                            $data = $GLOBALS["universityDAO"]->showAllPaged($currentPage, $itemsPerPage, NULL);
+                            $totalUniversities += $GLOBALS["universityDAO"]->countTotalUniversities();
+                            $data = $GLOBALS["universityDAO"]->showAllPaged($currentPage, $itemsPerPage);
                             foreach ($data as $dat) {
                                 array_push($universitiesData, $dat);
                             }
                         }
                         new UniversityShowAllView($universitiesData, $academicCourseData, $userData, $itemsPerPage, $currentPage, $totalUniversities, NULL, $searching);
                     } else {
-                        $totalUniversities = $GLOBALS["universityDAO"]->countTotalUniversities(NULL);
-                        $universitiesData = $GLOBALS["universityDAO"]->showAllPaged($currentPage, $itemsPerPage, NULL);
+                        $totalUniversities = $GLOBALS["universityDAO"]->countTotalUniversities();
+                        $universitiesData = $GLOBALS["universityDAO"]->showAllPaged($currentPage, $itemsPerPage);
                         new UniversityShowAllView($universitiesData, $academicCourseData, $userData, $itemsPerPage, $currentPage, $totalUniversities, NULL, $searching);
                     }
                 }

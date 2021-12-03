@@ -41,12 +41,12 @@ class BuildingDAO
     }
 
     function showAllPaged($currentPage, $itemsPerPage) {
-        $buildings_db = $this->defaultDAO->showAllPaged($currentPage, $itemsPerPage, new Edificio(), NULL);
+        $buildings_db = $this->defaultDAO->showAllPaged($currentPage, $itemsPerPage, new Edificio());
         return $this->getBuildingFromDB($buildings_db);
     }
 
-    function countTotalBuildings($stringToSearch) {
-        return $this->defaultDAO->countTotalEntries(new Building(), $stringToSearch);
+    function countTotalBuildings() {
+        return $this->defaultDAO->countTotalEntries(new Building());
     }
 
     function checkDependencies($value) {

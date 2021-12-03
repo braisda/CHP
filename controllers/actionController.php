@@ -141,13 +141,13 @@ function showAllSearch($search) {
         try {
             $currentPage = getPage();
             $itemsPerPage = getNumberItems();
-            $totalActions = $GLOBALS["actionDAO"]->countTotalActions($toSearch);
+            $totalActions = $GLOBALS["actionDAO"]->countTotalActions();
 
             if ($search != NULL) {
                 $actionData = $search;
                 $totalActions = count($actionData);
             } else {
-                $actionData = $GLOBALS["actionDAO"]->showAllPaged($currentPage, $itemsPerPage, NULL);
+                $actionData = $GLOBALS["actionDAO"]->showAllPaged($currentPage, $itemsPerPage);
             }
 
             new ActionShowAllView($actionData, $itemsPerPage, $currentPage, $totalActions, $search);

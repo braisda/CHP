@@ -35,13 +35,13 @@ class FunctionalityDAO
         $this->defaultDAO->truncateTable("funcionalidad");
     }
 
-    function showAllPaged($currentPage, $itemsPerPage, $stringToSearch) {
-        $functionalitiesDB = $this->defaultDAO->showAllPaged($currentPage, $itemsPerPage, new Funcionalidad(), $stringToSearch);
+    function showAllPaged($currentPage, $itemsPerPage) {
+        $functionalitiesDB = $this->defaultDAO->showAllPaged($currentPage, $itemsPerPage, new Funcionalidad());
         return $this->getFunctionalitiesFromDB($functionalitiesDB);
     }
 
-    function countTotalFunctionalities($stringToSearch) {
-        return $this->defaultDAO->countTotalEntries(new Funcionalidad(), $stringToSearch);
+    function countTotalFunctionalities() {
+        return $this->defaultDAO->countTotalEntries(new Funcionalidad());
     }
 
     function checkDependencies($value) {

@@ -35,13 +35,13 @@ class RoleDAO
         $this->defaultDAO->truncateTable("rol");
     }
 
-    function showAllPaged($currentPage, $itemsPerPage, $stringToSearch) {
-        $rolesDB = $this->defaultDAO->showAllPaged($currentPage, $itemsPerPage, new Rol(), $stringToSearch);
+    function showAllPaged($currentPage, $itemsPerPage) {
+        $rolesDB = $this->defaultDAO->showAllPaged($currentPage, $itemsPerPage, new Rol());
         return $this->getRolesFromDB($rolesDB);
     }
 
-    function countTotalRoles($stringToSearch) {
-        return $this->defaultDAO->countTotalEntries(new Rol(), $stringToSearch);
+    function countTotalRoles() {
+        return $this->defaultDAO->countTotalEntries(new Rol());
     }
 
     function checkDependencies($value) {
