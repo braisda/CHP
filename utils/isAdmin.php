@@ -1,6 +1,6 @@
 <?php
-include_once "../Models/UserRole/UserRoleDAO.php";
-include_once "../Models/Permission/PermissionDAO.php";
+include_once "../models/userRole/userRoleDAO.php";
+include_once "../models/permission/permissionDAO.php";
 
 function IsAdmin()
 {

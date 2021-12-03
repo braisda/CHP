@@ -1,9 +1,10 @@
 <?php
-include_once  "../Models/University/UniversityDAO.php";
-include_once "../Models/University/University.php";
+include_once  "../models/university/universityDAO.php";
+include_once "../models/university/universidad.php";
+
 function IsUniversityOwner()
 {
-    $toret = array();
+    $return = array();
     $universityDAO = new UniversityDAO();
 
     $serverKey = '5f2b5cdbe5194f10b3241568fe4e2b24';
@@ -12,17 +13,16 @@ function IsUniversityOwner()
     try{
         $universities = $universityDAO->showAll();
         foreach ($universities as $university){
-            if($university->getidUsuario()->getId() == $elem->login){
-                array_push($toret, $university);
+            if($university->getIdUsuario()->getId() == $elem->login){
+                array_push($return, $university);
             }
         }
-        if (empty($toret)) {
+        if (empty($return)) {
             return false;
         } else {
-            return $toret;
+            return $return;
         }
-    }
-    catch (DAOException $e){
+    } catch (DAOException $e){
         return false;
     }
 }

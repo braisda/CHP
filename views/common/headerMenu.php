@@ -141,7 +141,7 @@
                             <!-- Gestión de centros -->
                             <li class="nav-item">
                                 <a class="nav-link" href="../controllers/centerController.php">
-                                    <span class="bi bi-building"></span>
+                                    <span class="far bi-building"></span>
                                     <p data-translate="Gestión de centros"></p>
                                 </a>
                             </li>

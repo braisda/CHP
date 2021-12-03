@@ -13,7 +13,7 @@ class ActionEditView {
         <main role="main" class="margin-main ml-sm-auto px-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-4 pb-2 mb-3
             border-bottom">
-                <h1 class="h2" data-translate="Editar acción '%<?php echo $this->action->getId()?>%'"></h1>
+                <h2 data-translate="Editar acción '%<?php echo $this->action->getId()?>%'"></h2>
                 <a class="btn btn-primary" role="button" href="../controllers/actionController.php" data-translate="Volver"></a>
             </div>
             <form  name = "actionForm" action='../controllers/actionController.php?action=edit&id=<?php echo $this->action->getId()?>'

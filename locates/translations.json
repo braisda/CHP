@@ -752,8 +752,8 @@
         "gl": "Xestión de universidades"
     },
     "Universidades": {
-      "en": "Universities",
-      "gl": "Universidades"
+        "en": "Universities",
+        "gl": "Universidades"
     },
     "No se ha obtenido ninguna universidad": {
         "en": "No university has been obtained",
@@ -776,28 +776,28 @@
         "gl": "Universidad editada correctamente."
     },
     "Editar universidad '%c'": {
-      "en": "Edit university '%c'",
-      "gl": "Editar universidad '%c'"
+        "en": "Edit university '%c'",
+        "gl": "Editar universidad '%c'"
     },
     "Universidad '%c'": {
-      "en": "University '%c'",
-      "gl": "Universidade '%c'"
+        "en": "University '%c'",
+        "gl": "Universidade '%c'"
     },
     "Universidad": {
-      "en": "University",
-      "gl": "Universidade"
+        "en": "University",
+        "gl": "Universidade"
     },
     "Eliminar universidad": {
-      "en": "Delete university",
-      "gl": "Eliminar universidade"
+        "en": "Delete university",
+        "gl": "Eliminar universidade"
     },
     "¿Está seguro de que desea eliminar la universidad %c? Esta acción es permanente y no se puede recuperar.": {
-      "en": "Are you sure you want to delete the university %c? This action is permanent and cannot be recovered.",
-      "gl": "Está seguro de que desexa eliminar a universidade %c? Esta acción é permanente e non se pode recuperar."
+        "en": "Are you sure you want to delete the university %c? This action is permanent and cannot be recovered.",
+        "gl": "Está seguro de que desexa eliminar a universidade %c? Esta acción é permanente e non se pode recuperar."
     },
     "Listado de universidades": {
-      "en": "Universities list",
-      "gl": "Listado de universidades"
+        "en": "Universities list",
+        "gl": "Listado de universidades"
     },
     "Error de validación. Id universidad incorrecto.": {
       "en": "Validation error. University id wrong.",
@@ -814,6 +814,62 @@
     "La universidad no existe": {
         "en": "Academic course",
         "gl": "Curso académico"
+    },
+    "Listado de centros": {
+        "en": "Centers list",
+        "gl": "Listaxe de centros"
+    },
+    "Edificio": {
+        "en": "Building",
+        "gl": "Edificio"
+    },
+    "No se ha obtenido ningún centro": {
+        "en": "No center has been obtained",
+        "gl": "Non se obtivo ningún centro"
+    },
+    "Añadir centro": {
+        "en": "Add center",
+        "gl": "Engadir centro"
+    },
+    "Error de validación. Localización incorrecta.": {
+        "en": "Validation error. Incorrect location",
+        "gl": "Erro de validación. Localización incorrecta"
+    },
+    "Error de validación. Nombre incorrecto.": {
+        "en": "Validation error. Incorrect name",
+        "gl": "Erro de validación. Nome incorrecto"
+    },
+    "Error de validación. Usuario incorrecto.": {
+        "en":"Validation error. Incorrect user",
+        "gl": "Erro de validación. Usuario incorrecto"
+    },
+    "Centro añadido correctamente.": {
+        "en": "Center successfully added.",
+        "gl": "Centro engadido correctamente."
+    },
+    "Centro '%c'": {
+        "en": "Center '%c'",
+        "gl": "Centro '%c'"
+    },
+    "Centro eliminado correctamente.": {
+        "en": "Center successfully deleted.",
+        "gl": "Centro eliminado correctamente."
+    },
+    "Eliminar centro": {
+        "en": "Delete center",
+        "gl": "Eliminar centro"
+    },
+    "¿Está seguro de que desea eliminar el centro %c? Esta acción es permanente y no se puede recuperar.": {
+        "en": "Are you sure you want to delete the center %c? This action is permanent and cannot be recovered.",
+        "gl": "Está seguro de que desexa eliminar o centro %c? Esta acción é permanente e non se pode recuperar."
+    },
+    "Centro editado correctamente.": {
+        "en": "Center successfully edited.",
+        "gl": "Centro editado correctamente."
+    },
+    "Editar centro '%c'": {
+        "en": "Edit center '%c'",
+        "gl": "Editar centro '%c'"
     }
 }
 
