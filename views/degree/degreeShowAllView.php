@@ -39,8 +39,8 @@ class DegreeShowAllView {
                 <h2 data-translate="Listado de titulaciones"></h2>
                 <!-- Search -->
                 <a class="btn btn-primary button-specific-search" data-toggle="modal" data-target="#searchModal" role="button">
-                    <span data-feather="search"></span>
-                    <p class="btn-show-view" data-translate="Buscar"></p>
+                    <span data-feather="search" class="text-white"></span>
+                    <p class="btn-show-view text-white" data-translate="Buscar"></p>
                 </a>
                 <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
