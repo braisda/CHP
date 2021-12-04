@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html id="principal-page">
 <head>
      <?php
         include_once '../views/Common/headerMenu.php';
