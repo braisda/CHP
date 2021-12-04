@@ -157,6 +157,17 @@
                                 </a>
                             </li>
                             <?php } ?>
+                            <?php
+                                if (checkPermission("grado", "SHOWALL")) {
+                            ?>
+                            <!-- Gestión de titulaciones -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="../controllers/degreeController.php">
+                                    <span class="far bi-stickies"></span>
+                                    <p data-translate="Gestión de titulaciones"></p>
+                                </a>
+                            </li>
+                            <?php } ?>
                         </ul>
                     </div>
                 </nav>
