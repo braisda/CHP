@@ -76,7 +76,7 @@ switch ($action) {
                         showAll($academicCourseData, $userData);
                         confirmDelete("Eliminar universidad", "¿Está seguro de que desea eliminar " .
                             "la universidad %" . $value . "%? Esta acción es permanente y no se puede recuperar.",
-                            "../Controllers/UniversityController.php?action=delete&id=" . $value . "&confirm=true");
+                            "../controllers/universityController.php?action=delete&id=" . $value . "&confirm=true");
                     } catch (DAOException $e) {
                         goToShowAllAndShowError($e->getMessage(), $academicCourseData, $userData);
                     }

@@ -1,18 +1,14 @@
 #!/bin/sh
 echo "\n	########## INICIANDO INSTALACIÓN 'CHP' ##########"
+echo "\nCambiando directorio a /var/www/html..."
+cd /var/www/html
+echo "\nDescargando 'CHP'...\n"
+git clone "https://github.com/braisda/CHP.git"
 
-echo 'El archivo ya existe, no es necesario transferirlo al directorio Apache'
-
-cd /home/pdp
-mv CHP.tar /var/www/html/CHP.tar
-
-echo "Desempaquetando archivos..."
-tar -xf /var/www/html/CHP.tar -C /var/www/html
-rm /var/www/html/CHP.tar
-chomd 777 -R /var/www/html/CHP
+chmod 777 -R /var/www/html/CHP
 
 echo "Configurando base de datos..."
-mysql -u root -ppdp -B < /var/www/html/CHP/database.sql
+mysql -uroot -ppdp < /var/www/html/CHP/database.sql
 
 echo "\n"
 echo " _____  _   _ ______   _            ______  _____ ____________" 
