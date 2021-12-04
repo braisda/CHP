@@ -5,7 +5,7 @@
         include_once '../views/Common/headerMenu.php';
      ?>
 </head>
-
+<body>
     <?php
         include 'calendar.php';
         $calendar = new Calendar(date("Y-m-d"));
