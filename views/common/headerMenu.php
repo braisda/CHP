@@ -57,11 +57,11 @@
                             <?php
                         		if (checkPermission("usuario", "SHOWALL") ||
                         			checkPermission("Permission", "SHOWALL" ||
-                        			checkPermission("FuncAction", "SHOWALL") ||
-                        			checkPermission("Action", "SHOWALL") ||
+                        			checkPermission("FuncAccion", "SHOWALL") ||
+                        			checkPermission("accion", "SHOWALL") ||
                         			checkPermission("Functionality", "SHOWALL") ||
                         			checkPermission("Role", "SHOWALL") ||
-                        			checkPermission("UserRole", "SHOWALL"))) {
+                        			checkPermission("UsuarioRole", "SHOWALL"))) {
                         	?>
                             <li class="nav-item">
                                 <!-- Gestión de usuarios -->

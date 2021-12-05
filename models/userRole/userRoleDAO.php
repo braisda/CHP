@@ -61,8 +61,8 @@ class UserRoleDAO
         $roles = array();
 
         foreach ($userRolesDB as $userRole) {
-            $user = $this->userDAO->show("login", $userRole["idUsuario"]);
-            $role = $this->roleDAO->show("id", $userRole["idRol"]);
+            $user = $this->userDAO->show("login", $userRole["idusuario"]);
+            $role = $this->roleDAO->show("id", $userRole["idrol"]);
             $x = new UsuarioRol($userRole["id"], $role, $user);
             array_push($roles, $x);
         }

@@ -57,7 +57,7 @@ class PermissionDAO
     private function getPermissionsFromDB($permissions_db) {
         $permissions = array();
         foreach ($permissions_db as $permission) {
-            $role = $this->roleDAO->show("id", $permission["idRol"]);
+            $role = $this->roleDAO->show("id", $permission["idrol"]);
             $funcAction = $this->funcActionDAO->show("id", $permission["idfuncaccion"]);
             array_push($permissions, new Permiso($permission["id"], $role, $funcAction));
         }
