@@ -36,8 +36,8 @@ class UniversityDAO
     function show($key, $value)
     {
         $university = $this->defaultDAO->show("universidad", $key, $value);
-        $academicCourse = $this->academicCourseDAO->show("id", $university["idCursoAcademico"]);
-        $user = $this->userDAO->show("login", $university["idUsuario"]);
+        $academicCourse = $this->academicCourseDAO->show("id", $university["idcursoacademico"]);
+        $user = $this->userDAO->show("login", $university["idusuario"]);
         return new Universidad($university["id"], $academicCourse, $university["nombre"], $user);
     }
 
@@ -69,8 +69,8 @@ class UniversityDAO
 
     function search($academiCourse, $name, $user) {
         $sql = "SELECT DISTINCT * FROM universidad WHERE nombre LIKE '%".
-            $name . "%'AND idCursoAcademico LIKE '%" .
-            $academiCourse . "%' AND idUsuario LIKE '%" .
+            $name . "%'AND idcursoacademico LIKE '%" .
+            $academiCourse . "%' AND idusuario LIKE '%" .
             $user . "%'";
         return $this->defaultDAO->getArrayFromSqlQuery($sql);
     }
@@ -78,8 +78,8 @@ class UniversityDAO
     function parseUniversities($unis){
         $universities = array();
         foreach ($unis as $university) {
-            $academicCourse = $this->academicCourseDAO->show("id", $university["idCursoAcademico"]);
-            $user = $this->userDAO->show("login", $university["idUsuario"]);
+            $academicCourse = $this->academicCourseDAO->show("id", $university["idcursoacademico"]);
+            $user = $this->userDAO->show("login", $university["idusuario"]);
             array_push($universities, new Universidad($university["id"], $academicCourse, $university["nombre"],$user));
         }
         return $universities;
@@ -89,8 +89,8 @@ class UniversityDAO
     {
         $universities = array();
         foreach ($universitiesDB as $university) {
-            $academicCourse = $this->academicCourseDAO->show("id", $university["idCursoAcademico"]);
-            $user = $this->userDAO->show("login", $university["idUsuario"]);
+            $academicCourse = $this->academicCourseDAO->show("id", $university["idcursoacademico"]);
+            $user = $this->userDAO->show("login", $university["idusuario"]);
             array_push($universities, new Universidad($university["id"], $academicCourse, $university["nombre"],$user));
         }
         return $universities;

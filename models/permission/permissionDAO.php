@@ -33,7 +33,7 @@ class PermissionDAO
     function show($key, $value) {
         $permission_db = $this->defaultDAO->show("permiso", $key, $value);
         $role = $this->roleDAO->show("id", $permission_db["idRol"]);
-        $funcAction = $this->funcActionDAO->show("id", $permission_db["idFuncAccion"]);
+        $funcAction = $this->funcActionDAO->show("id", $permission_db["idfuncaccion"]);
         return new Permiso($permission_db["id"], $role, $funcAction);
     }
 
@@ -58,7 +58,7 @@ class PermissionDAO
         $permissions = array();
         foreach ($permissions_db as $permission) {
             $role = $this->roleDAO->show("id", $permission["idRol"]);
-            $funcAction = $this->funcActionDAO->show("id", $permission["idFuncAccion"]);
+            $funcAction = $this->funcActionDAO->show("id", $permission["idfuncaccion"]);
             array_push($permissions, new Permiso($permission["id"], $role, $funcAction));
         }
         return $permissions;
@@ -69,7 +69,7 @@ class PermissionDAO
     }
 
     function search($idRol, $idFuncAccion) {
-        $sql = "SELECT DISTINCT * FROM permiso WHERE idRol ='". $idRol . "' OR idFuncAccion ='" . $idFuncAccion . "'";
+        $sql = "SELECT DISTINCT * FROM permiso WHERE idRol ='". $idRol . "' OR idfuncaccion ='" . $idFuncAccion . "'";
         return $this->defaultDAO->getArrayFromSqlQuery($sql);
     }
 }

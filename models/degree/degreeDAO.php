@@ -31,8 +31,8 @@ class DegreeDAO {
 
     function show($key, $value) {
         $degree = $this->defaultDAO->show("grado", $key, $value);
-        $center = $this->centerDAO->show("id", $degree["idCentro"]);
-        $user = $this->userDAO->show("login", $degree["idUsuario"]);
+        $center = $this->centerDAO->show("id", $degree["idcentro"]);
+        $user = $this->userDAO->show("login", $degree["idusuario"]);
         return new Grado($degree["id"], $degree["nombre"], $center, $degree["capacidad"], $degree["descripcion"], $degree["creditos"], $user);
     }
 
@@ -60,7 +60,7 @@ class DegreeDAO {
     function search($nombre, $idCentro, $capacidad, $creditos, $idUsuario) {
         $sql = "SELECT DISTINCT * FROM grado WHERE nombre LIKE '%" . $nombre . "%'";
         if (!empty($idCentro)) {
-            $sql .= " AND idCentro = '" . $idCentro . "'";
+            $sql .= " AND idcentro = '" . $idCentro . "'";
         }
         if (!empty($capacidad)) {
             $sql .= " AND capacidad = '" . $capacidad . "'";
@@ -69,7 +69,7 @@ class DegreeDAO {
             $sql .= " AND creditos = '" . $creditos . "'";
         }
         if (!empty($idUsuario)) {
-            $sql .= " AND idUsuario = '" . $idUsuario . "'";
+            $sql .= " AND idusuario = '" . $idUsuario . "'";
         }
         return $this->defaultDAO->getArrayFromSqlQuery($sql);
     }
@@ -77,8 +77,8 @@ class DegreeDAO {
     private function getDegreesFromDB($degreesDB) {
         $degrees = array();
         foreach ($degreesDB as $degree) {
-            $center = $this->centerDAO->show("id", $degree["idCentro"]);
-            $user = $this->userDAO->show("login", $degree["idUsuario"]);
+            $center = $this->centerDAO->show("id", $degree["idcentro"]);
+            $user = $this->userDAO->show("login", $degree["idusuario"]);
             array_push($degrees, new Grado($degree["id"], $degree["nombre"], $center, $degree["capacidad"], $degree["descripcion"], $degree["creditos"], $user));
         }
         return $degrees;

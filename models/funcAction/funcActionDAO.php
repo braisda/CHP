@@ -17,7 +17,7 @@ class FuncActionDAO
     }
 
     function showAll() {
-        $funcActions_db = $this->defaultDAO->showAll("funcAccion");
+        $funcActions_db = $this->defaultDAO->showAll("funcaccion");
         return $this->getFuncActionFromDB($funcActions_db);
     }
 
@@ -26,13 +26,13 @@ class FuncActionDAO
     }
 
     function delete($key, $value) {
-        $this->defaultDAO->delete("funcAccion", $key, $value);
+        $this->defaultDAO->delete("funcaccion", $key, $value);
     }
 
     function show($key, $value) {
-        $funcAction_db = $this->defaultDAO->show("funcAccion", $key, $value);
-        $action = $this->actionDAO->show("id", $funcAction_db["idAccion"]);
-        $functionality = $this->functionalityDAO->show("id", $funcAction_db["idFuncionalidad"]);
+        $funcAction_db = $this->defaultDAO->show("funcaccion", $key, $value);
+        $action = $this->actionDAO->show("id", $funcAction_db["idaccion"]);
+        $functionality = $this->functionalityDAO->show("id", $funcAction_db["idfuncionalidad"]);
         return new FuncAccion($funcAction_db["id"], $action, $functionality);
     }
 
@@ -50,18 +50,18 @@ class FuncActionDAO
     }
 
     function truncateTable() {
-        $this->defaultDAO->truncateTable("funcAccion");
+        $this->defaultDAO->truncateTable("funcaccion");
     }
 
     function checkDependencies($value) {
-        $this->defaultDAO->checkDependencies("funcAccion", $value);
+        $this->defaultDAO->checkDependencies("funcaccion", $value);
     }
 
     private function getFuncActionFromDB($funcActions_db) {
         $funcActions = array();
         foreach ($funcActions_db as $funcAction) {
-            $action = $this->actionDAO->show("id", $funcAction["idAccion"]);
-            $functionality = $this->functionalityDAO->show("id", $funcAction["idFuncionalidad"]);
+            $action = $this->actionDAO->show("id", $funcAction["idaccion"]);
+            $functionality = $this->functionalityDAO->show("id", $funcAction["idfuncionalidad"]);
             array_push($funcActions, new FuncAccion($funcAction["id"],
                 $action, $functionality));
         }

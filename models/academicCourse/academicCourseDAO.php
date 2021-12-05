@@ -25,7 +25,7 @@ class AcademicCourseDAO
     function show($key, $value) {
         $academicCourse_db = $this->defaultDAO->show("curso_academico", $key, $value);
         return new CursoAcademico($academicCourse_db["id"], $academicCourse_db["nombre"],
-            $academicCourse_db["anoInicio"], $academicCourse_db["anoFin"]);
+            $academicCourse_db["anoinicio"], $academicCourse_db["anofin"]);
     }
 
     function edit($academicCourse) {
@@ -54,10 +54,10 @@ class AcademicCourseDAO
         $sql = "SELECT DISTINCT * FROM curso_academico WHERE nombre LIKE '%".
             $nombre . "%'";
         if (!empty($anoInicio)) {
-            $sql .= " AND anoInicio = '" . $anoInicio . "'";
+            $sql .= " AND anoinicio = '" . $anoInicio . "'";
         }
         if (!empty($anoFin)) {
-            $sql .= " AND anoFin = '" . $anoFin . "'";
+            $sql .= " AND anofin = '" . $anoFin . "'";
         }
         return $this->defaultDAO->getArrayFromSqlQuery($sql);
     }
@@ -66,7 +66,7 @@ class AcademicCourseDAO
         $academicCourses = array();
         foreach ($academicCourses_db as $academicCourse) {
             array_push($academicCourses, new CursoAcademico($academicCourse["id"],
-                $academicCourse["nombre"], $academicCourse["anoInicio"], $academicCourse["anoFin"]));
+                $academicCourse["nombre"], $academicCourse["anoinicio"], $academicCourse["anofin"]));
         }
         return $academicCourses;
     }

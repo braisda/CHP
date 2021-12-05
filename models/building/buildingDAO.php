@@ -28,7 +28,7 @@ class BuildingDAO
 
     function show($key, $value) {
         $building = $this->defaultDAO->show("edificio", $key, $value);
-        $user = $this->userDAO->show("login", $building["idUsuario"]);
+        $user = $this->userDAO->show("login", $building["idusuario"]);
         return new Edificio($building["id"],$building["nombre"], $building["localizacion"],$user);
     }
 
@@ -56,7 +56,7 @@ class BuildingDAO
     private function getBuildingFromDB($buildingsDB) {
         $buildings = array();
         foreach ($buildingsDB as $building) {
-            $user = $this->userDAO->show("login", $building["idUsuario"]);
+            $user = $this->userDAO->show("login", $building["idusuario"]);
             array_push($buildings, new Edificio($building["id"], $building["nombre"], $building["localizacion"],$user));
         }
         return $buildings;

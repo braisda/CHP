@@ -34,9 +34,9 @@ class CenterDAO
 
     function show($key, $value) {
         $center = $this->defaultDAO->show("centro", $key, $value);
-        $university = $this->universityDAO->show("id", $center["idUniversidad"]);
-        $user = $this->userDAO->show("login", $center["idUsuario"]);
-        $building = $this->buildingDAO->show("id", $center["idEdificio"]);
+        $university = $this->universityDAO->show("id", $center["iduniversidad"]);
+        $user = $this->userDAO->show("login", $center["idusuario"]);
+        $building = $this->buildingDAO->show("id", $center["idedificio"]);
         return new Centro($center["id"], $university, $center["nombre"], $building, $user);
     }
 
@@ -64,13 +64,13 @@ class CenterDAO
     function search($nombre, $idUniversidad, $idEdificio, $idUsuario) {
         $sql = "SELECT DISTINCT * FROM centro WHERE nombre LIKE '%" . $nombre . "%'";
         if (!empty($idUniversidad)) {
-            $sql .= " AND idUniversidad = '" . $idUniversidad . "'";
+            $sql .= " AND iduniversidad = '" . $idUniversidad . "'";
         }
         if (!empty($idEdificio)) {
-            $sql .= " AND idEdificio = '" . $idEdificio . "'";
+            $sql .= " AND idedificio = '" . $idEdificio . "'";
         }
         if (!empty($idUsuario)) {
-            $sql .= " AND idUsuario = '" . $idUsuario . "'";
+            $sql .= " AND idusuario = '" . $idUsuario . "'";
         }
         return $this->defaultDAO->getArrayFromSqlQuery($sql);
     }
@@ -78,9 +78,9 @@ class CenterDAO
     private function getCentersFromDB($centersDB) {
         $centers = array();
         foreach ($centersDB as $center) {
-            $university = $this->universityDAO->show("id", $center["idUniversidad"]);
-            $user = $this->userDAO->show("login", $center["idUsuario"]);
-            $building = $this->buildingDAO->show("id", $center["idEdificio"]);
+            $university = $this->universityDAO->show("id", $center["iduniversidad"]);
+            $user = $this->userDAO->show("login", $center["idusuario"]);
+            $building = $this->buildingDAO->show("id", $center["idedificio"]);
             array_push($centers, new Centro($center["id"], $university, $center["nombre"], $building, $user));
         }
         return $centers;
