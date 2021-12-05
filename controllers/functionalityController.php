@@ -10,8 +10,8 @@ if (!IsAuthenticated()){
 include_once '../utils/pagination.php';
 include_once '../models/functionality/functionalityDAO.php';
 include_once '../models/common/DAOException.php';
-include_once '../views/Common/head.php';
-include_once '../views/Common/headerMenu.php';
+include_once '../views/common/head.php';
+include_once '../views/common/headerMenu.php';
 include_once '../views/common/paginationView.php';
 include_once '../views/functionality/functionalityShowAllView.php';
 include_once '../views/functionality/functionalityAddView.php';

@@ -2,7 +2,7 @@
 <html id="principal-page">
 <head>
      <?php
-        include_once '../views/Common/headerMenu.php';
+        include_once '../views/common/headerMenu.php';
      ?>
 </head>
 <body>

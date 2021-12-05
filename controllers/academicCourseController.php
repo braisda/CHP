@@ -10,8 +10,8 @@ if (!IsAuthenticated()){
 include_once '../utils/pagination.php';
 include_once '../models/academicCourse/academicCourseDAO.php';
 include_once '../models/common/DAOException.php';
-include_once '../views/Common/head.php';
-include_once '../views/Common/headerMenu.php';
+include_once '../views/common/head.php';
+include_once '../views/common/headerMenu.php';
 include_once '../views/common/paginationView.php';
 include_once '../views/academicCourse/academicCourseShowAllView.php';
 include_once '../views/academicCourse/academicCourseAddView.php';
