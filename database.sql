@@ -598,7 +598,7 @@ INSERT INTO `permiso` (`idrol`,`idfuncaccion`) VALUES
 (5,'64'),
 (5,'65');
 
-INSERT INTO `curso_academico` (`id`, `nombre`, `anoinicio`, `anoinicio`) VALUES
+INSERT INTO `curso_academico` (`id`, `nombre`, `anoinicio`, `anofin`) VALUES
 (1, '18/19', '2018', '2019'),
 (2, '19/20', '2019', '2020'),
 (3, '20/21', '2020', '2021'),
