@@ -23,7 +23,7 @@ class Calendar {
         $html = '<div class="calendar">';
         $html .= '<div class="header">';
         $html .= '<div class="month-year">';
-        setlocale(LC_TIME, "spanish");
+        setlocale(LC_TIME, 'es_ES.UTF-8', 'es_ES', 'spanish');
         $html .= '<i data-translate="' . ucfirst(strftime("%B")) . '"></i> ' . $this->active_year;
         $html .= '</div>';
         $html .= '</div>';
