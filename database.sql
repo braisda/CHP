@@ -58,16 +58,16 @@ CREATE TABLE `rol` (
 -- --------------------------------------------------------
 CREATE TABLE `usuario_rol` (
   `id` int(8) COLLATE latin1_spanish_ci NOT NULL AUTO_INCREMENT,
-  `idUsuario` varchar(9) COLLATE latin1_spanish_ci NOT NULL,
-  `idRol` int(8) COLLATE latin1_spanish_ci NOT NULL,
+  `idusuario` varchar(9) COLLATE latin1_spanish_ci NOT NULL,
+  `idrol` int(8) COLLATE latin1_spanish_ci NOT NULL,
   PRIMARY KEY(`id`),
-  FOREIGN KEY (`idUsuario`)
+  FOREIGN KEY (`idusuario`)
 	REFERENCES `usuario`(`login`),
-  FOREIGN KEY (`idRol`)
+  FOREIGN KEY (`idrol`)
 	REFERENCES `rol`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
-ALTER TABLE `usuario_rol` ADD UNIQUE KEY `uidx` (`idUsuario`, `idRol`);
+ALTER TABLE `usuario_rol` ADD UNIQUE KEY `uidx` (`idusuario`, `idrol`);
 -- --------------------------------------------------------
 -- --------------------------------------------------------
 -- TABLE STRUCTURE FOR TABLE `FUNCTIONALITY`
@@ -92,21 +92,21 @@ CREATE TABLE `accion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 -- --------------------------------------------------------
 -- --------------------------------------------------------
--- TABLE STRUCTURE FOR TABLE `funcAccion`
+-- TABLE STRUCTURE FOR TABLE `funcaccion`
 -- --------------------------------------------------------
 -- --------------------------------------------------------
-CREATE TABLE `funcAccion` (
+CREATE TABLE `funcaccion` (
   `id` int(8) COLLATE latin1_spanish_ci NOT NULL AUTO_INCREMENT,
-  `idFuncionalidad` int(8) COLLATE latin1_spanish_ci NOT NULL,
-  `idAccion` int(8) COLLATE latin1_spanish_ci NOT NULL,
+  `idfuncionalidad` int(8) COLLATE latin1_spanish_ci NOT NULL,
+  `idaccion` int(8) COLLATE latin1_spanish_ci NOT NULL,
   PRIMARY KEY(`id`),
-  FOREIGN KEY (`idFuncionalidad`)
+  FOREIGN KEY (`idfuncionalidad`)
 	REFERENCES `funcionalidad`(`id`),
-  FOREIGN KEY (`idAccion`)
+  FOREIGN KEY (`idaccion`)
 	REFERENCES `accion`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
-ALTER TABLE `funcAccion` ADD UNIQUE KEY `uidx` (`idFuncionalidad`, `idAccion`);
+ALTER TABLE `funcaccion` ADD UNIQUE KEY `uidx` (`idfuncionalidad`, `idaccion`);
 -- --------------------------------------------------------
 -- --------------------------------------------------------
 -- TABLE STRUCTURE FOR TABLE `PERMISSION`
@@ -114,16 +114,16 @@ ALTER TABLE `funcAccion` ADD UNIQUE KEY `uidx` (`idFuncionalidad`, `idAccion`);
 -- --------------------------------------------------------
 CREATE TABLE `permiso` (
   `id` int(8) COLLATE latin1_spanish_ci NOT NULL AUTO_INCREMENT,
-  `idRol` int(8) COLLATE latin1_spanish_ci NOT NULL,
-  `idFuncAccion` int(8) COLLATE latin1_spanish_ci NOT NULL,
+  `idrol` int(8) COLLATE latin1_spanish_ci NOT NULL,
+  `idfuncaccion` int(8) COLLATE latin1_spanish_ci NOT NULL,
   PRIMARY KEY(`id`),
-  FOREIGN KEY (`idRol`)
+  FOREIGN KEY (`idrol`)
 	REFERENCES `rol`(`id`),
-  FOREIGN KEY (`idFuncAccion`)
-	REFERENCES `funcAccion`(`id`)
+  FOREIGN KEY (`idfuncaccion`)
+	REFERENCES `funcaccion`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
-ALTER TABLE `permiso` ADD UNIQUE KEY `uidx` (`idRol`, `idFuncAccion`);
+ALTER TABLE `permiso` ADD UNIQUE KEY `uidx` (`idrol`, `idfuncaccion`);
 -- --------------------------------------------------------
 -- --------------------------------------------------------
 -- TABLE STRUCTURE FOR TABLE `ACADEMIC_curso`
@@ -132,8 +132,8 @@ ALTER TABLE `permiso` ADD UNIQUE KEY `uidx` (`idRol`, `idFuncAccion`);
 CREATE TABLE `curso_academico` (
   `id` int(8) COLLATE latin1_spanish_ci NOT NULL AUTO_INCREMENT,
   `nombre` varchar(6) COLLATE latin1_spanish_ci NOT NULL UNIQUE,
-  `anoInicio` int(4) COLLATE latin1_spanish_ci NOT NULL,
-  `anoFin` int(4) COLLATE latin1_spanish_ci NOT NULL,
+  `anoinicio` int(4) COLLATE latin1_spanish_ci NOT NULL,
+  `anofin` int(4) COLLATE latin1_spanish_ci NOT NULL,
   PRIMARY KEY(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 -- --------------------------------------------------------
@@ -143,17 +143,17 @@ CREATE TABLE `curso_academico` (
 -- --------------------------------------------------------
 CREATE TABLE `universidad` (
   `id` int(8) COLLATE latin1_spanish_ci NOT NULL AUTO_INCREMENT,
-  `idCursoAcademico` int(8) COLLATE latin1_spanish_ci NOT NULL,
+  `idcursoacademico` int(8) COLLATE latin1_spanish_ci NOT NULL,
   `nombre` varchar(30) COLLATE latin1_spanish_ci NOT NULL,
-  `idUsuario` varchar(9) COLLATE latin1_spanish_ci NOT NULL,
-  PRIMARY KEY(`id`, `idCursoAcademico`),
-  FOREIGN KEY (`idCursoAcademico`)
+  `idusuario` varchar(9) COLLATE latin1_spanish_ci NOT NULL,
+  PRIMARY KEY(`id`, `idcursoacademico`),
+  FOREIGN KEY (`idcursoacademico`)
 	REFERENCES `curso_academico`(`id`),
-  FOREIGN KEY (`idUsuario`)
+  FOREIGN KEY (`idusuario`)
     REFERENCES `usuario`(`login`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
-ALTER TABLE `universidad` ADD UNIQUE KEY `uidx` (`idCursoAcademico`, `nombre`);
+ALTER TABLE `universidad` ADD UNIQUE KEY `uidx` (`idcursoacademico`, `nombre`);
 -- --------------------------------------------------------
 -- --------------------------------------------------------
 -- TABLE STRUCTURE FOR TABLE `edificio`
@@ -163,13 +163,13 @@ CREATE TABLE `edificio` (
   `id` int(8) COLLATE latin1_spanish_ci NOT NULL AUTO_INCREMENT,  
   `localizacion` varchar(30) COLLATE latin1_spanish_ci NOT NULL,
   `nombre` varchar(30) COLLATE latin1_spanish_ci NOT NULL,
-  `idUsuario` varchar(9) COLLATE latin1_spanish_ci NOT NULL,
+  `idusuario` varchar(9) COLLATE latin1_spanish_ci NOT NULL,
   PRIMARY KEY(`id`),
-  FOREIGN KEY (`idUsuario`)
+  FOREIGN KEY (`idusuario`)
     REFERENCES `usuario`(`login`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
-ALTER TABLE `edificio` ADD UNIQUE KEY `uidx` (`localizacion`, `nombre`, `idUsuario`);
+ALTER TABLE `edificio` ADD UNIQUE KEY `uidx` (`localizacion`, `nombre`, `idusuario`);
 -- --------------------------------------------------------
 -- --------------------------------------------------------
 -- TABLE STRUCTURE FOR TABLE `centro`
@@ -177,20 +177,20 @@ ALTER TABLE `edificio` ADD UNIQUE KEY `uidx` (`localizacion`, `nombre`, `idUsuar
 -- --------------------------------------------------------
 CREATE TABLE `centro` (
   `id` int(8) COLLATE latin1_spanish_ci NOT NULL AUTO_INCREMENT,
-  `idUniversidad` int(8) COLLATE latin1_spanish_ci NOT NULL,
+  `iduniversidad` int(8) COLLATE latin1_spanish_ci NOT NULL,
   `nombre` varchar(30) COLLATE latin1_spanish_ci NOT NULL,
-  `idEdificio` int(8) COLLATE latin1_spanish_ci NOT NULL,
-  `idUsuario` varchar(9) COLLATE latin1_spanish_ci NOT NULL,
+  `idedificio` int(8) COLLATE latin1_spanish_ci NOT NULL,
+  `idusuario` varchar(9) COLLATE latin1_spanish_ci NOT NULL,
   PRIMARY KEY(`id`),
-  FOREIGN KEY (`idUniversidad`)
+  FOREIGN KEY (`iduniversidad`)
 	REFERENCES `universidad`(`id`),
-  FOREIGN KEY (`idUsuario`)
+  FOREIGN KEY (`idusuario`)
     REFERENCES `usuario`(`login`),
-  FOREIGN KEY (`idEdificio`)
+  FOREIGN KEY (`idedificio`)
     REFERENCES `edificio`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
-ALTER TABLE `centro` ADD UNIQUE KEY `uidx` (`idUniversidad`, `nombre`, `idUsuario`);
+ALTER TABLE `centro` ADD UNIQUE KEY `uidx` (`iduniversidad`, `nombre`, `idusuario`);
 -- --------------------------------------------------------
 -- --------------------------------------------------------
 -- TABLE STRUCTURE FOR TABLE `espacio`
@@ -198,15 +198,15 @@ ALTER TABLE `centro` ADD UNIQUE KEY `uidx` (`idUniversidad`, `nombre`, `idUsuari
 -- --------------------------------------------------------
 CREATE TABLE `espacio` (
   `id` int(8) COLLATE latin1_spanish_ci NOT NULL AUTO_INCREMENT,  
-  `idEdificio` int(8) COLLATE latin1_spanish_ci NOT NULL,
+  `idedificio` int(8) COLLATE latin1_spanish_ci NOT NULL,
   `nombre` varchar(30) COLLATE latin1_spanish_ci NOT NULL,
   `capacidad` int(3) COLLATE latin1_spanish_ci NOT NULL,
   `oficina` bit COLLATE latin1_spanish_ci NOT NULL,
-  PRIMARY KEY(`id`, `idEdificio`),
-  FOREIGN KEY (`idEdificio`) 
+  PRIMARY KEY(`id`, `idedificio`),
+  FOREIGN KEY (`idedificio`) 
 	REFERENCES `edificio`(`id`)  
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
-ALTER TABLE `espacio` ADD UNIQUE KEY `uidx` (`idEdificio`, `nombre`);
+ALTER TABLE `espacio` ADD UNIQUE KEY `uidx` (`idedificio`, `nombre`);
 -- --------------------------------------------------------
 -- --------------------------------------------------------
 -- TABLE STRUCTURE FOR TABLE `grado`
@@ -215,13 +215,13 @@ ALTER TABLE `espacio` ADD UNIQUE KEY `uidx` (`idEdificio`, `nombre`);
 CREATE TABLE `grado` (
   `id` int(8) COLLATE latin1_spanish_ci NOT NULL AUTO_INCREMENT,
   `nombre` varchar(30) COLLATE latin1_spanish_ci NOT NULL,
-  `idCentro` int(8) COLLATE latin1_spanish_ci NOT NULL,
+  `idcentro` int(8) COLLATE latin1_spanish_ci NOT NULL,
   `capacidad` int(3) COLLATE latin1_spanish_ci NOT NULL,
   `descripcion` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
   `creditos` int(3) COLLATE latin1_spanish_ci NOT NULL,
-  `idUsuario` varchar(9) COLLATE latin1_spanish_ci NOT NULL,
-  PRIMARY KEY(`id`, `idCentro`),
-  FOREIGN KEY (`idCentro`)
+  `idusuario` varchar(9) COLLATE latin1_spanish_ci NOT NULL,
+  PRIMARY KEY(`id`, `idcentro`),
+  FOREIGN KEY (`idcentro`)
 	REFERENCES `centro`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 -- --------------------------------------------------------
@@ -231,13 +231,13 @@ CREATE TABLE `grado` (
 -- --------------------------------------------------------
 CREATE TABLE `profesor` (
   `id` int(8) COLLATE latin1_spanish_ci NOT NULL AUTO_INCREMENT,
-  `idUsuario` varchar(9) COLLATE latin1_spanish_ci NOT NULL UNIQUE,
-  `idEspacio` int(8) COLLATE latin1_spanish_ci,
+  `idusuario` varchar(9) COLLATE latin1_spanish_ci NOT NULL UNIQUE,
+  `idespacio` int(8) COLLATE latin1_spanish_ci,
   `dedicacion` varchar(4) COLLATE latin1_spanish_ci NOT NULL,
   PRIMARY KEY(`id`),
-  FOREIGN KEY (`idEspacio`)
+  FOREIGN KEY (`idespacio`)
 	REFERENCES `espacio`(`id`),
-  FOREIGN KEY (`idUsuario`)
+  FOREIGN KEY (`idusuario`)
 	REFERENCES `usuario`(`login`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 -- --------------------------------------------------------
@@ -248,10 +248,10 @@ CREATE TABLE `profesor` (
 CREATE TABLE `departamento` (
   `id` int(8) COLLATE latin1_spanish_ci NOT NULL AUTO_INCREMENT,
   `codigo` varchar(6) COLLATE latin1_spanish_ci NOT NULL UNIQUE,
-  `idProfesor` int(8) COLLATE latin1_spanish_ci NOT NULL,
+  `idprofesor` int(8) COLLATE latin1_spanish_ci NOT NULL,
   `nombre` varchar(30) COLLATE latin1_spanish_ci NOT NULL,
   PRIMARY KEY(`id`),
-  FOREIGN KEY (`idProfesor`)
+  FOREIGN KEY (`idprofesor`)
 	REFERENCES `profesor`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 -- --------------------------------------------------------
@@ -264,26 +264,26 @@ CREATE TABLE `materia` (
   `codigo` varchar(10) COLLATE latin1_spanish_ci NOT NULL UNIQUE,
   `contenido` varchar(100) COLLATE latin1_spanish_ci NOT NULL,
   `tipo` varchar(2) COLLATE latin1_spanish_ci NOT NULL,
-  `idDepartamento` int(8) COLLATE latin1_spanish_ci NOT NULL,
+  `iddepartamento` int(8) COLLATE latin1_spanish_ci NOT NULL,
   `area` varchar(5) COLLATE latin1_spanish_ci NOT NULL,
   `curso` varchar(10) COLLATE latin1_spanish_ci NOT NULL,
   `cuatrimestre` varchar(3) COLLATE latin1_spanish_ci NOT NULL,
   `creditos` varchar(5) COLLATE latin1_spanish_ci NOT NULL,
-  `nuevoRegistro` int(3) COLLATE latin1_spanish_ci NOT NULL,
+  `nuevoregistro` int(3) COLLATE latin1_spanish_ci NOT NULL,
   `repeticiones` int(3) COLLATE latin1_spanish_ci NOT NULL,
-  `estudiantesEfectivos` int(3) COLLATE latin1_spanish_ci NOT NULL,
-  `horasInscritas` varchar(8) COLLATE latin1_spanish_ci NOT NULL,
-  `horasEnseño` varchar(5) COLLATE latin1_spanish_ci NOT NULL,
+  `estudiantesefectivos` int(3) COLLATE latin1_spanish_ci NOT NULL,
+  `horasinscritas` varchar(8) COLLATE latin1_spanish_ci NOT NULL,
+  `horasenseño` varchar(5) COLLATE latin1_spanish_ci NOT NULL,
   `horas` varchar(5) COLLATE latin1_spanish_ci NOT NULL,
   `alumnos` int(3) COLLATE latin1_spanish_ci NOT NULL,
-  `idGrado` int(8) COLLATE latin1_spanish_ci NOT NULL,
-  `idProfesor` int(8) COLLATE latin1_spanish_ci NOT NULL,
+  `idgrado` int(8) COLLATE latin1_spanish_ci NOT NULL,
+  `idprofesor` int(8) COLLATE latin1_spanish_ci NOT NULL,
   PRIMARY KEY(`id`),
-  FOREIGN KEY (`idGrado`)
+  FOREIGN KEY (`idgrado`)
 	REFERENCES `grado`(`id`),
-  FOREIGN KEY (`idDepartamento`)
+  FOREIGN KEY (`iddepartamento`)
     REFERENCES `departamento`(`id`),
-  FOREIGN KEY (`idProfesor`)
+  FOREIGN KEY (`idprofesor`)
     REFERENCES `profesor`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 -- --------------------------------------------------------
@@ -293,10 +293,10 @@ CREATE TABLE `materia` (
 -- --------------------------------------------------------
 CREATE TABLE `grupo_materia` (
   `id` int(8) COLLATE latin1_spanish_ci NOT NULL AUTO_INCREMENT,
-  `idMateria` int(8) COLLATE latin1_spanish_ci NOT NULL,
+  `idmateria` int(8) COLLATE latin1_spanish_ci NOT NULL,
   `nombre` varchar(30) COLLATE latin1_spanish_ci NOT NULL,
-  PRIMARY KEY(`id`, `idMateria`),
-  FOREIGN KEY (`idMateria`)
+  PRIMARY KEY(`id`, `idmateria`),
+  FOREIGN KEY (`idmateria`)
 	REFERENCES `materia`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 -- --------------------------------------------------------
@@ -305,12 +305,12 @@ CREATE TABLE `grupo_materia` (
 -- --------------------------------------------------------
 -- --------------------------------------------------------
 CREATE TABLE `tutoria` (
-  `idTutotoria` int(8) COLLATE latin1_spanish_ci NOT NULL AUTO_INCREMENT,
-  `idProfesor` int(8) COLLATE latin1_spanish_ci NOT NULL,
+  `idtutoria` int(8) COLLATE latin1_spanish_ci NOT NULL AUTO_INCREMENT,
+  `idprofesor` int(8) COLLATE latin1_spanish_ci NOT NULL,
   `fechaInicio` datetime COLLATE latin1_spanish_ci NOT NULL,
   `fechaFin` datetime COLLATE latin1_spanish_ci NOT NULL,
-  PRIMARY KEY(`idTutotoria`, `idProfesor`),
-  FOREIGN KEY (`idProfesor`)
+  PRIMARY KEY(`idtutoria`, `idprofesor`),
+  FOREIGN KEY (`idprofesor`)
 	REFERENCES `profesor`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 -- --------------------------------------------------------
@@ -319,16 +319,16 @@ CREATE TABLE `tutoria` (
 -- --------------------------------------------------------
 -- --------------------------------------------------------
 CREATE TABLE `horario` (
-  `idHorario` int(8) COLLATE latin1_spanish_ci NOT NULL AUTO_INCREMENT,  
-  `idEspacio` int(8) COLLATE latin1_spanish_ci NOT NULL,
-  `idProfesor` int(8) COLLATE latin1_spanish_ci NOT NULL,
-  `idGrupoMateria` int(8) COLLATE latin1_spanish_ci NOT NULL,
-  PRIMARY KEY(`idHorario`, `idEspacio`, `idProfesor`, `idGrupoMateria`),
-  FOREIGN KEY (`idEspacio`)
+  `idhorario` int(8) COLLATE latin1_spanish_ci NOT NULL AUTO_INCREMENT,  
+  `idespacio` int(8) COLLATE latin1_spanish_ci NOT NULL,
+  `idprofesor` int(8) COLLATE latin1_spanish_ci NOT NULL,
+  `idgrupomateria` int(8) COLLATE latin1_spanish_ci NOT NULL,
+  PRIMARY KEY(`idhorario`, `idespacio`, `idprofesor`, `idgrupomateria`),
+  FOREIGN KEY (`idespacio`)
 	REFERENCES `espacio`(`id`),
-  FOREIGN KEY (`idProfesor`)
+  FOREIGN KEY (`idprofesor`)
 	REFERENCES `profesor`(`id`),
-  FOREIGN KEY (`idGrupoMateria`)
+  FOREIGN KEY (`idgrupomateria`)
 	REFERENCES `grupo_materia`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
@@ -339,13 +339,13 @@ CREATE TABLE `horario` (
 -- --------------------------------------------------------
 CREATE TABLE `materia_profesor` (
   `id` int(8) COLLATE latin1_spanish_ci NOT NULL AUTO_INCREMENT,
-  `idMateria` int(8) COLLATE latin1_spanish_ci NOT NULL,
-  `idProfesor` int(8) COLLATE latin1_spanish_ci NOT NULL UNIQUE,
+  `idmateria` int(8) COLLATE latin1_spanish_ci NOT NULL,
+  `idprofesor` int(8) COLLATE latin1_spanish_ci NOT NULL UNIQUE,
   `horas` int(2) COLLATE latin1_spanish_ci NOT NULL,
   PRIMARY KEY(`id`),
-  FOREIGN KEY (`idMateria`)
+  FOREIGN KEY (`idmateria`)
 	REFERENCES `materia`(`id`),
-  FOREIGN KEY (`idProfesor`)
+  FOREIGN KEY (`idprofesor`)
 	REFERENCES `profesor`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
@@ -377,7 +377,7 @@ INSERT INTO `funcionalidad` (`id`, `nombre`, `descripcion`) VALUES
 
 
 
-INSERT INTO `funcAccion` (`id`,`idFuncionalidad`, `idAccion`) VALUES
+INSERT INTO `funcaccion` (`id`,`idfuncionalidad`, `idaccion`) VALUES
 ('1','1','1'),
 ('2','1','2'),
 ('3','1','3'),
@@ -480,14 +480,14 @@ INSERT INTO `rol` (`id`, `nombre`, `descripcion`) VALUES
 (6, 'Basicusuario', 'Role with the basic permissions'),
 (7, 'Test', 'Role to test');
 
-INSERT INTO `usuario_rol` (`idUsuario`,`idRol`) VALUES
+INSERT INTO `usuario_rol` (`idusuario`,`idrol`) VALUES
 ('admin', 1),
 ('gestuniv', 2),
 ('gestcent', 3),
 ('gestbuil', 4),
 ('gestdeg', 5);
 
-INSERT INTO `permiso` (`idRol`,`idFuncAccion`) VALUES
+INSERT INTO `permiso` (`idrol`,`idfuncaccion`) VALUES
 (1,'1'),
 (1,'2'),
 (1,'3'),
@@ -598,7 +598,7 @@ INSERT INTO `permiso` (`idRol`,`idFuncAccion`) VALUES
 (5,'64'),
 (5,'65');
 
-INSERT INTO `curso_academico` (`id`, `nombre`, `anoInicio`, `anoFin`) VALUES
+INSERT INTO `curso_academico` (`id`, `nombre`, `anoinicio`, `anoinicio`) VALUES
 (1, '18/19', '2018', '2019'),
 (2, '19/20', '2019', '2020'),
 (3, '20/21', '2020', '2021'),

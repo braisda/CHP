@@ -8,9 +8,9 @@ class defaultDAO
     {
         error_reporting(0);
         if (isset($_SESSION['env']) && $_SESSION['env'] == 'test') {
-            $this->mysqli = new mysqli("127.0.0.1", "adminCHP", "passCHP", "testCHP");
+            $this->mysqli = new mysqli("192.168.48.128", "root", "pdp", "CHP");
         } else {
-            $this->mysqli = new mysqli("127.0.0.1", "root", "", "chp");
+            $this->mysqli = new mysqli("192.168.48.128", "root", "pdp", "CHP");
         }
 
         if ($this->mysqli->connect_errno) {
