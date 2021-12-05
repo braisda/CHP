@@ -8,9 +8,9 @@ class defaultDAO
     {
         error_reporting(0);
         if (isset($_SESSION['env']) && $_SESSION['env'] == 'test') {
-            $this->mysqli = new mysqli("192.168.48.128", "root", "pdp", "CHP");
+            $this->mysqli = new mysqli("127.0.0.1", "adminCHP", "passCHP", "chp");
         } else {
-            $this->mysqli = new mysqli("192.168.48.128", "root", "pdp", "CHP");
+            $this->mysqli = new mysqli("127.0.0.1", "root", "pdp", "chp");
         }
 
         if ($this->mysqli->connect_errno) {
@@ -20,7 +20,7 @@ class defaultDAO
 
     function showAll($className)
     {
-        $sql = "SELECT * FROM " . strtoupper($className);
+        $sql = "SELECT * FROM " . strtolower($className);
         return $this->getArrayFromSqlQuery($sql);
     }
 
@@ -74,12 +74,12 @@ class defaultDAO
 
     function delete($entityName, $key, $value)
     {
-        $sql = "SELECT * FROM " . strtoupper($entityName) . " WHERE " . $key . "='". $value . "'";
+        $sql = "SELECT * FROM " . strtolower($entityName) . " WHERE " . $key . "='". $value . "'";
         if (!$result = $this->mysqli->query($sql)) {
             throw new DAOException('Error de conexión con la base de datos.');
         } else {
             if ($result->num_rows != 0) {
-                $sql = "DELETE FROM " . strtoupper($entityName) . " WHERE " . $key . "= '" . $value . "'";
+                $sql = "DELETE FROM " . strtolower($entityName) . " WHERE " . $key . "= '" . $value . "'";
                 $this->mysqli->query($sql);
             } else {
                 throw new DAOException('La entidad que se intenta eliminar no existe.');
@@ -89,7 +89,7 @@ class defaultDAO
 
     function show($entityName, $key, $value)
     {
-        $sql = "SELECT * FROM " . strtoupper($entityName) . " WHERE " . $key . " ='" . $value . "'";
+        $sql = "SELECT * FROM " . strtolower($entityName) . " WHERE " . $key . " ='" . $value . "'";
         if (!$result = $this->mysqli->query($sql)) {
             throw new DAOException('Error de conexión con la base de datos.');
         } else {
@@ -148,7 +148,7 @@ class defaultDAO
 
     public function truncateTable($entityName)
     {
-        $sql = "DELETE FROM " . strtoupper($entityName);
+        $sql = "DELETE FROM " . strtolower($entityName);
         if (!$result = $this->mysqli->query($sql)) {
             throw new DAOException('Error en la consulta sobre la base de datos');
         }
@@ -165,7 +165,7 @@ class defaultDAO
 
     function checkDependencies($tableName, $value) {
         $sql = "SELECT TABLE_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE
-                WHERE REFERENCED_TABLE_NAME = '" . strtoupper($tableName) . "'";
+                WHERE REFERENCED_TABLE_NAME = '" . strtolower($tableName) . "'";
         $dependencies = $this->getArrayFromSqlQuery($sql);
         $stringToShow = "";
 
@@ -237,7 +237,7 @@ class defaultDAO
     }
 
     private function getTableName($entity) {
-        return strtoupper(preg_replace('/\B([A-Z])/', '_$1', get_class($entity)));
+        return strtolower(preg_replace('/\B([A-Z])/', '_$1', get_class($entity)));
     }
 
 }

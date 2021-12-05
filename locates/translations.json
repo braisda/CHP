@@ -441,7 +441,7 @@
     },
     "Error de conexión con la base de datos.": {
         "en": "Database connection error.",
-        "gl": "Error de conexión coa base de datos."
+        "gl": "Erro de conexión coa base de datos."
     },
     "Entidad duplicada. Ya existe en la base de datos.": {
         "en": "Duplicate entity. It does already exist in database.",
