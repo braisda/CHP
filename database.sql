@@ -604,3 +604,8 @@ INSERT INTO `curso_academico` (`id`, `nombre`, `anoinicio`, `anofin`) VALUES
 (3, '20/21', '2020', '2021'),
 (4, '21/22', '2021', '2022'),
 (5, '22/23', '2022', '2023');
+
+INSERT INTO `edificio` (`id`, `localizacion`, `nombre`, `idusuario`) VALUES
+(1, 'Ourense', 'Edificio Politécnico', 'admin'),
+(2, 'Ourense', 'Edificio de Hierro', 'admin'),
+(3, 'Ourense', 'Edificio del Agua', 'admin');
