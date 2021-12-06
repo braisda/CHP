@@ -51,7 +51,7 @@ class PermissionShowAllView {
                         </div>
                         <div class="modal-body">
                             <form class="row" id="searchPermission" action='../controllers/permissionController.php?action=search' method='POST'>
-                                <div class="form-group">
+                                <div class="form-group col-12">
                                     <label for="idRol" data-translate="Rol"></label>
                                     <select class="form-control" id="idRol" name="idRol">
                                         <option value="" data-translate="Seleccione"></option>
@@ -62,7 +62,7 @@ class PermissionShowAllView {
                                         <?php endforeach;?>
                                     </select>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group col-12">
                                     <label for="idFuncAccion" data-translate="Permiso"></label>
                                     <select class="form-control" id="idFuncAccion" name="idFuncAccion">
                                         <option value="" data-translate="Seleccione"></option>
