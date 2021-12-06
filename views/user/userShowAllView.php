@@ -112,15 +112,15 @@ class UserShowAllView
                              <td><?php echo $user->getEmail() ?></td>
                              <td class="row">
                                  <?php if (checkPermission("usuario", "SHOWCURRENT")) { ?>
-                                      <a href="../controllers/UserController.php?action=show&login=<?php echo $user->getLogin() ?>">
+                                      <a href="../controllers/userController.php?action=show&login=<?php echo $user->getLogin() ?>">
                                       <span data-feather="eye"></span></a>
                                  <?php }
                                       if (checkPermission("usuario", "EDIT")) { ?>
-                                       <a href="../controllers/UserController.php?action=edit&login=<?php echo $user->getLogin() ?>">
+                                       <a href="../controllers/userController.php?action=edit&login=<?php echo $user->getLogin() ?>">
                                        <span data-feather="edit"></span></a>
                                  <?php }
                                       if (checkPermission("usuario", "DELETE")) { ?>
-                                      <a href="../controllers/UserController.php?action=delete&login=<?php echo $user->getLogin() ?>">
+                                      <a href="../controllers/userController.php?action=delete&login=<?php echo $user->getLogin() ?>">
                                       <span data-feather="trash-2"></span></a>
                                  <?php } ?>
                              </td>
