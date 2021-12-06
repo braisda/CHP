@@ -79,13 +79,13 @@ class UniversityShowAllView
             </div>
 
                 <?php if ($this->searching): ?>
-                    <a class="btn btn-primary" role="button" href="../controllers/UniversityController.php">
+                    <a class="btn btn-primary" role="button" href="../controllers/universityController.php">
                         <p data-translate="Volver"></p>
                     </a>
                 <?php else:
                     if (checkPermission("universidad", "ADD")): ?>
                         <a class="btn btn-success" role="button"
-                           href="../controllers/UniversityController.php?action=add">
+                           href="../controllers/universityController.php?action=add">
                             <span data-feather="plus"></span>
                             <p data-translate="Añadir universidad"></p>
                         </a>
