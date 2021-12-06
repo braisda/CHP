@@ -214,7 +214,7 @@ ALTER TABLE `espacio` ADD UNIQUE KEY `uidx` (`idedificio`, `nombre`);
 -- --------------------------------------------------------
 CREATE TABLE `grado` (
   `id` int(8) COLLATE latin1_spanish_ci NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(30) COLLATE latin1_spanish_ci NOT NULL,
+  `nombre` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
   `idcentro` int(8) COLLATE latin1_spanish_ci NOT NULL,
   `capacidad` int(3) COLLATE latin1_spanish_ci NOT NULL,
   `descripcion` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
