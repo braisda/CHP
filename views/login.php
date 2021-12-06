@@ -28,8 +28,8 @@
         </div>
     </div>
     <li class="nav-item row flags">
-        <a href="javascript:setCookie('language-selected', 'en'); translatePage();"><img class="flag" src="../assets/english.jpg"></a>
-        <a href="javascript:setCookie('language-selected', 'es'); translatePage();"><img class="flag" src="../assets/espanol.png"></a>
-        <a href="javascript:setCookie('language-selected', 'gl'); translatePage();"><img class="flag" src="../assets/gallego.png"></a>
+        <a href="javascript:setCookie('language-selected', 'gl'); translatePage();"><img  height="25" width="30" class="flag" src="../assets/gallego.png"></a>
+        <a href="javascript:setCookie('language-selected', 'en'); translatePage();"><img  height="25" width="30" class="flag" src="../assets/english.jpg"></a>
+        <a href="javascript:setCookie('language-selected', 'es'); translatePage();"><img  height="25" width="30" class="flag" src="../assets/espanol.png"></a>
     </li>
 </div>
