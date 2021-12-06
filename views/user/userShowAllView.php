@@ -133,7 +133,7 @@ class UserShowAllView
                 <p data-translate="No se ha obtenido ningún usuario">.</p>
                 <?php endif; ?>
 
-                <?php new PaginationView($this->pageItems, $this->page, $this->totalUsers, "User"); ?>
+                <?php new PaginationView($this->pageItems, $this->page, $this->totalUsers, "user"); ?>
         </div>
     </main>
 

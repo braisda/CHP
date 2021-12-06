@@ -114,7 +114,7 @@ class ActionShowAllView
                     <p data-translate="No se ha obtenido ninguna acción">. </p>
                 <?php endif; ?>
 
-                <?php new PaginationView($this->itemsPerPage, $this->currentPage, $this->totalPermissions, "Action"); ?>
+                <?php new PaginationView($this->itemsPerPage, $this->currentPage, $this->totalPermissions, "action"); ?>
             </div>
         </main>
 

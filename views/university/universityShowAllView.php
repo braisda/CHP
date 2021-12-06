@@ -133,7 +133,7 @@ class UniversityShowAllView
                 <?php endif; ?>
 
                 <?php new PaginationView($this->itemsPerPage, $this->currentPage, $this->totalUniversities,
-                    "University") ?>
+                    "university") ?>
 
             </div>
         </main>

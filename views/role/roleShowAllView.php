@@ -116,7 +116,7 @@ class RoleShowAllView
                     <p data-translate="No se ha obtenido ninguna funcinoalidad">. </p>
                 <?php endif; ?>
 
-                <?php new PaginationView($this->itemsPerPage, $this->currentPage, $this->totalPermissions, "Role"); ?>
+                <?php new PaginationView($this->itemsPerPage, $this->currentPage, $this->totalPermissions, "role"); ?>
             </div>
         </main>
 

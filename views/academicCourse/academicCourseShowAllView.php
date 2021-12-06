@@ -126,7 +126,7 @@ class AcademicCourseShowAllView
                 <?php endif; ?>
 
                 <?php new PaginationView($this->itemsPerPage, $this->currentPage, $this->totalAcademicCourses,
-                    "AcademicCourse") ?>
+                    "academicCourse") ?>
 
             </div>
         </main>
