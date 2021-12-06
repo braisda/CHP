@@ -1,12 +1,10 @@
 
     <!-- Barra de herramientas / Menú -->
     <nav class="navbar fixed-top flex-md-nowrap p-0 shadow">
-        <a id="button-sidebar" class="text-white navbar-brand col-sm-3 col-md-2 mr-0" href="../index.php">
-            <button id="button-show-sidebar" class="navbar-toggler" type="button" onclick="showSidebar()">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            CHP
-        </a>
+        <button id="button-show-sidebar" class="navbar-toggler mt-1" data-toggle="collapse" type="button" onclick="showSidebar()">
+            <i class="navbar-toggler-icon bi bi-justify"></i>
+        </button>        
+        <a id="button-sidebar" class="text-white navbar-brand col-sm-3 col-md-2 mr-0" href="../index.php">CHP</a>
         <!-- Acciones en md y lg -->
         <ul class="navbar-nav px-1 d-none d-sm-block">
             <div class="row margin-right">
@@ -33,9 +31,9 @@
                         <p data-translate="Más"></p>
                     </a>
                     <div class="dropdown-menu  bg-dark">
-                        <a href="javascript:setCookie('language-selected', 'gl'); translatePage();" class="text-decoration-none"><img class="flag" src="../assets/gallego.png"> <i class="text-white" data-translate="Gal"></i></a></br>
-                        <a href="javascript:setCookie('language-selected', 'es'); translatePage();" class="text-decoration-none mt-1"><img class="flag" src="../assets/espanol.png"> <i class="text-white" data-translate="Esp"></i></a></br>
-                        <a href="javascript:setCookie('language-selected', 'en'); translatePage();" class="text-decoration-none mt-1"><img class="flag" src="../assets/english.jpg"> <i class="text-white" data-translate="Ing"></i></a></br>
+                        <a href="javascript:setCookie('language-selected', 'gl'); translatePage();" class="text-decoration-none"><img height="25" width="30" class="flag" src="../assets/gallego.png"> <i class="text-white" data-translate="Gal"></i></a></br>
+                        <a href="javascript:setCookie('language-selected', 'es'); translatePage();" class="text-decoration-none mt-1"><img height="25" width="30" class="flag" src="../assets/espanol.png"> <i class="text-white" data-translate="Esp"></i></a></br>
+                        <a href="javascript:setCookie('language-selected', 'en'); translatePage();" class="text-decoration-none mt-1"><img height="25" width="30" class="flag" src="../assets/english.jpg"> <i class="text-white" data-translate="Ing"></i></a></br>
                     </div>
                 </li>
                 <li class="nav-item text-nowrap">
