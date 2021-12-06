@@ -2,6 +2,7 @@
 echo "\n	########## INICIANDO INSTALACIÓN 'CHP' ##########"
 echo "\nCambiando directorio a /var/www/html..."
 cd /var/www/html
+rm -R CHP
 echo "\nDescargando 'CHP'...\n"
 git clone "https://github.com/braisda/CHP.git"
 
