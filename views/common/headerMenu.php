@@ -178,10 +178,27 @@
                             </li>
                             <?php } ?>
                         </ul>
+						<?php
+							if (checkPermission("pda", "SHOWALL")) {
+						?>
+                        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                            <span data-translate="Documentos"></span>
+                        </h6>
+                        <ul class="nav flex-column mb-2">
+						<?php
+							if (checkPermission("pda", "SHOWALL")) {
+						?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../controllers/pdaController.php">
+                                    <span class="fas fa-file-alt"></span>
+                                    <p data-translate="PDA"></p>
+                                </a>
+                            </li>
+                        <?php } ?>
+                        </ul>
+						<?php } ?>
                     </div>
                 </nav>
             </nav>
         </div>
     </div>
-
-

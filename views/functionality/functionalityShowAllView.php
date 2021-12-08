@@ -29,7 +29,7 @@ class FunctionalityShowAllView
     <body>
         <main role="main" class="margin-main ml-sm-auto px-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-4 pb-2 mb-3">
-                <h1 class="h2" data-translate="Listado de funcionalidades"></h1>
+                <h2 data-translate="Listado de funcionalidades"></h2>
                 <a class="btn btn-primary button-specific-search" data-toggle="modal" data-target="#searchModal" role="button">
                     <span class="text-white" data-feather="search"></span>
                     <p class="btn-show-view text-white" data-translate="Buscar"></p>

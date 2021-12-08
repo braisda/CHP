@@ -1070,6 +1070,30 @@
     "Editar profesor '%c'": {
         "en": "Edit teacher '%c'",
         "gl": "Editar profesor '%c'"
+    },
+    "PDA": {
+        "en": "PDA",
+        "gl": "PDA"
+    },
+    "Documentos": {
+        "en": "Documents",
+        "gl": "Documentos"
+    },
+    "Insertar PDA": {
+        "en": "Add PDA",
+        "gl": "Insertar PDA"
+    },
+    "PDA añadido correctamente.": {
+        "en": "PDA successfully added.",
+        "gl": "PDA engadido correctamente."
+    },
+    "Error de validación. Código incorrecto.": {
+        "en": "Validation error. Incorrect code.",
+        "gl": "Erro de validación. Código incorrecto."
+    },
+    "Error de validación. Profesor incorrecto.": {
+        "en": "Validation error. Incorrect teacher.",
+        "gl": "Erro de validación. Profesor incorrecto."
     }
 }
 
