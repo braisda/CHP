@@ -166,6 +166,17 @@
                                 </a>
                             </li>
                             <?php } ?>
+                            <?php
+                                if (checkPermission("profesor", "SHOWALL")) {
+                            ?>
+                            <!-- Gestión de profesores -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="../controllers/teacherController.php">
+                                    <span class="far bi-person-fill"></span>
+                                    <p data-translate="Gestión de profesores"></p>
+                                </a>
+                            </li>
+                            <?php } ?>
                         </ul>
                     </div>
                 </nav>

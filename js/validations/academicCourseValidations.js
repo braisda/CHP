@@ -58,8 +58,6 @@ function checkOneYearPeriodAcademicCourse(field1, field2) {
 
 function checkStartYearBeforeEndYearAcademicCourse(field1, field2) {
     if (field1.value >= field2.value) {
-        console.log(field1);
-        console.log(field2);
         return "El año de finalización debe ser mayor que el de comienzo";
     } else {
         return "";

@@ -193,7 +193,7 @@
     },
     "Volver": {
         "en": "Return",
-        "gl": "Volver"
+        "gl": "Voltar"
     },
     "Añadir acción": {
         "en": "Add action",
@@ -970,6 +970,106 @@
     "Editar titulación '%c'": {
         "en": "Edit degree '%c'",
         "gl": "Editar titulación '%c'"
+    },
+    "Gestión de profesores": {
+        "en": "Teachers management",
+        "gl": "Xestión de profesores"
+    },
+    "Añadir profesor": {
+        "en": "Add teacher",
+        "gl": "Engadir profesor"
+    },
+    "No se ha obtenido ningún profesor": {
+        "en": "No teacher has been obtained",
+        "gl": "Non se obtivo ningún profesor"
+    },
+    "Dedicación": {
+        "en": "Dedication",
+        "gl": "Adicación"
+    },
+    "Despacho": {
+        "en": "Office",
+        "gl": "Despacho"
+    },
+    "No asignado": {
+        "en": "Not assigned",
+        "gl": "Non asignado"
+    },
+    "Error de validación. Dedicación incorrecta.": {
+        "en": "Validation error. Incorrect dedication.",
+        "gl": "Erro de validación. Adicación incorrecta."
+    },
+    "Error de validación. Id edificio incorrecto.": {
+        "en": "Validation error. Incorrect building.",
+        "gl": "Erro de validación. Id edificio incorrecto."
+    },
+    "Error de validación. Capacidad incorrecta.": {
+        "en": "Validation error. Incorrect capacity.",
+        "gl": "Erro de validación. Capacidade incorrecta."
+    },
+    "Error de validación. Despacho indicado de forma incorrecta.": {
+        "en": "Validation error. Office indicated incorrectly.",
+        "gl": "Erro de validación. Despacho indicado de forma incorrecta."
+    },
+    "Profesor añadido correctamente.": {
+        "en": "Teacher successfully added.",
+        "gl": "Profesor engadido correctamente."
+    },
+    "Insertar profesor": {
+        "en": "Add teacher",
+        "gl": "Insertar profesor"
+    },
+    "Usuario": {
+        "en": "User",
+        "gl": "Usuario"
+    },
+    "Listado de profesores": {
+        "en": "Teacher list",
+        "gl": "Listaxe de profesores"
+    },
+    "El atributo dedicación no puede estar vacío.": {
+        "en": "The dedication attribute cannot be empty.",
+        "gl": "O atributo adicación non pode estar baleiro."
+    },
+    "El atributo dedicación no puede tener espacios en blanco.": {
+        "en": "The dedication attribute cannot have blanks.",
+        "gl": "O atributo adicación non pode ter espazos en branco."
+    },
+    "El atributo dedicación puede tener una longitud máxima de %c caracteres.": {
+        "en": "The dedication attribute can have a maximum length of %c characters.",
+        "gl": "O atributo adicación pode ter unha lonxitude máxima de %c caracteres."
+    },
+    "El atributo dedicación contiene el carácter no válido: %c.": {
+        "en": "The dedication attribute contains the invalid character: %c.",
+        "gl": "O atributo adicación contén o caracter non válido: %c."
+    },
+    "Profesor eliminado correctamente.": {
+        "en": "Teacher successfully deleted.",
+        "gl": "Profesor eliminado correctamente."
+    },
+    "Eliminar profesor": {
+        "en": "Delete teacher",
+        "gl": "Eliminar profesor"
+    },
+    "¿Está seguro de que desea eliminar el profesor %c? Esta acción es permanente y no se puede recuperar.": {
+        "en": "Are you sure you want to delete the teacher %c? This action is permanent and cannot be recovered.",
+        "gl": "Está seguro de que desexa eliminar o profesor %c? Esta acción é permanente e non se pode recuperar."
+    },
+    "El profesor no existe": {
+        "en": "The teacher does not exists",
+        "gl": "O profesor non existe"
+    },
+    "Profesor '%c'": {
+        "en": "Teacher '%c'",
+        "gl": "Profesor '%c'"
+    },
+    "Profesor editado correctamente.": {
+        "en": "Teacher successfully edited.",
+        "gl": "Profesor editado correctamente."
+    },
+    "Editar profesor '%c'": {
+        "en": "Edit teacher '%c'",
+        "gl": "Editar profesor '%c'"
     }
 }
 

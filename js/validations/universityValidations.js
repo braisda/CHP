@@ -2,13 +2,9 @@ function checkNameUniversity(field) {
     const name = "nombre";
     if ((toret = checkEmpty(field, name)) === "" && (toret = checkLength(field,'30', name)) === ""
         && (toret = checkText(field,'30', name)) === "" && (toret = checkAlphabetical(field,'30', name)) === "") {
-            console.log("toret: ", field);
         deleteMessage(name);
         return true;
     } else {
-    
-        console.log(toret);
-        console.log(field);
         showMessage('name-div', name, toret, field);
         return false;
     }
@@ -25,10 +21,8 @@ function checkNameEmptyUniversity(field) {
 function areUniversityFieldsCorrect() {
     const form = $('#universityForm')[0];
     if(checkNameUniversity(form.elements[0])) {
-        console.log("siiiiiiiiiiiiiiiiiii");
         return true;
     } else {
-        console.log("nooooooooooooooooooo");
         return false;
     }
 }
