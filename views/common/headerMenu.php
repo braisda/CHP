@@ -51,6 +51,9 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <nav id="sidebar-menu" class="d-md-block bg-light sidebar sidebar-expanded">
                     <div id="sidebar-contents" class="sidebar-sticky">
+                        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                            <span data-translate="Gestiones"></span>
+                        </h6>
                         <ul class="nav flex-column">
                             <?php
                         		if (checkPermission("usuario", "SHOWALL") ||

@@ -1094,6 +1094,10 @@
     "Error de validación. Profesor incorrecto.": {
         "en": "Validation error. Incorrect teacher.",
         "gl": "Erro de validación. Profesor incorrecto."
+    },
+    "Gestiones": {
+        "en": "Managements",
+        "gl": "Xestións"
     }
 }
 
