@@ -307,8 +307,8 @@ CREATE TABLE `grupo_materia` (
 CREATE TABLE `tutoria` (
   `idtutoria` int(8) COLLATE latin1_spanish_ci NOT NULL AUTO_INCREMENT,
   `idprofesor` int(8) COLLATE latin1_spanish_ci NOT NULL,
-  `fechaInicio` datetime COLLATE latin1_spanish_ci NOT NULL,
-  `fechaFin` datetime COLLATE latin1_spanish_ci NOT NULL,
+  `fechainicio` datetime COLLATE latin1_spanish_ci NOT NULL,
+  `fechafin` datetime COLLATE latin1_spanish_ci NOT NULL,
   PRIMARY KEY(`idtutoria`, `idprofesor`),
   FOREIGN KEY (`idprofesor`)
 	REFERENCES `profesor`(`id`)
@@ -374,7 +374,8 @@ INSERT INTO `funcionalidad` (`id`, `nombre`, `descripcion`) VALUES
 ('15', 'profesorManagement', 'profesorManagement'),
 ('16', 'materiaManagement', 'materiaManagement'),
 ('17', 'materiaprofesorManagement', 'materiaprofesorManagement'),
-('18', 'pdaManagement', 'pdaManagement');
+('18', 'pdaManagement', 'pdaManagement'),
+('19', 'tutoriaManagement', 'tutoriaManagement');
 
 
 
@@ -468,7 +469,12 @@ INSERT INTO `funcaccion` (`id`,`idfuncionalidad`, `idaccion`) VALUES
 ('87','18','2'),
 ('88','18','3'),
 ('89','18','4'),
-('90','18','5');
+('90','18','5'),
+('91','19','1'),
+('92','19','2'),
+('93','19','3'),
+('94','19','4'),
+('95','19','5');
 
 INSERT INTO `usuario` (`login`,`password`,`dni`, `nombre`,`apellido`,`email`,`direccion`,`telefono`) VALUES
 ('admin','21232f297a57a5a743894a0e4a801fc3' , '11122233P','Administrador','Administrador', 'admin@admin.com', 'address', '666555444'),
@@ -579,6 +585,16 @@ INSERT INTO `permiso` (`idrol`,`idfuncaccion`) VALUES
 (1,'83'),
 (1,'84'),
 (1,'85'),
+(1,'86'),
+(1,'87'),
+(1,'88'),
+(1,'89'),
+(1,'90'),
+(1,'91'),
+(1,'92'),
+(1,'93'),
+(1,'94'),
+(1,'95'),
 (2,'46'),
 (2,'47'),
 (2,'48'),
@@ -602,12 +618,7 @@ INSERT INTO `permiso` (`idrol`,`idfuncaccion`) VALUES
 (4,'54'),
 (4,'55'),
 (5,'64'),
-(5,'65'),
-(1,'86'),
-(1,'87'),
-(1,'88'),
-(1,'89'),
-(1,'90');
+(5,'65');
 
 INSERT INTO `curso_academico` (`id`, `nombre`, `anoinicio`, `anofin`) VALUES
 (1, '18/19', '2018', '2019'),
@@ -620,3 +631,12 @@ INSERT INTO `edificio` (`id`, `localizacion`, `nombre`, `idusuario`) VALUES
 (1, 'Ourense', 'Edificio Politécnico', 'admin'),
 (2, 'Ourense', 'Edificio de Hierro', 'admin'),
 (3, 'Ourense', 'Edificio del Agua', 'admin');
+
+INSERT INTO `espacio` (`id`, `idedificio`, `nombre`, `capacidad`, `oficina`) VALUES
+(1, '1', 'Espacio1', '50', b'1');
+
+INSERT INTO `profesor` (`id`, `idusuario`, `idespacio`, `dedicacion`) VALUES
+(1, 'admin', '1', 'dedi');
+
+INSERT INTO `tutoria` (`idtutoria`, `idprofesor`, `fechainicio`, `fechafin`) VALUES
+(1, '1', '2021-12-28 12:00:00', '2021-12-28 13:00:00');

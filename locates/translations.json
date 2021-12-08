@@ -1098,6 +1098,78 @@
     "Gestiones": {
         "en": "Managements",
         "gl": "Xestións"
+    },
+    "Gestión de tutorías": {
+        "en": "Tutorial management",
+        "gl": "Xestión de tutorías"
+    },
+    "Gestión de departamentos": {
+        "en": "Department management",
+        "gl": "Xestión de departamentos"
+    },
+    "Listado de tutorías": {
+        "en": "Tutorials list",
+        "gl": "Listado de titorías"
+    },
+    "Listado de departamentos": {
+        "en": "Departments list",
+        "gl": "Listado de departamentos"
+    },
+    "La tutoría no existe": {
+        "en": "Tutorial doesn't exist",
+        "gl": "A titoría non existe"
+    },
+    "Profesor": {
+        "en": "Teacher",
+        "gl": "Profesor"
+    },
+    "Inicio": {
+        "en": "Start",
+        "gl": "Inicio"
+    },
+    "Fin": {
+        "en": "End",
+        "gl": "Fin"
+    },
+    "Añadir tutoría": {
+        "en": "Add tutorial",
+        "gl": "Engadir titoría"
+    },
+    "No se ha obtenido ninguna tutoria": {
+        "en": "No tutorials retrieved",
+        "gl": "Non se obtivo ningunha titoría"
+    },
+    "Tutoría '%c'": {
+        "en": "Tutorial '%c'",
+        "gl": "Titoría '%c'"
+    },
+    "Error de validación. Id profesor incorrecto.": {
+        "en": "Validation error. Incorrect teacher id",
+        "gl": "Erro de validación. Id de profesor incorrecto"
+    },
+    "Tutoria añadida correctamente.": {
+        "en": "Tutorial added succesfully",
+        "gl": "Titoría engadida correctamente"
+    },
+    "Tutoria editada correctamente.": {
+        "en": "Tutorial updated succesfully",
+        "gl": "Titoría modificada correctamente"
+    },
+    "Editar tutoría '%c'": {
+        "en": "Edit tutorial '%c'",
+        "gl": "Editar titoría '%c'"
+    },
+    "Eliminar tutoría": {
+        "en": "Delete tutorial",
+        "gl": "Eliminar titoría"
+    },
+    "¿Está seguro de que desea eliminar la tutoría %c? Esta acción es permanente y no se puede recuperar.": {
+        "en": "Are you sure you want to delete the teacher %c? This action is permanent and cannot be recovered.",
+        "gl": "Está seguro de que desexa eliminar o profesor %c? Esta acción é permanente e non se pode recuperar."
+    },
+    "Tutoria eliminada correctamente.": {
+        "en": "Tutorial deleted succesfully",
+        "gl": "Titoría eliminada correctamente"
     }
 }
 

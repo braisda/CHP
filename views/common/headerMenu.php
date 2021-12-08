@@ -180,6 +180,28 @@
                                 </a>
                             </li>
                             <?php } ?>
+                            <?php
+                                if (checkPermission("tutoria", "SHOWALL")) {
+                            ?>
+                            <!-- Gestión de tutorias -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="../controllers/tutorialController.php">
+                                    <span class="far bi-info-square"></span>
+                                    <p data-translate="Gestión de tutorías"></p>
+                                </a>
+                            </li>
+                            <?php } ?>
+                            <?php
+                                if (false/*checkPermission("departamento", "SHOWALL")*/) {
+                            ?>
+                            <!-- Gestión de departamentos -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="../controllers/departmentController.php">
+                                    <span class="far bi-inboxes"></span>
+                                    <p data-translate="Gestión de departamentos"></p>
+                                </a>
+                            </li>
+                            <?php } ?>
                         </ul>
 						<?php
 							if (checkPermission("pda", "SHOWALL")) {
