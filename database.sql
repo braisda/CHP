@@ -247,7 +247,7 @@ CREATE TABLE `profesor` (
 -- --------------------------------------------------------
 CREATE TABLE `departamento` (
   `id` int(8) COLLATE latin1_spanish_ci NOT NULL AUTO_INCREMENT,
-  `codigo` varchar(6) COLLATE latin1_spanish_ci NOT NULL UNIQUE,
+  `codigo` varchar(7) COLLATE latin1_spanish_ci NOT NULL UNIQUE,
   `idprofesor` int(8) COLLATE latin1_spanish_ci NOT NULL,
   `nombre` varchar(30) COLLATE latin1_spanish_ci NOT NULL,
   PRIMARY KEY(`id`),
