@@ -25,7 +25,7 @@ class DepartmentAddView
             <form id="departmentForm" action='../controllers/departmentController.php?action=add' method='POST'>
                 <div id="code-div" class="form-group col-12">
                     <label for="start_date" data-translate="Código"></label>
-                    <input type="text" max-length="30" class="form-control" id="code" name="code">
+                    <input type="text" max-length="30" class="form-control" id="code" name="code" required oninput="checkCodeDepartment(this)">
                 </div> 
                 <div class="form-group col-12">
                     <label for="teacher_id" data-translate="Profesor"></label>
@@ -38,7 +38,7 @@ class DepartmentAddView
                 </div>                                
                 <div id="name-div" class="form-group col-12">
                     <label for="end_date" data-translate="Nombre"></label>
-                    <input type="text" max-length="30" class="form-control" id="name" name="name">
+                    <input type="text" max-length="30" class="form-control" id="name" name="name" required oninput="checkNameDepartment(this)">
                 </div>
                 
                 <button name="submit" type="submit" class="btn btn-primary" data-translate="Enviar"></button>

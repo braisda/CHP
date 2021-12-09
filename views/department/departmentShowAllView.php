@@ -6,16 +6,16 @@ class DepartmentShowAllView
     private $teachers;
     private $itemsPerPage;
     private $currentPage;
-    private $totalTutorials;
+    private $totalDepartments;
     private $searching;
 
-    function __construct($departmentsData, $teachersData, $itemsPerPage = NULL, $currentPage = NULL, $totalTutorials = NULL, $searching = False)
+    function __construct($departmentsData, $teachersData, $itemsPerPage = NULL, $currentPage = NULL, $totalDepartments = NULL, $searching = False)
     {
         $this->depdepartments = $departmentsData;
         $this->teachers = $teachersData;
         $this->itemsPerPage = $itemsPerPage;
         $this->currentPage = $currentPage;
-        $this->totalTutorials = $totalTutorials;
+        $this->totalDepartments = $totalDepartments;
         $this->searching = $searching;
         $this->render();
     }
@@ -42,7 +42,7 @@ class DepartmentShowAllView
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form class="row" id="searchTutorial" action='../controllers/departmentController.php?action=search' method='POST'
+                            <form class="row" id="searchDepartment" action='../controllers/departmentController.php?action=search' method='POST'
                             onsubmit="areDepartmentSearchFieldsCorrect()">
                                 <div id="code-div" class="form-group col-12">
                                     <label for="start_date" data-translate="Código"></label>
@@ -82,7 +82,7 @@ class DepartmentShowAllView
                         <a class="btn btn-success" role="button"
                            href="../controllers/departmentController.php?action=add">
                             <span data-feather="plus"></span>
-                            <p data-translate="Añadir tutoría"></p>
+                            <p data-translate="Añadir departamento"></p>
                         </a>
                     <?php endif; endif; ?>
 
@@ -127,7 +127,7 @@ class DepartmentShowAllView
                     <p data-translate="No se ha obtenido ningún departamento">. </p>
                 <?php endif; ?>
 
-                <?php new PaginationView($this->itemsPerPage, $this->currentPage, $this->totalTutorials,
+                <?php new PaginationView($this->itemsPerPage, $this->currentPage, $this->totalDepartments,
                     "department") ?>
 
             </div>
@@ -140,7 +140,7 @@ class DepartmentShowAllView
         </script>
         <script type="text/javascript">
             function form_submit() {
-                document.getElementById("searchTutorial").submit();
+                document.getElementById("searchDepartment").submit();
             }
         </script>
         <?php

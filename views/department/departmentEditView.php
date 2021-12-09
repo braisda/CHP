@@ -27,10 +27,10 @@ class DepartmentEditView
             </div>
             <form id="departmentForm" action='../controllers/departmentController.php?action=edit&id=<?php echo $this->department->getId() ?>'
                   method='POST'>
-                <div id="name-div" class="form-group col-12">
-                    <label for="code" data-translate="Codigo"></label>
+                <div id="code-div" class="form-group col-12">
+                    <label for="code" data-translate="Código"></label>
                     <input type="text" max-length="30" class="form-control" id="code" name="code"
-                    value="<?php echo $this->department->getCodigo() ?>" required>
+                    value="<?php echo $this->department->getCodigo() ?>" required oninput="checkCodeDepartment(this)">
                 </div>
                 <div class="form-group col-12">
                     <label for="teacher_id" data-translate="Profesor"></label>
@@ -49,7 +49,7 @@ class DepartmentEditView
                 <div id="name-div" class="form-group col-12">
                     <label for="name" data-translate="Nombre"></label>
                     <input type="text" max-length="30" class="form-control" id="name" name="name"
-                    value="<?php echo $this->department->getNombre() ?>" required>
+                    value="<?php echo $this->department->getNombre() ?>" required oninput="checkNameDepartment(this)">
                 </div>
                 <button name="submit" type="submit" class="btn btn-primary" data-translate="Enviar"></button>
             </form>

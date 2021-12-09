@@ -1211,9 +1211,13 @@
         "en": "Delete department",
         "gl": ""
     },
-    "": {
-        "en": "",
-        "gl": ""
+    "Añadir departamento": {
+        "en": "Add department",
+        "gl": "Engadir departamento"
+    },
+    "El atributo código no puede estar vacío.": {
+        "en": "The login attribute cannot be empty.",
+        "gl": "O atributo login non pode estar baleiro."
     },
     "": {
         "en": "",
