@@ -1,17 +1,17 @@
 <?php
 
-class TutorialShowAllView
+class DepartmentShowAllView
 {
-    private $tutorials;
+    private $depdepartments;
     private $teachers;
     private $itemsPerPage;
     private $currentPage;
     private $totalTutorials;
     private $searching;
 
-    function __construct($tutorialsData, $teachersData, $itemsPerPage = NULL, $currentPage = NULL, $totalTutorials = NULL, $searching = False)
+    function __construct($departmentsData, $teachersData, $itemsPerPage = NULL, $currentPage = NULL, $totalTutorials = NULL, $searching = False)
     {
-        $this->tutorials = $tutorialsData;
+        $this->depdepartments = $departmentsData;
         $this->teachers = $teachersData;
         $this->itemsPerPage = $itemsPerPage;
         $this->currentPage = $currentPage;
@@ -25,7 +25,7 @@ class TutorialShowAllView
         ?>
         <main role="main" class="margin-main ml-sm-auto px-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-4 pb-2 mb-3">
-                <h1 class="h2" data-translate="Listado de tutorías"></h1>
+                <h1 class="h2" data-translate="Listado de departamentos"></h1>
 
                 <!-- Search -->
                 <a class="btn btn-primary button-specific-search" data-toggle="modal" data-target="#searchModal" role="button">
@@ -42,7 +42,13 @@ class TutorialShowAllView
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form class="row" id="searchTutorial" action='../controllers/tutorialController.php?action=search' method='POST'>
+                            <form class="row" id="searchTutorial" action='../controllers/departmentController.php?action=search' method='POST'
+                            onsubmit="areDepartmentSearchFieldsCorrect()">
+                                <div id="code-div" class="form-group col-12">
+                                    <label for="start_date" data-translate="Código"></label>
+                                    <input type="text" max-length="30" class="form-control" id="code" name="code"
+                                    oninput="checkCodeEmptyDepartment(this)">
+                                </div>    
                                 <div class="form-group col-12">
                                     <label for="teacher_id" data-translate="Profesor"></label>
                                     <select class="form-control" id="teacher_id" name="teacher_id" ?>
@@ -51,14 +57,11 @@ class TutorialShowAllView
                                             <option value="<?php echo $t->getId() ?>"><?php echo $t->getUsuario()->getLogin() ?></option>
                                         <?php endforeach; ?>
                                     </select>
-                                </div>                                
-                                <div id="start-year-div" class="form-group col-12">
-                                    <label for="start_date" data-translate="Inicio"></label>
-                                    <input type="datetime-local" min="2000" max="9999" class="form-control" id="start_date" name="start_date">
-                                </div>
-                                <div id="end-year-div" class="form-group col-12">
-                                    <label for="end_date" data-translate="Fin"></label>
-                                    <input type="datetime-local" min="2000" max="9999" class="form-control" id="end_date" name="end_date">
+                                </div>  
+                                <div id="name-div" class="form-group col-12">
+                                    <label for="end_date" data-translate="Nombre"></label>
+                                    <input type="text" max-length="30" class="form-control" id="name" name="name"
+                                    oninput="checkNameEmptyDepartment(this)">
                                 </div>
                             </form>
                         </div>
@@ -71,13 +74,13 @@ class TutorialShowAllView
             </div>
 
                 <?php if ($this->searching): ?>
-                    <a class="btn btn-primary" role="button" href="../controllers/tutorialController.php">
+                    <a class="btn btn-primary" role="button" href="../controllers/departmentController.php">
                         <p data-translate="Volver"></p>
                     </a>
                 <?php else:
-                    if (checkPermission("tutoria", "ADD")): ?>
+                    if (checkPermission("departamento", "ADD")): ?>
                         <a class="btn btn-success" role="button"
-                           href="../controllers/tutorialController.php?action=add">
+                           href="../controllers/departmentController.php?action=add">
                             <span data-feather="plus"></span>
                             <p data-translate="Añadir tutoría"></p>
                         </a>
@@ -88,30 +91,30 @@ class TutorialShowAllView
                 <table class="table table-striped table-sm">
                     <thead>
                     <tr>
+                        <th><label data-translate="Código"></label></th>
                         <th><label data-translate="Profesor"></label></th>
-                        <th><label data-translate="Inicio"></label></th>
-                        <th><label data-translate="Fin"></label></th>
+                        <th><label data-translate="Nombre"></label></th>
                         <th class="actions-row"><label data-translate="Acciones"></label></th>
                     </tr>
                     </thead>
-                    <?php if (!empty($this->tutorials)): ?>
+                    <?php if (!empty($this->depdepartments)): ?>
                     <tbody>
-                    <?php foreach ($this->tutorials as $tutorial): ?>
+                    <?php foreach ($this->depdepartments as $department): ?>
                         <tr>
-                            <td><?php echo $tutorial->getIdprofesor()->getUsuario()->getLogin() ;?></td>
-                            <td><?php echo $tutorial->getFechainicio() ;?></td>
-                            <td><?php echo $tutorial->getFechafin() ;?></td>
+                            <td><?php echo $department->getCodigo() ;?></td>
+                            <td><?php echo $department->getIdProfesor()->getUsuario()->getLogin() ;?></td>
+                            <td><?php echo $department->getNombre() ;?></td>
                             <td class="row">
-                                <?php if (checkPermission("tutoria", "SHOWCURRENT")) { ?>
-                                    <a href="../controllers/tutorialController.php?action=show&idtutoria=<?php echo $tutorial->getIdtutoria() ?>">
+                                <?php if (checkPermission("departamento", "SHOWCURRENT")) { ?>
+                                    <a href="../controllers/departmentController.php?action=show&id=<?php echo $department->getId() ?>">
                                         <span data-feather="eye"></span></a>
                                 <?php }
-                                if (checkPermission("tutoria", "EDIT")) { ?>
-                                    <a href="../controllers/tutorialController.php?action=edit&idtutoria=<?php echo $tutorial->getIdtutoria() ?>">
+                                if (checkPermission("departamento", "EDIT")) { ?>
+                                    <a href="../controllers/departmentController.php?action=edit&id=<?php echo $department->getId() ?>">
                                         <span data-feather="edit"></span></a>
                                 <?php }
-                                if (checkPermission("tutoria", "DELETE")) { ?>
-                                    <a href="../controllers/tutorialController.php?action=delete&idtutoria=<?php echo $tutorial->getIdtutoria() ?>">
+                                if (checkPermission("departamento", "DELETE")) { ?>
+                                    <a href="../controllers/departmentController.php?action=delete&id=<?php echo $department->getId() ?>">
                                         <span data-feather="trash-2"></span></a>
                                 <?php } ?>
                             </td>
@@ -121,11 +124,11 @@ class TutorialShowAllView
                 </table>
                 <?php else: ?>
                     </table>
-                    <p data-translate="No se ha obtenido ninguna tutoria">. </p>
+                    <p data-translate="No se ha obtenido ningún departamento">. </p>
                 <?php endif; ?>
 
                 <?php new PaginationView($this->itemsPerPage, $this->currentPage, $this->totalTutorials,
-                    "tutorial") ?>
+                    "department") ?>
 
             </div>
         </main>

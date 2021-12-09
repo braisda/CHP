@@ -9,42 +9,42 @@ if (!IsAuthenticated()){
 
 include_once '../utils/pagination.php';
 include_once '../models/common/DAOException.php';
-include_once '../models/tutorial/tutorialDAO.php';
+include_once '../models/department/departmentDAO.php';
 include_once '../models/teacher/teacherDAO.php';
 include_once '../views/common/head.php';
 include_once '../views/common/headerMenu.php';
 include_once '../views/common/paginationView.php';
-include_once '../views/tutorial/tutorialShowAllView.php';
-include_once '../views/tutorial/tutorialAddView.php';
-include_once '../views/tutorial/tutorialShowView.php';
-include_once '../views/tutorial/tutorialEditView.php';
-include_once '../views/tutorial/tutorialSearchView.php';
+include_once '../views/department/departmentShowAllView.php';
+include_once '../views/department/departmentAddView.php';
+include_once '../views/department/departmentShowView.php';
+include_once '../views/department/departmentEditView.php';
+include_once '../views/department/departmentSearchView.php';
 include_once '../utils/confirmDelete.php';
 
 //DAOS
-$tutorialDAO = new TutorialDAO();
+$departmentDAO = new DepartmentDAO();
 $teacherDAO = new TeacherDAO();
 
 //Data required
 $teacherData = $teacherDAO->showAll();
 
-$tutorialPrimaryKey = "idtutoria";
-$value = $_REQUEST[$tutorialPrimaryKey];
+$departmentPrimaryKey = "id";
+$value = $_REQUEST[$departmentPrimaryKey];
 
 $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : "";
 switch ($action) {
     case "add":
-        if (checkPermission("tutoria", "ADD")) {
+        if (checkPermission("departamento", "ADD")) {
             if (!isset($_POST["submit"])) {
-                new TutorialAddView($teacherData);
+                new DepartmentAddView($teacherData);
             } else {
                 try {
-                    $tutorial = new Tutoria();
-                    $tutorial->setIdprofesor($_POST["teacher_id"]);
-                    $tutorial->setFechainicio($_POST["start_date"]);
-                    $tutorial->setFechafin($_POST["end_date"]);
-                    $tutorialDAO->add($tutorial);
-                    goToShowAllAndShowSuccess("Tutoria añadida correctamente.", $teacherData);
+                    $department = new Departamento();
+                    $department->setCodigo($_POST["code"]);
+                    $department->setidProfesor($_POST["teacher_id"]);
+                    $department->setNombre($_POST["name"]);
+                    $departmentDAO->add($department);
+                    goToShowAllAndShowSuccess("Departamento añadido correctamente.", $teacherData);
                 } catch (DAOException $e) {
                     goToShowAllAndShowError($e->getMessage(), $teacherData);
                 } catch (Exception $ve) {
@@ -56,21 +56,21 @@ switch ($action) {
         }
         break;
     case "delete":
-        if (checkPermission("tutoria", "DELETE")) {
+        if (checkPermission("departamento", "DELETE")) {
             if (isset($_REQUEST["confirm"])) {
                 try {
-                    $tutorialDAO->delete($tutorialPrimaryKey, $value);
-                    goToShowAllAndShowSuccess("Tutoria eliminada correctamente.", $teacherData);
+                    $departmentDAO->delete($departmentPrimaryKey, $value);
+                    goToShowAllAndShowSuccess("Departamento eliminado correctamente.", $teacherData);
                 } catch (DAOException $e) {
                     goToShowAllAndShowError($e->getMessage(), $teacherData);
                 }
             } else {
                 try {
-                    $tutorialDAO->checkDependencies($value);
+                    $departmentDAO->checkDependencies($value);
                     showAll($teacherData);
-                    confirmDelete("Eliminar tutoría", "¿Está seguro de que desea eliminar " .
-                        "la tutoría %" . $value . "%? Esta acción es permanente y no se puede recuperar.",
-                        "../controllers/tutorialController.php?action=delete&idtutoria=" . $value . "&confirm=true");
+                    confirmDelete("Eliminar departamento", "¿Está seguro de que desea eliminar " .
+                        "el departamento %" . $value . "%? Esta acción es permanente y no se puede recuperar.",
+                        "../controllers/departmentController.php?action=delete&id=" . $value . "&confirm=true");
                 } catch (DAOException $e) {
                     goToShowAllAndShowError($e->getMessage(), $teacherData);
                 }
@@ -80,10 +80,10 @@ switch ($action) {
         }
         break;
     case "show":
-        if (checkPermission("tutoria", "SHOWCURRENT")) {
+        if (checkPermission("departamento", "SHOWCURRENT")) {
             try {
-                $tutorialData = $tutorialDAO->show($tutorialPrimaryKey, $value);
-                new TutorialShowView($tutorialData);
+                $departmentData = $departmentDAO->show($departmentPrimaryKey, $value);
+                new DepartmentShowView($departmentData);
             } catch (DAOException $e) {
                 goToShowAllAndShowError($e->getMessage(), $teacherData);
             } catch (Exception $ve) {
@@ -94,18 +94,18 @@ switch ($action) {
         }
         break;
     case "edit":
-        if (checkPermission("tutoria", "EDIT")) {
+        if (checkPermission("departamento", "EDIT")) {
             try {
-                $tutorial = $tutorialDAO->show($tutorialPrimaryKey, $value);
+                $department = $departmentDAO->show($departmentPrimaryKey, $value);
                 if (!isset($_POST["submit"])) {
-                    new TutorialEditView($tutorial, $teacherData);
+                    new DepartmentEditView($department, $teacherData);
                 } else {
-                    $tutorial->setIdtutoria($value);
-                    $tutorial->setIdprofesor($_POST["teacher_id"]);
-                    $tutorial->setFechainicio($_POST["start_date"]);
-                    $tutorial->setFechafin($_POST["end_date"]);
-                    $tutorialDAO->edit($tutorial);
-                    goToShowAllAndShowSuccess("Tutoria editada correctamente.", $teacherData);
+                    $department->setId($value);
+                    $department->setCodigo($_POST["code"]);
+                    $department->setIdprofesor($_POST["teacher_id"]);
+                    $department->setNombre($_POST["name"]);
+                    $departmentDAO->edit($department);
+                    goToShowAllAndShowSuccess("Departamento editado correctamente.", $teacherData);
                 }
             } catch (DAOException $e) {
                 goToShowAllAndShowError($e->getMessage(), $teacherData);
@@ -117,15 +117,14 @@ switch ($action) {
         }
         break;
     case "search":
-        if (checkPermission("tutoria", "SHOWALL")) {
+        if (checkPermission("departamento", "SHOWALL")) {
             try {
-                $tutorial = $tutorialDAO->search($_POST["teacher_id"], $_POST["start_date"], $_POST["end_date"]);
-                $tutorials = array();
-                
-                foreach($tutorial as $tut) {
-                    array_push($tutorials, $tutorialDAO->show($tutorialPrimaryKey, $tut["idtutoria"]));
+                $department = $departmentDAO->search($_POST["teacher_id"], $_POST["code"], $_POST["name"]);
+                $departments = array();
+                foreach($department as $dep) {
+                    array_push($departments, $departmentDAO->show($departmentPrimaryKey, $dep["id"]));
                 }
-                showAllSearch($tutorial, $teacherData);
+                showAllSearch($departments, $teacherData);
             } catch (DAOException $e) {
                 goToShowAllAndShowError($e->getMessage(), $teacherData);
             } catch (Exception $ve) {
@@ -147,23 +146,23 @@ function showAll($teacherData)
 
 function showAllSearch($search, $teacherData)
 {
-    if (checkPermission("tutoria", "SHOWALL")) {
+    if (checkPermission("departamento", "SHOWALL")) {
         try {
             $currentPage = getPage();
             $itemsPerPage = getNumberItems();
-            $totalTutorials = $GLOBALS["tutorialDAO"]->countTotalTutorials();
+            $totalDepartments = $GLOBALS["departmentDAO"]->countTotalDepartments();
             
             if ($search != NULL) {
-                $tutorialsData = $GLOBALS["tutorialDAO"]->parseTutorials($search);
-                $totalTutorials = count($tutorialsData);
+                $departmentsData = $GLOBALS["departmentDAO"]->parseDepartments($search);
+                $totalDepartments = count($departmentsData);
             } else {
-                $tutorialsData = $GLOBALS["tutorialDAO"]->showAllPaged($currentPage, $itemsPerPage);
+                $departmentsData = $GLOBALS["departmentDAO"]->showAllPaged($currentPage, $itemsPerPage);
             }
-            new TutorialShowAllView($tutorialsData, $teacherData, $itemsPerPage, $currentPage, $totalTutorials, $search);
+            new DepartmentShowAllView($departmentsData, $teacherData, $itemsPerPage, $currentPage, $totalDepartments, $search);
         } catch (DAOException $e) {
             include '../models/common/messageType.php';
             include '../utils/ShowToast.php';
-            new TutorialShowAllView(array(), $teacherData);
+            new DepartmentShowAllView(array(), $teacherData);
             $message = MessageType::ERROR;
             showToast($message, $e->getMessage());
         }

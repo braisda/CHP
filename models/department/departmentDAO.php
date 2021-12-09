@@ -53,9 +53,28 @@ class DepartmentDAO {
         $this->defaultDAO->checkDependencies("departamento", $value);
     }
 
+    function search($user, $code, $name) {
+        $sql = "SELECT DISTINCT * FROM departamento WHERE nombre LIKE '%".
+            $name . "%'AND idprofesor LIKE '%" .
+            $user . "%' AND codigo LIKE '%" .
+            $code . "%'";
+            //print_r($this->defaultDAO->getArrayFromSqlQuery($sql));
+        return $this->defaultDAO->getArrayFromSqlQuery($sql);
+    }
+
+    function parseDepartments($deps){
+        $departments = array();
+        foreach ($deps as $department) {
+            $teacher = $this->teacherDAO->show("id", $department->getIdprofesor()->getId());
+            array_push($departments, new Departamento($department->getId(), $department->getCodigo(), $department->getNombre(), $teacher));
+        }
+        return $departments;
+    }
+
     private function getDepartmentsFromDB($departments_db) {
         $departments = array();
         foreach ($departments_db as $department) {
+            print_r($department);
             $teacher = $this->teacherDAO->show("id", $department["idprofesor"]);
             array_push($departments, new Departamento($department["id"], $department["codigo"], $department["nombre"], $teacher));
         }

@@ -640,3 +640,6 @@ INSERT INTO `profesor` (`id`, `idusuario`, `idespacio`, `dedicacion`) VALUES
 
 INSERT INTO `tutoria` (`idtutoria`, `idprofesor`, `fechainicio`, `fechafin`) VALUES
 (1, '1', '2021-12-28 12:00:00', '2021-12-28 13:00:00');
+
+INSERT INTO `departamento` (`id`, `codigo`, `idprofesor`, `nombre`) VALUES
+(1, 'DEP001', '1', 'Departamento 1');

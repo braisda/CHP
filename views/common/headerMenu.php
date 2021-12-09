@@ -192,7 +192,7 @@
                             </li>
                             <?php } ?>
                             <?php
-                                if (false/*checkPermission("departamento", "SHOWALL")*/) {
+                                if (checkPermission("departamento", "SHOWALL")) {
                             ?>
                             <!-- Gestión de departamentos -->
                             <li class="nav-item">

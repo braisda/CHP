@@ -1164,12 +1164,72 @@
         "gl": "Eliminar titoría"
     },
     "¿Está seguro de que desea eliminar la tutoría %c? Esta acción es permanente y no se puede recuperar.": {
-        "en": "Are you sure you want to delete the teacher %c? This action is permanent and cannot be recovered.",
-        "gl": "Está seguro de que desexa eliminar o profesor %c? Esta acción é permanente e non se pode recuperar."
+        "en": "Are you sure you want to delete the department %c? This action is permanent and cannot be recovered.",
+        "gl": "Está seguro de que desexa eliminar a titoría %c? Esta acción é permanente e non se pode recuperar."
     },
     "Tutoria eliminada correctamente.": {
         "en": "Tutorial deleted succesfully",
         "gl": "Titoría eliminada correctamente"
+    },
+    "No se ha obtenido ningún departamento": {
+        "en": "No departments retrieved",
+        "gl": "Non se obtivo ningún departamento"
+    },
+    "Código": {
+        "en": "Code",
+        "gl": "Código"
+    },
+    "Departamento añadido correctamente.": {
+        "en": "Department added successfully",
+        "gl": "Departamento engadido correctamente."
+    },
+    "El departamento no existe": {
+        "en": "Department doesnt't exist",
+        "gl": "O departamento non existe"
+    },
+    "Departamento '%c'": {
+        "en": "Department '%c'",
+        "gl": "Departamento '%c'"
+    },
+    "Departamento editado correctamente.": {
+        "en": "Department successfully edited",
+        "gl": "Departamento editado correctamente"
+    },
+    "Editar departamento '%c'": {
+        "en": "Edit tutorial '%c'",
+        "gl": "Editar titoría '%c'"
+    },
+    "Departamento eliminado correctamente.": {
+        "en": "Department deleted successfully",
+        "gl": "Departamento eliminado correctamente"
+    },
+    "¿Está seguro de que desea eliminar el departamento %c? Esta acción es permanente y no se puede recuperar.": {
+        "en": "Are you sure you want to delete the department %c? This action is permanent and cannot be recovered.",
+        "gl": "Está seguro de que desexa eliminar o departamento %c? Esta acción é permanente e non se pode recuperar."
+    },
+    "Eliminar departamento": {
+        "en": "Delete department",
+        "gl": ""
+    },
+    "": {
+        "en": "",
+        "gl": ""
+    },
+    "": {
+        "en": "",
+        "gl": ""
+    },
+    "": {
+        "en": "",
+        "gl": ""
+    },
+    "": {
+        "en": "",
+        "gl": ""
+    },
+    "": {
+        "en": "",
+        "gl": ""
     }
 }
 
