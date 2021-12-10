@@ -78,7 +78,7 @@ class Materia {
 
     public function setContenido($contenido) {
         $this->contenido = $contenido;
-        $this->setAcronym(NULL, $contenido);
+        $this->setAcronimo(NULL, $contenido);
     }
 
     public function getTipo() {

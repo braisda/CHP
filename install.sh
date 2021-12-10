@@ -11,6 +11,8 @@ chmod 777 -R /var/www/html/CHP
 apt-get update
 apt-get install poppler-utils
 
+chmod a+w /var/www/html
+
 echo "Configurando base de datos..."
 mysql -uroot -ppdp < /var/www/html/CHP/database.sql
 
