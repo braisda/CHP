@@ -58,7 +58,6 @@ class DepartmentDAO {
             $name . "%'AND idprofesor LIKE '%" .
             $user . "%' AND codigo LIKE '%" .
             $code . "%'";
-            //print_r($this->defaultDAO->getArrayFromSqlQuery($sql));
         return $this->defaultDAO->getArrayFromSqlQuery($sql);
     }
 
@@ -74,7 +73,6 @@ class DepartmentDAO {
     private function getDepartmentsFromDB($departments_db) {
         $departments = array();
         foreach ($departments_db as $department) {
-            print_r($department);
             $teacher = $this->teacherDAO->show("id", $department["idprofesor"]);
             array_push($departments, new Departamento($department["id"], $department["codigo"], $department["nombre"], $teacher));
         }

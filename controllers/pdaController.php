@@ -116,7 +116,6 @@ function loadPDA($dir) {
     $sourcePdf = preg_replace('/\s/', '\ ', $sourcePdf);
 
     $cmd = "pdftohtml -enc UTF-8 $sourcePdf $dir" . "pda-output";
-
     exec($cmd);
 
     $htmlContent = file_get_contents($dir . "pda-outputs.html");
@@ -129,6 +128,7 @@ function loadPDA($dir) {
     $degree = trim(preg_replace('/\(.+\)/', '', $Bold[0]->textContent));
 
     $pda_data = preg_split('/Presen./', $Body[0]->textContent)[1];
+
     $courses = preg_split('/[0-9].+Curso/', $pda_data);
 
     $subjects_1y = preg_split('/(?=G[0-9]{6})/', $courses[1]);
@@ -155,7 +155,6 @@ function loadCourse($subjects, $course, $degree) {
     $subjectDAO = new SubjectDAO();
 
     foreach ($subjects as $subject_data) {
-
         $subject_data = preg_split('/\n/', trim($subject_data));
         $code = substr($subject_data[0], 0, 7);
         $content = substr($subject_data[0], 9);
@@ -214,7 +213,7 @@ function loadCourse($subjects, $course, $degree) {
             $subject->setHorasInscritas($enrolledHours);
             $subject->setHorasEnseño($taughtHours);
             $subject->setHoras($hours);
-            $subject->setEstudiantes($students);
+            $subject->setAlumnos($students);
             $subject->setGrado($degree_obj);
             $subject->setProfesor(NULL);
 

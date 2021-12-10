@@ -277,7 +277,8 @@ CREATE TABLE `materia` (
   `horas` varchar(5) COLLATE latin1_spanish_ci NOT NULL,
   `alumnos` int(3) COLLATE latin1_spanish_ci NOT NULL,
   `idgrado` int(8) COLLATE latin1_spanish_ci NOT NULL,
-  `idprofesor` int(8) COLLATE latin1_spanish_ci NOT NULL,
+  `idprofesor` int(8) COLLATE latin1_spanish_ci NULL,
+  `acronimo` varchar(8) COLLATE latin1_spanish_ci NOT NULL,
   PRIMARY KEY(`id`),
   FOREIGN KEY (`idgrado`)
 	REFERENCES `grado`(`id`),

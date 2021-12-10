@@ -8,6 +8,9 @@ git clone "https://github.com/braisda/CHP.git"
 
 chmod 777 -R /var/www/html/CHP
 
+apt-get update
+apt-get install poppler-utils
+
 echo "Configurando base de datos..."
 mysql -uroot -ppdp < /var/www/html/CHP/database.sql
 
