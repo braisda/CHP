@@ -178,7 +178,7 @@ ALTER TABLE `edificio` ADD UNIQUE KEY `uidx` (`localizacion`, `nombre`, `idusuar
 CREATE TABLE `centro` (
   `id` int(8) COLLATE latin1_spanish_ci NOT NULL AUTO_INCREMENT,
   `iduniversidad` int(8) COLLATE latin1_spanish_ci NOT NULL,
-  `nombre` varchar(30) COLLATE latin1_spanish_ci NOT NULL,
+  `nombre` varchar(100) COLLATE latin1_spanish_ci NOT NULL,
   `idedificio` int(8) COLLATE latin1_spanish_ci NOT NULL,
   `idusuario` varchar(9) COLLATE latin1_spanish_ci NOT NULL,
   PRIMARY KEY(`id`),

@@ -207,10 +207,10 @@
                             ?>
                             <!-- Gestión de materias -->
                             <li class="nav-item">
-                                <a class="nav-link" href="../controllers/subjectController.php">
+                                <!--<a class="nav-link" href="../controllers/subjectController.php">
                                     <span class="far bi-book"></span>
                                     <p data-translate="Gestión de materias"></p>
-                                </a>
+                                </a>-->
                             </li>
                             <?php } ?>
                         </ul>
