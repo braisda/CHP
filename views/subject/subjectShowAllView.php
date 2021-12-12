@@ -13,7 +13,6 @@ class SubjectShowAllView {
     private $departmentOwner;
 
     function __construct($subjects, $itemsPerPage = NULL, $currentPage = NULL, $totalSubjects = NULL, $search = NULL, $searching=false, $departmentOwner=false) {
-        echo '<script>console.log("sdfsdfsfd")</script>';
         $this->subjects = $subjects;
         $this->itemsPerPage = $itemsPerPage;
         $this->currentPage = $currentPage;
@@ -126,8 +125,8 @@ class SubjectShowAllView {
                                     <a href="../controllers/subjectController.php?action=delete&id=<?php echo $subject->getId() ?>">
                                         <span data-feather="trash-2"></span></a>
                                 <?php } ?>
-                                <a href="../controllers/subjectTeacherController.php?subject_id=<?php echo $subject->getId() ?>">
-                                    <i class="fas fa-chalkboard-teacher"></i></a>
+                                <!--<a href="../controllers/subjectTeacherController.php?subject_id=<?php echo $subject->getId() ?>">
+                                    <i class="fas fa-chalkboard-teacher"></i></a>-->
 
                             </td>
                         </tr>

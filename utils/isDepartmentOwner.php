@@ -13,8 +13,7 @@ function IsDepartmentOwner() {
         $departments = $departmentDAO->showAll();
         foreach ($departments as $department) {
 
-            if ($department->getTeacher()->getUser()->getId() == getUserInSession()) {
-
+            if ($department->getIdprofesor()->getUsuario()->getId() == getUserInSession()) {
                 array_push($return, $department);
             }
         }

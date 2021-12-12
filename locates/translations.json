@@ -1216,8 +1216,8 @@
         "gl": "Engadir departamento"
     },
     "El atributo código no puede estar vacío.": {
-        "en": "The login attribute cannot be empty.",
-        "gl": "O atributo login non pode estar baleiro."
+        "en": "The code attribute cannot be empty.",
+        "gl": "O atributo código non pode estar baleiro."
     },
     "Gestión de materias": {
         "en": "Subject management",
@@ -1259,9 +1259,265 @@
         "en": "Title",
         "gl": "Titulación"
     },
-    "": {
-        "en": "",
-        "gl": ""
+    "Materia añadida correctamente.": {
+        "en": "Subject successfully added.",
+        "gl": "Materia engadida correctamente."
+    },
+    "Departamento": {
+        "en": "Department",
+        "gl": "Departamento"
+    },
+    "Área": {
+        "en": "Area",
+        "gl": "Área"
+    },
+    "Número de nueva matrícula": {
+        "en": "New admision number",
+        "gl": "Número de nova matrícula"
+    },
+    "Número de repetidores": {
+        "en": "Repeaters number",
+        "gl": "Número de repetidores"
+    },
+    "Número de alumnos efectivos": {
+        "en": "Effective students number",
+        "gl": "Número de alumnos efectivos"
+    },
+    "Número de horas matriculadas": {
+        "en": "Enrolled hours number",
+        "gl": "Número de horas matriculadas"
+    },
+    "Número de horas impartidas": {
+        "en": "Taught hours number",
+        "gl": "Número de horas impartidas"
+    },
+    "Número de horas": {
+        "en": "Hours number",
+        "gl": "Número de horas"
+    },
+    "Estudiantes": {
+        "en": "Students",
+        "gl": "Estudantes"
+    },
+    "Profesor responsable": {
+        "en": "Teacher",
+        "gl": "Profesor responsable"
+    },
+    "El atributo código no puede tener espacios en blanco.": {
+        "en": "The code attribute cannot has white spaces.",
+        "gl": "O atributo código non pode ter espazos en branco."
+    },
+    "El atributo código puede tener una longitud máxima de %c caracteres.": {
+        "en": "The code attribute can have a maximum length of %c characters.",
+        "gl": "O atributo código pode ter unha lonxitude máxima de %c caracteres."
+    },
+    "El atributo código contiene el carácter no válido: %c.": {
+        "en": "The code attribute contains the invalid character: %c.",
+        "gl": "O atributo código contén o caracter non válido: %c."
+    },
+    "El atributo contenido no puede estar vacío.": {
+        "en": "The content attribute cannot be empty.",
+        "gl": "O atributo contido non pode estar baleiro."
+    },
+    "El atributo contenido puede tener una longitud máxima de %c caracteres.": {
+        "en": "The content attribute can have a maximum length of %c characters.",
+        "gl": "O atributo contido pode ter unha lonxitude máxima de %c caracteres."
+    },
+    "El atributo contenido contiene el carácter no válido: %c.": {
+        "en": "The content attribute contains the invalid character: %c.",
+        "gl": "O atributo contido contén o caracter non válido: %c."
+    },
+    "El atributo tipo no puede tener espacios en blanco.": {
+        "en": "The type attribute cannot has white spaces.",
+        "gl": "O tipo código non pode ter espazos en branco."
+    },
+    "El atributo tipo puede tener una longitud máxima de %c caracteres.": {
+        "en": "The type attribute can have a maximum length of %c characters.",
+        "gl": "O atributo tipo pode ter unha lonxitude máxima de %c caracteres."
+    },
+    "El atributo tipo contiene el carácter no válido: %c.": {
+        "en": "The type attribute contains the invalid character: %c.",
+        "gl": "O atributo tipo contén o caracter non válido: %c."
+    },
+    "El atributo tipo solo admite carácteres alfabéticos.": {
+        "en": "The type attribute only admits alphabetical characters.",
+        "gl": "O atributo tipo só admite caracteres alfabéticos."
+    },
+    "El atributo área no puede tener espacios en blanco.": {
+        "en": "The area attribute cannot has white spaces.",
+        "gl": "O atributo área non pode ter espazos en branco."
+    },
+    "El atributo área puede tener una longitud máxima de %c caracteres.": {
+        "en": "The area attribute can have a maximum length of %c characters.",
+        "gl": "O atributo área pode ter unha lonxitude máxima de %c caracteres."
+    },
+    "El atributo área contiene el carácter no válido: %c.": {
+        "en": "The area attribute contains the invalid character: %c.",
+        "gl": "O atributo área contén o caracter non válido: %c."
+    },
+    "El atributo área no puede estar vacío.": {
+        "en": "The area attribute cannot be empty.",
+        "gl": "O atributo área non pode estar baleiro."
+    },
+    "El atributo curso no puede estar vacío.": {
+        "en": "The course attribute cannot be empty.",
+        "gl": "O atributo curso non pode estar baleiro."
+    },
+    "El atributo curso puede tener una longitud máxima de %c caracteres.": {
+        "en": "The course attribute can have a maximum length of %c characters.",
+        "gl": "O atributo curso pode ter unha lonxitude máxima de %c caracteres."
+    },
+    "El atributo cuatrimestre no puede estar vacío.": {
+        "en": "The quarter attribute cannot be empty.",
+        "gl": "O atributo cuatrimestre non pode estar baleiro."
+    },
+    "El atributo cuatrimestre puede tener una longitud máxima de %c caracteres.": {
+        "en": "The quarter attribute can have a maximum length of %c characters.",
+        "gl": "O atributo cuatrimestre pode ter unha lonxitude máxima de %c caracteres."
+    },
+    "El atributo créditos puede tener una longitud máxima de %c caracteres.": {
+        "en": "The credits attribute can have a maximum length of %c characters.",
+        "gl": "O atributo créditos pode ter unha lonxitude máxima de %c caracteres."
+    },
+    "El atributo nueva matrícula no puede estar vacío.": {
+        "en": "The new registration attribute cannot be empty.",
+        "gl": "O atributo nova matrícula non pode estar baleiro."
+    },
+    "El atributo nueva matrícula puede tener una longitud máxima de %c caracteres.": {
+        "en": "The new registration attribute can have a maximum length of %c characters.",
+        "gl": "O atributo nova matrícula pode ter unha lonxitude máxima de %c caracteres."
+    },
+    "El atributo nueva matrícula no puede ser menor que %c.": {
+        "en": "The new registration attribute can have a minimum value of %c.",
+        "gl": "O atributo nova matrícula pode ter un valor mínimo de %c."
+    },
+    "El atributo nueva matrícula no puede ser mayor que %c.": {
+        "en": "The new registration attribute can have a maximum value of %c.",
+        "gl": "O atributo nova matrícula pode ter un valor máximo de %c."
+    },
+    "El atributo nueva matrícula tiene que ser un dígito.": {
+        "en": "The new registration attribute has to be a digit.",
+        "gl": "O atributo nova matrícula ten que ser un díxito."
+    },
+    "El atributo repetidores no puede estar vacío.": {
+        "en": "The repeaters attribute cannot be empty.",
+        "gl": "O atributo repetidores non pode estar baleiro."
+    },
+    "El atributo repetidores puede tener una longitud máxima de %c caracteres.": {
+        "en": "The repeaters attribute can have a maximum length of %c characters.",
+        "gl": "O atributo repetidores pode ter unha lonxitude máxima de %c caracteres."
+    },
+    "El atributo repetidores no puede ser menor que %c.": {
+        "en": "The repeaters attribute can have a minimum value of %c.",
+        "gl": "O atributo repetidores pode ter un valor mínimo de %c."
+    },
+    "El atributo repetidores no puede ser mayor que %c.": {
+        "en": "The repeaters attribute can have a maximum value of %c.",
+        "gl": "O atributo repetidores pode ter un valor máximo de %c."
+    },
+    "El atributo repetidores tiene que ser un dígito.": {
+        "en": "The repeaters attribute has to be a digit.",
+        "gl": "O astributo repetidores ten que ser un díxito."
+    },
+    "El atributo efectivos no puede estar vacío.": {
+        "en": "The effectives attribute cannot be empty.",
+        "gl": "O atributo efectivos non pode estar baleiro."
+    },
+    "El atributo efectivos puede tener una longitud máxima de %c caracteres.": {
+        "en": "The effectives attribute can have a maximum length of %c characters.",
+        "gl": "O atributo efectivos pode ter unha lonxitude máxima de %c caracteres."
+    },
+    "El atributo efectivos no puede ser menor que %c.": {
+        "en": "The effectives attribute can have a minimum value of %c.",
+        "gl": "O atributo efectivos pode ter un valor mínimo de %c."
+    },
+    "El atributo efectivos no puede ser mayor que %c.": {
+        "en": "The effectives attribute can have a maximum value of %c.",
+        "gl": "O atributo efectivos pode ter un valor máximo de %c."
+    },
+    "El atributo efectivos tiene que ser un dígito.": {
+        "en": "The effectives attribute has to be a digit.",
+        "gl": "O astributo efectivos ten que ser un díxito."
+    },
+    "El atributo horas matriculadas no puede estar vacío.": {
+        "en": "The enrolled hours attribute cannot be empty.",
+        "gl": "O atributo horas matriculadas non pode estar baleiro."
+    },
+    "El atributo horas matriculadas puede tener una longitud máxima de %c caracteres.": {
+        "en": "The enrolled hours attribute can have a maximum length of %c characters.",
+        "gl": "O atributo horas matriculadas pode ter unha lonxitude máxima de %c caracteres."
+    },
+    "El atributo horas impartidas no puede estar vacío.": {
+        "en": "The taught hours attribute cannot be empty.",
+        "gl": "O atributo horas impartidas non pode estar baleiro."
+    },
+    "El atributo horas impartidas puede tener una longitud máxima de %c caracteres.": {
+        "en": "The taught hours attribute can have a maximum length of %c characters.",
+        "gl": "O atributo horas impartidas pode ter unha lonxitude máxima de %c caracteres."
+    },
+    "El atributo horas no puede estar vacío.": {
+        "en": "The hours attribute cannot be empty.",
+        "gl": "O atributo horas non pode estar baleiro."
+    },
+    "El atributo horas puede tener una longitud máxima de %c caracteres.": {
+        "en": "The hours attribute can have a maximum length of %c characters.",
+        "gl": "O atributo horas pode ter unha lonxitude máxima de %c caracteres."
+    },
+    "El atributo horas no puede ser menor que %c.": {
+        "en": "The hours attribute can have a minimum value of %c.",
+        "gl": "O atributo horas pode ter un valor mínimo de %c."
+    },
+    "El atributo horas no puede ser mayor que %c.": {
+        "en": "The hours attribute can have a maximum value of %c.",
+        "gl": "O atributo horas pode ter un valor máximo de %c."
+    },
+    "El atributo horas tiene que ser un dígito.": {
+        "en": "The hours attribute has to be a digit.",
+        "gl": "O astributo horas ten que ser un díxito."
+    },
+    "El atributo estudiantes no puede estar vacío.": {
+        "en": "The students attribute cannot be empty.",
+        "gl": "O atributo estudantes non pode estar baleiro."
+    },
+    "El atributo estudiantes puede tener una longitud máxima de %c caracteres.": {
+        "en": "The students attribute can have a maximum length of %c characters.",
+        "gl": "O atributo estudantes pode ter unha lonxitude máxima de %c caracteres."
+    },
+    "El atributo estudiantes no puede ser menor que %c.": {
+        "en": "The students attribute can have a minimum value of %c.",
+        "gl": "O atributo estudantes pode ter un valor mínimo de %c."
+    },
+    "El atributo estudiantes no puede ser mayor que %c.": {
+        "en": "The students attribute can have a maximum value of %c.",
+        "gl": "O atributo estudantes pode ter un valor máximo de %c."
+    },
+    "El atributo estudiantes tiene que ser un dígito.": {
+        "en": "The students attribute has to be a digit.",
+        "gl": "O astributo estudantes ten que ser un díxito."
+    },
+    "Materia '%c'": {
+        "en": "Subject '%c'",
+        "gl": "Materia '%c'"
+    },
+    "Materia editada correctamente.": {
+        "en": "Subject successfully edit.",
+        "gl": "Materia editada correctamente."
+    },
+    "Editar materia '%c'": {
+        "en": "Edit subject '%c'",
+        "gl": "Editar materia '%c'"
+    },
+    "Materia eliminada correctamente.": {
+        "en": "Subject deleted successfully.",
+        "gl": "Materia eliminada correctamente."
+    },
+    "¿Está seguro de que desea eliminar la materia %c? Esta acción es permanente y no se puede recuperar.": {
+        "en": "Are you sure you want to delete the subject %c? This action is permanent and cannot be recovered.",
+        "gl": "Está seguro de que desexa eliminar a materia %c? Esta acción é permanente e non se pode recuperar."
+    },
+    "Eliminar materia": {
+        "en": "Delete subject",
+        "gl": "Eliminar materia"
     },
     "": {
         "en": "",

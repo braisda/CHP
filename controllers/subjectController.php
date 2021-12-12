@@ -22,6 +22,11 @@ include_once '../utils/isAdmin.php';
 include_once '../utils/isDepartmentOwner.php';
 include_once '../utils/isSubjectOwner.php';
 include_once '../views/subject/subjectShowAllView.php';
+include_once '../views/subject/subjectAddView.php';
+include_once '../views/subject/subjectShowView.php';
+include_once '../views/subject/subjectEditView.php';
+include_once '../utils/confirmDelete.php';
+include_once '../utils/openDeletionModal.php';
 
 $subjectDAO = new SubjectDAO();
 $degreeDAO = new DegreeDAO();
@@ -35,32 +40,32 @@ $subjectPK = "id";
 $value = $_REQUEST[$subjectPK];
 $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : "";
 switch ($action) {
-/*     case "add":
-        if (HavePermission("Subject", "ADD") and (IsDepartmentOwner()!==false or IsAdmin())) {
+     case "add":
+        if (checkPermission("materia", "ADD") and (IsDepartmentOwner() or IsAdmin())) {
             if (!isset($_POST["submit"])) {
                 new SubjectAddView($degreeData, $departmentData, $teacherData);
             } else {
                 try {
-                    $subject = new Subject();
-                    $subject->setCode($_POST["code"]);
-                    $subject->setContent($_POST["content"]);
-                    $subject->setType($_POST["type"]);
-                    $subject->setDepartment($departmentDAO->show("id", $_POST["department_id"]));
+                    $subject = new Materia();
+                    $subject->setCodigo($_POST["code"]);
+                    $subject->setContenido($_POST["content"]);
+                    $subject->setTipo($_POST["type"]);
+                    $subject->setDepartamento($departmentDAO->show("id", $_POST["department_id"]));
                     $subject->setArea($_POST["area"]);
-                    $subject->setCourse($_POST["course"]);
-                    $subject->setQuarter($_POST["quarter"]);
-                    $subject->setCredits($_POST["credits"]);
-                    $subject->setNewRegistration($_POST["new_registration"]);
-                    $subject->setRepeaters($_POST["repeaters"]);
-                    $subject->setEffectiveStudents($_POST["effective_students"]);
-                    $subject->setEnrolledHours($_POST["enrolled_hours"]);
-                    $subject->setTaughtHours($_POST["taught_hours"]);
-                    $subject->setHours($_POST["hours"]);
-                    $subject->setStudents($_POST["students"]);
-                    $subject->setDegree($degreeDAO->show("id", $_POST["degree_id"]));
-                    $subject->setTeacher($teacherDAO->show("id", $_POST["teacher_id"]));
+                    $subject->setCurso($_POST["course"]);
+                    $subject->setCuatrimestre($_POST["quarter"]);
+                    $subject->setCreditos($_POST["credits"]);
+                    $subject->setNuevoRegistro($_POST["new_registration"]);
+                    $subject->setRepeticiones($_POST["repeaters"]);
+                    $subject->setEstudiantesEfectivos($_POST["effective_students"]);
+                    $subject->setHorasInscritas($_POST["enrolled_hours"]);
+                    $subject->setHorasEnseño($_POST["taught_hours"]);
+                    $subject->setHoras($_POST["hours"]);
+                    $subject->setAlumnos($_POST["students"]);
+                    $subject->setGrado($degreeDAO->show("id", $_POST["degree_id"]));
+                    $subject->setProfesor($teacherDAO->show("id", $_POST["teacher_id"]));
                     $subjectDAO->add($subject);
-                    goToShowAllAndShowSuccess("Asignatura añadida correctamente.");
+                    goToShowAllAndShowSuccess("Materia añadida correctamente.");
                 } catch (DAOException $e) {
                     goToShowAllAndShowError($e->getMessage());
                 } catch (ValidationException $ve) {
@@ -72,12 +77,12 @@ switch ($action) {
         }
         break;
     case "delete":
-        if (HavePermission("Subject", "DELETE") and (IsDepartmentOwner()!==false or IsAdmin())) {
-            $subject = $subjectDAO->show($subjectPrimaryKey, $value);
+        if (checkPermission("materia", "DELETE") and (IsDepartmentOwner() or IsAdmin())) {
+            $subject = $subjectDAO->show($subjectPK, $value);
             if (isset($_REQUEST["confirm"])) {
                 try {
-                    $subjectDAO->delete($subjectPrimaryKey, $value);
-                    goToShowAllAndShowSuccess("Asignatura eliminada correctamente.");
+                    $subjectDAO->delete($subjectPK, $value);
+                    goToShowAllAndShowSuccess("Materia eliminada correctamente.");
                 } catch (DAOException $e) {
                     goToShowAllAndShowError($e->getMessage());
                 }
@@ -85,9 +90,9 @@ switch ($action) {
                 try {
                     $subjectDAO->checkDependencies($value);
                     showAll();
-                    openDeletionModal("Eliminar asignatura", "¿Está seguro de que desea eliminar " .
-                        "la asignatura %" . $value . "%? Esta acción es permanente y no se puede recuperar.",
-                        "../Controllers/SubjectController.php?action=delete&id=" . $value . "&confirm=true");
+                    openDeletionModal("Eliminar materia", "¿Está seguro de que desea eliminar " .
+                        "la materia %" . $subject->getCodigo() . "%? Esta acción es permanente y no se puede recuperar.",
+                        "../controllers/subjectController.php?action=delete&id=" . $value . "&confirm=true");
                 } catch (DAOException $e) {
                     goToShowAllAndShowError($e->getMessage());
                 }
@@ -97,9 +102,9 @@ switch ($action) {
         }
         break;
     case "show":
-        if (HavePermission("Subject", "SHOWCURRENT")) {
+        if (checkPermission("materia", "SHOWCURRENT")) {
             try {
-                $subjectData = $subjectDAO->show($subjectPrimaryKey, $value);
+                $subjectData = $subjectDAO->show($subjectPK, $value);
                 new SubjectShowView($subjectData);
             } catch (DAOException $e) {
                 goToShowAllAndShowError($e->getMessage());
@@ -110,33 +115,33 @@ switch ($action) {
             goToShowAllAndShowError("No tienes permiso para visualizar la entidad.");
         }
         break;
-    case "edit":
-        if (HavePermission("Subject", "EDIT") and (IsDepartmentOwner()!==false or IsAdmin())) {
+   case "edit":
+        if (checkPermission("materia", "EDIT") and (IsDepartmentOwner() or IsAdmin())) {
             try {
-                $subject = $subjectDAO->show($subjectPrimaryKey, $value);
+                $subject = $subjectDAO->show($subjectPK, $value);
                 if (!isset($_POST["submit"])) {
                     new SubjectEditView($subject, $degreeData, $departmentData, $teacherData);
                 } else {
                     $subject->setId($value);
-                    $subject->setCode($_POST["code"]);
-                    $subject->setContent($_POST["content"]);
-                    $subject->setType($_POST["type"]);
-                    $subject->setDepartment($departmentDAO->show("id", $_POST["department_id"]));
+                    $subject->setCodigo($_POST["code"]);
+                    $subject->setContenido($_POST["content"]);
+                    $subject->setTipo($_POST["type"]);
+                    $subject->setDepartamento($departmentDAO->show("id", $_POST["department_id"]));
                     $subject->setArea($_POST["area"]);
-                    $subject->setCourse($_POST["course"]);
-                    $subject->setQuarter($_POST["quarter"]);
-                    $subject->setCredits($_POST["credits"]);
-                    $subject->setNewRegistration($_POST["new_registration"]);
-                    $subject->setRepeaters($_POST["repeaters"]);
-                    $subject->setEffectiveStudents($_POST["effective_students"]);
-                    $subject->setEnrolledHours($_POST["enrolled_hours"]);
-                    $subject->setTaughtHours($_POST["taught_hours"]);
-                    $subject->setHours($_POST["hours"]);
-                    $subject->setStudents($_POST["students"]);
-                    $subject->setDegree($degreeDAO->show("id", $_POST["degree_id"]));
-                    $subject->setTeacher($teacherDAO->show("id", $_POST["teacher_id"]));
+                    $subject->setCurso($_POST["course"]);
+                    $subject->setCuatrimestre($_POST["quarter"]);
+                    $subject->setCreditos($_POST["credits"]);
+                    $subject->setNuevoRegistro($_POST["new_registration"]);
+                    $subject->setRepeticiones($_POST["repeaters"]);
+                    $subject->setEstudiantesEfectivos($_POST["effective_students"]);
+                    $subject->setHorasInscritas($_POST["enrolled_hours"]);
+                    $subject->setHorasEnseño($_POST["taught_hours"]);
+                    $subject->setHoras($_POST["hours"]);
+                    $subject->setAlumnos($_POST["students"]);
+                    $subject->setGrado($degreeDAO->show("id", $_POST["degree_id"]));
+                    $subject->setProfesor($teacherDAO->show("id", $_POST["teacher_id"]));
                     $subjectDAO->edit($subject);
-                    goToShowAllAndShowSuccess("Asignatura editada correctamente.");
+                    goToShowAllAndShowSuccess("Materia editada correctamente.");
                 }
             } catch (DAOException $e) {
                 goToShowAllAndShowError($e->getMessage());
@@ -148,77 +153,18 @@ switch ($action) {
         }
         break;
     case "search":
-        if (HavePermission("Subject", "SHOWALL")) {
-            if (!isset($_POST["submit"])) {
-                new SubjectSearchView($degreeData, $departmentData, $teacherData);
-            } else {
-                try {
-                    $subject = new Subject();
-                    if (!empty($_POST["code"])) {
-                        $subject->setCode($_POST["content"]);
-                    }
-                    if (!empty($_POST["acronym"])) {
-                        $subject->setAcronym($_POST["acronym"], NULL);
-                    }
-                    if (!empty($_POST["content"])) {
-                        $subject->setContent($_POST["content"]);
-                    }
-                    if (!empty($_POST["type"])) {
-                        $subject->setType($_POST["type"]);
-                    }
-                    if (!empty($_POST["department_id"])) {
-                        $subject->setDepartment($departmentDAO->show("id", $_POST["department_id"]));
-                    }
-                    if (!empty($_POST["area"])) {
-                        $subject->setArea($_POST["area"]);
-                    }
-                    if (!empty($_POST["course"])) {
-                        $subject->setCourse($_POST["course"]);
-                    }
-                    if (!empty($_POST["quarter"])) {
-                        $subject->setQuarter($_POST["quarter"]);
-                    }
-                    if (!empty($_POST["credits"])) {
-                        $subject->setCredits($_POST["credits"]);
-                    }
-                    if (!empty($_POST["new_registration"])) {
-                        $subject->setNewRegistration($_POST["new_registration"]);
-                    }
-                    if (!empty($_POST["repeaters"])) {
-                        $subject->setRepeaters($_POST["repeaters"]);
-                    }
-                    if (!empty($_POST["effective_students"])) {
-                        $subject->setEffectiveStudents($_POST["effective_students"]);
-                    }
-                    if (!empty($_POST["enrolled_hours"])) {
-                        $subject->setEnrolledHours($_POST["enrolled_hours"]);
-                    }
-                    if (!empty($_POST["taught_hours"])) {
-                        $subject->setTaughtHours($_POST["taught_hours"]);
-                    }
-                    if (!empty($_POST["hours"])) {
-                        $subject->setHours($_POST["hours"]);
-                    }
-                    if (!empty($_POST["students"])) {
-                        $subject->setStudents($_POST["students"]);
-                    }
-                    if (!empty($_POST["degree_id"])) {
-                        $subject->setDegree($degreeDAO->show("id", $_POST["degree_id"]));
-                    }
-                    if (!empty($_POST["teacher_id"])) {
-                        $subject->setTeacher($teacherDAO->show("id", $_POST["teacher_id"]));
-                    }
-                    showAllSearch($subject);
-                } catch (DAOException $e) {
-                    goToShowAllAndShowError($e->getMessage());
-                } catch (ValidationException $ve) {
-                    goToShowAllAndShowError($ve->getMessage());
-                }
+        if (checkPermission("materia", "SHOWALL")) {
+            try {
+                // TODO Bruno
+            } catch (DAOException $e) {
+                goToShowAllAndShowError($e->getMessage());
+            } catch (ValidationException $ve) {
+                goToShowAllAndShowError($ve->getMessage());
             }
         } else {
             goToShowAllAndShowError("No tienes permiso para buscar.");
         }
-        break; */
+        break;
     default:
         showAll();
         break;
