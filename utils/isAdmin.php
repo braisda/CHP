@@ -15,7 +15,7 @@ function IsAdmin()
                 $permissions = $permissionDAO->showAll();
                 foreach ($permissions as $permission) {
                     if ($permission->getRol()->getId() == $userRole->getId()) {
-                        if ($permission->getRol()->getNombre() =="Admin") {
+                        if ($permission->getRol()->getNombre() == "Admin") {
                             return true;
                         }
                     }

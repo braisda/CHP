@@ -1219,6 +1219,54 @@
         "en": "The login attribute cannot be empty.",
         "gl": "O atributo login non pode estar baleiro."
     },
+    "Gestión de materias": {
+        "en": "Subject management",
+        "gl": "Xestión de materias"
+    },
+    "Listado de materias": {
+        "en": "Subject list",
+        "gl": "Listaxe de materias"
+    },
+    "Añadir materia": {
+        "en": "Add subject",
+        "gl": "Engadir materia"
+    },
+    "No se ha obtenido ninguna materia": {
+        "en": "No subject has obtained",
+        "gl": "Non se atopou ningunha materia"
+    },
+    "Acrónimo": {
+        "en": "Acronym",
+        "gl": "Acrónimo"
+    },
+    "Contenido": {
+        "en": "Content",
+        "gl": "Contido"
+    },
+    "Tipo": {
+        "en": "Type",
+        "gl": "Tipo"
+    },
+    "Curso": {
+        "en": "Course",
+        "gl": "Curso"
+    },
+    "Cuatrimestre": {
+        "en": "Quarter",
+        "gl": "Cuatrimestre"
+    },
+    "Titulación": {
+        "en": "Title",
+        "gl": "Titulación"
+    },
+    "": {
+        "en": "",
+        "gl": ""
+    },
+    "": {
+        "en": "",
+        "gl": ""
+    },
     "": {
         "en": "",
         "gl": ""
@@ -1236,4 +1284,3 @@
         "gl": ""
     }
 }
-

@@ -202,6 +202,17 @@
                                 </a>
                             </li>
                             <?php } ?>
+                            <?php
+                                if (checkPermission("materia", "SHOWALL")) {
+                            ?>
+                            <!-- Gestión de materias -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="../controllers/subjectController.php">
+                                    <span class="far bi-book"></span>
+                                    <p data-translate="Gestión de materias"></p>
+                                </a>
+                            </li>
+                            <?php } ?>
                         </ul>
 						<?php
 							if (checkPermission("pda", "SHOWALL")) {
