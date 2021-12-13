@@ -142,7 +142,7 @@
                             <!-- Gestión de centros -->
                             <li class="nav-item">
                                 <a class="nav-link" href="../controllers/centerController.php">
-                                    <span class="far bi-building"></span>
+                                    <span class="far bi-house"></span>
                                     <p data-translate="Gestión de centros"></p>
                                 </a>
                             </li>
@@ -150,7 +150,7 @@
                             <?php
                                 if (checkPermission("universidad", "SHOWALL")) {
                             ?>
-                            <!-- Gestión de cursos academicos -->
+                            <!-- Gestión de cursos universidades -->
                             <li class="nav-item">
                                 <a class="nav-link" href="../controllers/universityController.php">
                                     <span class="far bi-bank"></span>
@@ -210,6 +210,17 @@
                                 <a class="nav-link" href="../controllers/subjectController.php">
                                     <span class="far bi-book"></span>
                                     <p data-translate="Gestión de materias"></p>
+                                </a>
+                            </li>
+                            <?php } ?>
+                            <?php
+                                if (checkPermission("edificio", "SHOWALL")) {
+                            ?>
+                            <!-- Gestión de edificios -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="../controllers/buildingController.php">
+                                    <span class="far bi-building"></span>
+                                    <p data-translate="Gestión de edificios"></p>
                                 </a>
                             </li>
                             <?php } ?>

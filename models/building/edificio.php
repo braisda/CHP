@@ -4,19 +4,19 @@ class Edificio
     private $id;
     private $nombre;
     private $localizacion;
-    private $usuario;
+    private $idusuario;
 
-    public function __construct($id=NULL, $nombre=NULL, $localizacion=NULL, $usuario=NULL){
+    public function __construct($id=NULL, $nombre=NULL, $localizacion=NULL, $idusuario=NULL){
         if(!empty($id)) {
-            $this->constructEntity($id, $nombre, $localizacion, $usuario);
+            $this->constructEntity($id, $nombre, $localizacion, $idusuario);
         }
     }
 
-    public function constructEntity($id=NULL,$nombre=NULL, $localizacion=NULL, $usuario=NULL) {
+    public function constructEntity($id=NULL,$nombre=NULL, $localizacion=NULL, $idusuario=NULL) {
         $this->setId($id);
         $this->setNombre($nombre);
         $this->setLocalizacion($localizacion);
-        $this->setUsuario($usuario);
+        $this->setIdusuario($idusuario);
     }
 
     public function getId()
@@ -27,23 +27,23 @@ class Edificio
     public function setId($id)
     {
         if (empty($id) || strlen($id)>8) {
-            throw new ValidationException('Error de validación. Id incorrecto.');
+            throw new Exception('Error de validación. Id incorrecto.');
         } else {
             $this->id = $id;
         }
     }
 
-    public function getUsuario()
+    public function getIdusuario()
     {
-        return $this->usuario;
+        return $this->idusuario;
     }
 
-    public function setUsuario($usuario)
+    public function setIdusuario($idusuario)
     {
-        if (empty($usuario) || strlen($usuario)>9) {
-            throw new ValidationException('Error de validación. Usuario incorrecto.');
+        if (empty($idusuario) || strlen($idusuario)>9) {
+            throw new Exception('Error de validación. Usuario incorrecto.');
         } else {
-            $this->usuario = $usuario;
+            $this->idusuario = $idusuario;
         }
     }
 
@@ -55,7 +55,7 @@ class Edificio
     public function setNombre($nombre)
     {
         if (empty($nombre) || strlen($nombre)>30) {
-            throw new ValidationException('Error de validación. Nombre incorrecto.');
+            throw new Exception('Error de validación. Nombre incorrecto.');
         } else {
             $this->nombre = $nombre;
         }
@@ -69,7 +69,7 @@ class Edificio
     public function setLocalizacion($localizacion)
     {
         if (empty($localizacion) || strlen($localizacion)>30) {
-            throw new ValidationException('Error de validación. Localización incorrecta.');
+            throw new Exception('Error de validación. Localización incorrecta.');
         } else {
             $this->localizacion = $localizacion;
         }

@@ -46,11 +46,28 @@ class BuildingDAO
     }
 
     function countTotalBuildings() {
-        return $this->defaultDAO->countTotalEntries(new Building());
+        return $this->defaultDAO->countTotalEntries(new Edificio());
     }
 
     function checkDependencies($value) {
         $this->defaultDAO->checkDependencies("edificio", $value);
+    }
+
+    function search($user, $location, $name) {
+        $sql = "SELECT DISTINCT * FROM edificio WHERE nombre LIKE '%".
+            $name . "%'AND localizacion LIKE '%" .
+            $location . "%' AND idusuario LIKE '%" .
+            $user . "%'";
+        return $this->defaultDAO->getArrayFromSqlQuery($sql);
+    }
+
+    function parseBuildings($buildingsData){
+        $buildings = array();
+        foreach ($buildingsData as $building) {
+            $user = $this->userDAO->show("login", $building["idusuario"]);
+            array_push($buildings, new Edificio($building["id"], $building["nombre"], $building["localizacion"],$user));
+        }
+        return $buildings;
     }
 
     private function getBuildingFromDB($buildingsDB) {

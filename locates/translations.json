@@ -1523,6 +1523,58 @@
         "en": "Delete subject",
         "gl": "Eliminar materia"
     },
+    "Gestión de edificios": {
+        "en": "Building management",
+        "gl": "Xestión de edificios"
+    },
+    "Listado de edificios": {
+        "en": "Buildings list",
+        "gl": "Listado de edificios"
+    },
+    "Edificio '%c'": {
+        "en": "Building '%c'",
+        "gl": "Edificio '%c'"
+    },
+    "Edificio editado correctamente.": {
+        "en": "Building successfully edit.",
+        "gl": "Edificio editado correctamente."
+    },
+    "Edificio eliminado correctamente.": {
+        "en": "Building deleted successfully.",
+        "gl": "Edificio eliminado correctamente."
+    },
+    "Eliminar edificio": {
+        "en": "Delete building",
+        "gl": "Eliminar edificio"
+    },
+    "Añadir edificio": {
+        "en": "Add building",
+        "gl": "Engadir edificio"
+    },
+    "Localización": {
+        "en": "Location",
+        "gl": "Localización"
+    },
+    "El edificio no existe": {
+        "en": "Building doesn't exist",
+        "gl": "O edificio non existe"
+    },
+    "El atributo localización no puede estar vacío.": {
+        "en": "The login attribute cannot be empty.",
+        "gl": "O atributo login non pode estar baleiro."
+    },
+    "Edificio añadido correctamente.": {
+        "en": "Building rol succesfully",
+        "gl": "Edificio engadido correctamente Rol"
+    },
+    "¿Está seguro de que desea eliminar el edificio %c? Esta acción es permanente y no se puede recuperar.": {
+        "en": "Are you sure you want to delete the building %c? This action is permanent and cannot be recovered.",
+        "gl": "Está seguro de que desexa eliminar o edificio %c? Esta acción é permanente e non se pode recuperar."
+    },
+    "Editar edificio '%c'": {
+        "en": "Edit building '%c'",
+        "gl": "Editar edificio '%c'"
+    },
     "": {
         "en": "",
         "gl": ""
