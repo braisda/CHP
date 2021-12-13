@@ -37,7 +37,9 @@ class SubjectDAO {
         $subject = $this->defaultDAO->show("materia", $key, $value);
         $degree = $this->degreeDAO->show("id", $subject["idgrado"]);
         $department = $this->departmentDAO->show("id", $subject["iddepartamento"]);
-        $teacher = $this->teacherDAO->show("id", $subject["idprofesor"]);
+        if ($subject["idprofesor"] != NULL) {
+            $teacher = $this->teacherDAO->show("id", $subject["idprofesor"]);
+        }
         return new Materia($subject["id"], $subject["codigo"], $subject["contenido"], $subject["tipo"], $department,
                         $subject["area"], $subject["curso"], $subject["cuatrimestre"], $subject["creditos"],
                         $subject["nuevoregistro"], $subject["repeticiones"], $subject["estudiantesefectivos"],
