@@ -157,7 +157,7 @@ function loadCourse($subjects, $course, $degree) {
     foreach ($subjects as $subject_data) {
         $subject_data = preg_split('/\n/', trim($subject_data));
         $code = substr($subject_data[0], 0, 7);
-        $content = substr($subject_data[1], 90);
+        $content = $subject_data[1];
         unset($subject_data[0]);
         unset($subject_data[1]);
 
