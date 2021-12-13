@@ -65,15 +65,15 @@ switch ($action) {
                     $subject->setGrado($degreeDAO->show("id", $_POST["degree_id"]));
                     $subject->setProfesor($teacherDAO->show("id", $_POST["teacher_id"]));
                     $subjectDAO->add($subject);
-                    goToShowAllAndShowSuccess("Materia añadida correctamente.");
+                    goToShowAllAndShowSuccess("Materia añadida correctamente.", $degreeData);
                 } catch (DAOException $e) {
-                    goToShowAllAndShowError($e->getMessage());
+                    goToShowAllAndShowError($e->getMessage(), $degreeData);
                 } catch (ValidationException $ve) {
-                    goToShowAllAndShowError($ve->getMessage());
+                    goToShowAllAndShowError($ve->getMessage(), $degreeData);
                 }
             }
         } else {
-            goToShowAllAndShowError("No tienes permiso para añadir.");
+            goToShowAllAndShowError("No tienes permiso para añadir.", $degreeData);
         }
         break;
     case "delete":
@@ -82,23 +82,23 @@ switch ($action) {
             if (isset($_REQUEST["confirm"])) {
                 try {
                     $subjectDAO->delete($subjectPK, $value);
-                    goToShowAllAndShowSuccess("Materia eliminada correctamente.");
+                    goToShowAllAndShowSuccess("Materia eliminada correctamente.", $degreeData);
                 } catch (DAOException $e) {
-                    goToShowAllAndShowError($e->getMessage());
+                    goToShowAllAndShowError($e->getMessage(), $degreeData);
                 }
             } else {
                 try {
                     $subjectDAO->checkDependencies($value);
-                    showAll();
+                    showAll(NULL);
                     openDeletionModal("Eliminar materia", "¿Está seguro de que desea eliminar " .
                         "la materia %" . $subject->getCodigo() . "%? Esta acción es permanente y no se puede recuperar.",
                         "../controllers/subjectController.php?action=delete&id=" . $value . "&confirm=true");
                 } catch (DAOException $e) {
-                    goToShowAllAndShowError($e->getMessage());
+                    goToShowAllAndShowError($e->getMessage(), $degreeData);
                 }
             }
         } else {
-            goToShowAllAndShowError("No tienes permiso para eliminar.");
+            goToShowAllAndShowError("No tienes permiso para eliminar.", $degreeData);
         }
         break;
     case "show":
@@ -107,12 +107,12 @@ switch ($action) {
                 $subjectData = $subjectDAO->show($subjectPK, $value);
                 new SubjectShowView($subjectData);
             } catch (DAOException $e) {
-                goToShowAllAndShowError($e->getMessage());
+                goToShowAllAndShowError($e->getMessage(), $degreeData);
             } catch (ValidationException $ve) {
-                goToShowAllAndShowError($ve->getMessage());
+                goToShowAllAndShowError($ve->getMessage(), $degreeData);
             }
         } else {
-            goToShowAllAndShowError("No tienes permiso para visualizar la entidad.");
+            goToShowAllAndShowError("No tienes permiso para visualizar la entidad.", $degreeData);
         }
         break;
    case "edit":
@@ -141,40 +141,47 @@ switch ($action) {
                     $subject->setGrado($degreeDAO->show("id", $_POST["degree_id"]));
                     $subject->setProfesor($teacherDAO->show("id", $_POST["teacher_id"]));
                     $subjectDAO->edit($subject);
-                    goToShowAllAndShowSuccess("Materia editada correctamente.");
+                    goToShowAllAndShowSuccess("Materia editada correctamente.", $degreeData);
                 }
             } catch (DAOException $e) {
-                goToShowAllAndShowError($e->getMessage());
+                goToShowAllAndShowError($e->getMessage(), $degreeData);
             } catch (ValidationException $ve) {
-                goToShowAllAndShowError($ve->getMessage());
+                goToShowAllAndShowError($ve->getMessage(), $degreeData);
             }
         } else {
-            goToShowAllAndShowError("No tienes permiso para editar.");
+            goToShowAllAndShowError("No tienes permiso para editar.", $degreeData);
         }
         break;
     case "search":
         if (checkPermission("materia", "SHOWALL")) {
             try {
-                // TODO Bruno
+                $subject = $subjectDAO->search($_POST["code"], $_POST["acronym"], $_POST["content"], $_POST["type"], $_POST["course"], $_POST["quarter"], $_POST["credits"], $_POST["degree_id"]);
+                $subjects = array();
+
+                foreach($subject as $sub) {
+                    array_push($subjects, $subjectDAO->show($subjectPK, $sub["id"]));
+                }
+
+                showAllSearch($subjects, $degreeData);
             } catch (DAOException $e) {
-                goToShowAllAndShowError($e->getMessage());
+                goToShowAllAndShowError($e->getMessage(), $degreeData);
             } catch (ValidationException $ve) {
-                goToShowAllAndShowError($ve->getMessage());
+                goToShowAllAndShowError($ve->getMessage(), $degreeData);
             }
         } else {
-            goToShowAllAndShowError("No tienes permiso para buscar.");
+            goToShowAllAndShowError("No tienes permiso para buscar.", $degreeData);
         }
         break;
     default:
-        showAll();
+        showAll($degreeData);
         break;
 }
 
-function showAll() {
-    showAllSearch(NULL);
+function showAll($degreeData) {
+    showAllSearch(NULL, $degreeData);
 }
 
-function showAllSearch($search) {
+function showAllSearch($search, $degreeData) {
     if (checkPermission("materia", "SHOWALL")) {
         try {
             $break = false;
@@ -242,28 +249,39 @@ function showAllSearch($search) {
                 if (!empty($return) && count($return) == 1) {
 
                     $search = $return[0];
-                    $totalSubjects = $GLOBALS["subjectDAO"]->countTotalSubjects($toSearch);
-                    $subjectsData = $GLOBALS["subjectDAO"]->showAllPaged($currentPage, $itemsPerPage);
+                    $totalSubjects = $GLOBALS["subjectDAO"]->countTotalSubjects();
 
-                    new SubjectShowAllView(unique_array($subjectsData), $itemsPerPage, $currentPage, $totalSubjects, $search, $searching, $departmentOwner);
+                    if ($search != NULL) {
+                        $subjectsData = $search;
+                        $totalSubjects = count($subjectsData);
+                    } else {
+                        $subjectsData = $GLOBALS["subjectDAO"]->showAllPaged($currentPage, $itemsPerPage);
+                    }
+
+                    new SubjectShowAllView(unique_array($subjectsData), $itemsPerPage, $currentPage, $totalSubjects, $search, $searching, $departmentOwner, $degreeData);
                 } elseif (count($return) > 1) {
 
                     $subjectsData = array();
                     foreach ($return as $sub) {
                         $search = $sub;
-                        $toSearch = getToSearch($search);
-                        $totalSubjects += $GLOBALS["subjectDAO"]->countTotalSubjects($toSearch);
+                        $totalSubjects += $GLOBALS["subjectDAO"]->countTotalSubjects();
                         $data = $GLOBALS["subjectDAO"]->showAllPaged($currentPage, $itemsPerPage);
                         foreach ($data as $dat) {
                             array_push($subjectsData, $dat);
                         }
                     }
-                    new SubjectShowAllView(unique_array($subjectsData), $itemsPerPage, $currentPage, $totalSubjects, $search, $searching, $departmentOwner);
+                    new SubjectShowAllView(unique_array($subjectsData), $itemsPerPage, $currentPage, $totalSubjects, $search, $searching, $departmentOwner, $degreeData);
                 } else {
 
                     $totalSubjects = $GLOBALS["subjectDAO"]->countTotalSubjects();
-                    $subjectsData = $GLOBALS["subjectDAO"]->showAllPaged($currentPage, $itemsPerPage);
-                    new SubjectShowAllView($subjectsData, $itemsPerPage, $currentPage, $totalSubjects, $search, $searching, $departmentOwner);
+
+                    if ($search != NULL) {
+                        $subjectsData = $search;
+                        $totalSubjects = count($subjectsData);
+                    } else {
+                        $subjectsData = $GLOBALS["subjectDAO"]->showAllPaged($currentPage, $itemsPerPage);
+                    }
+                    new SubjectShowAllView($subjectsData, $itemsPerPage, $currentPage, $totalSubjects, $search, $searching, $departmentOwner, $degreeData);
                 }
             }
 
@@ -296,16 +314,16 @@ function unique_array($return) {
     return $return;
 }
 
-function goToShowAllAndShowError($message) {
-    showAll();
+function goToShowAllAndShowError($message, $degreeData) {
+    showAll($degreeData);
     include '../models/common/messageType.php';
     include '../utils/ShowToast.php';
     $messageType = MessageType::ERROR;
     showToast($messageType, $message);
 }
 
-function goToShowAllAndShowSuccess($message) {
-    showAll();
+function goToShowAllAndShowSuccess($message, $degreeData) {
+    showAll($degreeData);
     include '../models/common/messageType.php';
     include '../utils/ShowToast.php';
     $messageType = MessageType::SUCCESS;

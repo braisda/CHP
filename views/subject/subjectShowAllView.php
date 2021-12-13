@@ -11,8 +11,9 @@ class SubjectShowAllView {
     private $search;
     private $searching;
     private $departmentOwner;
+    private $degrees;
 
-    function __construct($subjects, $itemsPerPage = NULL, $currentPage = NULL, $totalSubjects = NULL, $search = NULL, $searching=false, $departmentOwner=false) {
+    function __construct($subjects, $itemsPerPage = NULL, $currentPage = NULL, $totalSubjects = NULL, $search = NULL, $searching=false, $departmentOwner=false, $degrees=NULL) {
         $this->subjects = $subjects;
         $this->itemsPerPage = $itemsPerPage;
         $this->currentPage = $currentPage;
@@ -21,11 +22,15 @@ class SubjectShowAllView {
         $this->search = $search;
         $this->searching=$searching;
         $this->departmentOwner=$departmentOwner;
+        $this->degrees = $degrees;
         $this->render();
     }
 
     function render() {
         ?>
+        <head>
+            <script src="../js/validations/subjectValidations.js"></script>
+        </head>
         <main role="main" class="margin-main ml-sm-auto px-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-4 pb-2 mb-3">
                 <h2 data-translate="Listado de materias"></h2>
@@ -46,8 +51,51 @@ class SubjectShowAllView {
                         </div>
                         <div class="modal-body">
                             <form class="row" id="searchSubject" action='../controllers/subjectController.php?action=search' method='POST'>
-
-
+                                <div id="code-div" class="form-group col-12">
+                                    <label for="code" data-translate="Código"></label>
+                                    <input type="text" class="form-control" id="code" name="code" data-translate="Código"
+                                           required maxlength="10" oninput="checkCodeSubject(this)">
+                                </div>
+                                <div id="acronym-div" class="form-group col-12">
+                                    <label for="acronym" data-translate="Acrónimo"></label>
+                                    <input type="text" class="form-control" id="acronym" name="acronym" data-translate="Acrónimo"
+                                           required maxlength="100">
+                                </div>
+                                <div id="content-div" class="form-group col-12">
+                                    <label for="content" data-translate="Contenido"></label>
+                                    <input type="text" class="form-control" id="content" name="content" data-translate="Contenido"
+                                           required maxlength="100" oninput="checkContentSubject(this)">
+                                </div>
+                                <div id="type-div" class="form-group col-12">
+                                    <label for="type" data-translate="Tipo"></label>
+                                    <input type="text" class="form-control" id="type" name="type" data-translate="Tipo"
+                                           required maxlength="2" oninput="checkTypeSubject(this)">
+                                </div>
+                                <div id="course-div" class="form-group col-12">
+                                    <label for="course" data-translate="Curso"></label>
+                                    <input type="text" class="form-control" id="course" name="course" data-translate="Curso"
+                                           required maxlength="10" oninput="checkCourseSubject(this)">
+                                </div>
+                                <div id="quarter-div" class="form-group col-12">
+                                    <label for="quarter" data-translate="Cuatrimestre"></label>
+                                    <input type="text" class="form-control" id="quarter" name="quarter" data-translate="Cuatrimestre"
+                                           required maxlength="3" oninput="checkQuarterSubject(this)">
+                                </div>
+                                <div id="credits-div" class="form-group col-12">
+                                    <label for="credits" data-translate="Créditos"></label>
+                                    <input type="text" class="form-control" id="credits" name="credits" data-translate="Créditos"
+                                           required maxlength="5" oninput="checkCreditsSubject(this)">
+                                </div>
+                                <div class="form-group col-12">
+                                    <label for="degree_id" data-translate="Titulación"></label>
+                                    <select class="form-control" id="degree_id" name="degree_id" ?>
+                                        <option value="" data-translate="Seleccione"></option>
+                                        <?php foreach ($this->degrees as $degree): ?>
+                                            <option value="<?php echo $degree->getId() ?>">
+                                                <?php echo $degree->getNombre(); ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
                             </form>
                         </div>
                         <div class="modal-footer">

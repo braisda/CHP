@@ -68,6 +68,32 @@ class SubjectDAO {
         $this->defaultDAO->checkDependencies("materia", $value);
     }
 
+    function search($code, $acronym, $content, $type, $course, $quarter, $credits, $degree_id) {
+        $sql = "SELECT DISTINCT * FROM materia WHERE codigo LIKE '%" . $code . "%'";
+        if (!empty($acronym)) {
+            $sql .= " AND acronimo = '" . $acronym . "'";
+        }
+        if (!empty($content)) {
+            $sql .= " AND contenido LIKE '%" . $content . "%'";
+        }
+        if (!empty($type)) {
+            $sql .= " AND tipo LIKE '%" . $type . "%'";
+        }
+        if (!empty($course)) {
+            $sql .= " AND curso = '" . $course . "'";
+        }
+        if (!empty($quarter)) {
+            $sql .= " AND cuatrimestre = '" . $quarter . "'";
+        }
+        if (!empty($credits)) {
+            $sql .= " AND creditos = '" . $credits . "'";
+        }
+        if (!empty($degree_id)) {
+            $sql .= " AND idgrado = '" . $degree_id . "'";
+        }
+        return $this->defaultDAO->getArrayFromSqlQuery($sql);
+    }
+
     public function getSubjectsFromDB($subjects_db) {
         $subjects = array();
         foreach ($subjects_db as $subject) {

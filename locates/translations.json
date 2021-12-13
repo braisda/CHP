@@ -1327,6 +1327,10 @@
         "en": "The content attribute contains the invalid character: %c.",
         "gl": "O atributo contido contén o caracter non válido: %c."
     },
+    "El atributo tipo no puede estar vacío.": {
+        "en": "The type attribute cannot be empty.",
+        "gl": "O atributo tipo non pode estar baleiro."
+    },
     "El atributo tipo no puede tener espacios en blanco.": {
         "en": "The type attribute cannot has white spaces.",
         "gl": "O tipo código non pode ter espazos en branco."
