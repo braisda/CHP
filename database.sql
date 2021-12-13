@@ -378,8 +378,6 @@ INSERT INTO `funcionalidad` (`id`, `nombre`, `descripcion`) VALUES
 ('18', 'pdaManagement', 'pdaManagement'),
 ('19', 'tutoriaManagement', 'tutoriaManagement');
 
-
-
 INSERT INTO `funcaccion` (`id`,`idfuncionalidad`, `idaccion`) VALUES
 ('1','1','1'),
 ('2','1','2'),
@@ -637,10 +635,25 @@ INSERT INTO `espacio` (`id`, `idedificio`, `nombre`, `capacidad`, `oficina`) VAL
 (1, '1', 'Espacio1', '50', b'1');
 
 INSERT INTO `profesor` (`id`, `idusuario`, `idespacio`, `dedicacion`) VALUES
-(1, 'admin', '1', 'dedi');
+(1, 'admin', '1', 'Profesor');
 
 INSERT INTO `tutoria` (`idtutoria`, `idprofesor`, `fechainicio`, `fechafin`) VALUES
 (1, '1', '2021-12-28 12:00:00', '2021-12-28 13:00:00');
 
 INSERT INTO `departamento` (`id`, `codigo`, `idprofesor`, `nombre`) VALUES
-(1, 'DEP001', '1', 'Departamento 1');
+(1, 'D00x01', '1', 'Departamento 1'),
+(2, 'D00x02', '1', 'Departamento 2'),
+(3, 'D00x03', '1', 'Departamento 3'),
+(4, 'D00h04', '1', 'Departamento 4'),
+(5, 'D00x10', '1', 'Departamento 10'),
+(6, 'D00x11', '1', 'Departamento 11'),
+(7, 'D00x13', '1', 'Departamento 13');
+
+INSERT INTO `universidad` (`id`, `idcursoacademico`, `nombre`, `idusuario`) VALUES
+(NULL, 1, 'Universidade de Vigo', 'admin');
+
+INSERT INTO `centro` (`id`, `iduniversidad`, `nombre`, `idedificio`, `idusuario`) VALUES
+(NULL, '1', 'Centro 1', '1', 'admin');
+
+INSERT INTO `grado` (`id`, `nombre`, `idcentro`, `capacidad`, `descripcion`, `creditos`, `idusuario`) VALUES
+(NULL, 'Grao en Traballo Social', '1', '50', 'Grao en Traballo Social', '276', 'admin');
