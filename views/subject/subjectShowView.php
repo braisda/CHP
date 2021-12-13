@@ -103,8 +103,8 @@ class SubjectShowView {
                 <div class="form-group">
                     <label for="teacher_id" data-translate="Profesor responsable"></label>
                     <input type="text" class="form-control" id="teacher_id" name="teacher_id" readonly
-                           value="<?php if ($this->subject->getProfesor()->getUsuario()->getNombre()) { echo $this->subject->getProfesor()->getUsuario()->getNombre()." ".
-                               $this->subject->getProfesor()->getUsuario()->getApellido() } ?>">
+                           value="<?php echo $this->subject->getProfesor()->getUsuario()->getNombre()." ".
+                                $this->subject->getProfesor()->getUsuario()->getApellido() ?>">
                 </div>
             </form>
         </main>
