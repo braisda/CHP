@@ -157,8 +157,9 @@ function loadCourse($subjects, $course, $degree) {
     foreach ($subjects as $subject_data) {
         $subject_data = preg_split('/\n/', trim($subject_data));
         $code = substr($subject_data[0], 0, 7);
-        $content = substr($subject_data[0], 9);
+        $content = substr($subject_data[1], 90);
         unset($subject_data[0]);
+        unset($subject_data[1]);
 
         $subject_data = join(" ", $subject_data);
         $subject_data = utf8_decode(preg_replace('/Â /', ' ', utf8_encode(trim($subject_data))));
