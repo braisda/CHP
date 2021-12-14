@@ -44,12 +44,12 @@ class BuildingEditView
                     </select>
                 </div>
                 <div id="location-div" class="form-group col-12">
-                    <label for="location" data-translate="Inicio"></label>
+                    <label for="location" data-translate="Localización"></label>
                     <input type="text" class="form-control" id="location" name="location"
                         value="<?php echo $this->building->getLocalizacion() ?>" maxlength="30" required oninput="checkLocationBuilding(this)">
                 </div>
                 <div id="name-div" class="form-group col-12">
-                    <label for="name" data-translate="Fin"></label>
+                    <label for="name" data-translate="Nombre"></label>
                     <input type="text" class="form-control" id="name" name="name"
                         value="<?php echo $this->building->getnombre() ?>" maxlength="30" required oninput="checkNameBuilding(this)">
                 </div>

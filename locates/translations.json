@@ -1560,12 +1560,12 @@
         "gl": "O edificio non existe"
     },
     "El atributo localización no puede estar vacío.": {
-        "en": "The login attribute cannot be empty.",
-        "gl": "O atributo login non pode estar baleiro."
+        "en": "The location attribute cannot be empty.",
+        "gl": "O atributo localización non pode estar baleiro."
     },
     "Edificio añadido correctamente.": {
-        "en": "Building rol succesfully",
-        "gl": "Edificio engadido correctamente Rol"
+        "en": "Building added succesfully",
+        "gl": "Edificio engadido correctamente"
     },
     "¿Está seguro de que desea eliminar el edificio %c? Esta acción es permanente y no se puede recuperar.": {
         "en": "Are you sure you want to delete the building %c? This action is permanent and cannot be recovered.",
@@ -1575,24 +1575,80 @@
         "en": "Edit building '%c'",
         "gl": "Editar edificio '%c'"
     },
-    "": {
-        "en": "",
-        "gl": ""
+    "Gestión de espacios": {
+        "en": "Spaces management",
+        "gl": "Xestión de espacios"
     },
-    "": {
-        "en": "",
-        "gl": ""
+    "Editar espacio '%c'": {
+        "en": "Edit space '%c'",
+        "gl": "Editar espacio '%c'"
     },
-    "": {
-        "en": "",
-        "gl": ""
+    "Listado de espacios": {
+        "en": "Spaces list",
+        "gl": "Listado de espacios"
     },
-    "": {
-        "en": "",
-        "gl": ""
+    "Espacio '%c'": {
+        "en": "Space '%c'",
+        "gl": "Espacio '%c'"
     },
-    "": {
-        "en": "",
-        "gl": ""
+    "Espacio editado correctamente.": {
+        "en": "Space successfully edit.",
+        "gl": "Espacio editado correctamente."
+    },
+    "Espacio eliminado correctamente.": {
+        "en": "Space deleted successfully.",
+        "gl": "Espacio eliminado correctamente."
+    },
+    "Eliminar espacio": {
+        "en": "Delete space",
+        "gl": "Eliminar espacio"
+    },
+    "Añadir espacio": {
+        "en": "Add space",
+        "gl": "Engadir espacio"
+    },
+    "Oficina": {
+        "en": "Office",
+        "gl": "Oficina"
+    },
+    "El espacio no existe": {
+        "en": "Space doesn't exist",
+        "gl": "O espacio non existe"
+    },
+    "El atributo oficina no puede estar vacío.": {
+        "en": "The office attribute cannot be empty.",
+        "gl": "O atributo office non pode estar baleiro."
+    },
+    "Espacio añadido correctamente.": {
+        "en": "Building space succesfully",
+        "gl": "Espacio engadido correctamente Rol"
+    },
+    "¿Está seguro de que desea eliminar el espacio %c? Esta acción es permanente y no se puede recuperar.": {
+        "en": "Are you sure you want to delete the space %c? This action is permanent and cannot be recovered.",
+        "gl": "Está seguro de que desexa eliminar o espacio %c? Esta acción é permanente e non se pode recuperar."
+    },
+    "Capacidad": {
+        "en": "Capacity",
+        "gl": "Capacidade"
+    },
+    "El atributo capacidad no puede estar vacío.": {
+        "en": "The capacity attribute cannot be empty.",
+        "gl": "O atributo capacidade non pode estar baleiro."
+    },
+    "Sí": {
+        "en": "Yes",
+        "gl": "Si"
+    },
+    "No": {
+        "en": "No",
+        "gl": "No"
+    },
+    "El atributo capacidad no puede ser mayor que %c.": {
+        "en": "The capacity attribute can have a maximum value of %c.",
+        "gl": "O atributo capacidade pode ter un valor máximo de %c."
+    },
+    "El atributo capacidad tiene que ser un dígito.": {
+        "en": "The capacity attribute must be a digit",
+        "gl": "O atributo capacidade ten que ser un díxito"
     }
 }

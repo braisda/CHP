@@ -224,6 +224,17 @@
                                 </a>
                             </li>
                             <?php } ?>
+                            <?php
+                                if (checkPermission("edificio", "SHOWALL")) {
+                            ?>
+                            <!-- Gestión de espacios -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="../controllers/spaceController.php">
+                                    <span class="far bi-door-open"></span>
+                                    <p data-translate="Gestión de espacios"></p>
+                                </a>
+                            </li>
+                            <?php } ?>
                         </ul>
 						<?php
 							if (checkPermission("pda", "SHOWALL")) {

@@ -201,7 +201,7 @@ CREATE TABLE `espacio` (
   `idedificio` int(8) COLLATE latin1_spanish_ci NOT NULL,
   `nombre` varchar(30) COLLATE latin1_spanish_ci NOT NULL,
   `capacidad` int(3) COLLATE latin1_spanish_ci NOT NULL,
-  `oficina` bit COLLATE latin1_spanish_ci NOT NULL,
+  `oficina` tinyint(1) COLLATE latin1_spanish_ci NOT NULL,
   PRIMARY KEY(`id`, `idedificio`),
   FOREIGN KEY (`idedificio`) 
 	REFERENCES `edificio`(`id`)  
@@ -632,7 +632,7 @@ INSERT INTO `edificio` (`id`, `localizacion`, `nombre`, `idusuario`) VALUES
 (3, 'Ourense', 'Edificio del Agua', 'admin');
 
 INSERT INTO `espacio` (`id`, `idedificio`, `nombre`, `capacidad`, `oficina`) VALUES
-(1, '1', 'Espacio1', '50', b'1');
+(1, '1', 'Espacio1', '50', 1);
 
 INSERT INTO `profesor` (`id`, `idusuario`, `idespacio`, `dedicacion`) VALUES
 (1, 'admin', '1', 'Profesor');

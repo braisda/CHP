@@ -80,6 +80,24 @@ class SpaceDAO {
         $this->defaultDAO->checkDependencies("espacio", $value);
     }
 
+    function search($building, $name, $capacity, $office) {
+        $sql = "SELECT DISTINCT * FROM espacio WHERE nombre LIKE '%".
+            $name . "%'AND capacidad LIKE '%" .
+            $capacity . "%' AND oficina LIKE '%" .
+            $office . "%' AND idedificio LIKE '%" .
+            $building . "%'";
+        return $this->defaultDAO->getArrayFromSqlQuery($sql);
+    }
+
+    function parseSpaces($spacesData){
+        $spaces = array();
+        foreach ($spacesData as $space) {
+            $building = $this->buildingDAO->show("id", $space["idedificio"]);
+            array_push($spaces, new Espacio($space["id"], $space["nombre"], $building , $space["capacidad"], $space["oficina"]));
+        }
+        return $spaces;
+    }
+
     private function getSpacesFromDB($spacesDB) {
         $spaces = array();
         foreach ($spacesDB as $space) {

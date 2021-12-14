@@ -2,20 +2,20 @@
 class Espacio {
     private $id;
     private $nombre;
-    private $edificio;
+    private $idedificio;
     private $capacidad;
     private $oficina;
 
-    public function __construct($id=NULL, $nombre=NULL, $edificio=NULL, $capacidad=NULL, $oficina=NULL){
+    public function __construct($id=NULL, $nombre=NULL, $idedificio=NULL, $capacidad=NULL, $oficina=NULL){
         if(!empty($id)) {
-            $this->constructEntity($id, $nombre, $edificio, $capacidad, $oficina);
+            $this->constructEntity($id, $nombre, $idedificio, $capacidad, $oficina);
         }
     }
 
-    public function constructEntity($id=NULL, $nombre=NULL, $edificio=NULL, $capacidad=NULL, $oficina=NULL) {
+    public function constructEntity($id=NULL, $nombre=NULL, $idedificio=NULL, $capacidad=NULL, $oficina=NULL) {
         $this->setId($id);
         $this->setNombre($nombre);
-        $this->setEdificio($edificio);
+        $this->setIdedificio($idedificio);
         $this->setCapacidad($capacidad);
         $this->setOficina($oficina);
     }
@@ -26,7 +26,7 @@ class Espacio {
 
     public function setId($id) {
         if (empty($id) || strlen($id) > 8) {
-            throw new ValidationException('Error de validación. Id incorrecto.');
+            throw new Exception('Error de validación. Id incorrecto.');
         } else {
             $this->id = $id;
         }
@@ -38,21 +38,21 @@ class Espacio {
 
     public function setNombre($nombre) {
         if (empty($nombre) || strlen($nombre)>30) {
-            throw new ValidationException('Error de validación. Nombre incorrecto.');
+            throw new Exception('Error de validación. Nombre incorrecto.');
         } else {
             $this->nombre = $nombre;
         }
     }
 
-    public function getEdificio() {
-        return $this->edificio;
+    public function getIdedificio() {
+        return $this->idedificio;
     }
 
-    public function setEdificio($edificio) {
-        if (empty($edificio) || strlen($edificio)>8) {
-            throw new ValidationException('Error de validación. Id edificio incorrecto.');
+    public function setIdedificio($idedificio) {
+        if (empty($idedificio) || strlen($idedificio)>9) {
+            throw new Exception('Error de validación. Id edificio incorrecto.');
         } else {
-            $this->edificio = $edificio;
+            $this->idedificio = $idedificio;
         }
     }
 
@@ -62,7 +62,7 @@ class Espacio {
 
     public function setCapacidad($capacidad) {
         if (empty($capacidad) || strlen($capacidad)>3) {
-            throw new ValidationException('Error de validación. Capacidad incorrecta.');
+            throw new Exception('Error de validación. Capacidad incorrecta.');
         } else {
             $this->capacidad = $capacidad;
         }
@@ -81,7 +81,7 @@ class Espacio {
         if (is_bool($oficina)) {
             $this->oficina = (int) $oficina;
         } else {
-            throw new ValidationException('Error de validación. Despacho indicado de forma incorrecta.');
+            throw new Exception('Error de validación. Despacho indicado de forma incorrecta.');
         }
     }
 
