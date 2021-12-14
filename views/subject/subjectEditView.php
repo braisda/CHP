@@ -47,8 +47,8 @@ class SubjectEditView {
                 <div class="form-group">
                     <label for="department_id" data-translate="Departamento"></label>
                     <select class="form-control" id="department_id" name="department_id" ?>
+                        <option value="" data-translate="Seleccione"></option>
                         <?php foreach ($this->departments as $department): ?>
-                            <option value="" data-translate="Seleccione"></option>
                             <option value="<?php echo $department->getId() ?>"
                                 <?php if($department->getId() == $this->subject->getDepartamento()->getId()){echo 'selected="selected"';}?>>
                                 <?php echo $department->getNombre();?></option>

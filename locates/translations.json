@@ -313,7 +313,7 @@
     },
     "ERROR": {
         "en": "ERROR",
-        "gl": "ERROR"
+        "gl": "ERRO"
     },
     "INFO": {
         "en": "INFO",
@@ -1421,7 +1421,7 @@
     },
     "El atributo repetidores tiene que ser un dígito.": {
         "en": "The repeaters attribute has to be a digit.",
-        "gl": "O astributo repetidores ten que ser un díxito."
+        "gl": "O atributo repetidores ten que ser un díxito."
     },
     "El atributo efectivos no puede estar vacío.": {
         "en": "The effectives attribute cannot be empty.",
@@ -1441,7 +1441,7 @@
     },
     "El atributo efectivos tiene que ser un dígito.": {
         "en": "The effectives attribute has to be a digit.",
-        "gl": "O astributo efectivos ten que ser un díxito."
+        "gl": "O atributo efectivos ten que ser un díxito."
     },
     "El atributo horas matriculadas no puede estar vacío.": {
         "en": "The enrolled hours attribute cannot be empty.",
@@ -1477,7 +1477,7 @@
     },
     "El atributo horas tiene que ser un dígito.": {
         "en": "The hours attribute has to be a digit.",
-        "gl": "O astributo horas ten que ser un díxito."
+        "gl": "O atributo horas ten que ser un díxito."
     },
     "El atributo estudiantes no puede estar vacío.": {
         "en": "The students attribute cannot be empty.",
@@ -1522,6 +1522,42 @@
     "Eliminar materia": {
         "en": "Delete subject",
         "gl": "Eliminar materia"
+    },
+    "Error de validación. Horas incorrectas.":{
+        "en": "Validation error. Incorrect hours",
+        "gl": "Error de validación. Horas incorrectas."
+    },
+    "Error de validación. Materia incorrecta.": {
+        "en": "Validation error. Incorrect subject",
+        "gl": "Error de validación. Materia incorrecta."
+    },
+    "Error de validación. Profesor incorrecto.": {
+        "en": "Validation error. Incorrect teacher.",
+        "gl": "Erro de validación. Profesor incorrecto."
+    },
+    "Profesores de %c": {
+        "en": "Teachers of %c",
+        "gl": "Profesores de %c"
+    },
+    "Asignar profesor": {
+        "en": "Assign teacher",
+        "gl": "Asignar profesor"
+    },
+    "Horas": {
+        "en": "Hours",
+        "gl": "Horas"
+    },
+    "¿Está seguro de que desea eliminar el profesor %c de esta materia? Esta acción es permanente y no se puede recuperar.": {
+        "en": "Are you sure you want to delete the teacher %c? of this subject This action is permanent and cannot be recovered.",
+        "gl": "Está seguro de que desexa eliminar o profesor %c desta materia? Esta acción é permanente e non se pode recuperar."
+    },
+    "Editar asignación de profesor": {
+        "en": "Edit teacher assignment",
+        "gl": "Editar asignación de profesor"
+    },
+    "Error de la base de datos: %c": {
+        "en": "Database error: %c",
+        "gl": "Erro da base de datos: %c"
     },
     "Gestión de edificios": {
         "en": "Building management",
@@ -1686,63 +1722,27 @@
     "Asignatura": {
         "en": "Subject",
         "gl": "Asignatura"
-    }
-    ,
-    "No se ha obtenido ninguna grupo": {
+    },
+    "No se ha obtenido ningún grupo": {
         "en": "No group found",
         "gl": "Non se obtivo ningún grupo"
-    }
-    ,
+    },
+    "No se pueden asignar dos profesores a la misma materia.": {
+        "en": "Two teachers cannot be assigned to the same subject.",
+        "gl": "No é posible asignar dous profesores á mesma materia."
+    },
     "": {
         "en": "",
         "gl": ""
-    }
-    ,
+    },
     "": {
         "en": "",
         "gl": ""
-    }
-    ,
+    },
     "": {
         "en": "",
         "gl": ""
-    }
-    ,
-    "": {
-        "en": "",
-        "gl": ""
-    }
-    ,
-    "": {
-        "en": "",
-        "gl": ""
-    }
-    ,
-    "": {
-        "en": "",
-        "gl": ""
-    }
-    ,
-    "": {
-        "en": "",
-        "gl": ""
-    }
-    ,
-    "": {
-        "en": "",
-        "gl": ""
-    }
-    ,
-    "": {
-        "en": "",
-        "gl": ""
-    }
-    ,
-    "": {
-        "en": "",
-        "gl": ""
-    }
-    ,
+    },
     "": {
         "en": "",
         "gl": ""
