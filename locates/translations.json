@@ -1731,19 +1731,44 @@
         "en": "Two teachers cannot be assigned to the same subject.",
         "gl": "No é posible asignar dous profesores á mesma materia."
     },
-    "": {
+    "El grupo no existe": {
+        "en": "Group doesn't exist",
+        "gl": "O grupo non existe"
+    },
+    "Materia": {
+        "en": "Subject",
+        "gl": "Materia"
+    },
+    "¿Está seguro de que desea eliminar el grupo %c? Esta acción es permanente y no se puede recuperar.": {
+        "en": "Are you sure you want to delete the group %c? This action is permanent and cannot be recovered.",
+        "gl": "Está seguro de que desexa eliminar o grupo %c? Esta acción é permanente e non se pode recuperar."
+    },
+    "No se ha obtenido ninguna grupo": {
+        "en": "No group retrieved",
+        "gl": "Non se obtivo ningún grupo"
+    },
+    "Grupo añadido correctamente.": {
+        "en": "Group added successfully",
+        "gl": "Grupo engadido correctamente"
+    },"": {
         "en": "",
         "gl": ""
-    },
-    "": {
+    },"": {
         "en": "",
         "gl": ""
-    },
-    "": {
+    },"": {
         "en": "",
         "gl": ""
-    },
-    "": {
+    },"": {
+        "en": "",
+        "gl": ""
+    },"": {
+        "en": "",
+        "gl": ""
+    },"": {
+        "en": "",
+        "gl": ""
+    },"": {
         "en": "",
         "gl": ""
     }

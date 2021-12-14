@@ -14,7 +14,7 @@ class GroupDAO {
     }
 
     function showAll() {
-        $groups_db = $this->defaultDAO->showAll("grupo");
+        $groups_db = $this->defaultDAO->showAll("grupo_materia");
         return $this->getGroupsFromDB($groups_db);
     }
 
@@ -23,12 +23,12 @@ class GroupDAO {
     }
 
     function delete($key, $value) {
-        $this->defaultDAO->delete("grupo", $key, $value);
+        $this->defaultDAO->delete("grupo_materia", $key, $value);
     }
 
     function show($key, $value) {
-        $group = $this->defaultDAO->show("grupo", $key, $value);
-        $subject = $this->subjectDAO->show("id", $group["idedificio"]);
+        $group = $this->defaultDAO->show("grupo_materia", $key, $value);
+        $subject = $this->subjectDAO->show("id", $group["idmateria"]);
         return new GrupoMateria($group["id"], $group["nombre"], $subject);
     }
 
@@ -37,7 +37,7 @@ class GroupDAO {
     }
 
     function truncateTable() {
-        $this->defaultDAO->truncateTable("grupo");
+        $this->defaultDAO->truncateTable("grupo_materia");
     }
 
     function showAllPaged($currentPage, $itemsPerPage) {
@@ -51,11 +51,11 @@ class GroupDAO {
     }
 
     function checkDependencies($value) {
-        $this->defaultDAO->checkDependencies("grupo", $value);
+        $this->defaultDAO->checkDependencies("grupo_materia", $value);
     }
 
     function search($subject, $name, $capacity, $office) {
-        $sql = "SELECT DISTINCT * FROM grupo WHERE nombre LIKE '%".
+        $sql = "SELECT DISTINCT * FROM grupo_materia WHERE nombre LIKE '%".
             $name . "%'AND idmateria LIKE '%" .
             $subject . "%'";
         return $this->defaultDAO->getArrayFromSqlQuery($sql);
