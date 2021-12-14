@@ -3,7 +3,7 @@ include_once '../models/common/defaultDAO.php';
 include_once '../models/degree/degreeDAO.php';
 include_once '../models/department/departmentDAO.php';
 include_once '../models/teacher/teacherDAO.php';
-include_once '../models/teacher/teacher.php';
+include_once '../models/teacher/profesor.php';
 include_once 'materia.php';
 
 class SubjectDAO {

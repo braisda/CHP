@@ -1650,5 +1650,101 @@
     "El atributo capacidad tiene que ser un dígito.": {
         "en": "The capacity attribute must be a digit",
         "gl": "O atributo capacidade ten que ser un díxito"
+    },
+    "Gestión de grupos": {
+        "en": "Groups management",
+        "gl": "Xestión de grupos"
+    },
+    "Editar grupo '%c'": {
+        "en": "Edit group '%c'",
+        "gl": "Editar grupo '%c'"
+    },
+    "Listado de grupos": {
+        "en": "Groups list",
+        "gl": "Listado de grupos"
+    },
+    "Grupo '%c'": {
+        "en": "Group '%c'",
+        "gl": "Grupo '%c'"
+    },
+    "Grupo editado correctamente.": {
+        "en": "Group successfully edit.",
+        "gl": "Grupo editado correctamente."
+    },
+    "Grupo eliminado correctamente.": {
+        "en": "Group deleted successfully.",
+        "gl": "Grupo eliminado correctamente."
+    },
+    "Eliminar grupo": {
+        "en": "Delete group",
+        "gl": "Eliminar grupo"
+    },
+    "Añadir grupo": {
+        "en": "Add group",
+        "gl": "Engadir grupo"
+    },
+    "Asignatura": {
+        "en": "Subject",
+        "gl": "Asignatura"
+    }
+    ,
+    "No se ha obtenido ninguna grupo": {
+        "en": "No group found",
+        "gl": "Non se obtivo ningún grupo"
+    }
+    ,
+    "": {
+        "en": "",
+        "gl": ""
+    }
+    ,
+    "": {
+        "en": "",
+        "gl": ""
+    }
+    ,
+    "": {
+        "en": "",
+        "gl": ""
+    }
+    ,
+    "": {
+        "en": "",
+        "gl": ""
+    }
+    ,
+    "": {
+        "en": "",
+        "gl": ""
+    }
+    ,
+    "": {
+        "en": "",
+        "gl": ""
+    }
+    ,
+    "": {
+        "en": "",
+        "gl": ""
+    }
+    ,
+    "": {
+        "en": "",
+        "gl": ""
+    }
+    ,
+    "": {
+        "en": "",
+        "gl": ""
+    }
+    ,
+    "": {
+        "en": "",
+        "gl": ""
+    }
+    ,
+    "": {
+        "en": "",
+        "gl": ""
     }
 }

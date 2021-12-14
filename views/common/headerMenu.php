@@ -235,6 +235,17 @@
                                 </a>
                             </li>
                             <?php } ?>
+                            <?php
+                                if (checkPermission("grupo", "SHOWALL")) {
+                            ?>
+                            <!-- Gestión de grupos -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="../controllers/groupController.php">
+                                    <span class="far bi-ui-radios-grid"></span>
+                                    <p data-translate="Gestión de grupos"></p>
+                                </a>
+                            </li>
+                            <?php } ?>
                         </ul>
 						<?php
 							if (checkPermission("pda", "SHOWALL")) {

@@ -376,7 +376,8 @@ INSERT INTO `funcionalidad` (`id`, `nombre`, `descripcion`) VALUES
 ('16', 'materiaManagement', 'materiaManagement'),
 ('17', 'materiaprofesorManagement', 'materiaprofesorManagement'),
 ('18', 'pdaManagement', 'pdaManagement'),
-('19', 'tutoriaManagement', 'tutoriaManagement');
+('19', 'tutoriaManagement', 'tutoriaManagement'),
+('20', 'grupoManagement', 'grupoManagement');
 
 INSERT INTO `funcaccion` (`id`,`idfuncionalidad`, `idaccion`) VALUES
 ('1','1','1'),
@@ -473,7 +474,12 @@ INSERT INTO `funcaccion` (`id`,`idfuncionalidad`, `idaccion`) VALUES
 ('92','19','2'),
 ('93','19','3'),
 ('94','19','4'),
-('95','19','5');
+('95','19','5'),
+('96','20','1'),
+('97','20','2'),
+('98','20','3'),
+('99','20','4'),
+('100','20','5');
 
 INSERT INTO `usuario` (`login`,`password`,`dni`, `nombre`,`apellido`,`email`,`direccion`,`telefono`) VALUES
 ('admin','21232f297a57a5a743894a0e4a801fc3' , '11122233P','Administrador','Administrador', 'admin@admin.com', 'address', '666555444'),
@@ -594,6 +600,11 @@ INSERT INTO `permiso` (`idrol`,`idfuncaccion`) VALUES
 (1,'93'),
 (1,'94'),
 (1,'95'),
+(1,'96'),
+(1,'97'),
+(1,'98'),
+(1,'99'),
+(1,'100'),
 (2,'46'),
 (2,'47'),
 (2,'48'),
