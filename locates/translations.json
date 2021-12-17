@@ -1750,25 +1750,20 @@
     "Grupo añadido correctamente.": {
         "en": "Group added successfully",
         "gl": "Grupo engadido correctamente"
-    },"": {
-        "en": "",
-        "gl": ""
-    },"": {
-        "en": "",
-        "gl": ""
-    },"": {
-        "en": "",
-        "gl": ""
-    },"": {
-        "en": "",
-        "gl": ""
-    },"": {
-        "en": "",
-        "gl": ""
-    },"": {
-        "en": "",
-        "gl": ""
-    },"": {
+    },
+    "Insertar POD": {
+        "en": "Insert POD",
+        "gl": "Insertar POD"
+    },
+    "POD": {
+        "en": "POD",
+        "gl": "POD"
+    },
+    "POD añadido correctamente. Se han producido %c errores": {
+        "en": "POD added successfully. There have been %c errors",
+        "gl": "POD engadido satisfactoriamente. Producironse %c erros"
+    },
+    "": {
         "en": "",
         "gl": ""
     }

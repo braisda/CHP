@@ -264,6 +264,16 @@
                                 </a>
                             </li>
                         <?php } ?>
+						<?php
+							if (checkPermission("pod", "SHOWALL")) {
+						?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../controllers/podController.php">
+                                    <span class="fas bi-file-text"></span>
+                                    <p data-translate="POD"></p>
+                                </a>
+                            </li>
+                        <?php } ?>
                         </ul>
 						<?php } ?>
                     </div>
