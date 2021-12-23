@@ -1767,8 +1767,104 @@
         "en": "POD added successfully. There have been %c errors",
         "gl": "POD engadido satisfactoriamente. Producironse %c erros"
     },
+    "Horarios de la materia %c": {
+        "en": "Schedules of subject %c",
+        "gl": "Horarios da materia %c"
+    },
+    "Editar por rango": {
+        "en": "Edit by range",
+        "gl": "Editar por rango"
+    },
+    "No se ha obtenido ningún horario para esta materia": {
+        "en": "No schedule has been obtained for this subject",
+        "gl": "Non se obtivo ningún horario para esta materia"
+    },
+    "Grupo": {
+        "en": "Group",
+        "gl": "Grupo"
+    },
+    "Día": {
+        "en": "Day",
+        "gl": "Día"
+    },
+    "Hora de inicio": {
+        "en": "Start hour",
+        "gl": "Hora de inicio"
+    },
+    "Hora de fin": {
+        "en": "End hour",
+        "gl": "Hora de fin"
+    },
+    "Aula": {
+        "en": "Class",
+        "gl": "Aula"
+    },
+    "El profesor %c está ocupado los días %c": {
+        "en": "Professor %c is busy on days %c",
+        "gl": "O mestre %c está ocupado os días %c"
+    },
+    "El aula %c está ocupada los días %c": {
+        "en": "Classroom %c is busy on days %c",
+        "gl": "A aula %c está ocupada os días %c"
+    },
+    "El aula %c está ocupada los días %c": {
+        "en": "Classroom %c is busy on days %c",
+        "gl": "A aula %c está ocupada os días %c"
+    },
+    "Horario añadido correctamente.": {
+        "en": "Schedule added successfully.",
+        "gl": "Horario engadido correctamente."
+    },
+    "Error al insertar horario": {
+        "en": "Error when add schedule",
+        "gl": "Erro ao insertar horario"
+    },
+    "Ignorar días ocupados e insertar los demás": {
+        "en": "Ignore busy days and insert the rest",
+        "gl": "Ignorar días ocupados e insertar os demáis"
+    },
+    "Cancelar todo": {
+        "en": "Cancel all",
+        "gl": "Cancelar todo"
+    },
+    "Añadir horario": {
+        "en": "Add schedule",
+        "gl": "Engadir horario"
+    },
+    "Día de inicio": {
+        "en": "Start day",
+        "gl": "Día de inicio"
+    },
+    "Día de fin": {
+        "en": "End day",
+        "gl": "Día de fin"
+    },
+    "Horario '%c'": {
+        "en": "Schedule '%c'",
+        "gl": "Horario '%c'"
+    },
     "": {
         "en": "",
         "gl": ""
+    },
+    "Horario editado correctamente.": {
+        "en": "Schedule successfully edited.",
+        "gl": "Horario editado correctamente."
+    },
+    "Editar horario '%c'": {
+        "en": "Edit schedule '%c'",
+        "gl": "Editar horario '%c'"
+    },
+    "Horario eliminado correctamente.": {
+        "en": "Schedule successfully deleted.",
+        "gl": "Horario eliminado correctamente."
+    },
+    "Eliminar horario": {
+        "en": "Delete schedule",
+        "gl": "Eliminar horario"
+    },
+    "¿Está seguro de que desea eliminar el horario %c? Esta acción es permanente y no se puede recuperar.": {
+        "en": "Are you sure you want to delete the schedule %c? This action is permanent and cannot be recovered.",
+        "gl": "Está seguro de que desexa eliminar o horario %c? Esta acción é permanente e non se pode recuperar."
     }
 }

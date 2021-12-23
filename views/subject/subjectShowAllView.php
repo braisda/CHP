@@ -155,10 +155,10 @@ class SubjectShowAllView {
                                 <td data-translate="No asignado"></td>
                             <?php endif; ?>
                             <?php
-							    if (checkPermission("materia", "SHOWALL")):
+							    if (checkPermission("horario", "SHOWALL")):
 						    ?>
-                            <!--<td class="btn-schedule"><a href="../controllers/scheduleController.php?subject=<?php echo $subject->getId() ?>">
-                                    <i class="fas fa-calendar-alt"></i></a></td>-->
+                            <td class="btn-schedule"><a href="../controllers/scheduleController.php?subject=<?php echo $subject->getId() ?>">
+                                    <i class="fas fa-clock"></i></a></td>
                             <?php endif; ?>
                             <td class="row btn-subject-actions">
                                 <?php if (checkPermission("materia", "SHOWCURRENT")) { ?>

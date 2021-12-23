@@ -192,7 +192,7 @@ function showAllSearch($search, $users, $centers) {
 
             if ($search != NULL) {
                 $degreesData = $search;
-                $totalDegrees = count($centerData);
+                $totalDegrees = count($degreesData);
             } else {
                 $degreesData = $GLOBALS["degreeDAO"]->showAllPaged($currentPage, $itemsPerPage);
             }

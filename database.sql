@@ -320,11 +320,14 @@ CREATE TABLE `tutoria` (
 -- --------------------------------------------------------
 -- --------------------------------------------------------
 CREATE TABLE `horario` (
-  `idhorario` int(8) COLLATE latin1_spanish_ci NOT NULL AUTO_INCREMENT,  
+  `id` int(8) COLLATE latin1_spanish_ci NOT NULL AUTO_INCREMENT,
   `idespacio` int(8) COLLATE latin1_spanish_ci NOT NULL,
   `idprofesor` int(8) COLLATE latin1_spanish_ci NOT NULL,
   `idgrupomateria` int(8) COLLATE latin1_spanish_ci NOT NULL,
-  PRIMARY KEY(`idhorario`, `idespacio`, `idprofesor`, `idgrupomateria`),
+  `horainicio` time COLLATE latin1_spanish_ci NOT NULL,
+  `horafin` time COLLATE latin1_spanish_ci NOT NULL,
+  `dia` date COLLATE latin1_spanish_ci NOT NULL,
+  PRIMARY KEY(`id`, `idespacio`, `idprofesor`, `idgrupomateria`),
   FOREIGN KEY (`idespacio`)
 	REFERENCES `espacio`(`id`),
   FOREIGN KEY (`idprofesor`)
@@ -378,7 +381,8 @@ INSERT INTO `funcionalidad` (`id`, `nombre`, `descripcion`) VALUES
 ('18', 'pdaManagement', 'pdaManagement'),
 ('19', 'tutoriaManagement', 'tutoriaManagement'),
 ('20', 'grupoManagement', 'grupoManagement'),
-('21', 'podManagement', 'podManagement');
+('21', 'podManagement', 'podManagement'),
+('22', 'horarioManagement', 'horarioManagement');
 
 INSERT INTO `funcaccion` (`id`,`idfuncionalidad`, `idaccion`) VALUES
 ('1','1','1'),
@@ -485,7 +489,12 @@ INSERT INTO `funcaccion` (`id`,`idfuncionalidad`, `idaccion`) VALUES
 ('102','21','2'),
 ('103','21','3'),
 ('104','21','4'),
-('105','21','5');
+('105','21','5'),
+('106', '22', '1'),
+('107', '22', '2'),
+('108', '22', '3'),
+('109', '22', '4'),
+('110', '22', '5');
 
 INSERT INTO `usuario` (`login`,`password`,`dni`, `nombre`,`apellido`,`email`,`direccion`,`telefono`) VALUES
 ('admin','21232f297a57a5a743894a0e4a801fc3' , '11122233P','Administrador','Administrador', 'admin@admin.com', 'address', '666555444'),
@@ -616,6 +625,11 @@ INSERT INTO `permiso` (`idrol`,`idfuncaccion`) VALUES
 (1,'103'),
 (1,'104'),
 (1, "105"),
+(1, "106"),
+(1, "107"),
+(1, "108"),
+(1, "109"),
+(1, "110"),
 (2,'46'),
 (2,'47'),
 (2,'48'),
