@@ -26,6 +26,7 @@ class ScheduleEditByRangeView {
                 <div class="form-group">
                     <label for="subject_group_id" data-translate="Grupo"></label>
                     <select class="form-control" id="subject_group_id" name="subject_group_id">
+                        <option data-translate="Seleccione" value=""></option>
                         <?php foreach ($this->subjectGroups as $group): ?>
                             <option value="<?php echo $group->getId() ?>">
                                 <?php echo $group->getIdmateria()->getAcronimo()."_". $group->getNombre() ?></option>
