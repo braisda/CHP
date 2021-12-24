@@ -32,7 +32,6 @@ class SubjectTeacherDAO {
             $this->defaultDAO->insert($subjectTeacher, "id");
             $subject = $this->subjectDAO->show("id", $subjectTeacher->getMateria()->getId());
             $subject->setProfesor($subjectTeacher->getProfesor());
-            print_r($subject);
             $this->subjectDAO->edit($subject);
         } else {
             throw new DAOException('No se pueden asignar dos profesores a la misma materia.');
