@@ -166,7 +166,7 @@ function showAllSearch($search) {
 function goToShowAllAndShowError($message) {
     showAll();
     include '../models/common/messageType.php';
-    include '../utils/ToastTrigger.php';
+    include '../utils/ShowToast.php';
     $messageType = MessageType::ERROR;
     showToast($messageType, $message);
 }

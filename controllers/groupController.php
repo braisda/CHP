@@ -122,7 +122,6 @@ switch ($action) {
                     $office = 1;
                 }
                 $group = $groupDAO->search($_POST["subject_id"], $_POST["name"], $_POST["capacity"], $office);
-                print_r($_POST["office"]);
                 $groups = array();
                 foreach($group as $s) {
                     array_push($groups, $groupDAO->show($groupPrimaryKey, $s["id"]));

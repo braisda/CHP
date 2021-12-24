@@ -212,7 +212,7 @@ function showAllSearch($search, $users, $centers) {
 function goToShowAllAndShowError($message, $users, $centers) {
     showAll($users, $centers);
     include '../models/common/messageType.php';
-    include '../utils/ToastTrigger.php';
+    include '../utils/ShowToast.php';
     $messageType = MessageType::ERROR;
     showToast($messageType, $message);
 }

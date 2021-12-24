@@ -126,7 +126,6 @@ switch ($action) {
                     $office = 1;
                 }
                 $space = $spaceDAO->search($_POST["building_id"], $_POST["name"], $_POST["capacity"], $office);
-                print_r($_POST["office"]);
                 $spaces = array();
                 foreach($space as $s) {
                     array_push($spaces, $spaceDAO->show($spacePrimaryKey, $s["id"]));

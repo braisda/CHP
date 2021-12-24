@@ -210,7 +210,7 @@ function showAllSearch($search, $universityData, $buildingData, $userData) {
 function goToShowAllAndShowError($message, $universityData, $buildingData, $userData) {
     showAll($universityData, $buildingData, $userData);
     include '../models/common/messageType.php';
-    include '../utils/ToastTrigger.php';
+    include '../utils/ShowToast.php';
     $messageType = MessageType::ERROR;
     showToast($messageType, $message);
 }

@@ -32,7 +32,7 @@ class PermissionDAO
 
     function show($key, $value) {
         $permission_db = $this->defaultDAO->show("permiso", $key, $value);
-        $role = $this->roleDAO->show("id", $permission_db["idRol"]);
+        $role = $this->roleDAO->show("id", $permission_db["idrol"]);
         $funcAction = $this->funcActionDAO->show("id", $permission_db["idfuncaccion"]);
         return new Permiso($permission_db["id"], $role, $funcAction);
     }
@@ -69,7 +69,7 @@ class PermissionDAO
     }
 
     function search($idRol, $idFuncAccion) {
-        $sql = "SELECT DISTINCT * FROM permiso WHERE idRol ='". $idRol . "' OR idfuncaccion ='" . $idFuncAccion . "'";
+        $sql = "SELECT DISTINCT * FROM permiso WHERE idrol ='". $idRol . "' OR idfuncaccion ='" . $idFuncAccion . "'";
         return $this->defaultDAO->getArrayFromSqlQuery($sql);
     }
 }
