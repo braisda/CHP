@@ -53,22 +53,20 @@ class SubjectTeacherShowAllView {
                     </thead>
                     <?php if (!empty($this->subjectTeachers)): ?>
                     <tbody>
-                    <?php foreach ($this->subjectTeachers as $subjectTeacher): ?>
                         <tr>
-                            <td><?php echo $subjectTeacher->getProfesor()->getUsuario()->getNombre() . " " . $subjectTeacher->getProfesor()->getUsuario()->getApellido(); ?></td>
-                            <td><?php echo $subjectTeacher->getHoras() ?></td>
+                            <td><?php echo $this->subjectTeachers->getProfesor()->getUsuario()->getNombre() . " " . $this->subjectTeachers->getProfesor()->getUsuario()->getApellido(); ?></td>
+                            <td><?php echo $this->subjectTeachers->getHoras() ?></td>
                             <td class="row">
                                 <?php if (checkPermission("centro", "EDIT")) { ?>
-                                    <a href="../controllers/subjectTeacherController.php?action=edit&id=<?php echo $subjectTeacher->getId() ?>&subject_id=<?php echo $subjectTeacher->getMateria()->getId() ?>">
+                                    <a href="../controllers/subjectTeacherController.php?action=edit&id=<?php echo $this->subjectTeachers->getId() ?>&subject_id=<?php echo $this->subjectTeachers->getMateria()->getId() ?>">
                                         <span data-feather="edit"></span></a>
                                 <?php }
                                 if (checkPermission("centro", "DELETE")) { ?>
-                                    <a href="../controllers/subjectTeacherController.php?action=delete&id=<?php echo $subjectTeacher->getId() ?>&subject_id=<?php echo $subjectTeacher->getMateria()->getId() ?>">
+                                    <a href="../controllers/subjectTeacherController.php?action=delete&id=<?php echo $this->subjectTeachers->getId() ?>&subject_id=<?php echo $this->subjectTeachers->getMateria()->getId() ?>">
                                         <span data-feather="trash-2"></span></a>
                                 <?php } ?>
                             </td>
                         </tr>
-                    <?php endforeach; ?>
                     </tbody>
                 </table>
                 <?php else: ?>

@@ -46,10 +46,14 @@ class SubjectTeacherDAO {
     }
 
     function show($key, $value) {
-        $subjectTeacher = $this->defaultDAO->show("materia_profesor", $key, $value);
-        $subject = $this->subjectDAO->show("id", $subjectTeacher["idmateria"]);
-        $teacher = $this->teacherDAO->show("id", $subjectTeacher["idprofesor"]);
-        return new Materia_profesor($subjectTeacher["id"], $teacher, $subject, $subjectTeacher["horas"]);
+        try {
+            $subjectTeacher = $this->defaultDAO->show("materia_profesor", $key, $value);
+            $subject = $this->subjectDAO->show("id", $subjectTeacher["idmateria"]);
+            $teacher = $this->teacherDAO->show("id", $subjectTeacher["idprofesor"]);
+            return new Materia_profesor($subjectTeacher["id"], $teacher, $subject, $subjectTeacher["horas"]);
+        } catch (DAOException $e){
+            // Do nothing
+        }
     }
 
     function edit($subjectTeacher) {
