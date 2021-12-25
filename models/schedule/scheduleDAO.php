@@ -29,13 +29,8 @@ class ScheduleDAO {
         $this->defaultDAO->insert($schedule, "id");
         $sche = $this->defaultDAO->mysqli->query("SELECT * FROM horario WHERE id = (SELECT max(id) FROM horario)");
         $row = $sche->fetch_array(MYSQLI_ASSOC);
-        $schedule->setId($row["id"]);
-        $attendance = new Asistencia();
-        $attendance->setHorario($schedule);
-        $attendance->setMateria($schedule->getGrupoMateria());
-        $attendance->setNumAlumnos('<numalumnos>');
-        $attendance->setAsiste('<asiste>');
-        $this->defaultDAO->insert($attendance, "id");
+        $subjectId = $schedule->getGrupoMateria()->getId();
+        $this->defaultDAO->mysqli->query("INSERT INTO asistencia(idhorario, idmateria) VALUES (".$row['id'].",". $subjectId .")");
     }
 
     function delete($key, $value) {
