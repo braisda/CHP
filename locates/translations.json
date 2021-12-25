@@ -1677,11 +1677,11 @@
     },
     "Sí": {
         "en": "Yes",
-        "gl": "Si"
+        "gl": "Sí"
     },
     "No": {
         "en": "No",
-        "gl": "No"
+        "gl": "Non"
     },
     "El atributo capacidad no puede ser mayor que %c.": {
         "en": "The capacity attribute can have a maximum value of %c.",
@@ -1807,10 +1807,6 @@
         "en": "Classroom %c is busy on days %c",
         "gl": "A aula %c está ocupada os días %c"
     },
-    "El aula %c está ocupada los días %c": {
-        "en": "Classroom %c is busy on days %c",
-        "gl": "A aula %c está ocupada os días %c"
-    },
     "Horario añadido correctamente.": {
         "en": "Schedule added successfully.",
         "gl": "Horario engadido correctamente."
@@ -1866,5 +1862,45 @@
     "¿Está seguro de que desea eliminar el horario %c? Esta acción es permanente y no se puede recuperar.": {
         "en": "Are you sure you want to delete the schedule %c? This action is permanent and cannot be recovered.",
         "gl": "Está seguro de que desexa eliminar o horario %c? Esta acción é permanente e non se pode recuperar."
+    },
+    "Asistencia a %c": {
+        "en": "Attendance to %c",
+        "gl": "Asistencia a %c"
+    },
+    "Número de asistentes": {
+        "en": "Number of attendees",
+        "gl": "Número de asistentes"
+    },
+    "Impartido": {
+        "en": "Imparted",
+        "gl": "Impartido"
+    },
+    "No se ha obtenido ningún registro": {
+        "en": "No record obtained",
+        "gl": "Non se obtivo ningún rexistro"
+    },
+    "Editar asistencia de la materia '%c'": {
+        "en": "Edit attendance of subject '%c'",
+        "gl": "Editar asistencia da materia '%c'"
+    },
+    "El atributo número de asistentes no puede ser mayor que %c.": {
+        "en": "The number of attendees attribute can have a maximum value of %c.",
+        "gl": "O atributo número de asistentes pode ter un valor máximo de %c."
+    },
+    "El atributo número de asistentes no puede ser menor que %c.": {
+        "en": "The number of attendees attribute can have a minimum value of %c.",
+        "gl": "O atributo número de asistentes pode ter un valor mínimo de %c."
+    },
+    "El atributo número de asistentes no puede estar vacío.": {
+        "en": "The number of attendees attribute cannot be empty.",
+        "gl": "O atributo número de asistentes non pode estar baleiro."
+    },
+    "El atributo número de asistentes tiene que ser un dígito.": {
+        "en": "The number of attendees attribute has to be a digit.",
+        "gl": "O atributo número de asistentes ten que ser un díxito."
+    },
+    "Asistencia editada correctamente.": {
+        "en": "Attendance successfully edited.",
+        "gl": "Asistencia editada correctamente."
     }
 }

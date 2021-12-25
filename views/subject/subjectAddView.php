@@ -24,7 +24,7 @@ class SubjectAddView {
                 <a class="btn btn-primary" role="button" href="../controllers/subjectController.php"><p
                             data-translate="Volver"></p></a>
             </div>
-            <form id="subjectForm" action='../controllers/subjectController.php?action=add' method='POST' onsubmit="areSubjectFieldsCorrect()">
+            <form id="subjectForm" action='../controllers/subjectController.php?action=add' method='POST' onsubmit="return areSubjectFieldsCorrect()">
                 <div id="code-div" class="form-group">
                     <label for="code" data-translate="Código"></label>
                     <input type="text" class="form-control" id="code" name="code" data-translate="Código"

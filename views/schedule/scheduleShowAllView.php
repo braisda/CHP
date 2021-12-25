@@ -144,6 +144,8 @@ class ScheduleShowAllView {
                             <td><?php echo $schedule->getEspacio()->getNombre() ;?></td>
                             <td><?php echo $schedule->getProfesor()->getUsuario()->getNombre() . " " .
                                     $schedule->getProfesor()->getUsuario()->getApellido() ;?></td>
+                            <td class="btn-schedule"><a href="../controllers/attendanceController.php?subject=<?php echo $this->subject->getId() ?>&schedule=<?php echo $schedule->getId() ?>">
+                                <span data-feather="user-check"></span></a></td>
                             <td class="row">
                                 <?php if (checkPermission("horario", "SHOWCURRENT")) { ?>
                                     <a href="../controllers/scheduleController.php?subject=<?php echo $this->subject->getId() ?>&action=show&id=<?php echo $schedule->getId() ?>">

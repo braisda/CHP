@@ -353,6 +353,24 @@ CREATE TABLE `materia_profesor` (
 	REFERENCES `profesor`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
+-- --------------------------------------------------------
+-- --------------------------------------------------------
+-- TABLE STRUCTURE FOR TABLE `asistencia`
+-- --------------------------------------------------------
+-- --------------------------------------------------------
+CREATE TABLE `asistencia` (
+    `id` int(8) COLLATE latin1_spanish_ci NOT NULL AUTO_INCREMENT,
+    `idmateria` int(8) COLLATE latin1_spanish_ci NOT NULL,
+    `numalumnos` int(3) COLLATE latin1_spanish_ci DEFAULT 0 NOT NULL,
+    `asiste` tinyint(1) COLLATE latin1_spanish_ci DEFAULT 0 NOT NULL,
+    `idhorario` int(8) COLLATE latin1_spanish_ci NOT NULL UNIQUE,
+    PRIMARY KEY(`id`),
+    FOREIGN KEY (`idmateria`)
+	    REFERENCES `grupo_materia`(`id`),
+	FOREIGN KEY (`idhorario`)
+    	    REFERENCES `horario`(`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
 INSERT INTO `accion` (`id`, `nombre`, `descripcion`) VALUES
 ('1', 'ADD', 'ADD'),
 ('2', 'DELETE', 'DELETE'),

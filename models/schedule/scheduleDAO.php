@@ -3,6 +3,7 @@ include_once '../models/common/defaultDAO.php';
 include_once '../models/space/spaceDAO.php';
 include_once '../models/teacher/teacherDAO.php';
 include_once '../models/group/groupDAO.php';
+include_once '../models/attendance/asistencia.php';
 include_once 'horario.php';
 
 class ScheduleDAO {
@@ -26,9 +27,23 @@ class ScheduleDAO {
 
     function add($schedule) {
         $this->defaultDAO->insert($schedule, "id");
+        $sche = $this->defaultDAO->mysqli->query("SELECT * FROM horario WHERE id = (SELECT max(id) FROM horario)");
+        $row = $sche->fetch_array(MYSQLI_ASSOC);
+        $schedule->setId($row["id"]);
+        $attendance = new Asistencia();
+        $attendance->setHorario($schedule);
+        $attendance->setMateria($schedule->getGrupoMateria());
+        $attendance->setNumAlumnos('<numalumnos>');
+        $attendance->setAsiste('<asiste>');
+        $this->defaultDAO->insert($attendance, "id");
     }
 
     function delete($key, $value) {
+        try {
+            $this->defaultDAO->delete("asistencia", "idhorario", $value);
+        } catch(DAOException $e) {
+            // Do nothing
+        }
         $this->defaultDAO->delete("horario", $key, $value);
     }
 

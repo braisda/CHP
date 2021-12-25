@@ -23,7 +23,7 @@ class DegreeEditView {
                 <h2 data-translate="Editar titulación '%<?php echo $this->degree->getNombre()?>%'"></h2>
                 <a class="btn btn-primary" role="button" href="../controllers/degreeController.php" data-translate="Volver"></a>
             </div>
-            <form id="degreeForm" action='../controllers/degreeController.php?action=edit&id=<?php echo $this->degree->getId() ?>' method='POST' onsubmit="areDegreeFieldsCorrect()">
+            <form id="degreeForm" action='../controllers/degreeController.php?action=edit&id=<?php echo $this->degree->getId() ?>' method='POST' onsubmit="return areDegreeFieldsCorrect()">
                 <div id="name-div" class="form-group">
                     <label for="nombre" data-translate="Nombre"></label>
                     <input type="text" class="form-control" id="nombre" name="nombre" data-translate="Nombre"

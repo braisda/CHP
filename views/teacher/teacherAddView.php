@@ -23,7 +23,7 @@ class TeacherAddView {
             <h2 data-translate="Insertar profesor"></h2>
             <a class="btn btn-primary" role="button" href="../controllers/teacherController.php" data-translate="Volver"></a>
         </div>
-        <form id="teacherForm" action='../controllers/teacherController.php?action=add' method='POST' onsubmit="areTeacherFieldsCorrect()">
+        <form id="teacherForm" action='../controllers/teacherController.php?action=add' method='POST' onsubmit="return areTeacherFieldsCorrect()">
             <div class="form-group">
                 <label for="idusuario" data-translate="Usuario"></label>
                 <select class="form-control" id="idusuario" name="idusuario" ?>

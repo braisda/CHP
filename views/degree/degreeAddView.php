@@ -27,7 +27,7 @@ class DegreeAddView {
             <h2 data-translate="Añadir titulación"></h2>
             <a class="btn btn-primary" role="button" href="../controllers/degreeController.php" data-translate="Volver"></a>
         </div>
-        <form id="degreeForm" action='../controllers/degreeController.php?action=add' method='POST' onsubmit="areDegreeFieldsCorrect()" >
+        <form id="degreeForm" action='../controllers/degreeController.php?action=add' method='POST' onsubmit="return areDegreeFieldsCorrect()" >
             <div id="name-div" class="form-group">
                 <label for="nombre" data-translate="Nombre"></label>
                 <input type="text" class="form-control" id="nombre" name="nombre" data-translate="Nombre"

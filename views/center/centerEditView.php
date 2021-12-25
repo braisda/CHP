@@ -24,7 +24,7 @@ class CenterEditView {
                 <h2 data-translate="Editar centro '%<?php echo $this->center->getNombre()?>%'"></h2>
                 <a class="btn btn-primary" role="button" href="../controllers/centerController.php" data-translate="Volver"></a>
             </div>
-            <form  name = "centerForm" action='../controllers/centerController.php?action=edit&id=<?php echo $this->center->getId()?>' method='POST' onsubmit="areCenterFieldsCorrect()">
+            <form  name = "centerForm" action='../controllers/centerController.php?action=edit&id=<?php echo $this->center->getId()?>' method='POST' onsubmit="return areCenterFieldsCorrect()">
                 <div id="name-div" class="form-group">
                     <label for="nombre" data-translate="Nombre"></label>
                     <input type="text" class="form-control" id="nombre" name="nombre" data-translate="Nombre"

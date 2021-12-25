@@ -25,7 +25,7 @@ class TeacherEditView {
                 <a class="btn btn-primary" role="button" href="../controllers/teacherController.php" data-translate="Volver"></a>
             </div>
             <form  id="teacherForm" action='../controllers/teacherController.php?action=edit&id=<?php echo $this->teacher->getId()?>'
-                   method='POST' onsubmit="areTeacherFieldsCorrect()">
+                   method='POST' onsubmit="return areTeacherFieldsCorrect()">
                 <div class="form-group">
                     <label for="idusuario" data-translate="Usuario"></label>
                     <select class="form-control" id="idusuario" name="idusuario" ?>

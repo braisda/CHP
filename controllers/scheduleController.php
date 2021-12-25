@@ -183,7 +183,6 @@ switch ($action) {
                 }
             } else {
                 try {
-                    $scheduleDAO->checkDependencies($value);
                     showAll(NULL, $subjectGroupData, $spaceData, $teacherData);
                     openDeletionModal("Eliminar horario", "¿Está seguro de que desea eliminar " .
                         "el horario %" . $schedule->getGrupoMateria()->getIdmateria()->getAcronimo() .'_'. $schedule->getGrupoMateria()->getNombre() . "%? Esta acción es permanente y no se puede recuperar.",

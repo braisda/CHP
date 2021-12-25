@@ -27,7 +27,7 @@ class UniversityEditView
                             data-translate="Volver"></p></a>
             </div>
             <form id="universityForm" action='../controllers/universityController.php?action=edit&id=<?php echo $this->university->getId() ?>'
-                  method='POST' onsubmit="areUniversityFieldsCorrect()">
+                  method='POST' onsubmit="return areUniversityFieldsCorrect()">
                 <div id="name-div" class="form-group">
                     <label for="name" data-translate="Nombre"></label>
                     <input type="text" class="form-control" id="name" name="name" data-translate="Nombre"

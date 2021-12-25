@@ -43,7 +43,7 @@ class DepartmentShowAllView
                         </div>
                         <div class="modal-body">
                             <form class="row" id="searchDepartment" action='../controllers/departmentController.php?action=search' method='POST'
-                            onsubmit="areDepartmentSearchFieldsCorrect()">
+                            onsubmit="return areDepartmentSearchFieldsCorrect()">
                                 <div id="code-div" class="form-group col-12">
                                     <label for="start_date" data-translate="Código"></label>
                                     <input type="text" max-length="30" class="form-control" id="code" name="code"
