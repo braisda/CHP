@@ -361,8 +361,8 @@ CREATE TABLE `materia_profesor` (
 CREATE TABLE `asistencia` (
     `id` int(8) COLLATE latin1_spanish_ci NOT NULL AUTO_INCREMENT,
     `idmateria` int(8) COLLATE latin1_spanish_ci NOT NULL,
-    `numalumnos` int(3) COLLATE latin1_spanish_ci DEFAULT 0 NOT NULL,
-    `asiste` tinyint(1) COLLATE latin1_spanish_ci DEFAULT 0 NOT NULL,
+    `numalumnos` int(3) DEFAULT 0 COLLATE latin1_spanish_ci NOT NULL,
+    `asiste` tinyint(1) DEFAULT 0 COLLATE latin1_spanish_ci NOT NULL,
     `idhorario` int(8) COLLATE latin1_spanish_ci NOT NULL UNIQUE,
     PRIMARY KEY(`id`),
     FOREIGN KEY (`idmateria`)
