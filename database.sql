@@ -519,7 +519,8 @@ INSERT INTO `usuario` (`login`,`password`,`dni`, `nombre`,`apellido`,`email`,`di
 ('gestuniv','21232f297a57a5a743894a0e4a801fc3' , '11122233P','GestUniv','GestUniv', 'GestUniv@GestUniv.com', 'address', '666555444'),
 ('gestcent','21232f297a57a5a743894a0e4a801fc3' , '11122233P','GestCent','GestCent', 'GestCent@GestCent.com', 'address', '666555444'),
 ('gestbuil','21232f297a57a5a743894a0e4a801fc3' , '11122233P','GestBuil','GestBuil', 'GestBuil@GestBuil.com', 'address', '666555444'),
-('gestdeg','21232f297a57a5a743894a0e4a801fc3' , '11122233P','Gestgrado','Gestgrado', 'Gestgrado@Gestgrado.com', 'address', '666555444');
+('gestdeg','21232f297a57a5a743894a0e4a801fc3' , '11122233P','Gestgrado','Gestgrado', 'Gestgrado@Gestgrado.com', 'address', '666555444'),
+('mcvd','21232f297a57a5a743894a0e4a801fc3' , '35555590M','Administrador','Administrador', 'mcvd@mcvd.com', 'address', '666555444');
 
 INSERT INTO `rol` (`id`, `nombre`, `descripcion`) VALUES
 (1, 'Admin', 'Role with all permissions'),
@@ -535,7 +536,8 @@ INSERT INTO `usuario_rol` (`idusuario`,`idrol`) VALUES
 ('gestuniv', 2),
 ('gestcent', 3),
 ('gestbuil', 4),
-('gestdeg', 5);
+('gestdeg', 5),
+('mcvd', 1);
 
 INSERT INTO `permiso` (`idrol`,`idfuncaccion`) VALUES
 (1,'1'),
@@ -689,7 +691,8 @@ INSERT INTO `espacio` (`id`, `idedificio`, `nombre`, `capacidad`, `oficina`) VAL
 (1, '1', 'Espacio1', '50', 1);
 
 INSERT INTO `profesor` (`id`, `idusuario`, `idespacio`, `dedicacion`) VALUES
-(1, 'admin', '1', 'Profesor');
+(1, 'admin', '1', 'Profesor'),
+(2, 'mcvd', '1', 'Profesor');
 
 INSERT INTO `tutoria` (`idtutoria`, `idprofesor`, `fechainicio`, `fechafin`) VALUES
 (1, '1', '2021-12-28 12:00:00', '2021-12-28 13:00:00');
