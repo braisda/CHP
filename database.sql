@@ -520,7 +520,7 @@ INSERT INTO `usuario` (`login`,`password`,`dni`, `nombre`,`apellido`,`email`,`di
 ('gestcent','21232f297a57a5a743894a0e4a801fc3' , '11122233P','GestCent','GestCent', 'GestCent@GestCent.com', 'address', '666555444'),
 ('gestbuil','21232f297a57a5a743894a0e4a801fc3' , '11122233P','GestBuil','GestBuil', 'GestBuil@GestBuil.com', 'address', '666555444'),
 ('gestdeg','21232f297a57a5a743894a0e4a801fc3' , '11122233P','Gestgrado','Gestgrado', 'Gestgrado@Gestgrado.com', 'address', '666555444'),
-('mcvd','21232f297a57a5a743894a0e4a801fc3' , '35555590M','Administrador','Administrador', 'mcvd@mcvd.com', 'address', '666555444');
+('mcvd','21232f297a57a5a743894a0e4a801fc3' , '35555590M','Maria del Carmen','Verde Diego', 'mcvd@mcvd.com', 'address', '666555444');
 
 INSERT INTO `rol` (`id`, `nombre`, `descripcion`) VALUES
 (1, 'Admin', 'Role with all permissions'),
