@@ -169,8 +169,8 @@ class ScheduleShowAllView {
                     <p data-translate="No se ha obtenido ningún horario para esta materia">. </p>
                 <?php endif; ?>
 
-                <?php new PaginationView($this->itemsPerPage, $this->currentPage, $this->totalSchedules,
-                    "Schedule", "../controllers/scheduleController.php?subject=" . $this->subject->getId() . "&")?>
+                <?php if (empty($this->search)) { new PaginationView($this->itemsPerPage, $this->currentPage, $this->totalSchedules,
+                    "Schedule", "../controllers/scheduleController.php?subject=" . $this->subject->getId() . "&"); }?>
 
                 <a type="button" class="btn btn-warning" data-translate="Editar por rango" style="margin-top: .7rem"
                    href="../controllers/scheduleController.php?subject=<?php echo $this->subject->getId() ?>&action=editByRange"></a>

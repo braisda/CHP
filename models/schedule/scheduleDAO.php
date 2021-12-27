@@ -59,9 +59,16 @@ class ScheduleDAO {
         $this->defaultDAO->truncateTable("horario");
     }
 
-    function showAllPaged($currentPage, $itemsPerPage) {
+    function showAllPaged($currentPage, $itemsPerPage, $subjectId) {
         $schedule_db = $this->defaultDAO->showAllPaged($currentPage, $itemsPerPage, new Horario());
-        return $this->getScheduleFromDB($schedule_db);
+        $schedules = $this->getScheduleFromDB($schedule_db);
+        $schedule = array();
+        foreach($schedules as $sch) {
+            if ($subjectId == $sch->getGrupoMateria()->getIdmateria()->getId()) {
+                array_push($schedule, $sch);
+            }
+        }
+        return $schedule;
     }
 
     function countTotalSchedules() {

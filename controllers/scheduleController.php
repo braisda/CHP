@@ -350,9 +350,10 @@ function showAllSearch($search, $subjectGroupData, $spaceData, $teacherData) {
 
             if ($search != NULL) {
                 $scheduleData = $search;
-                $totalDegrees = count($scheduleData);
+                $totalSchedules = count($scheduleData);
             } else {
-                $scheduleData = $GLOBALS["scheduleDAO"]->showAllPaged($currentPage, $itemsPerPage);
+                $scheduleData = $GLOBALS["scheduleDAO"]->showAllPaged($currentPage, $itemsPerPage, $subject->getId());
+                $totalSchedules = count($scheduleData);
             }
             new ScheduleShowAllView($scheduleData, $itemsPerPage, $currentPage, $totalSchedules, $search, $subject, $subjectGroupData, $spaceData, $teacherData);
         } catch (DAOException $e) {

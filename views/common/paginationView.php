@@ -8,14 +8,18 @@ class PaginationView
     private $controllerName;
     private $url;
 
-    function __construct($pageItems, $page, $totalItems, $controllerName)
+    function __construct($pageItems, $page, $totalItems, $controllerName, $url=NULL)
     {
         $this->pageItems = $pageItems;
         $this->page = $page;
         $this->totalItems = $totalItems;
         $this->totalPages = ceil($totalItems / $pageItems);
         $this->controllerName = $controllerName;
-        $this->url = "../controllers/". $controllerName . "Controller.php";
+        if ($controllerName === "Schedule") {
+            $this->url = $url;
+        } else {
+            $this->url = "../controllers/". $controllerName . "Controller.php";
+        }
         $this->render();
     }
 
