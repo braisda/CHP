@@ -1,5 +1,5 @@
 <?php
-class FuncAccion
+class Funcaccion
 {
     private $id;
     private $accion;

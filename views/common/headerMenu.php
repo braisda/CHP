@@ -58,7 +58,7 @@
                             <?php
                         		if (checkPermission("usuario", "SHOWALL") ||
                         			checkPermission("Permission", "SHOWALL" ||
-                        			checkPermission("FuncAccion", "SHOWALL") ||
+                        			checkPermission("Funcaccion", "SHOWALL") ||
                         			checkPermission("accion", "SHOWALL") ||
                         			checkPermission("Functionality", "SHOWALL") ||
                         			checkPermission("Role", "SHOWALL") ||
@@ -79,6 +79,15 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="../controllers/userController.php">
                                             <p data-translate="Usuarios"></p>
+                                        </a>
+                                    </li>
+                                    <?php } ?>
+                                    <?php
+                                        if (checkPermission("Funcaccion", "SHOWALL")) {
+                                    ?>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="../controllers/funcActionController.php">
+                                            <p data-translate="Funcionalidad-acción"></p>
                                         </a>
                                     </li>
                                     <?php } ?>

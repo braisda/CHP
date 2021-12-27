@@ -33,16 +33,16 @@ class FuncActionDAO
         $funcAction_db = $this->defaultDAO->show("funcaccion", $key, $value);
         $action = $this->actionDAO->show("id", $funcAction_db["idaccion"]);
         $functionality = $this->functionalityDAO->show("id", $funcAction_db["idfuncionalidad"]);
-        return new FuncAccion($funcAction_db["id"], $action, $functionality);
+        return new Funcaccion($funcAction_db["id"], $action, $functionality);
     }
 
     function showAllPaged($currentPage, $itemsPerPage) {
-        $funcAction_db = $this->defaultDAO->showAllPaged($currentPage, $itemsPerPage, new FuncAction());
+        $funcAction_db = $this->defaultDAO->showAllPaged($currentPage, $itemsPerPage, new Funcaccion());
         return $this->getFuncActionFromDB($funcAction_db);
     }
 
     function countTotalFuncActions() {
-        return $this->defaultDAO->countTotalEntries(new FuncAccion());
+        return $this->defaultDAO->countTotalEntries(new Funcaccion());
     }
 
     function edit($funcAction) {
@@ -57,12 +57,25 @@ class FuncActionDAO
         $this->defaultDAO->checkDependencies("funcaccion", $value);
     }
 
+    function search($action, $functionality) {
+            $sql = "SELECT DISTINCT * FROM funcaccion";
+            if (!empty($action)) {
+                $sql .= " WHERE idaccion = '" . $action . "'";
+            }
+            if (!empty($action) && !empty($functionality)) {
+                $sql .= " AND idfuncionalidad = '" . $functionality . "'";
+            } else if (!empty($functionality)) {
+                $sql .= " WHERE idfuncionalidad = '" . $functionality . "'";
+            }
+            return $this->defaultDAO->getArrayFromSqlQuery($sql);
+        }
+
     private function getFuncActionFromDB($funcActions_db) {
         $funcActions = array();
         foreach ($funcActions_db as $funcAction) {
             $action = $this->actionDAO->show("id", $funcAction["idaccion"]);
             $functionality = $this->functionalityDAO->show("id", $funcAction["idfuncionalidad"]);
-            array_push($funcActions, new FuncAccion($funcAction["id"],
+            array_push($funcActions, new Funcaccion($funcAction["id"],
                 $action, $functionality));
         }
         return $funcActions;

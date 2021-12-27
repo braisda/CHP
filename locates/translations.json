@@ -1902,5 +1902,57 @@
     "Asistencia editada correctamente.": {
         "en": "Attendance successfully edited.",
         "gl": "Asistencia editada correctamente."
+    },
+    "Listado de acciones-funcionalidades": {
+        "en": "Actions-Functionalities list",
+        "gl": "Listaxe de accións-funcionalidades"
+    },
+    "Añadir funcionalidad-acción": {
+        "en": "Add functionality-action",
+        "gl": "Engadir funcionalidade-acción"
+    },
+    "Añadir acción-funcionalidad": {
+        "en": "Add action-functionality",
+        "gl": "Engadir acción-funcionalidade"
+    },
+    "Funcionalidad-acción": {
+        "en": "Functionality-action",
+        "gl": "Funcionalidade-acción"
+    },
+    "No se ha obtenido ninguna acción-funcionalidad": {
+        "en": "No action-functionality was obtained",
+        "gl": "Non se obtivo ningunha acción-funcionalidade"
+    },
+    "Acción-funcionalidad añadida correctamente.": {
+        "en": "Action-functionality successfully added.",
+        "gl": "Acción-funcionalidade engadida correctamente."
+    },
+    "Acción-funcionalidad eliminada correctamente.": {
+        "en": "Action-functionality successfully deleted.",
+        "gl": "Acción-funcionalidade eliminada correctamente."
+    },
+    "Acción-funcionalidad editada correctamente.": {
+        "en": "Action-functionality successfully edited.",
+        "gl": "Acción-funcionalidade editada correctamente."
+    },
+    "Eliminar acción-funcionalidad": {
+        "en": "Delete action-functionality",
+        "gl": "Eliminar acción-funcionalidade"
+    },
+    "La acción no existe": {
+        "en": "Action doesn't exists",
+        "gl": "A acción non existe"
+    },
+    "¿Está seguro de que desea eliminar la acción-funcionalidad %c? Esta acción es permanente y no se puede recuperar.": {
+        "en": "Are you sure you want to delete the action-functionality %c? This action is permanent and cannot be recovered.",
+        "gl": "Está seguro de que desexa eliminar a acción-funcionalidade %c? Esta acción é permanente e non se pode recuperar."
+    },
+    "Acción-funcionalidad '%c'": {
+        "en": "Action-funcionality '%c'",
+        "gl": "Acción-funcionalidade '%c'"
+    },
+    "Editar acción-funcionalidad '%c'": {
+        "en": "Edit action-funcionality '%c'",
+        "gl": "Editar acción-funcionalidade '%c'"
     }
 }
