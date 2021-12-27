@@ -31,11 +31,18 @@ $subjectDAO = new SubjectDAO();
 $spaceDAO = new SpaceDAO();
 $teacherData = $teacherDAO->showAll();
 $spaceData = $spaceDAO->showAll();
-$subjectGroupData = $subjectGroupDAO->showAll();
+$allSubjectGroupData = $subjectGroupDAO->showAll();
+$subjectGroupData = array();
 
 if(isset($_REQUEST["subject"])) {
     $subjectId = $_REQUEST["subject"];
     $subject = $subjectDAO->show("id", $subjectId);
+
+    foreach($allSubjectGroupData as $subjectGroup) {
+        if ($subjectGroup->getIdmateria()->getId() == $subject->getId()) {
+            array_push($subjectGroupData, $subjectGroup);
+        }
+    }
 }
 
 $schedulePK = "id";
