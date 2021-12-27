@@ -137,7 +137,7 @@ function showAll() {
 }
 
 function showAllSearch($search) {
-    if (checkPermission("Academiccurso", "SHOWALL")) {
+    if (checkPermission("Role", "SHOWALL")) {
         try {
             $currentPage = getPage();
             $itemsPerPage = getNumberItems();

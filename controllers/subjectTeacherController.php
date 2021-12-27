@@ -48,9 +48,8 @@ switch ($action) {
                     $subjectTeacherDAO->add($subjectTeacher);
                     goToShowAllAndShowSuccess("Profesor añadido correctamente.");
                 } catch (DAOException $e) {
-                    print_r($e->getMessage());
                     goToShowAllAndShowError($e->getMessage());
-                } catch (ValidationException $ve) {
+                } catch (Exception $ve) {
                     goToShowAllAndShowError($ve->getMessage());
                 }
             }
@@ -74,7 +73,7 @@ switch ($action) {
                 }
             } catch (DAOException $e) {
                 goToShowAllAndShowError($e->getMessage());
-            } catch (ValidationException $ve) {
+            } catch (Exception $ve) {
                 goToShowAllAndShowError($ve->getMessage());
             }
         } else{

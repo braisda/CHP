@@ -31,8 +31,8 @@ class UserRoleDAO
 
     function show($key, $value) {
         $userRole = $this->defaultDAO->show("usuario_rol", $key, $value);
-        $user = $this->userDAO->show("login", $userRole["id_usuario"]);
-        $role = $this->roleDAO->show("id", $userRole["id_rol"]);
+        $user = $this->userDAO->show("login", $userRole["idusuario"]);
+        $role = $this->roleDAO->show("id", $userRole["idrol"]);
         return new UsuarioRol($userRole["id"], $role, $user);
     }
 
@@ -55,6 +55,13 @@ class UserRoleDAO
 
     function checkDependencies($value) {
         $this->defaultDAO->checkDependencies("usuario_rol", $value);
+    }
+
+    function search($usuario, $rol) {
+        $sql = "SELECT DISTINCT * FROM usuario_rol WHERE idusuario LIKE '%".
+            $usuario . "%' AND idrol LIKE '%" .
+            $rol . "%'";
+        return $this->defaultDAO->getArrayFromSqlQuery($sql);
     }
 
     private function getUserRolesFromDB($userRolesDB) {

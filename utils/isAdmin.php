@@ -11,7 +11,7 @@ function IsAdmin()
     try{
         $userRoles = $userRoleDAO->showAll();
         foreach ($userRoles as $userRole) {
-            if($userRole->getUsuario()->getLogin() ==  getUserInSession()) {
+            if($userRole->getIdusuario()->getLogin() ==  getUserInSession()) {
                 $permissions = $permissionDAO->showAll();
                 foreach ($permissions as $permission) {
                     if ($permission->getRol()->getId() == $userRole->getId()) {

@@ -2,13 +2,13 @@
 class UsuarioRol
 {
     private $id;
-    private $rol;
-    private $usuario;
+    private $idrol;
+    private $idusuario;
 
-    public function __construct($id=NULL, $rol=NULL, $usuario=NULL) {
+    public function __construct($id=NULL, $idrol=NULL, $idusuario=NULL) {
         $this->id = $id;
-        $this->rol = $rol;
-        $this->usuario = $usuario;
+        $this->idrol = $idrol;
+        $this->idusuario = $idusuario;
     }
 
     public function getId() {
@@ -17,33 +17,33 @@ class UsuarioRol
 
     public function setId($id) {
         if (empty($id) || strlen($id)>8) {
-            throw new ValidationException('Error de validación. Id incorrecto.');
+            throw new Exception('Error de validación. Id incorrecto.');
         } else {
             $this->id = $id;
         }
     }
 
-    public function getRol() {
-        return $this->rol;
+    public function getIdrol() {
+        return $this->idrol;
     }
 
-    public function setRol($rol) {
-        if (empty($rol) || strlen($rol)>8) {
-            throw new ValidationException('Error de validación. Id rol incorrecto.');
+    public function setIdrol($idrol) {
+        if (empty($idrol) || strlen($idrol)>8) {
+            throw new Exception('Error de validación. Id rol incorrecto.');
         } else {
-            $this->rol = $rol;
+            $this->idrol = $idrol;
         }
     }
 
-    public function getUsuario() {
-        return $this->usuario;
+    public function getIdusuario() {
+        return $this->idusuario;
     }
 
-    public function setUsuario($usuario) {
-        if (empty($usuario) || strlen($usuario)>9) {
-            throw new ValidationException('Error de validación. Id usuario incorrecto.');
+    public function setIdusuario($idusuario) {
+        if (empty($idusuario) || strlen($idusuario)>9) {
+            throw new Exception('Error de validación. Id usuario incorrecto.');
         } else {
-            $this->usuario = $usuario;
+            $this->idusuario = $idusuario;
         }
     }
 

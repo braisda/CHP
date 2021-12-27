@@ -14,7 +14,7 @@ function checkPermission($controller, $act)
         $serverKey = '5f2b5cdbe5194f10b3241568fe4e2b24';
         $elem = JWT::decode($_SESSION['token'], $serverKey, array('HS256'));
 
-            if($userRole->getUsuario()->getLogin() ==  $elem->login) {
+            if($userRole->getIdusuario()->getLogin() ==  $elem->login) {
                 $permissions = $permissionDAO->showAll();
                 foreach ($permissions as $permission) {
                     if ($permission->getRol()->getId() == $userRole->getId()) {

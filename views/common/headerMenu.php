@@ -109,6 +109,15 @@
                                         </a>
                                     </li>
                                     <?php } ?>
+                                    <?php
+                                        if (checkPermission("usuarioRole", "SHOWALL")) {
+                                     ?>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="../controllers/userRoleController.php">
+                                            <p data-translate="Asignación de Roles"></p>
+                                        </a>
+                                    </li>
+                                    <?php } ?>
                                 </ul>
                             </li>
                             <?php } ?>

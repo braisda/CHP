@@ -1954,5 +1954,44 @@
     "Editar acción-funcionalidad '%c'": {
         "en": "Edit action-funcionality '%c'",
         "gl": "Editar acción-funcionalidade '%c'"
+    },"Asignación de Roles": {
+        "en": "Role assignation",
+        "gl": "Asignación de Roles"
+    },
+    "Asignación de roles a usuarios": {
+        "en": "Role assignation to users",
+        "gl": "Asignación de roles a usuarios"
+    },
+    "Asignar rol a usuario": {
+        "en": "Assign role to user",
+        "gl": "Asignar rol a usuario"
+    },
+    "Usuario-rol '%c'": {
+        "en": "Action-funcionality '%c'",
+        "gl": "Acción-funcionalidade '%c'"
+    },
+    "": {
+        "en": "",
+        "gl": ""
+    },
+    "": {
+        "en": "",
+        "gl": ""
+    },
+    "": {
+        "en": "",
+        "gl": ""
+    },
+    "": {
+        "en": "",
+        "gl": ""
+    },
+    "": {
+        "en": "",
+        "gl": ""
+    },
+    "": {
+        "en": "",
+        "gl": ""
     }
 }
