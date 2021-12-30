@@ -294,6 +294,22 @@
                         <?php } ?>
                         </ul>
 						<?php } ?>
+						<?php
+						    include_once '../utils/isAdmin.php';
+                            if (IsAdmin()) {
+                        ?>
+						<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                            <span data-translate="Pruebas"></span>
+                        </h6>
+                        <ul class="nav flex-column mb-2">
+                            <li class="nav-item">
+                                <a class="nav-link" href="../tests/testController.php">
+                                    <span class="fas bi-check"></span>
+                                    <p data-translate="Pruebas de funcionamiento"></p>
+                                </a>
+                            </li>
+                        </ul>
+                        <?php } ?>
                     </div>
                 </nav>
             </nav>

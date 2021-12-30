@@ -199,6 +199,18 @@
         "en": "Add action",
         "gl": "Engadir acción"
     },
+    "Eliminar acción": {
+        "en": "Delete action",
+        "gl": "Eliminar acción"
+    },
+    "Editar acción": {
+        "en": "Edit action",
+        "gl": "Editar acción"
+    },
+    "Ver acción": {
+        "en": "Show action",
+        "gl": "Ver acción"
+    },
     "Identificador": {
         "en": "Identificator",
         "gl": "Identificador"
@@ -290,6 +302,22 @@
     "Rol '%c'": {
         "en": "Role '%c'",
         "gl": "Rol '%c'"
+    },
+    "Añadir rol": {
+        "en": "Add role",
+        "gl": "Engadir rol"
+    },
+    "Eliminar rol": {
+        "en": "Delete role",
+        "gl": "Eliminar rol"
+    },
+    "Editar rol": {
+        "en": "Edit role",
+        "gl": "Editar rol"
+    },
+    "Ver rol": {
+        "en": "Show role",
+        "gl": "Ver rol"
     },
     "Eliminar Rol": {
         "en": "Delete Role",
@@ -430,6 +458,14 @@
     "Buscar permiso": {
         "en": "Search permission",
         "gl": "Buscar permiso"
+    },
+    "Ver permiso": {
+        "en": "Show permission",
+        "gl": "Ver permiso"
+    },
+    "Editar permiso": {
+        "en": "Edit permission",
+        "gl": "Editar permiso"
     },
     "Eliminar permiso": {
         "en": "Delete permission",
@@ -630,6 +666,14 @@
     "Eliminar usuario": {
         "en": "Delete user",
         "gl": "Eliminar usuario"
+    },
+    "Editar usuario": {
+        "en": "Edit user",
+        "gl": "Editar usuario"
+    },
+    "Ver usuario": {
+        "en": "Show user",
+        "gl": "Ver usuario"
     },
     "¿Está seguro de que desea eliminar el usuario %c? Esta acción es permanente y no se puede recuperar.": {
         "en": "Are you sure you want to delete the user %c? This action is permanent and cannot be recovered.",
@@ -1911,6 +1955,18 @@
         "en": "Add functionality-action",
         "gl": "Engadir funcionalidade-acción"
     },
+    "Eliminar funcionalidad-acción": {
+        "en": "Delete functionality-action",
+        "gl": "Eliminar funcionalidade-acción"
+    },
+    "Editar funcionalidad-acción": {
+        "en": "Edit functionality-action",
+        "gl": "Editar funcionalidade-acción"
+    },
+    "Ver funcionalidad-acción": {
+        "en": "Show functionality-action",
+        "gl": "Ver funcionalidade-acción"
+    },
     "Añadir acción-funcionalidad": {
         "en": "Add action-functionality",
         "gl": "Engadir acción-funcionalidade"
@@ -1970,28 +2026,36 @@
         "en": "Action-funcionality '%c'",
         "gl": "Acción-funcionalidade '%c'"
     },
-    "": {
-        "en": "",
-        "gl": ""
+    "Pruebas": {
+        "en": "Tests",
+        "gl": "Probas"
     },
-    "": {
-        "en": "",
-        "gl": ""
+    "Pruebas de funcionamiento": {
+        "en": "Funcionality test",
+        "gl": "Probas de funcionamento"
     },
-    "": {
-        "en": "",
-        "gl": ""
+    "Listado de pruebas": {
+        "en": "Test list",
+        "gl": "Listaxe de probas"
     },
-    "": {
-        "en": "",
-        "gl": ""
+    "Asignación de roles": {
+        "en": "Role assignment",
+        "gl": "Asignación de roles"
     },
-    "": {
-        "en": "",
-        "gl": ""
+    "Añadir asignación de roles": {
+        "en": "Add role assignment",
+        "gl": "Engadir asignación de roles"
     },
-    "": {
-        "en": "",
-        "gl": ""
+    "Eliminar asignación de roles": {
+        "en": "Delete role assignment",
+        "gl": "Eliminar asignación de roles"
+    },
+    "Editar asignación de roles": {
+        "en": "Edit role assignment",
+        "gl": "Editar asignación de roles"
+    },
+    "Ver asignación de roles": {
+        "en": "Show role assignment",
+        "gl": "Ver asignación de roles"
     }
 }

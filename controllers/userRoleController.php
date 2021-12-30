@@ -42,8 +42,8 @@ switch ($action) {
             } else {
                 try {
                     $userRole = new UsuarioRol();
-                    $userRole->setIdusuario($userDAO->show("login", $_POST["user_id"])->getId());
-                    $userRole->setIdrol($roleDAO->show("id", $_POST["role_id"])->getId());
+                    $userRole->setUsuario($userDAO->show("login", $_POST["user_id"])->getId());
+                    $userRole->setRol($roleDAO->show("id", $_POST["role_id"])->getId());
                     $userRoleDAO->add($userRole);
                     
                     goToShowAllAndShowSuccess("Rol añadido correctamente.", $userData, $roleData);
@@ -102,8 +102,8 @@ switch ($action) {
                     new UserRoleEditView($userRole, $userData, $roleData);
                 } else {
                     $userRole->setId($value);
-                    $userRole->setIdusuario($userDAO->show("login", $_POST["user_id"])->getId());
-                    $userRole->setIdrol($roleDAO->show("id", $_POST["role_id"])->getId());
+                    $userRole->setUsuario($userDAO->show("login", $_POST["user_id"])->getId());
+                    $userRole->setRol($roleDAO->show("id", $_POST["role_id"])->getId());
                     $userRoleDAO->edit($userRole);
                     goToShowAllAndShowSuccess("Rol editado correctamente.", $userData, $roleData);
                 }

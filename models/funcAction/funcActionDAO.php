@@ -22,7 +22,7 @@ class FuncActionDAO
     }
 
     function add($funcAction) {
-        $this->defaultDAO->insert($funcAction,"id");
+        $this->defaultDAO->insert($funcAction, "id");
     }
 
     function delete($key, $value) {

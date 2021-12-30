@@ -8,7 +8,7 @@ class defaultDAO
     {
         error_reporting(0);
         if (isset($_SESSION['env']) && $_SESSION['env'] == 'test') {
-            $this->mysqli = new mysqli("127.0.0.1", "adminCHP", "passCHP", "chp");
+            $this->mysqli = new mysqli("127.0.0.1", "root", "pdp", "chp_test");
         } else {
             $this->mysqli = new mysqli("127.0.0.1", "root", "pdp", "chp");
         }
@@ -32,20 +32,22 @@ class defaultDAO
         foreach ($attributes as $attribute) {
             $function_name = $this->changeFunctionName($attribute);
             $value = $entity->$function_name();
-            
+
             if(is_object($value)) {
-                $attribute = "id" . $attribute;
+                if (strpos($attribute, "id") === false) {
+                    $attribute = "id" . $attribute;
+                }
                 $value = $value->getId();
             }
-            
+
             if ($sql_keys == "") {
                 $sql_keys = "(" . $attribute;
             } else {
                 $sql_keys = $sql_keys . "," . $attribute;
             }
-            
+
             $value = $this->checkValueType($value);
-            
+
             if ($sql_values == "") {
                 $sql_values = "(" . $value;
             } else {
@@ -111,7 +113,9 @@ class defaultDAO
             $value = $entity->$function_name();
 
             if(is_object($value)) {
-                $attribute = "id" . $attribute;
+                if (strpos($attribute, "id") === false) {
+                    $attribute = "id" . $attribute;
+                }
                 $value = $value->getId();
             }
 

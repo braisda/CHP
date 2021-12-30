@@ -6,3 +6,12 @@ function showToast(title, titleColor, text) {
     $('#button-header').before(titleContent);
     $('.toast').toast('show');
 }
+
+function showTestToast(title, titleColor, text) {
+    var messageContent = "<span>" + text + "</span>";
+    $('#toast-body').append(messageContent);
+    document.getElementById('header-toast').style.backgroundColor = titleColor;
+    var titleContent = "<strong class='mr-auto' data-translate='" + title + "'></strong>";
+    $('#button-header').before(titleContent);
+    $('.toast').toast('show');
+}

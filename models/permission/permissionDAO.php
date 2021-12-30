@@ -69,7 +69,7 @@ class PermissionDAO
     }
 
     function search($idRol, $idFuncAccion) {
-        $sql = "SELECT DISTINCT * FROM permiso WHERE idrol ='". $idRol . "' OR idfuncaccion ='" . $idFuncAccion . "'";
+        $sql = "SELECT DISTINCT * FROM permiso WHERE idrol ='". $idRol . "' AND idfuncaccion ='" . $idFuncAccion . "'";
         return $this->defaultDAO->getArrayFromSqlQuery($sql);
     }
 }
