@@ -34,7 +34,7 @@ class defaultDAO
             $value = $entity->$function_name();
 
             if(is_object($value)) {
-                if (strpos($attribute, "id") === false) {
+                if (strpos($attribute, "id") === false || strpos($attribute, "funcionalidad") !== false) {
                     $attribute = "id" . $attribute;
                 }
                 $value = $value->getId();
@@ -113,7 +113,7 @@ class defaultDAO
             $value = $entity->$function_name();
 
             if(is_object($value)) {
-                if (strpos($attribute, "id") === false) {
+                if (strpos($attribute, "id") === false || strpos($attribute, "funcionalidad") !== false) {
                     $attribute = "id" . $attribute;
                 }
                 $value = $value->getId();

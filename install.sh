@@ -15,6 +15,7 @@ chmod a+w /var/www/html
 
 echo "Configurando base de datos..."
 mysql -uroot -ppdp < /var/www/html/CHP/database.sql
+mysql -uroot -ppdp < /var/www/html/CHP/utils/tests/database.sql
 
 echo "\n"
 echo " _____  _   _ ______   _            ______  _____ ____________" 
