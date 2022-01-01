@@ -35,7 +35,7 @@ class defaultDAO
 
             if(is_object($value)) {
                 if (strpos($attribute, "id") === false || strpos($attribute, "funcionalidad") !== false
-                || strpos($attribute, "universidad") !== false) {
+                    || strpos($attribute, "universidad") !== false) {
                     $attribute = "id" . $attribute;
                 }
                 $value = $value->getId();
@@ -55,7 +55,7 @@ class defaultDAO
                 $sql_values = $sql_values . ", " . $value;
             }
         }
-        
+
         $primary_key_function = $this->changeFunctionName($primary_key);
         $sql = "SELECT * FROM " . $this->getTableName($entity) . " WHERE " . $primary_key . "='".
         $entity->$primary_key_function() . "'";
@@ -115,7 +115,7 @@ class defaultDAO
 
             if(is_object($value)) {
                 if (strpos($attribute, "id") === false || strpos($attribute, "funcionalidad") !== false
-                || strpos($attribute, "universidad") !== false) {
+                    || strpos($attribute, "universidad") !== false) {
                     $attribute = "id" . $attribute;
                 }
                 $value = $value->getId();
