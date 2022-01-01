@@ -120,6 +120,160 @@ switch ($controller) {
             restoreDB();
         }
         break;
+    case "academicCourse":
+        try {
+            $_SESSION["env"] = "test";
+            include_once '../models/academicCourse/academicCourseDAO.php';
+            include_once 'academicCourseTest.php';
+            initTestDB();
+            new AcademicCourseTest(new academicCourseDAO(), $action);
+        } catch (DAOException $e) {
+            goToShowAllAndShowError($e->getMessage());
+        } finally {
+            $_SESSION["env"] = NULL;
+            restoreDB();
+        }
+        break;
+    case "center":
+        try {
+            $_SESSION["env"] = "test";
+            include_once '../models/center/centerDAO.php';
+            include_once 'centerTest.php';
+            initTestDB();
+            new CenterTest(new centerDAO(), $action);
+        } catch (DAOException $e) {
+            goToShowAllAndShowError($e->getMessage());
+        } finally {
+            $_SESSION["env"] = NULL;
+            restoreDB();
+        }
+        break;
+    case "university":
+        try {
+            $_SESSION["env"] = "test";
+            include_once '../models/university/universityDAO.php';
+            include_once 'universityTest.php';
+            initTestDB();
+            new UniversityTest(new universityDAO(), $action);
+        } catch (DAOException $e) {
+            goToShowAllAndShowError($e->getMessage());
+        } finally {
+            $_SESSION["env"] = NULL;
+            restoreDB();
+        }
+        break;
+    case "degree":
+        try {
+            $_SESSION["env"] = "test";
+            include_once '../models/degree/degreeDAO.php';
+            include_once 'degreeTest.php';
+            initTestDB();
+            new DegreeTest(new degreeDAO(), $action);
+        } catch (DAOException $e) {
+            goToShowAllAndShowError($e->getMessage());
+        } finally {
+            $_SESSION["env"] = NULL;
+            restoreDB();
+        }
+        break;
+    case "teacher":
+        try {
+            $_SESSION["env"] = "test";
+            include_once '../models/teacher/teacherDAO.php';
+            include_once 'teacherTest.php';
+            initTestDB();
+            new TeacherTest(new teacherDAO(), $action);
+        } catch (DAOException $e) {
+            goToShowAllAndShowError($e->getMessage());
+        } finally {
+            $_SESSION["env"] = NULL;
+            restoreDB();
+        }
+        break;
+    case "tutorial":
+        try {
+            $_SESSION["env"] = "test";
+            include_once '../models/tutorial/tutorialDAO.php';
+            include_once 'tutorialTest.php';
+            initTestDB();
+            new TutorialTest(new tutorialDAO(), $action);
+        } catch (DAOException $e) {
+            goToShowAllAndShowError($e->getMessage());
+        } finally {
+            $_SESSION["env"] = NULL;
+            restoreDB();
+        }
+        break;
+    case "department":
+        try {
+            $_SESSION["env"] = "test";
+            include_once '../models/department/departmentDAO.php';
+            include_once 'departmentTest.php';
+            initTestDB();
+            new DepartmentTest(new departmentDAO(), $action);
+        } catch (DAOException $e) {
+            goToShowAllAndShowError($e->getMessage());
+        } finally {
+            $_SESSION["env"] = NULL;
+            restoreDB();
+        }
+        break;
+    case "subject":
+        try {
+            $_SESSION["env"] = "test";
+            include_once '../models/subject/subjectDAO.php';
+            include_once 'subjectTest.php';
+            initTestDB();
+            new SubjectTest(new subjectDAO(), $action);
+        } catch (DAOException $e) {
+            goToShowAllAndShowError($e->getMessage());
+        } finally {
+            $_SESSION["env"] = NULL;
+            restoreDB();
+        }
+        break;
+    case "building":
+        try {
+            $_SESSION["env"] = "test";
+            include_once '../models/building/buildingDAO.php';
+            include_once 'buildingTest.php';
+            initTestDB();
+            new BuildingTest(new buildingDAO(), $action);
+        } catch (DAOException $e) {
+            goToShowAllAndShowError($e->getMessage());
+        } finally {
+            $_SESSION["env"] = NULL;
+            restoreDB();
+        }
+        break;
+    case "space":
+        try {
+            $_SESSION["env"] = "test";
+            include_once '../models/space/spaceDAO.php';
+            include_once 'spaceTest.php';
+            initTestDB();
+            new SpaceTest(new spaceDAO(), $action);
+        } catch (DAOException $e) {
+            goToShowAllAndShowError($e->getMessage());
+        } finally {
+            $_SESSION["env"] = NULL;
+            restoreDB();
+        }
+        break;
+    case "group":
+        try {
+            $_SESSION["env"] = "test";
+            include_once '../models/group/groupDAO.php';
+            include_once 'groupTest.php';
+            initTestDB();
+            new GroupTest(new groupDAO(), $action);
+        } catch (DAOException $e) {
+            goToShowAllAndShowError($e->getMessage());
+        } finally {
+            $_SESSION["env"] = NULL;
+            restoreDB();
+        }
+        break;
     default:
         showAll();
         break;
