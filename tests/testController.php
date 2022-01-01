@@ -2,7 +2,7 @@
 session_start();
 include_once '../utils/auth.php';
 include_once '../utils/isAdmin.php';
-if (!IsAuthenticated()){
+if (!IsAuthenticated()) {
     header('Location:../index.php');
 }
 
@@ -106,16 +106,32 @@ switch ($controller) {
             restoreDB();
         }
         break;
+    case "functionality":
+        try {
+            $_SESSION["env"] = "test";
+            include_once '../models/functionality/functionalityDAO.php';
+            include_once 'functionalityTest.php';
+            initTestDB();
+            new FunctionalityTest(new functionalityDAO(), $action);
+        } catch (DAOException $e) {
+            goToShowAllAndShowError($e->getMessage());
+        } finally {
+            $_SESSION["env"] = NULL;
+            restoreDB();
+        }
+        break;
     default:
         showAll();
         break;
 }
 
-function showAll() {
+function showAll()
+{
     showAllSearch(NULL);
 }
 
-function showAllSearch($search) {
+function showAllSearch($search)
+{
     try {
         new TestShowAllView();
     } catch (DAOException $e) {
@@ -127,7 +143,8 @@ function showAllSearch($search) {
     }
 }
 
-function goToShowAllAndShowError($message) {
+function goToShowAllAndShowError($message)
+{
     showAll();
     include '../models/common/messageType.php';
     include '../utils/ShowToast.php';
@@ -135,12 +152,11 @@ function goToShowAllAndShowError($message) {
     showTestToast($messageType, $message);
 }
 
-function goToShowAllAndShowSuccess($message) {
+function goToShowAllAndShowSuccess($message)
+{
     showAll();
     include '../models/common/messageType.php';
     include '../utils/ShowToast.php';
     $messageType = MessageType::SUCCESS;
     showTestToast($messageType, $message);
 }
-
-?>

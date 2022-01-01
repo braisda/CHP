@@ -2057,5 +2057,117 @@
     "Ver asignación de roles": {
         "en": "Show role assignment",
         "gl": "Ver asignación de roles"
+    },
+    "Espacio": {
+        "en": "Space",
+        "gl": "Espacio"
+    },
+    "Tutoría": {
+        "en": "Space",
+        "gl": "Espacio"
+    },
+    "Añadir funcionalidad": {
+        "en": "Add functionality",
+        "gl": "Engadir funcionalidade"
+    },
+    "Eliminar funcionalidad": {
+        "en": "Delete functionality",
+        "gl": "Eliminar funcionalidade"
+    },
+    "Editar funcionalidad": {
+        "en": "Edit functionality",
+        "gl": "Editar funcionalidade"
+    },
+    "Ver funcionalidad": {
+        "en": "View functionality",
+        "gl": "Ver funcionalidade"
+    },
+    "Editar curso académico": {
+        "en": "Edit academic course",
+        "gl": "Editar curso académico"
+    },
+    "Ver curso académico": {
+        "en": "View academic course",
+        "gl": "Ver curso académico"
+    },
+    "Editar centro": {
+        "en": "Edit center",
+        "gl": "Editar funcionalidade"
+    },
+    "Ver centro": {
+        "en": "View center",
+        "gl": "Ver centro"
+    },
+    "Editar universidad": {
+        "en": "Edit university",
+        "gl": "Editar universidade"
+    },
+    "Ver universidad": {
+        "en": "View university",
+        "gl": "Ver universidade"
+    },
+    "Editar titulación": {
+        "en": "Edit degree",
+        "gl": "Editar titulación"
+    },
+    "Ver titulación": {
+        "en": "View degree",
+        "gl": "Ver titulación"
+    },
+    "Editar profesor": {
+        "en": "Edit teacher",
+        "gl": "Editar profesor"
+    },
+    "Ver profesor": {
+        "en": "View teacher",
+        "gl": "Ver profesor"
+    },
+    "Editar tutoría": {
+        "en": "Edit tutorial",
+        "gl": "Editar titoría"
+    },
+    "Ver tutoría": {
+        "en": "View tutorial",
+        "gl": "Ver titoría"
+    },
+    "Editar materia": {
+        "en": "Edit subject",
+        "gl": "Editar materia"
+    },
+    "Ver materia": {
+        "en": "View subject",
+        "gl": "Ver materia"
+    },
+    "Editar edificio": {
+        "en": "Edit building",
+        "gl": "Editar edificio"
+    },
+    "Ver edificio": {
+        "en": "View building",
+        "gl": "Ver edificio"
+    },
+    "Editar espacio": {
+        "en": "Edit space",
+        "gl": "Editar espacio"
+    },
+    "Ver espacio": {
+        "en": "View space",
+        "gl": "Ver espacio"
+    },
+    "Editar grupo": {
+        "en": "Edit group",
+        "gl": "Editar grupo"
+    },
+    "Ver grupo": {
+        "en": "View group",
+        "gl": "Ver grupo"
+    },
+    "Editar departamento": {
+        "en": "Edit department",
+        "gl": "Editar departamento"
+    },
+    "Ver departamento": {
+        "en": "View department",
+        "gl": "Ver departamento"
     }
 }
