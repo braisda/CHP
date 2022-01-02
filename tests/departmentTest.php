@@ -8,36 +8,41 @@ include_once '../utils/openDeletionModal.php';
 include_once '../utils/confirmDelete.php';
 include_once '../models/common/DAOException.php';
 include_once '../views/tests/testShowAllView.php';
-include_once '../models/university/academicCourseDAO.php';
 include_once '../models/user/userDAO.php';
+include_once '../models/teacher/teacherDAO.php';
+include_once '../models/space/spaceDAO.php';
+include_once '../models/building/buildingDAO.php';
 
-class UniversityTest
+class DepartmentTest
 {
 
     private $dao;
-    private $university;
-    private $academicCourseDAO;
+    private $action;
     private $userDAO;
+    private $teacherDAO;
+    private $spaceDAO;
+    private $buildingDAO;
 
-    public function __construct($dao = NULL, $university = NULL)
+    public function __construct($dao = NULL, $action = NULL)
     {
         $this->dao = $dao;
-        $this->university = $university;
-        $this->academicCourseDAO = new AcademicCourseDAO();
+        $this->action = $action;
         $this->userDAO = new UserDAO();
+        $this->teacherDAO = new TeacherDAO();
+        $this->spaceDAO = new SpaceDAO();
+        $this->buildingDAO = new BuildingDAO();
         $this->render();
     }
 
     function render()
     {
-        switch ($this->university) {
+        switch ($this->action) {
             case "add":
                 try {
-                    $cent = $this->createUniversity();
-                    $element = $this->dao->show("id", $cent->getId());
-
-                    $result = "Elem. añadido: { id: " . $element->getId() . ", curso: " . $element->getIdCursoAcademico()->getId() .
-                        ", nombre: " . $element->getNombre() . ", responsable: " . $element->getIdUsuario()->getLogin() .
+                    $department = $this->createDepartment();
+                    $element = $this->dao->show("id", $department->getId());
+                    $result = "Elem. añadido { id: " . $element->getId() . ", profesor: " . $element->getIdprofesor()->getUsuario()->getLogin() .
+                        ", codigo: " . $element->getCodigo() . ", nombre: " . $element->getNombre() .
                         "}";
                     goToShowAllAndShowSuccess($result);
                 } catch (DAOException $e) {
@@ -49,11 +54,11 @@ class UniversityTest
                 break;
             case "delete":
                 try {
-                    $cent = $this->createUniversity();
-                    $this->dao->delete("id", $cent->getId());
+                    $department = $this->createDepartment();
+                    $this->dao->delete("id", $department->getId());
 
                     try {
-                        $this->dao->show("id", $cent->getId());
+                        $this->dao->show("id", $department->getId());
                     } catch (DAOException $e) {
                         goToShowAllAndShowSuccess($e->getMessage() . " Se ha eliminado correctamente.");
                     }
@@ -66,14 +71,14 @@ class UniversityTest
                 break;
             case "edit":
                 try {
-                    $cent = $this->createUniversity();
-                    $cent->setNombre("Nombre editado");
+                    $department = $this->createDepartment();
+                    $department->setCodigo("Dedit");
 
-                    $this->dao->edit($cent);
-                    $element = $this->dao->show("id", $cent->getId());
+                    $this->dao->edit($department);
+                    $element = $this->dao->show("id", $department->getId());
 
-                    $result = "Elem. editado: { id: " . $element->getId() . ", curso: " . $element->getIdCursoAcademico()->getId() .
-                        ", nombre: " . $element->getNombre() . ", responsable: " . $element->getIdUsuario()->getLogin() .
+                    $result = "Elem. editado: { id: " . $element->getId() . ", profesor: " . $element->getIdprofesor()->getUsuario()->getLogin() .
+                        ", codigo: " . $element->getCodigo() . ", nombre: " . $element->getNombre() .
                         "}";
 
                     goToShowAllAndShowSuccess($result);
@@ -86,11 +91,11 @@ class UniversityTest
                 break;
             case "view":
                 try {
-                    $cent = $this->createUniversity();
-                    $element = $this->dao->show("id", $cent->getId());
+                    $department = $this->createDepartment();
+                    $element = $this->dao->show("id", $department->getId());
 
-                    $result = "Elem. buscado: { id: " . $element->getId() . ", curso: " . $element->getIdCursoAcademico()->getId() .
-                        ", nombre: " . $element->getNombre() . ", responsable: " . $element->getIdUsuario()->getLogin() .
+                    $result = "Elem. buscado: { id: " . $element->getId() . ", profesor: " . $element->getIdprofesor()->getUsuario()->getLogin() .
+                        ", codigo: " . $element->getCodigo() . ", nombre: " . $element->getNombre() .
                         "}";
 
                     goToShowAllAndShowSuccess($result);
@@ -143,16 +148,21 @@ class UniversityTest
         showTestToast($messageType, $message);
     }
 
-    function createUniversity()
+    function createDepartment()
     {
 
         $user = new Usuario("userTest", "userTestPass", "11111111H", "user", "test", "usertest@usertest.com", "Calle user 123", "666666666");
         $this->userDAO->add($user);
-        $ac = new CursoAcademico(1, 'test', 2021, 2022);
-        $this->academicCourseDAO->add($ac);
-        $u = new Universidad(1, 1, "universityTest", "userTest");
-        $this->dao->add($u);
+        $building = new Edificio(1, 'building test', 'Vigo', $user);
+        $this->buildingDAO->add($building);
+        $space = new Espacio(1, 'Space Test', $building, 400, 'Ofice Test');
+        $this->spaceDAO->add($space);
+        $teacher = new Profesor(1, $user, 'TEST', $space);
+        $this->teacherDAO->add($teacher);
 
-        return $u;
+        $dep = new Departamento(1, "Dtest", "test", $teacher);
+        $this->dao->add($dep);
+
+        return $dep;
     }
 }

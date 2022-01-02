@@ -98,7 +98,7 @@ switch ($controller) {
             include_once '../models/user/userDAO.php';
             include_once 'userTest.php';
             initTestDB();
-            new UserTest(new userDAO(), $action);
+            new UserTest(new UserDAO(), $action);
         } catch (DAOException $e) {
             goToShowAllAndShowError($e->getMessage());
         } finally {
@@ -112,7 +112,7 @@ switch ($controller) {
             include_once '../models/functionality/functionalityDAO.php';
             include_once 'functionalityTest.php';
             initTestDB();
-            new FunctionalityTest(new functionalityDAO(), $action);
+            new FunctionalityTest(new FunctionalityDAO(), $action);
         } catch (DAOException $e) {
             goToShowAllAndShowError($e->getMessage());
         } finally {
@@ -126,7 +126,7 @@ switch ($controller) {
             include_once '../models/academicCourse/academicCourseDAO.php';
             include_once 'academicCourseTest.php';
             initTestDB();
-            new AcademicCourseTest(new academicCourseDAO(), $action);
+            new AcademicCourseTest(new AcademicCourseDAO(), $action);
         } catch (DAOException $e) {
             goToShowAllAndShowError($e->getMessage());
         } finally {
@@ -140,7 +140,7 @@ switch ($controller) {
             include_once '../models/center/centerDAO.php';
             include_once 'centerTest.php';
             initTestDB();
-            new CenterTest(new centerDAO(), $action);
+            new CenterTest(new CenterDAO(), $action);
         } catch (DAOException $e) {
             goToShowAllAndShowError($e->getMessage());
         } finally {
@@ -154,7 +154,7 @@ switch ($controller) {
             include_once '../models/university/universityDAO.php';
             include_once 'universityTest.php';
             initTestDB();
-            new UniversityTest(new universityDAO(), $action);
+            new UniversityTest(new UniversityDAO(), $action);
         } catch (DAOException $e) {
             goToShowAllAndShowError($e->getMessage());
         } finally {
@@ -168,7 +168,7 @@ switch ($controller) {
             include_once '../models/degree/degreeDAO.php';
             include_once 'degreeTest.php';
             initTestDB();
-            new DegreeTest(new degreeDAO(), $action);
+            new DegreeTest(new DegreeDAO(), $action);
         } catch (DAOException $e) {
             goToShowAllAndShowError($e->getMessage());
         } finally {
@@ -182,7 +182,7 @@ switch ($controller) {
             include_once '../models/teacher/teacherDAO.php';
             include_once 'teacherTest.php';
             initTestDB();
-            new TeacherTest(new teacherDAO(), $action);
+            new TeacherTest(new TeacherDAO(), $action);
         } catch (DAOException $e) {
             goToShowAllAndShowError($e->getMessage());
         } finally {
@@ -196,7 +196,7 @@ switch ($controller) {
             include_once '../models/tutorial/tutorialDAO.php';
             include_once 'tutorialTest.php';
             initTestDB();
-            new TutorialTest(new tutorialDAO(), $action);
+            new TutorialTest(new TutorialDAO(), $action);
         } catch (DAOException $e) {
             goToShowAllAndShowError($e->getMessage());
         } finally {
@@ -210,7 +210,7 @@ switch ($controller) {
             include_once '../models/department/departmentDAO.php';
             include_once 'departmentTest.php';
             initTestDB();
-            new DepartmentTest(new departmentDAO(), $action);
+            new DepartmentTest(new DepartmentDAO(), $action);
         } catch (DAOException $e) {
             goToShowAllAndShowError($e->getMessage());
         } finally {
@@ -224,7 +224,7 @@ switch ($controller) {
             include_once '../models/subject/subjectDAO.php';
             include_once 'subjectTest.php';
             initTestDB();
-            new SubjectTest(new subjectDAO(), $action);
+            new SubjectTest(new SubjectDAO(), $action);
         } catch (DAOException $e) {
             goToShowAllAndShowError($e->getMessage());
         } finally {
@@ -238,7 +238,7 @@ switch ($controller) {
             include_once '../models/building/buildingDAO.php';
             include_once 'buildingTest.php';
             initTestDB();
-            new BuildingTest(new buildingDAO(), $action);
+            new BuildingTest(new BuildingDAO(), $action);
         } catch (DAOException $e) {
             goToShowAllAndShowError($e->getMessage());
         } finally {
@@ -252,7 +252,7 @@ switch ($controller) {
             include_once '../models/space/spaceDAO.php';
             include_once 'spaceTest.php';
             initTestDB();
-            new SpaceTest(new spaceDAO(), $action);
+            new SpaceTest(new SpaceDAO(), $action);
         } catch (DAOException $e) {
             goToShowAllAndShowError($e->getMessage());
         } finally {
@@ -266,7 +266,7 @@ switch ($controller) {
             include_once '../models/group/groupDAO.php';
             include_once 'groupTest.php';
             initTestDB();
-            new GroupTest(new groupDAO(), $action);
+            new GroupTest(new GroupDAO(), $action);
         } catch (DAOException $e) {
             goToShowAllAndShowError($e->getMessage());
         } finally {
