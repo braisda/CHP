@@ -56,8 +56,16 @@ class SubjectTest
                 try {
                     $subject = $this->createSubject();
                     $element = $this->dao->show("id", $subject->getId());
-                    $result = "Elem. añadido { id: " . $element->getId() . ", profesor: " . $element->getIdprofesor()->getUsuario()->getLogin() .
-                        ", codigo: " . $element->getCodigo() . ", nombre: " . $element->getNombre() .
+                    $result = "Elem. añadido { id: " . $element->getId() . ", código: " . $element->getCodigo() .
+                        ", contenido: " . $element->getContenido() . ", tipo: " . $element->getTipo() .
+                        ", area: " . $element->getArea() . ", curso: " . $element->getCurso() .
+                        ", cuatrimestre: " . $element->getCuatrimestre() . ", créditos: " . $element->getCreditos() .
+                        ", nuevo registro: " . $element->getNuevoRegistro() . ", repetidores: " . $element->getRepeticiones() .
+                        ", est. efectivos: " . $element->getEstudiantesEfectivos() . ", h. inscritas: " . $element->getHorasInscritas() .
+                        ", h. enseño: " . $element->getHorasEnseño() . ", horas: " . $element->getHoras() .
+                        ", profesor: " . $element->getProfesor()->getUsuario()->getLogin() . ", acrónimo: " . $element->getAcronimo() .
+                        ", alumnos: " . $element->getAlumnos() . ", grado: " . $element->getGrado()->getNombre() .
+                        ", departamento: " . $element->getDepartamento()->getNombre() .
                         "}";
                     goToShowAllAndShowSuccess($result);
                 } catch (DAOException $e) {
@@ -93,9 +101,17 @@ class SubjectTest
                     $this->dao->edit($subject);
                     $element = $this->dao->show("id", $subject->getId());
 
-                    $result = "Elem. editado: { id: " . $element->getId() . ", profesor: " . $element->getIdprofesor()->getUsuario()->getLogin() .
-                        ", codigo: " . $element->getCodigo() . ", nombre: " . $element->getNombre() .
-                        "}";
+                    $result = "Elem. editado: { id: " . $element->getId() . ", código: " . $element->getCodigo() .
+                      ", contenido: " . $element->getContenido() . ", tipo: " . $element->getTipo() .
+                      ", area: " . $element->getArea() . ", curso: " . $element->getCurso() .
+                      ", cuatrimestre: " . $element->getCuatrimestre() . ", créditos: " . $element->getCreditos() .
+                      ", nuevo registro: " . $element->getNuevoRegistro() . ", repetidores: " . $element->getRepeticiones() .
+                      ", est. efectivos: " . $element->getEstudiantesEfectivos() . ", h. inscritas: " . $element->getHorasInscritas() .
+                      ", h. enseño: " . $element->getHorasEnseño() . ", horas: " . $element->getHoras() .
+                      ", profesor: " . $element->getProfesor()->getUsuario()->getLogin() . ", acrónimo: " . $element->getAcronimo() .
+                      ", alumnos: " . $element->getAlumnos() . ", grado: " . $element->getGrado()->getNombre() .
+                      ", departamento: " . $element->getDepartamento()->getNombre() .
+                      "}";
 
                     goToShowAllAndShowSuccess($result);
                 } catch (DAOException $e) {
@@ -110,9 +126,17 @@ class SubjectTest
                     $subject = $this->createSubject();
                     $element = $this->dao->show("id", $subject->getId());
 
-                    $result = "Elem. buscado: { id: " . $element->getId() . ", profesor: " . $element->getIdprofesor()->getUsuario()->getLogin() .
-                        ", codigo: " . $element->getCodigo() . ", nombre: " . $element->getNombre() .
-                        "}";
+                    $result = "Elem. buscado: { id: " . $element->getId() . ", código: " . $element->getCodigo() .
+                      ", contenido: " . $element->getContenido() . ", tipo: " . $element->getTipo() .
+                      ", area: " . $element->getArea() . ", curso: " . $element->getCurso() .
+                      ", cuatrimestre: " . $element->getCuatrimestre() . ", créditos: " . $element->getCreditos() .
+                      ", nuevo registro: " . $element->getNuevoRegistro() . ", repetidores: " . $element->getRepeticiones() .
+                      ", est. efectivos: " . $element->getEstudiantesEfectivos() . ", h. inscritas: " . $element->getHorasInscritas() .
+                      ", h. enseño: " . $element->getHorasEnseño() . ", horas: " . $element->getHoras() .
+                      ", profesor: " . $element->getProfesor()->getUsuario()->getLogin() . ", acrónimo: " . $element->getAcronimo() .
+                      ", alumnos: " . $element->getAlumnos() . ", grado: " . $element->getGrado()->getNombre() .
+                      ", departamento: " . $element->getDepartamento()->getNombre() .
+                      "}";
 
                     goToShowAllAndShowSuccess($result);
                 } catch (DAOException $e) {
@@ -190,47 +214,7 @@ class SubjectTest
         $degree = new Grado(1, 'Titulacion Test', $center, 500, 'Descripcion test', 30, $user);
         $this->degreeDAO->add($degree);
 
-        /*$subject = new Materia(
-            1,
-            "test",
-            "test",
-            "te",
-            $dep,
-            "test",
-            "test",
-            "1",
-            "90",
-            1,
-            1,
-            1,
-            "test",
-            "test",
-            "test",
-            5,
-            $degree,
-            $teacher
-        );*/
-
-        $subject = new Materia();
-        $subject->setCodigo(1);
-        $subject->setCodigo("test");
-        $subject->setContenido("test");
-        $subject->setTipo("te");
-        $subject->setDepartamento($dep);
-        $subject->setArea("test");
-        $subject->setCurso("test");
-        $subject->setCuatrimestre(1);
-        $subject->setCreditos(90);
-        $subject->setNuevoRegistro(1);
-        $subject->setRepeticiones(1);
-        $subject->setEstudiantesEfectivos(1);
-        $subject->setHorasInscritas("test");
-        $subject->setHorasEnseño("test");
-        $subject->setHoras("test");
-        $subject->setAlumnos(5);
-        $subject->setGrado($degree);
-        $subject->setProfesor($teacher);
-
+        $subject = new Materia(1, 'test', 'test', 'te', $dep, 'test', '2', '1', 35, 3, 25, 140, '400', '250', '100', 100, $degree, $teacher, 1);
         $this->dao->add($subject);
 
         return $subject;
