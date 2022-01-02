@@ -549,6 +549,15 @@ class TestShowAllView
 
         $controller = getUrlParameter("controller");
 
+        $card = "#" . $controller;
+
+        $('.collapse').on('shown.bs.collapse', function(e) {
+          var $card = $(this).closest('.card');
+          $('html,body').animate({
+            scrollTop: $card.offset().top
+          }, 500);
+        });
+
         switch ($controller) {
           case "role":
             $("#role").collapse('show');
