@@ -142,7 +142,7 @@ function loadPDA($dir) {
 
     $tfg = utf8_decode(preg_split('/(Â \n){3,}/', utf8_encode(array_pop($subjects_4y)))[0]);
 
-    $subjects_5y = preg_split('/(?=G[0-9]{6})/', $courses[4]);
+    $subjects_5y = preg_split('/(?=G[0-9]{6})/', $courses[5]);
     unset($subjects_5y[0]);
 
     loadCourse($subjects_1y, 1, $degree);
@@ -161,7 +161,7 @@ function loadCourse($subjects, $course, $degree) {
     foreach ($subjects as $subject_data) {
         $subject_data = preg_split('/\n/', trim($subject_data));
         $code = substr($subject_data[0], 0, 7);
-        $content = $subject_data[1];
+        $content = substr($subject_data[0], 9);
         unset($subject_data[0]);
 
         $subject_data = join(" ", $subject_data);

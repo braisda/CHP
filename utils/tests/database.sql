@@ -270,7 +270,7 @@ CREATE TABLE `materia` (
   `cuatrimestre` varchar(3) COLLATE latin1_spanish_ci NOT NULL,
   `creditos` varchar(5) COLLATE latin1_spanish_ci NOT NULL,
   `nuevoregistro` int(3) COLLATE latin1_spanish_ci NOT NULL,
-  `repeticiones` int(3) COLLATE latin1_spanish_ci NOT NULL,
+  `repeticiones` int(3) COLLATE latin1_spanish_ci NULL,
   `estudiantesefectivos` int(3) COLLATE latin1_spanish_ci NOT NULL,
   `horasinscritas` varchar(8) COLLATE latin1_spanish_ci NOT NULL,
   `horasenseño` varchar(5) COLLATE latin1_spanish_ci NOT NULL,
