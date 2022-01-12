@@ -704,7 +704,12 @@ INSERT INTO `departamento` (`id`, `codigo`, `idprofesor`, `nombre`) VALUES
 (4, 'D00h04', '1', 'Departamento 4'),
 (5, 'D00x10', '1', 'Departamento 10'),
 (6, 'D00x11', '1', 'Departamento 11'),
-(7, 'D00x13', '1', 'Departamento 13');
+(7, 'D00x13', '1', 'Departamento 13'),
+(8, 'D00x05', '1', 'Departamento 5'),
+(9, 'D00h05', '1', 'Departamento h5'),
+(10, 'D00c02', '1', 'Departamento c02'),
+(11, 'D00c06', '1', 'Departamento c06'),
+(12, 'D00h03', '1', 'Departamento h3');
 
 INSERT INTO `universidad` (`id`, `idcursoacademico`, `nombre`, `idusuario`) VALUES
 (NULL, 1, 'Universidade de Vigo', 'admin');
@@ -714,3 +719,12 @@ INSERT INTO `centro` (`id`, `iduniversidad`, `nombre`, `idedificio`, `idusuario`
 
 INSERT INTO `grado` (`id`, `nombre`, `idcentro`, `capacidad`, `descripcion`, `creditos`, `idusuario`) VALUES
 (NULL, 'Grao en Traballo Social', '1', '50', 'Grao en Traballo Social', '276', 'admin');
+
+INSERT INTO `grado` (`id`, `nombre`, `idcentro`, `capacidad`, `descripcion`, `creditos`, `idusuario`) VALUES
+(NULL, 'Grao en Educación Infantil', '1', '50', 'Grao en Educación Infantil', '276', 'admin');
+
+INSERT INTO `grado` (`id`, `nombre`, `idcentro`, `capacidad`, `descripcion`, `creditos`, `idusuario`) VALUES
+(NULL, 'Grao en Educación Social', '1', '50', 'Grao en Educación Social', '276', 'admin');
+
+INSERT INTO `grado` (`id`, `nombre`, `idcentro`, `capacidad`, `descripcion`, `creditos`, `idusuario`) VALUES
+(NULL, 'Grao en Educación Primaria', '1', '50', 'Grao en Educación Primaria', '276', 'admin');
