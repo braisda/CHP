@@ -520,7 +520,9 @@ INSERT INTO `usuario` (`login`,`password`,`dni`, `nombre`,`apellido`,`email`,`di
 ('gestcent','21232f297a57a5a743894a0e4a801fc3' , '11122233P','GestCent','GestCent', 'GestCent@GestCent.com', 'address', '666555444'),
 ('gestbuil','21232f297a57a5a743894a0e4a801fc3' , '11122233P','GestBuil','GestBuil', 'GestBuil@GestBuil.com', 'address', '666555444'),
 ('gestdeg','21232f297a57a5a743894a0e4a801fc3' , '11122233P','Gestgrado','Gestgrado', 'Gestgrado@Gestgrado.com', 'address', '666555444'),
-('mcvd','21232f297a57a5a743894a0e4a801fc3' , '35555590M','Maria del Carmen','Verde Diego', 'mcvd@mcvd.com', 'address', '666555444');
+('mcvd','21232f297a57a5a743894a0e4a801fc3' , '35555590M','Maria del Carmen','Verde Diego', 'mcvd@mcvd.com', 'address', '666555444'),
+('jff','21232f297a57a5a743894a0e4a801fc3' , '34934619B','José','Fernández Fernández ', 'jff@jff.com', 'address', '666555444'),
+('mcao','21232f297a57a5a743894a0e4a801fc3' , '36093322C','Maria del Carmen','Armada Olleros', 'mcao@mcao.com', 'address', '666555444');
 
 INSERT INTO `rol` (`id`, `nombre`, `descripcion`) VALUES
 (1, 'Admin', 'Role with all permissions'),
@@ -692,7 +694,9 @@ INSERT INTO `espacio` (`id`, `idedificio`, `nombre`, `capacidad`, `oficina`) VAL
 
 INSERT INTO `profesor` (`id`, `idusuario`, `idespacio`, `dedicacion`) VALUES
 (1, 'admin', '1', 'Profesor'),
-(2, 'mcvd', '1', 'Profesor');
+(2, 'mcvd', '1', 'Profesor'),
+(3, 'mcao', '1', 'Profesor'),
+(4, 'jff', '1', 'Profesor');
 
 INSERT INTO `tutoria` (`idtutoria`, `idprofesor`, `fechainicio`, `fechafin`) VALUES
 (1, '1', '2021-12-28 12:00:00', '2021-12-28 13:00:00');
