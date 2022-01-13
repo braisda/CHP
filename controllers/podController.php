@@ -111,9 +111,9 @@ function processArea($area) {
 
 function processTeacher($teacher) {
     try{
-        $teacher_data = preg_split('/[\r\n]/',$teacher);
+        $teacher_data = preg_split('/[\r\n]/', $teacher);
 
-        if (substr($teacher_data[0],0,8) != "2020_21_" && strlen($teacher_data[1])>2) {
+        if (substr($teacher_data[0],0,8) != "2019_20_" && strlen($teacher_data[1])>2) {
 
             $userDAO = new UserDAO();
             $user = $userDAO->show("dni", $teacher_data[0]);
@@ -130,7 +130,7 @@ function processTeacher($teacher) {
                 $sub->setProfesor($tea);
                 $i++;
                 if (preg_match('/G[0-9]{6}/',$teacher_data[$i])){
-                    $sub->setMateria($subjectDAO->show("codigo", $teacher_data[$i]));
+                    $sub->setMateria($subjectDAO->show("codigo", substr($teacher_data[$i], 0, 7)));
                 }else{break;}
                 $i+=2;
                 if (preg_match('/[0-9]{1,3}\.[0-9]{2}/',$teacher_data[$i])){
